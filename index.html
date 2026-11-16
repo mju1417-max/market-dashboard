@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0b0f14">
+<meta name="robots" content="noindex, nofollow">
+<title>시장 급등 · 전진검증 대시보드</title>
+<style>
+  :root{
+    --bg:#0b0f14; --panel:#131a23; --panel-2:#0f151d; --line:#233040;
+    --txt:#e8eef6; --dim:#8fa3b8; --dim-2:#64798e;
+    --up:#3ddc84; --down:#ff5f5f; --accent:#5aa9ff; --warn:#ffc857;
+    --radius:14px;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    background:radial-gradient(1200px 600px at 50% -200px,#16202c 0%,var(--bg) 60%) no-repeat,var(--bg);
+    color:var(--txt);
+    font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Malgun Gothic",Roboto,"Helvetica Neue",sans-serif;
+    -webkit-font-smoothing:antialiased;
+    line-height:1.45;
+    padding:18px 14px 48px;
+    max-width:1180px;margin:0 auto;
+  }
+  a{color:var(--accent);text-decoration:none}
+  header{display:flex;flex-wrap:wrap;align-items:flex-start;gap:10px;margin:6px 0 18px}
+  .title{flex:1 1 320px;min-width:0}
+  h1{font-size:20px;line-height:1.3;margin:0 0 6px;letter-spacing:-.2px}
+  h1 .emoji{font-size:18px;margin-right:6px}
+  .sub{color:var(--dim);font-size:12.5px}
+  .live{display:inline-flex;align-items:center;gap:7px;background:var(--panel);border:1px solid var(--line);
+        border-radius:999px;padding:7px 13px;font-size:12.5px;color:var(--dim);white-space:nowrap}
+  .dot{width:8px;height:8px;border-radius:50%;background:var(--up);box-shadow:0 0 0 0 rgba(61,220,132,.55);animation:pulse 2.4s infinite}
+  .dot.stale{background:var(--warn);animation:none}
+  .dot.err{background:var(--down);animation:none}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(61,220,132,.5)}70%{box-shadow:0 0 0 8px rgba(61,220,132,0)}100%{box-shadow:0 0 0 0 rgba(61,220,132,0)}}
+
+  .kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-bottom:22px}
+  .kpi{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:13px 14px}
+  .kpi .k{font-size:11.5px;color:var(--dim);letter-spacing:.2px}
+  .kpi .v{font-size:22px;font-weight:700;margin-top:4px;font-variant-numeric:tabular-nums;letter-spacing:-.5px}
+  .kpi .u{font-size:11px;color:var(--dim-2);margin-top:2px}
+
+  h2{font-size:14.5px;margin:26px 0 12px;display:flex;align-items:center;gap:8px;font-weight:700}
+  h2::after{content:"";flex:1;height:1px;background:var(--line)}
+
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:12px}
+  .card{background:linear-gradient(180deg,var(--panel) 0%,var(--panel-2) 100%);
+        border:1px solid var(--line);border-radius:var(--radius);padding:15px 15px 13px;min-width:0}
+  .card-head{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:12px}
+  .card-head .name{font-size:14.5px;font-weight:700;display:flex;align-items:center;gap:8px;min-width:0}
+  .card-head .name span.nm{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .chip{font-size:10.5px;padding:3px 8px;border-radius:999px;border:1px solid var(--line);color:var(--dim);white-space:nowrap}
+  .chip.on{color:var(--up);border-color:rgba(61,220,132,.35);background:rgba(61,220,132,.08)}
+  .chip.off{color:var(--warn);border-color:rgba(255,200,87,.3);background:rgba(255,200,87,.07)}
+  .chip.err{color:var(--down);border-color:rgba(255,95,95,.3);background:rgba(255,95,95,.07)}
+  .tag{font-size:10px;font-weight:700;letter-spacing:.4px;color:var(--dim-2);border:1px solid var(--line);
+       border-radius:6px;padding:2px 6px;white-space:nowrap}
+
+  .rows{display:grid;grid-template-columns:auto 1fr;gap:7px 12px;font-size:12.5px}
+  .rows .k{color:var(--dim)}
+  .rows .v{text-align:right;font-variant-numeric:tabular-nums;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .muted{color:var(--dim-2)}
+  .up{color:var(--up)} .down{color:var(--down)} .warn{color:var(--warn)}
+  .mono{font-variant-numeric:tabular-nums}
+
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:2px 0 12px}
+  .stat{background:rgba(255,255,255,.025);border:1px solid var(--line);border-radius:10px;padding:8px 9px}
+  .stat .k{font-size:10.5px;color:var(--dim)}
+  .stat .v{font-size:15px;font-weight:700;margin-top:2px;font-variant-numeric:tabular-nums}
+  .rule{font-size:11.5px;color:var(--dim-2);margin:0 0 12px;padding:7px 9px;border-left:2px solid var(--line);
+        background:rgba(255,255,255,.02);border-radius:0 8px 8px 0;line-height:1.5}
+  .empty{font-size:12px;color:var(--dim-2);padding:10px 0 2px;text-align:center}
+
+  .tbl-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:0 -4px}
+  table{width:100%;border-collapse:collapse;font-size:12px;min-width:520px}
+  th{color:var(--dim-2);font-weight:600;font-size:10.5px;text-align:right;padding:0 8px 7px;white-space:nowrap}
+  th:first-child,td:first-child{text-align:left}
+  td{padding:7px 8px;border-top:1px solid var(--line);text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+  td.name{max-width:180px;overflow:hidden;text-overflow:ellipsis}
+  tr:hover td{background:rgba(255,255,255,.02)}
+  .mkt{font-size:10px;font-weight:700;padding:2px 6px;border-radius:5px;background:rgba(90,169,255,.12);color:#8cc2ff}
+
+  footer{margin-top:28px;padding-top:14px;border-top:1px solid var(--line);font-size:11px;color:var(--dim-2);line-height:1.7}
+  .banner{display:none;margin:0 0 14px;padding:10px 12px;border-radius:10px;font-size:12px;
+          background:rgba(255,95,95,.08);border:1px solid rgba(255,95,95,.3);color:#ffb3b3}
+  .banner.show{display:block}
+</style>
+</head>
+<body>
+<header>
+  <div class="title">
+    <h1><span class="emoji">📈</span>시장 급등 · 전진검증 대시보드</h1>
+    <div class="sub">업비트 · 한국주식 · 미국주식 전종목 1분봉 수집 + 모의 전진검증(paper trading)</div>
+  </div>
+  <div class="live"><span class="dot" id="dot"></span><span id="stamp">불러오는 중…</span></div>
+</header>
+
+<div class="banner" id="banner"></div>
+
+<div class="kpis" id="kpis">
+  <div class="kpi"><div class="k">1분봉 누적</div><div class="v" id="k-candles">–</div><div class="u">3개 시장 합계</div></div>
+  <div class="kpi"><div class="k">추적 종목</div><div class="v" id="k-symbols">–</div><div class="u">1분봉 보유 종목</div></div>
+  <div class="kpi"><div class="k">+5% 급등 포착</div><div class="v" id="k-surges">–</div><div class="u">누적 건수</div></div>
+  <div class="kpi"><div class="k">전진검증 신호</div><div class="v" id="k-signals">–</div><div class="u">청산 <span id="k-closed">–</span>건</div></div>
+</div>
+
+<h2>시장 수집기</h2>
+<div class="grid" id="markets"></div>
+
+<h2>모의 전진검증 (Forward paper trading)</h2>
+<div class="grid" id="tracks"></div>
+
+<h2>최근 +5% 급등</h2>
+<div class="card">
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr>
+        <th>시각 (KST)</th><th>시장</th><th>종목</th><th>급등</th><th>가격</th><th>당일</th>
+      </tr></thead>
+      <tbody id="surges"><tr><td colspan="6" class="empty">데이터 없음</td></tr></tbody>
+    </table>
+  </div>
+</div>
+
+<footer>
+  <div>※ 공개 대시보드 — 시장 데이터와 모의검증 통계만 게시합니다. 개인정보·계정정보는 게시하지 않습니다.</div>
+  <div>※ 실제 주문이 아닌 가상 체결이며, 손익은 수수료·슬리피지·거래세를 반영한 순손익입니다.</div>
+  <div>※ 60초마다 자동 갱신 · 스냅샷 생성 시각 <span id="gen" class="mono">–</span></div>
+</footer>
+
+<script>
+(function(){
+  var REFRESH_MS = 60000;
+  var STALE_MIN = 15;          // 수집기가 이보다 오래 놀면 "지연" 표시
+  var MARKET_ORDER = ['upbit','kr','us'];
+  var RULES = {
+    S3: '60분 +3% 이상 → 10분 눌림 -0.5% 이하 → 2분 반등 +0.6% 이상 (2분 거래량 60분 평균 2.5배)',
+    S1: '5분 거래량 60분 평균 3배 이상 → 5분 +0.5% 이상 → 최근 5봉 중 양봉 3개 이상'
+  };
+
+  function $(id){ return document.getElementById(id); }
+  function esc(s){ return String(s == null ? '' : s).replace(/[&<>"']/g, function(c){
+    return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+  function num(n){ if(n == null || n === '') return '–'; return Number(n).toLocaleString('ko-KR'); }
+  function pct(n, d){
+    if(n == null) return '–';
+    var s = Number(n).toFixed(d == null ? 2 : d);
+    return (n > 0 ? '+' : '') + s + '%';
+  }
+  function cls(n){ return n == null ? '' : (n > 0 ? 'up' : (n < 0 ? 'down' : '')); }
+  function hm(iso){
+    if(!iso) return '–';
+    var t = String(iso).replace('T',' ');
+    // KST 문자열이면 그대로, UTC(Z)면 로컬로 변환
+    if(/Z$|[+-]\d\d:\d\d$/.test(t)){
+      var d = new Date(iso); if(!isNaN(d)) return d.toLocaleString('ko-KR',{hour12:false});
+    }
+    return t.slice(5,16);
+  }
+  function ago(iso){
+    if(!iso) return null;
+    var raw = String(iso);
+    var d = new Date(/[Z]|[+-]\d\d:\d\d$/.test(raw) ? raw : raw + '+09:00');
+    if(isNaN(d)) return null;
+    return Math.round((Date.now() - d.getTime())/60000);
+  }
+  function agoTxt(min){
+    if(min == null) return '';
+    if(min < 1) return '방금';
+    if(min < 60) return min + '분 전';
+    if(min < 1440) return Math.floor(min/60) + '시간 전';
+    return Math.floor(min/1440) + '일 전';
+  }
+  function price(n){
+    if(n == null) return '–';
+    var v = Number(n);
+    if(v >= 1000) return v.toLocaleString('ko-KR',{maximumFractionDigits:0});
+    if(v >= 10) return v.toLocaleString('ko-KR',{maximumFractionDigits:2});
+    return v.toLocaleString('ko-KR',{maximumFractionDigits:4});
+  }
+
+  var data = null;
+
+  function render(){
+    if(!data) return;
+    var t = data.totals || {};
+    $('k-candles').textContent = num(t.candles_1m);
+    $('k-symbols').textContent = num(t.symbols);
+    $('k-surges').textContent = num(t.surges_ge5);
+    $('k-signals').textContent = num(t.forward_signals);
+    $('k-closed').textContent = num(t.forward_closed);
+    $('gen').textContent = data.generated_at_display || data.generated_at || '–';
+
+    // 시장 카드
+    var mk = data.markets || {};
+    var mh = MARKET_ORDER.map(function(key){
+      var m = mk[key]; if(!m) return '';
+      var age = ago(m.collector_last_run_at || m.last_fetched_at);
+      var state = m.db_ok === false ? ['err','DB 오류']
+                : (age != null && age > STALE_MIN ? ['off', (key === 'kr' ? '장 마감/대기' : '지연')] : ['on','수집 중']);
+      var s = m.surges || {};
+      return '<div class="card">'
+        + '<div class="card-head"><div class="name"><span class="tag">' + esc(m.short) + '</span>'
+        + '<span class="nm">' + esc(m.label) + '</span></div>'
+        + '<span class="chip ' + state[0] + '">' + state[1] + '</span></div>'
+        + '<div class="rows">'
+        + '<div class="k">감시 종목</div><div class="v">' + num(m.universe || m.symbols_with_candles) + ' 종목</div>'
+        + '<div class="k">1분봉</div><div class="v">' + num(m.candles_1m) + ' 개</div>'
+        + '<div class="k">데이터 범위</div><div class="v muted">' + esc(hm(m.candle_from)) + ' ~ ' + esc(hm(m.candle_to)) + '</div>'
+        + '<div class="k">마지막 수집</div><div class="v">' + esc(hm(m.collector_last_run_at || m.last_fetched_at))
+        + (age != null && age <= 43200 ? ' <span class="muted">(' + agoTxt(age) + ')</span>' : '') + '</div>'
+        + '<div class="k">급등 포착 (+5% / 전체)</div><div class="v"><span class="up">' + num(s.ge5_pct) + '</span>'
+        + ' <span class="muted">/ ' + num(s.total) + '</span></div>'
+        + '<div class="k">최대 급등폭</div><div class="v up">' + pct(s.max_jump_pct, 1) + '</div>'
+        + '</div></div>';
+    }).join('');
+    $('markets').innerHTML = mh || '<div class="card empty">데이터 없음</div>';
+
+    // 전진검증 카드
+    var tracks = data.forward_tracks || [];
+    $('tracks').innerHTML = tracks.length ? tracks.map(function(tr){
+      var wr = tr.win_rate == null ? '–' : tr.win_rate.toFixed(1) + '%';
+      var avg = tr.avg_pnl_pct == null ? '–' : pct(tr.avg_pnl_pct, 2);
+      var rows = tr.recent_trades || [];
+      var body = rows.length ? '<div class="tbl-wrap"><table style="min-width:340px"><thead><tr>'
+        + '<th>종목</th><th>진입</th><th>청산</th><th>순손익</th><th>사유</th></tr></thead><tbody>'
+        + rows.map(function(r){
+            return '<tr><td class="name">' + esc(r.symbol) + '</td>'
+              + '<td class="muted">' + esc(hm(r.entry_ts)) + '</td>'
+              + '<td class="muted">' + esc(hm(r.exit_ts)) + '</td>'
+              + '<td class="' + cls(r.pnl_pct) + '">' + pct(r.pnl_pct, 2) + '</td>'
+              + '<td class="muted">' + esc(r.exit_reason || '') + '</td></tr>';
+          }).join('')
+        + '</tbody></table></div>'
+        : '<div class="empty">' + (tr.pending ? '신호 ' + num(tr.pending) + '건 체결 대기 중' : '아직 청산된 모의거래가 없습니다') + '</div>';
+      return '<div class="card">'
+        + '<div class="card-head"><div class="name"><span class="tag">' + esc(tr.strategy || '') + '</span>'
+        + '<span class="nm">' + esc(tr.label) + '</span></div>'
+        + '<span class="chip ' + (tr.closed || tr.signals ? 'on' : '') + '">'
+        + (tr.closed ? '청산 ' + tr.closed + '건' : (tr.pending ? '체결 대기' : '신호 대기')) + '</span></div>'
+        + '<div class="rule">' + esc(RULES[tr.strategy] || '') + '</div>'
+        + '<div class="stats">'
+        + '<div class="stat"><div class="k">신호</div><div class="v">' + num(tr.signals) + '</div></div>'
+        + '<div class="stat"><div class="k">체결</div><div class="v">' + num(tr.entries) + '</div></div>'
+        + '<div class="stat"><div class="k">미체결</div><div class="v">' + num(tr.no_fill) + '</div></div>'
+        + '<div class="stat"><div class="k">청산</div><div class="v">' + num(tr.closed) + '</div></div>'
+        + '<div class="stat"><div class="k">승률</div><div class="v">' + wr + '</div></div>'
+        + '<div class="stat"><div class="k">평균 순손익</div><div class="v ' + (tr.avg_pnl_pct == null ? '' : cls(tr.avg_pnl_pct)) + '">' + avg + '</div></div>'
+        + '</div>'
+        + '<div class="rows" style="margin-bottom:10px">'
+        + '<div class="k">가동 시작</div><div class="v muted">' + esc(hm(tr.started_at)) + '</div>'
+        + '<div class="k">마지막 스캔</div><div class="v muted">' + esc(hm(tr.last_run_at)) + ' · ' + num(tr.run_count) + '회</div>'
+        + '<div class="k">보유/대기</div><div class="v">' + num(tr.open) + ' / ' + num(tr.pending) + '</div>'
+        + '</div>'
+        + body
+        + '</div>';
+    }).join('') : '<div class="card empty">데이터 없음</div>';
+
+    // 급등 테이블
+    var rs = data.recent_surges || [];
+    $('surges').innerHTML = rs.length ? rs.map(function(s){
+      return '<tr><td class="muted">' + esc(hm(s.detected_at)) + '</td>'
+        + '<td><span class="mkt">' + esc(String(s.market || '').toUpperCase()) + '</span></td>'
+        + '<td class="name">' + esc(s.name || s.symbol) + ' <span class="muted" style="font-size:10.5px">' + esc(s.symbol) + '</span></td>'
+        + '<td class="up">' + pct(s.jump_pct, 2) + '</td>'
+        + '<td>' + price(s.price) + '</td>'
+        + '<td class="' + cls(s.day_chg_pct) + '">' + pct(s.day_chg_pct, 2) + '</td></tr>';
+    }).join('') : '<tr><td colspan="6" class="empty">데이터 없음</td></tr>';
+
+    // 신선도 표시
+    var gen = ago(data.generated_at);
+    var dot = $('dot'), stamp = $('stamp');
+    if(gen != null && gen > 180){
+      dot.className = 'dot stale';
+      stamp.textContent = '스냅샷 ' + agoTxt(gen) + ' 갱신';
+    }else{
+      dot.className = 'dot';
+      stamp.textContent = '마지막 갱신 ' + (data.generated_at_display || '') + (agoTxt(gen) ? ' · ' + agoTxt(gen) : '');
+    }
+  }
+
+  function load(){
+    var url = 'data/status.json?t=' + Date.now();
+    fetch(url, {cache:'no-store'})
+      .then(function(r){ if(!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+      .then(function(j){
+        data = j;
+        $('banner').className = 'banner';
+        render();
+      })
+      .catch(function(e){
+        $('dot').className = 'dot err';
+        $('stamp').textContent = '갱신 실패';
+        var b = $('banner');
+        b.className = 'banner show';
+        b.textContent = '데이터를 불러오지 못했습니다 (' + e.message + '). 60초 후 다시 시도합니다.';
+      })
+      .then(function(){ setTimeout(load, REFRESH_MS); });
+  }
+
+  load();
+  document.addEventListener('visibilitychange', function(){
+    if(document.visibilityState === 'visible' && (!data || ago(data.generated_at) > 2)) load();
+  });
+})();
+</script>
+</body>
+</html>
