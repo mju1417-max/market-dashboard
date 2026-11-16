@@ -266,7 +266,9 @@
     $('surges').innerHTML = rs.length ? rs.map(function(s){
       return '<tr><td class="muted">' + esc(hm(s.detected_at)) + '</td>'
         + '<td><span class="mkt">' + esc(String(s.market || '').toUpperCase()) + '</span></td>'
-        + '<td class="name">' + esc(s.name || s.symbol) + ' <span class="muted" style="font-size:10.5px">' + esc(s.symbol) + '</span></td>'
+        + '<td class="name">' + esc(s.name || s.symbol)
+        + (s.name && s.symbol && s.name !== s.symbol ? ' <span class="muted" style="font-size:10.5px">' + esc(s.symbol) + '</span>' : '')
+        + '</td>'
         + '<td class="up">' + pct(s.jump_pct, 2) + '</td>'
         + '<td>' + price(s.price) + '</td>'
         + '<td class="' + cls(s.day_chg_pct) + '">' + pct(s.day_chg_pct, 2) + '</td></tr>';
