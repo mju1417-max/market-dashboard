@@ -235,7 +235,9 @@
               + '<td class="muted">' + esc(r.exit_reason || '') + '</td></tr>';
           }).join('')
         + '</tbody></table></div>'
-        : '<div class="empty">' + (tr.pending ? '신호 ' + num(tr.pending) + '건 체결 대기 중' : '아직 청산된 모의거래가 없습니다') + '</div>';
+        : '<div class="empty">' + (tr.pending ? '신호 ' + num(tr.pending) + '건 체결 대기 중'
+            : (tr.no_fill ? '미체결 ' + num(tr.no_fill) + '건 · 청산된 모의거래 없음'
+            : '아직 청산된 모의거래가 없습니다')) + '</div>';
       return '<div class="card">'
         + '<div class="card-head"><div class="name"><span class="tag">' + esc(tr.strategy || '') + '</span>'
         + '<span class="nm">' + esc(tr.label) + '</span></div>'
