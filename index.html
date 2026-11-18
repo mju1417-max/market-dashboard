@@ -247,6 +247,17 @@
               + '<td class="muted">' + esc(tr.period === 'daily' ? (h.exit_target || '–') : (h.f5 == null ? '–' : h.f5.toFixed(1))) + '</td></tr>';
           }).join('')
         + '</tbody></table></div>' : '';
+      var pend = tr.pending_detail || [];
+      var pendTbl = pend.length ? '<div class="tbl-wrap"><table style="min-width:340px"><thead><tr>'
+        + '<th>체결 대기</th><th>신호일</th><th>기준가</th><th>2.5ATR 손절</th></tr></thead><tbody>'
+        + pend.map(function(p){
+            return '<tr><td class="name">' + esc(p.name || p.symbol)
+              + (p.name && p.symbol && p.name !== p.symbol ? ' <span class="muted" style="font-size:10.5px">' + esc(p.symbol) + '</span>' : '') + '</td>'
+              + '<td class="muted">' + esc(hm(p.signal_date)) + '</td>'
+              + '<td>' + price(p.signal_close) + '</td>'
+              + '<td class="muted">' + price(p.stop) + '</td></tr>';
+          }).join('')
+        + '</tbody></table></div>' : '';
       var body = rows.length ? '<div class="tbl-wrap"><table style="min-width:340px"><thead><tr>'
         + '<th>종목</th><th>진입</th><th>청산</th><th>순손익</th><th>사유</th></tr></thead><tbody>'
         + rows.map(function(r){
@@ -257,7 +268,7 @@
               + '<td class="muted">' + esc(r.exit_reason || '') + '</td></tr>';
           }).join('')
         + '</tbody></table></div>'
-        : (holdTbl || '<div class="empty">' + (tr.pending ? '신호 ' + num(tr.pending) + '건 체결 대기 중'
+        : (holdTbl || pendTbl || '<div class="empty">' + (tr.pending ? '신호 ' + num(tr.pending) + '건 체결 대기 중'
             : (tr.no_fill ? '미체결 ' + num(tr.no_fill) + '건 · 청산된 모의거래 없음'
             : '아직 청산된 모의거래가 없습니다')) + '</div>');
       return '<div class="card">'
