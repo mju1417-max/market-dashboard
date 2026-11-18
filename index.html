@@ -147,7 +147,8 @@
     S1: '5분 거래량 60분 평균 3배 이상 → 5분 +0.5% 이상 → 최근 5봉 중 양봉 3개 이상',
     GEN16: 'ATR60/가격 0.60% 이상 · 60분 거래대금 ≥ 직전 60분($100만 이상) · 시장 60분 중앙 −0.38% 이하 (익절 +5% / 손절 −3% / 60분)',
     GEN2: '60분 −2% 이상 하락 · 60분 거래대금 1천만~1억원 (낙폭 되돌림 매수 · 120분 고정청산 · 왕복 0.20%)',
-    GEN3: '당일 레인지 하단 15% 이내 · 60분 −1.5% 이하 · 60분 거래대금 1,000만원 이상 (장중 저점 매수 · 120분 고정청산 · 왕복 0.20%)'
+    GEN3: '당일 레인지 하단 15% 이내 · 60분 −1.5% 이하 · 60분 거래대금 1,000만원 이상 (장중 저점 매수 · 120분 고정청산 · 왕복 0.20%)',
+    S16: '시총 1,000억↑ · 종가 ≥ 20일선 · 10일 고점 대비 −3~−10% 눌림 · 외인 5일 순매수 강도(f5)>0 → f5 상위 하루 3종목 · 동시 10종목 · 다음 거래일 종가 진입 · 20거래일 종가 청산 (왕복 0.41%)'
   };
 
   function $(id){ return document.getElementById(id); }
@@ -234,6 +235,17 @@
       var wr = tr.win_rate == null ? '–' : tr.win_rate.toFixed(1) + '%';
       var avg = tr.avg_pnl_pct == null ? '–' : pct(tr.avg_pnl_pct, 2);
       var rows = tr.recent_trades || [];
+      var holds = tr.open_detail || [];
+      var holdTbl = holds.length ? '<div class="tbl-wrap"><table style="min-width:340px"><thead><tr>'
+        + '<th>종목</th><th>진입</th>' + (tr.period === 'daily' ? '<th>청산예정</th>' : '<th>f5</th>')
+        + '</tr></thead><tbody>'
+        + holds.map(function(h){
+            return '<tr><td class="name">' + esc(h.name || h.symbol)
+              + (h.name && h.symbol && h.name !== h.symbol ? ' <span class="muted" style="font-size:10.5px">' + esc(h.symbol) + '</span>' : '') + '</td>'
+              + '<td class="muted">' + esc(hm(h.entry_ts)) + '</td>'
+              + '<td class="muted">' + esc(tr.period === 'daily' ? (h.exit_target || '–') : (h.f5 == null ? '–' : h.f5.toFixed(1))) + '</td></tr>';
+          }).join('')
+        + '</tbody></table></div>' : '';
       var body = rows.length ? '<div class="tbl-wrap"><table style="min-width:340px"><thead><tr>'
         + '<th>종목</th><th>진입</th><th>청산</th><th>순손익</th><th>사유</th></tr></thead><tbody>'
         + rows.map(function(r){
@@ -244,14 +256,14 @@
               + '<td class="muted">' + esc(r.exit_reason || '') + '</td></tr>';
           }).join('')
         + '</tbody></table></div>'
-        : '<div class="empty">' + (tr.pending ? '신호 ' + num(tr.pending) + '건 체결 대기 중'
+        : (holdTbl || '<div class="empty">' + (tr.pending ? '신호 ' + num(tr.pending) + '건 체결 대기 중'
             : (tr.no_fill ? '미체결 ' + num(tr.no_fill) + '건 · 청산된 모의거래 없음'
-            : '아직 청산된 모의거래가 없습니다')) + '</div>';
+            : '아직 청산된 모의거래가 없습니다')) + '</div>');
       return '<div class="card">'
         + '<div class="card-head"><div class="name"><span class="tag">' + esc(tr.strategy || '') + '</span>'
         + '<span class="nm">' + esc(tr.label) + '</span></div>'
         + '<span class="chip ' + (tr.closed || tr.signals ? 'on' : '') + '">'
-        + (tr.closed ? '청산 ' + tr.closed + '건' : (tr.pending ? '체결 대기' : '신호 대기')) + '</span></div>'
+        + (tr.closed ? '청산 ' + tr.closed + '건' : (tr.pending ? '체결 대기' : (tr.open ? '보유 ' + tr.open + '종목' : '신호 대기'))) + '</span></div>'
         + '<div class="rule">' + esc(RULES[tr.strategy] || '') + '</div>'
         + '<div class="stats">'
         + '<div class="stat"><div class="k">신호</div><div class="v">' + num(tr.signals) + '</div></div>'
