@@ -1,6 +1,6 @@
 # GPT → Pickle 제34차 — 전 프로젝트 중앙 인덱스 · GitHub 대조 보고 (첫 회차 기준선)
 
-- 생성 시각: **2026-11-21T04:06:35+09:00** (KST) / 인덱스 버전 `34.1` / schema 1
+- 생성 시각: **2026-11-21T04:07:06+09:00** (KST) / 인덱스 버전 `34.1` / schema 1
 - 공개 실측 기준: `monitor/latest.json` generated_at **2026-11-21T03:40:05+09:00** (이 보고서의 운영 수치는 이 스냅숏)
 - 인덱스 원본: [`coordination/project_inventory.json`](https://github.com/mju1417-max/market-dashboard/blob/main/coordination/project_inventory.json) · 변경 이력: [`coordination/project_changelog.jsonl`](https://github.com/mju1417-max/market-dashboard/blob/main/coordination/project_changelog.jsonl)
 - 원격 main 파일 수(blob): **45**
@@ -16,7 +16,7 @@
 | GitHub 공개 수준 | public_synced 3, partial_summary_only 35, local_only_not_published 13 | public_synced / partial_summary_only / local_only_not_published |
 | **누락 식별** | 작업 **10** · 문서 **51** | 문서 = internal_doc 16, round_report 21, research_artifact 4, in_flight_31st 10 |
 | 예약 액션 / handoff | 11 / 60(실행 중 3) | 5분·30분·일간·12시간 주기 |
-| research 모듈 | 126개(.py) | 카테고리 자동 분류는 §5 |
+| research 모듈 | 127개(.py) | 카테고리 자동 분류는 §5 |
 | 프로토콜 버전 | budget-proto-v3-20261120 | 평가 규약 동결 버전 |
 
 **핵심 판정 3가지**
@@ -180,8 +180,9 @@
 | 감사·규명 | 7 | kr_s16_supply_audit_20261120.py, p0_23_audit.py, p0_universe_causality_20261121.py, p0b_prune_verified.py, p0c_budget_audit_20261120.py, p0d_net_audit_20261120.py … |
 | 수집 | 5 | collector_audit_20261120.py, collector_dedup_audit_20261120.py, history_collect.py, kr_alpha_collect.py, upbit_backfill.py |
 | 전진·Shadow | 5 | forward_tracker.py, forward_tracker_kr_s16.py, forward_tracker_kr_vcp.py, shadow_engine.py, vcp_watch.py |
+| 기타 | 1 | audit38_measure_20261121.py |
 
-전체 **126개** .py. 파일별 1줄 설명은 인덱스 JSON `modules.items[].doc`에 있다.
+전체 **127개** .py. 파일별 1줄 설명은 인덱스 JSON `modules.items[].doc`에 있다.
 
 ## 6. GitHub 공개 현황과 누락
 
@@ -286,7 +287,40 @@ Pickle 앱 자체 운영 작업(하트비트·Explore 제안·아침 브리핑)�
 python3 research/project_inventory.py            # 조사 + 로컬 산출물
 python3 research/project_inventory.py --check    # 비밀/PII 스캔
 python3 research/project_inventory.py --publish  # 생성 + GitHub 게시 + raw 검증
+python3 research/project_inventory.py --auto --quiet --workdir <액션 state>   # 무과금 자동(변경 시에만 게시)
 ```
+
+## 11. 무과금 자동 갱신(`--auto`) — 사용량 0에 수렴하는 구조
+
+이 인덱스를 사람이 기억해서 다시 돌리는 방식은 오래 못 간다. 그래서 **AI 호출 0회**로 스스로 갱신하는 모드를 넣었다.
+
+| 단계 | 하는 일 | 비용 |
+|---|---|---|
+| ① 지문 계산 | 로컬 파일 구조만 훑어 16자 해시(`state_fingerprint`). 작업 정의·예약 액션 정의·모듈/문서 목록·handoff 상태 전이·소스 존재 | 네트워크 0회 · 실측 **0.2~0.3초** |
+| ② 변화 없음 | 직전 지문과 같으면 **그대로 종료**(GitHub API 호출조차 없음) | 0회 · 실측 **0.2~0.3초** |
+| ③ 변화 있음 | 전체 조사 + 델타 계산(추가/제거/상태 변경 작업, 닫힌 누락 문서, counts 변화) → 3종 게시 | 실측 **약 10초** |
+| ④ 시간 초과 | `--max-seconds`(기본 18초)를 넘으면 게시를 포기하고 다음 회차로 | 안전 장치 |
+
+**지문에 넣지 않는 것**(그래서 평시 100% skip): 1분봉·연구 DB, 예약 액션 `state/` 산출물, 코드 파일 mtime(편집), 보고서 본문 재작성. → 코드를 고치거나 보고서를 다시 써도 인덱스는 다시 게시하지 않는다. 새 작업·새 모듈·새 보고서·handoff 상태 전이처럼 **구조가 바뀔 때만** 갱신된다.
+
+### 11-1. 기존 check.sh 에 붙이는 1줄 훅
+
+```sh
+timeout 20 python3 "$CHECK_DIR/../../research/project_inventory.py" --auto --quiet --workdir "$CHECK_DIR/state" >>"$CHECK_DIR/state/inventory_auto.log" 2>&1 || true
+```
+
+- 위치: 각 `check.sh`의 **본 작업이 끝난 뒤, 최종 `exit` 직전**.
+- `|| true` 가 핵심이다 — `set -e` 스크립트에서 훅이 실패해도 수집·채점 종료코드를 바꾸지 않는다. `--auto` 자체도 모든 예외를 삼키고 **항상 exit 0**(비치명)으로 끝난다.
+- `--workdir` 는 그 액션의 `state/` 를 준다(예약 실행은 자기 `state/` 밖이 쓰기 불가라서, 지문 사본·로그를 거기에 둔다).
+- 권장 호스트: 실측 소요가 짧은 액션. 현재 후보 중 **🏛️ 우체국금융개발원 이전 감시**(회차 2초)가 가장 여유 있고, 📊 업비트 전진검증 채점(36초)·🔬 자가발전(52초)은 60초 상한에 붙어 있어 부적합하다.
+- 이번 회차에서는 `check.sh` 를 **수정하지 않았다** — 31차 병렬 작업과 파일 충돌을 피하기 위해서다. 등록은 위 1줄을 그대로 붙이면 된다.
+
+### 11-2. 실측한 훅 안전성
+
+- 정상(skip) 회차: 훅 포함 `check.sh` 흉내 실행에서 본 작업 출력과 종료코드(exit 1 quiet)가 **그대로 유지**됨.
+- 훅이 실패하는 경우(스크립트 없음·argparse 오류·`timeout` 124): 모두 `|| true` 로 넘어가 다음 줄이 실행되고 종료코드 불변.
+- 쓰기 불가 경로(예약 샌드박스 모사): `_write` 가 `--workdir` 로 폴백해 지문·로그를 `state/` 에 남긴다.
+- 비밀/PII 스캔에서 1건이라도 걸리면 게시하지 않고 로그만 남긴다(차단이 아니라 보류).
 
 ---
 
