@@ -2,7 +2,7 @@
  "schema": 1,
  "kind": "project_inventory",
  "inventory_version": "34.1",
- "generated_at": "2026-11-21T04:12:25+09:00",
+ "generated_at": "2026-11-21T04:13:10+09:00",
  "source_of_truth": {
   "live_status": "monitor/latest.json (5분 갱신) — 이 인덱스의 수치는 생성 시점 스냅숏",
   "live_monitor_generated_at": "2026-11-21T03:40:05+09:00",
@@ -1455,8 +1455,8 @@
      "path": "research/verify_production_connected_20261120.py",
      "exists": true,
      "kind": "file",
-     "size_kb": 10.9,
-     "mtime": "2026-11-20T22:50:28+09:00"
+     "size_kb": 11.7,
+     "mtime": "2026-11-21T04:13:10+09:00"
     },
     {
      "path": "scheduled-actions/🔬-자가발전-패턴-연구/check.sh",
@@ -1492,7 +1492,7 @@
    "live": null,
    "owner": null,
    "missing_sources": [],
-   "updated_at": "2026-11-21T04:11:44+09:00",
+   "updated_at": "2026-11-21T04:13:10+09:00",
    "scheduled_action": {
     "folder": "🔬-자가발전-패턴-연구",
     "schedule": [
@@ -3089,13 +3089,13 @@
      "path": "coordination/project_inventory.json",
      "on_remote": true,
      "files_on_remote": null,
-     "size_kb": 164.1
+     "size_kb": 164.4
     },
     {
      "path": "coordination/project_changelog.jsonl",
      "on_remote": true,
      "files_on_remote": null,
-     "size_kb": 4.1
+     "size_kb": 6.1
     },
     {
      "path": "research/reports/gpt_34th_project_inventory_20261121.md",
@@ -3277,7 +3277,7 @@
    "live": null,
    "owner": null,
    "missing_sources": [],
-   "updated_at": "2026-11-21T04:12:25+09:00"
+   "updated_at": "2026-11-21T04:13:10+09:00"
   },
   {
    "id": "gov.verification_harness",
@@ -3340,8 +3340,8 @@
      "path": "research/verify_production_connected_20261120.py",
      "exists": true,
      "kind": "file",
-     "size_kb": 10.9,
-     "mtime": "2026-11-20T22:50:28+09:00"
+     "size_kb": 11.7,
+     "mtime": "2026-11-21T04:13:10+09:00"
     },
     {
      "path": "research/verify_three_market_e2e.py",
@@ -3384,7 +3384,7 @@
    "live": null,
    "owner": null,
    "missing_sources": [],
-   "updated_at": "2026-11-20T23:09:18+09:00"
+   "updated_at": "2026-11-21T04:13:10+09:00"
   },
   {
    "id": "gov.reports",
@@ -3458,7 +3458,7 @@
    "missing_sources": [
     "research/gpt_31st_p0_report_20261120.md"
    ],
-   "updated_at": "2026-11-21T04:12:25+09:00"
+   "updated_at": "2026-11-21T04:13:10+09:00"
   },
   {
    "id": "gov.heartbeat",
@@ -4082,8 +4082,8 @@
    },
    {
     "path": "research/reports/p1_analysis_20261121.json",
-    "size_kb": 6.6,
-    "mtime": "2026-11-21T04:09:38+09:00",
+    "size_kb": 25.9,
+    "mtime": "2026-11-21T04:12:41+09:00",
     "classification": "research_artifact",
     "note": "연구 중간 산출물(유니버스·시점 계측 등) — 요약 JSON에 흡수되어 단독 게시 안 됨"
    },
@@ -4173,8 +4173,8 @@
    },
    {
     "path": "research/test_results/verify_p31p32_20261121.json",
-    "size_kb": 11.3,
-    "mtime": "2026-11-21T04:11:37+09:00",
+    "size_kb": 13.3,
+    "mtime": "2026-11-21T04:12:51+09:00",
     "classification": "research_artifact",
     "note": "연구 중간 산출물(유니버스·시점 계측 등) — 요약 JSON에 흡수되어 단독 게시 안 됨"
    },
@@ -4359,7 +4359,7 @@
     "id": "📋-34차-전체-프로젝트-인덱스-github-공유-체계-구축",
     "state": "running",
     "created_at": "2026-11-20T18:54:58.370280Z",
-    "updated_at": "2026-11-20T19:12:24.874947Z"
+    "updated_at": "2026-11-20T19:13:10.151996Z"
    },
    {
     "id": "🔎-38차-실태감사-12항목-활용률-실패원장-level1-3",
@@ -4371,7 +4371,7 @@
     "id": "🛠️-31차-독립검증-p0-인과-분할-shadow-p1-4종",
     "state": "running",
     "created_at": "2026-11-20T18:47:15.452856Z",
-    "updated_at": "2026-11-20T19:11:53.154420Z"
+    "updated_at": "2026-11-20T19:13:10.574771Z"
    }
   ]
  },
@@ -5082,7 +5082,7 @@
    },
    {
     "file": "research/verify_production_connected_20261120.py",
-    "kb": 10.9,
+    "kb": 11.7,
     "category": "검증",
     "doc": "research/verify_production_connected_20261120.py — 30차 P1-E 검증."
    },
