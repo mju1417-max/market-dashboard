@@ -2,7 +2,7 @@
  "schema": 1,
  "kind": "project_inventory",
  "inventory_version": "34.1",
- "generated_at": "2026-11-21T04:10:42+09:00",
+ "generated_at": "2026-11-21T04:12:25+09:00",
  "source_of_truth": {
   "live_status": "monitor/latest.json (5분 갱신) — 이 인덱스의 수치는 생성 시점 스냅숏",
   "live_monitor_generated_at": "2026-11-21T03:40:05+09:00",
@@ -53,11 +53,11 @@
    "partial_summary_only": 34,
    "local_only_not_published": 13
   },
-  "missing_docs_total": 55,
+  "missing_docs_total": 56,
   "missing_docs_by_class": {
    "internal_doc": 16,
    "round_report": 24,
-   "research_artifact": 5,
+   "research_artifact": 6,
    "in_flight_31st": 10
   },
   "missing_items_total": 10,
@@ -182,8 +182,8 @@
      "path": "scheduled-actions/🇰🇷-한국주식-패턴-분석/state/kr_1m.db",
      "exists": true,
      "kind": "file",
-     "size_kb": 389016.0,
-     "mtime": "2026-11-20T15:46:16+09:00"
+     "size_kb": 389028.0,
+     "mtime": "2026-11-21T04:11:47+09:00"
     },
     {
      "path": "scheduled-actions/🇰🇷-한국주식-패턴-분석/state/kr_s16_data.db",
@@ -234,7 +234,7 @@
    },
    "owner": null,
    "missing_sources": [],
-   "updated_at": "2026-11-21T04:04:30+09:00",
+   "updated_at": "2026-11-21T04:11:47+09:00",
    "scheduled_action": {
     "folder": "🇰🇷-한국주식-패턴-분석",
     "schedule": [
@@ -356,7 +356,7 @@
      "exists": true,
      "kind": "file",
      "size_kb": 0.8,
-     "mtime": "2026-11-21T04:05:43+09:00"
+     "mtime": "2026-11-21T04:10:54+09:00"
     }
    ],
    "published_paths": [],
@@ -372,14 +372,14 @@
    "live": null,
    "owner": null,
    "missing_sources": [],
-   "updated_at": "2026-11-21T04:05:43+09:00",
+   "updated_at": "2026-11-21T04:10:54+09:00",
    "scheduled_action": {
     "folder": "🏛️-우체국금융개발원-이전-감시",
     "schedule": [
      "interval 5m"
     ],
     "paused": false,
-    "last_started_run_at": "2026-11-20T19:05:28.238505Z",
+    "last_started_run_at": "2026-11-20T19:10:28.238505Z",
     "check_fail_count": 0,
     "check_failure_generation": 0
    }
@@ -1448,8 +1448,8 @@
      "path": "research/production_connected.py",
      "exists": true,
      "kind": "file",
-     "size_kb": 44.7,
-     "mtime": "2026-11-21T04:03:10+09:00"
+     "size_kb": 45.6,
+     "mtime": "2026-11-21T04:11:44+09:00"
     },
     {
      "path": "research/verify_production_connected_20261120.py",
@@ -1492,7 +1492,7 @@
    "live": null,
    "owner": null,
    "missing_sources": [],
-   "updated_at": "2026-11-21T04:03:10+09:00",
+   "updated_at": "2026-11-21T04:11:44+09:00",
    "scheduled_action": {
     "folder": "🔬-자가발전-패턴-연구",
     "schedule": [
@@ -2814,8 +2814,8 @@
      "path": "scheduled-actions/🇰🇷-한국주식-패턴-분석/state/kr_1m.db",
      "exists": true,
      "kind": "file",
-     "size_kb": 389016.0,
-     "mtime": "2026-11-20T15:46:16+09:00"
+     "size_kb": 389028.0,
+     "mtime": "2026-11-21T04:11:47+09:00"
     },
     {
      "path": "scheduled-actions/🇺🇸-미국주식-패턴-분석/state/us_1m.db",
@@ -2866,7 +2866,7 @@
    "live": null,
    "owner": null,
    "missing_sources": [],
-   "updated_at": "2026-11-21T04:08:45+09:00"
+   "updated_at": "2026-11-21T04:11:47+09:00"
   },
   {
    "id": "dash.export_status",
@@ -3080,8 +3080,8 @@
      "path": "research/project_inventory.py",
      "exists": true,
      "kind": "file",
-     "size_kb": 113.6,
-     "mtime": "2026-11-21T04:10:42+09:00"
+     "size_kb": 115.1,
+     "mtime": "2026-11-21T04:12:21+09:00"
     }
    ],
    "published_paths": [
@@ -3089,13 +3089,13 @@
      "path": "coordination/project_inventory.json",
      "on_remote": true,
      "files_on_remote": null,
-     "size_kb": 163.9
+     "size_kb": 164.1
     },
     {
      "path": "coordination/project_changelog.jsonl",
      "on_remote": true,
      "files_on_remote": null,
-     "size_kb": 3.9
+     "size_kb": 4.1
     },
     {
      "path": "research/reports/gpt_34th_project_inventory_20261121.md",
@@ -3106,7 +3106,7 @@
    ],
    "github_visibility": "public_synced",
    "visibility_note": "",
-   "latest_commit": "a89d2d0",
+   "latest_commit": "d07c7c2",
    "verification_status": "이 회차에서 생성·게시(raw 200·JSON 파싱·비밀 스캔 0건).",
    "commit_note": "자기 자신의 게시 커밋은 파일 안에 담을 수 없다(자기참조). 변경 이력은 project_changelog.jsonl의 커밋을 본다.",
    "known_issues": [
@@ -3116,7 +3116,7 @@
    "live": null,
    "owner": null,
    "missing_sources": [],
-   "updated_at": "2026-11-21T04:10:42+09:00"
+   "updated_at": "2026-11-21T04:12:21+09:00"
   },
   {
    "id": "tg.reporter",
@@ -3277,7 +3277,7 @@
    "live": null,
    "owner": null,
    "missing_sources": [],
-   "updated_at": "2026-11-21T04:10:42+09:00"
+   "updated_at": "2026-11-21T04:12:25+09:00"
   },
   {
    "id": "gov.verification_harness",
@@ -3361,7 +3361,7 @@
      "path": "research/test_results",
      "exists": true,
      "kind": "dir",
-     "files": 2
+     "files": 3
     }
    ],
    "published_paths": [
@@ -3417,7 +3417,7 @@
      "path": "research/test_results",
      "exists": true,
      "kind": "dir",
-     "files": 2
+     "files": 3
     },
     {
      "path": "research/gpt_31st_p0_report_20261120.md",
@@ -3458,7 +3458,7 @@
    "missing_sources": [
     "research/gpt_31st_p0_report_20261120.md"
    ],
-   "updated_at": "2026-11-21T04:10:42+09:00"
+   "updated_at": "2026-11-21T04:12:25+09:00"
   },
   {
    "id": "gov.heartbeat",
@@ -4172,6 +4172,13 @@
     "note": "과거 회차 보고서 — 그 회차에는 게시되었으나 현재 main 경로에 없음(경로 이동·미게시)"
    },
    {
+    "path": "research/test_results/verify_p31p32_20261121.json",
+    "size_kb": 11.3,
+    "mtime": "2026-11-21T04:11:37+09:00",
+    "classification": "research_artifact",
+    "note": "연구 중간 산출물(유니버스·시점 계측 등) — 요약 JSON에 흡수되어 단독 게시 안 됨"
+   },
+   {
     "path": "research/third_stage_report_20261119.md",
     "size_kb": 11.0,
     "mtime": "2026-11-19T07:26:17+09:00",
@@ -4281,8 +4288,8 @@
    "paused": false,
    "check_sh": true,
    "check_sh_kb": 6.5,
-   "next_run_at": "2026-11-20T19:10:28.238505Z",
-   "last_started_run_at": "2026-11-20T19:05:28.238505Z",
+   "next_run_at": "2026-11-20T19:15:28.238505Z",
+   "last_started_run_at": "2026-11-20T19:10:28.238505Z",
    "check_fail_count": 0,
    "check_failure_generation": 0
   },
@@ -4352,19 +4359,19 @@
     "id": "📋-34차-전체-프로젝트-인덱스-github-공유-체계-구축",
     "state": "running",
     "created_at": "2026-11-20T18:54:58.370280Z",
-    "updated_at": "2026-11-20T19:10:42.038730Z"
+    "updated_at": "2026-11-20T19:12:24.874947Z"
    },
    {
     "id": "🔎-38차-실태감사-12항목-활용률-실패원장-level1-3",
     "state": "running",
     "created_at": "2026-11-20T19:04:23.528163Z",
-    "updated_at": "2026-11-20T19:10:11.918254Z"
+    "updated_at": "2026-11-20T19:12:20.715280Z"
    },
    {
     "id": "🛠️-31차-독립검증-p0-인과-분할-shadow-p1-4종",
     "state": "running",
     "created_at": "2026-11-20T18:47:15.452856Z",
-    "updated_at": "2026-11-20T19:10:30.910954Z"
+    "updated_at": "2026-11-20T19:11:53.154420Z"
    }
   ]
  },
@@ -4805,13 +4812,13 @@
    },
    {
     "file": "research/production_connected.py",
-    "kb": 44.7,
+    "kb": 45.6,
     "category": "연구 엔진",
     "doc": "research/production_connected.py — 30차 P1-E: **운영 스케줄에 실제로 연결된** 3시장 자기발전."
    },
    {
     "file": "research/project_inventory.py",
-    "kb": 113.6,
+    "kb": 115.1,
     "category": "게시·요약",
     "doc": "research/project_inventory.py — 전 프로젝트 중앙 인덱스 (GPT 제34차 지시 이행)."
    },
@@ -5069,7 +5076,7 @@
    },
    {
     "file": "research/verify_p31p32_20261121.py",
-    "kb": 21.4,
+    "kb": 22.0,
     "category": "검증",
     "doc": "research/verify_p31p32_20261121.py — 31차 P0-1~3·P1-4~7 + 32차 P0-1~4 회귀 검증."
    },
@@ -5358,12 +5365,12 @@
    }
   ]
  },
- "state_fingerprint": "194ae35191727b8e",
+ "state_fingerprint": "92401341e31d141a",
  "fingerprint_sections": {
   "registry": "9ff507ae78c32c88",
   "actions": "d85715c85b49c0ce",
   "modules": "4f136a1b43071ac7",
-  "docs": "089bc7c0e4bcc939",
+  "docs": "00261ff911e46959",
   "handoffs": "d1c178e47543dc65",
   "sources_present": "81c751453d0938fc"
  }
