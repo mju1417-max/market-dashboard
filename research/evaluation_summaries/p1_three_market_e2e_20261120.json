@@ -1,0 +1,627 @@
+{
+ "generated_at": "2026-11-20T20:33:25+0900",
+ "version": "verify_three_market_e2e/1.0.0",
+ "args": {
+  "symbols": 50,
+  "days": 10,
+  "keep": false
+ },
+ "elapsed_sec": 67.8,
+ "checks_total": 28,
+ "checks_pass": 28,
+ "all_pass": true,
+ "runs": {
+  "UP": {
+   "market": "UP",
+   "days": {
+    "all": [
+     "2026-11-11",
+     "2026-11-12",
+     "2026-11-13",
+     "2026-11-14",
+     "2026-11-15",
+     "2026-11-16",
+     "2026-11-17",
+     "2026-11-18",
+     "2026-11-19",
+     "2026-11-20"
+    ],
+    "dev": [
+     "2026-11-11",
+     "2026-11-12",
+     "2026-11-13",
+     "2026-11-14",
+     "2026-11-15",
+     "2026-11-16"
+    ],
+    "val": [
+     "2026-11-17",
+     "2026-11-18"
+    ],
+    "hold": [
+     "2026-11-19",
+     "2026-11-20"
+    ]
+   },
+   "n_symbols": 50,
+   "n_blocks": 2158,
+   "n_candidates": 29994,
+   "n_events": 1638,
+   "n_controls": 24850,
+   "n_censored": 3506,
+   "base_rate": 0.0618,
+   "dev": {
+    "rows": 17879,
+    "events": 750,
+    "base_rate": 0.0476
+   },
+   "val": {
+    "rows": 5952,
+    "events": 441,
+    "base_rate": 0.0837
+   },
+   "hold": {
+    "rows": 6163,
+    "events": 447,
+    "base_rate": 0.0819
+   },
+   "n_hypotheses": 675,
+   "n_dev_pass": 20,
+   "frozen": "H0328",
+   "frozen_conditions": [
+    [
+     "ret60",
+     ">=",
+     0.016259
+    ],
+    [
+     "range_pos",
+     "<=",
+     0.466667
+    ],
+    [
+     "z_vol",
+     "<=",
+     -0.365567
+    ]
+   ],
+   "promoted": true,
+   "promotion_note": "DEV 통과 + VAL 통과 → 동결·승격",
+   "dev_metrics": {
+    "n": 46,
+    "n_unlab": 45,
+    "tp": 12,
+    "fp": 33,
+    "precision": 0.2667,
+    "recall": null,
+    "n_events": 0,
+    "net_mean": 0.3084,
+    "net_sum": 13.8794,
+    "n_trades": 45,
+    "win_rate": 0.4,
+    "tp_rate": 0.2889,
+    "sl_rate": 0.2889,
+    "base_rate": 0.0476,
+    "lift": 5.605,
+    "p_value": 8.84986643426719e-07
+   },
+   "val_metrics": {
+    "n": 17,
+    "n_unlab": 15,
+    "tp": 5,
+    "fp": 10,
+    "precision": 0.3333,
+    "recall": 0.1055,
+    "n_events": 199,
+    "net_mean": 0.68,
+    "net_sum": 10.1993,
+    "n_trades": 15,
+    "win_rate": 0.6,
+    "tp_rate": 0.3333,
+    "sl_rate": 0.3333,
+    "base_rate": 0.0837,
+    "lift": 3.9819,
+    "p_value": 0.006035726730078273
+   },
+   "shadow": {
+    "n": 18,
+    "n_unlab": 15,
+    "tp": 2,
+    "fp": 13,
+    "precision": 0.1333,
+    "recall": 0.0632,
+    "n_events": 190,
+    "net_mean": -1.8767,
+    "net_sum": -28.1498,
+    "n_trades": 15,
+    "win_rate": 0.1333,
+    "tp_rate": 0.0667,
+    "sl_rate": 0.6,
+    "base_rate": 0.0819,
+    "lift": 1.6274,
+    "p_value": 0.3512098636393202,
+    "status": "shadowed",
+    "signature": "f848cd447876ddd1",
+    "promoted": true,
+    "promotion_note": "DEV 통과 + VAL 통과 → 동결·승격"
+   },
+   "ledger": {
+    "runs": 1,
+    "trials": 683,
+    "failures": 659,
+    "candidates": 1,
+    "shadow": 18,
+    "holdouts": 1
+   },
+   "dataset_hash": "16c84e3e71b5fed0",
+   "elapsed_sec": 19.7,
+   "adapter": {
+    "adapter": "UpbitAdapter",
+    "db": "upbit_1m.db",
+    "sessions": [
+     "24h"
+    ],
+    "price_floor": 10.0,
+    "turnover_floor_60m": 10000000.0,
+    "calendar": "UP",
+    "source_id": "up:upbit_1m.db:candles_1m"
+   }
+  },
+  "KR": {
+   "market": "KR",
+   "days": {
+    "all": [
+     "2026-11-10",
+     "2026-11-11",
+     "2026-11-12",
+     "2026-11-13",
+     "2026-11-16",
+     "2026-11-17",
+     "2026-11-18",
+     "2026-11-19",
+     "2026-11-20"
+    ],
+    "dev": [
+     "2026-11-10",
+     "2026-11-11",
+     "2026-11-12",
+     "2026-11-13",
+     "2026-11-16"
+    ],
+    "val": [
+     "2026-11-17",
+     "2026-11-18"
+    ],
+    "hold": [
+     "2026-11-19",
+     "2026-11-20"
+    ]
+   },
+   "n_symbols": 50,
+   "n_blocks": 430,
+   "n_candidates": 22646,
+   "n_events": 199,
+   "n_controls": 17905,
+   "n_censored": 4542,
+   "base_rate": 0.011,
+   "dev": {
+    "rows": 13429,
+    "events": 131,
+    "base_rate": 0.0122
+   },
+   "val": {
+    "rows": 5762,
+    "events": 58,
+    "base_rate": 0.0124
+   },
+   "hold": {
+    "rows": 3455,
+    "events": 10,
+    "base_rate": 0.0037
+   },
+   "n_hypotheses": 675,
+   "n_dev_pass": 0,
+   "frozen": "H0363",
+   "frozen_conditions": [
+    [
+     "ret60",
+     ">=",
+     0.015278
+    ],
+    [
+     "z_vol",
+     "<=",
+     -0.358653
+    ],
+    [
+     "vcontract",
+     "<=",
+     0.621281
+    ]
+   ],
+   "promoted": false,
+   "promotion_note": "DEV/VAL 승격 기준 미달 → 잠정 비교군(비승격)으로만 HOLD Shadow 실행",
+   "dev_metrics": {
+    "n": 46,
+    "n_unlab": 46,
+    "tp": 4,
+    "fp": 42,
+    "precision": 0.087,
+    "recall": null,
+    "n_events": 0,
+    "net_mean": 0.1353,
+    "net_sum": 6.2235,
+    "n_trades": 46,
+    "win_rate": 0.5217,
+    "tp_rate": 0.0652,
+    "sl_rate": 0.0652,
+    "base_rate": 0.0122,
+    "lift": 7.1185,
+    "p_value": 0.0024141735737117885
+   },
+   "val_metrics": {
+    "n": 17,
+    "n_unlab": 17,
+    "tp": 1,
+    "fp": 16,
+    "precision": 0.0588,
+    "recall": 0.0833,
+    "n_events": 24,
+    "net_mean": -0.8814,
+    "net_sum": -14.9832,
+    "n_trades": 17,
+    "win_rate": 0.2941,
+    "tp_rate": 0.0588,
+    "sl_rate": 0.2941,
+    "base_rate": 0.0124,
+    "lift": 4.7333,
+    "p_value": 0.19151601212997213
+   },
+   "shadow": {
+    "n": 14,
+    "n_unlab": 12,
+    "tp": 0,
+    "fp": 12,
+    "precision": 0.0,
+    "recall": 0.0,
+    "n_events": 6,
+    "net_mean": 0.1454,
+    "net_sum": 1.7444,
+    "n_trades": 12,
+    "win_rate": 0.6667,
+    "tp_rate": 0.0,
+    "sl_rate": 0.1667,
+    "base_rate": 0.0037,
+    "lift": 0.0,
+    "p_value": 1.0,
+    "status": "shadowed",
+    "signature": "2c35fc9639d6bd89",
+    "promoted": false,
+    "promotion_note": "DEV/VAL 승격 기준 미달 → 잠정 비교군(비승격)으로만 HOLD Shadow 실행"
+   },
+   "ledger": {
+    "runs": 1,
+    "trials": 683,
+    "failures": 675,
+    "candidates": 1,
+    "shadow": 14,
+    "holdouts": 1
+   },
+   "dataset_hash": "13cdb1a4376e3daf",
+   "elapsed_sec": 15.1,
+   "adapter": {
+    "adapter": "KrAdapter",
+    "db": "kr_1m.db",
+    "sessions": [
+     "reg"
+    ],
+    "price_floor": 1000.0,
+    "turnover_floor_60m": 50000000.0,
+    "calendar": "KR",
+    "source_id": "kr:kr_1m.db:candles_1m"
+   }
+  },
+  "US": {
+   "market": "US",
+   "days": {
+    "all": [
+     "2026-11-10",
+     "2026-11-11",
+     "2026-11-12",
+     "2026-11-13",
+     "2026-11-16",
+     "2026-11-17",
+     "2026-11-18",
+     "2026-11-19"
+    ],
+    "dev": [
+     "2026-11-10",
+     "2026-11-11",
+     "2026-11-12",
+     "2026-11-13"
+    ],
+    "val": [
+     "2026-11-16",
+     "2026-11-17"
+    ],
+    "hold": [
+     "2026-11-18",
+     "2026-11-19"
+    ]
+   },
+   "n_symbols": 50,
+   "n_blocks": 1007,
+   "n_candidates": 22264,
+   "n_events": 57,
+   "n_controls": 18025,
+   "n_censored": 4182,
+   "base_rate": 0.0032,
+   "dev": {
+    "rows": 10932,
+    "events": 51,
+    "base_rate": 0.0057
+   },
+   "val": {
+    "rows": 6198,
+    "events": 3,
+    "base_rate": 0.0006
+   },
+   "hold": {
+    "rows": 5134,
+    "events": 3,
+    "base_rate": 0.0007
+   },
+   "n_hypotheses": 675,
+   "n_dev_pass": 1,
+   "frozen": "H0585",
+   "frozen_conditions": [
+    [
+     "z_vol",
+     "<=",
+     -1.204153
+    ],
+    [
+     "vcontract",
+     "<=",
+     0.616433
+    ],
+    [
+     "ret60_rel",
+     "<=",
+     -0.00668
+    ]
+   ],
+   "promoted": false,
+   "promotion_note": "DEV/VAL 승격 기준 미달 → 잠정 비교군(비승격)으로만 HOLD Shadow 실행",
+   "dev_metrics": {
+    "n": 23,
+    "n_unlab": 23,
+    "tp": 3,
+    "fp": 20,
+    "precision": 0.1304,
+    "recall": null,
+    "n_events": 0,
+    "net_mean": 0.5252,
+    "net_sum": 12.0789,
+    "n_trades": 23,
+    "win_rate": 0.5652,
+    "tp_rate": 0.087,
+    "sl_rate": 0.0,
+    "base_rate": 0.0057,
+    "lift": 22.9565,
+    "p_value": 0.0002983245944958537
+   },
+   "val_metrics": {
+    "n": 16,
+    "n_unlab": 16,
+    "tp": 0,
+    "fp": 16,
+    "precision": 0.0,
+    "recall": 0.0,
+    "n_events": 2,
+    "net_mean": -0.12,
+    "net_sum": -1.9202,
+    "n_trades": 16,
+    "win_rate": 0.375,
+    "tp_rate": 0.0,
+    "sl_rate": 0.125,
+    "base_rate": 0.0006,
+    "lift": 0.0,
+    "p_value": 1.0
+   },
+   "shadow": {
+    "n": 8,
+    "n_unlab": 8,
+    "tp": 0,
+    "fp": 8,
+    "precision": 0.0,
+    "recall": 0.0,
+    "n_events": 2,
+    "net_mean": -0.5205,
+    "net_sum": -4.1642,
+    "n_trades": 8,
+    "win_rate": 0.25,
+    "tp_rate": 0.0,
+    "sl_rate": 0.0,
+    "base_rate": 0.0007,
+    "lift": 0.0,
+    "p_value": 1.0,
+    "status": "shadowed",
+    "signature": "be5e21b1733b7205",
+    "promoted": false,
+    "promotion_note": "DEV/VAL 승격 기준 미달 → 잠정 비교군(비승격)으로만 HOLD Shadow 실행"
+   },
+   "ledger": {
+    "runs": 1,
+    "trials": 683,
+    "failures": 675,
+    "candidates": 1,
+    "shadow": 8,
+    "holdouts": 1
+   },
+   "dataset_hash": "3dfa6ea21b3da943",
+   "elapsed_sec": 16.0,
+   "adapter": {
+    "adapter": "UsAdapter",
+    "db": "us_1m.db",
+    "sessions": [
+     "pre",
+     "reg",
+     "aft"
+    ],
+    "price_floor": 1.0,
+    "turnover_floor_60m": 100000.0,
+    "calendar": "US",
+    "source_id": "us:us_1m.db:candles_1m",
+    "session_detail": {
+     "pre": "04:00-09:30 ET",
+     "reg": "09:30-16:00 ET",
+     "aft": "16:00-20:00 ET",
+     "dst": "zoneinfo America/New_York"
+    }
+   }
+  }
+ },
+ "checks": [
+  {
+   "check": "P2a UP 24h 달력",
+   "status": "PASS",
+   "detail": "토요일 12:00 KST → session=24h, tradable=True"
+  },
+  {
+   "check": "P2b KR 09:00~15:30·주말 휴장",
+   "status": "PASS",
+   "detail": "sessions=['out', 'reg', 'reg', 'out', 'out'], tradable=[np.False_, np.True_, np.True_, np.False_, np.False_]"
+  },
+  {
+   "check": "P2c US 프리/정규/애프터 구분",
+   "status": "PASS",
+   "detail": "sessions=['out', 'pre', 'pre', 'reg', 'reg', 'aft', 'out']"
+  },
+  {
+   "check": "P2d US 서머타임 처리",
+   "status": "PASS",
+   "detail": "10-30 09:30 EDT→분 570, 11-19 09:30 EST→분 570, offset_diff={20776: -18000, 20777: -18000, 20756: -14400}"
+  },
+  {
+   "check": "P1 UP 데이터·사건·대조군",
+   "status": "PASS",
+   "detail": "candidates=29994 events=1638 controls=24850 base_rate=0.0618"
+  },
+  {
+   "check": "P3 라벨 = t+1..t+60 고가만 사용",
+   "status": "PASS",
+   "detail": "13개 표본 재계산, 미래 누수 0건"
+  },
+  {
+   "check": "P4 특징 = t까지 관측값만(절단 대조)",
+   "status": "PASS",
+   "detail": "24개 표본, 절단 전후 최대차 0.00e+00"
+  },
+  {
+   "check": "P5a UP DEV/VAL/HOLD 순서·중복",
+   "status": "PASS",
+   "detail": "dev 2026-11-11~2026-11-16(6) / val 2026-11-17~2026-11-18(2) / hold 2026-11-19~2026-11-20(2)"
+  },
+  {
+   "check": "P5b UP 구간별 표본 존재",
+   "status": "PASS",
+   "detail": "rows dev=17879 val=5952 hold=6163"
+  },
+  {
+   "check": "P6 UP 실패 원장 기록",
+   "status": "PASS",
+   "detail": "trials=683 failures=659 runs=1 candidates=1"
+  },
+  {
+   "check": "P7 UP 동결→HOLD Shadow 1회",
+   "status": "PASS",
+   "detail": "frozen=H0328 promoted=True shadow_n=18 tp/fp=2/13 net=-1.8767 holdouts=1"
+  },
+  {
+   "check": "P1 KR 데이터·사건·대조군",
+   "status": "PASS",
+   "detail": "candidates=22646 events=199 controls=17905 base_rate=0.011"
+  },
+  {
+   "check": "P3 라벨 = t+1..t+60 고가만 사용",
+   "status": "PASS",
+   "detail": "23개 표본 재계산, 미래 누수 0건"
+  },
+  {
+   "check": "P4 특징 = t까지 관측값만(절단 대조)",
+   "status": "PASS",
+   "detail": "24개 표본, 절단 전후 최대차 0.00e+00"
+  },
+  {
+   "check": "P5a KR DEV/VAL/HOLD 순서·중복",
+   "status": "PASS",
+   "detail": "dev 2026-11-10~2026-11-16(5) / val 2026-11-17~2026-11-18(2) / hold 2026-11-19~2026-11-20(2)"
+  },
+  {
+   "check": "P5b KR 구간별 표본 존재",
+   "status": "PASS",
+   "detail": "rows dev=13429 val=5762 hold=3455"
+  },
+  {
+   "check": "P6 KR 실패 원장 기록",
+   "status": "PASS",
+   "detail": "trials=683 failures=675 runs=1 candidates=1"
+  },
+  {
+   "check": "P7 KR 동결→HOLD Shadow 1회",
+   "status": "PASS",
+   "detail": "frozen=H0363 promoted=False shadow_n=14 tp/fp=0/12 net=0.1454 holdouts=1"
+  },
+  {
+   "check": "P1 US 데이터·사건·대조군",
+   "status": "PASS",
+   "detail": "candidates=22264 events=57 controls=18025 base_rate=0.0032"
+  },
+  {
+   "check": "P3 라벨 = t+1..t+60 고가만 사용",
+   "status": "PASS",
+   "detail": "24개 표본 재계산, 미래 누수 0건"
+  },
+  {
+   "check": "P4 특징 = t까지 관측값만(절단 대조)",
+   "status": "PASS",
+   "detail": "24개 표본, 절단 전후 최대차 0.00e+00"
+  },
+  {
+   "check": "P5a US DEV/VAL/HOLD 순서·중복",
+   "status": "PASS",
+   "detail": "dev 2026-11-10~2026-11-13(4) / val 2026-11-16~2026-11-17(2) / hold 2026-11-18~2026-11-19(2)"
+  },
+  {
+   "check": "P5b US 구간별 표본 존재",
+   "status": "PASS",
+   "detail": "rows dev=10932 val=6198 hold=5134"
+  },
+  {
+   "check": "P6 US 실패 원장 기록",
+   "status": "PASS",
+   "detail": "trials=683 failures=675 runs=1 candidates=1"
+  },
+  {
+   "check": "P7 US 동결→HOLD Shadow 1회",
+   "status": "PASS",
+   "detail": "frozen=H0585 promoted=False shadow_n=8 tp/fp=0/8 net=-0.5205 holdouts=1"
+  },
+  {
+   "check": "P8a 운영 DB 접속 전부 읽기전용(mode=ro+query_only)",
+   "status": "PASS",
+   "detail": "접속 22건(고유 DB 3개), mode=ro 위반 0건, 접속 헬퍼 query_only 설정=True"
+  },
+  {
+   "check": "P8b 운영 DB 크기 감소 0(우리 쓰기 흔적 없음)",
+   "status": "PASS",
+   "detail": "size delta UP=0B, KR=0B, US=4096B (5분 수집기가 동시에 쓰는 중이면 증가는 정상)"
+  },
+  {
+   "check": "P9 산출물 절대경로·비밀값 없음",
+   "status": "PASS",
+   "detail": "위반 0건 []"
+  }
+ ]
+}
