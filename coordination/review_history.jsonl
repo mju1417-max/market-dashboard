@@ -1,1 +1,2 @@
 {"at": "2026-11-20T18:40:00+09:00", "evidence": "https://github.com/mju1417-max/market-dashboard/blob/main/research/reports/gpt_27th_p0_report_20261120.md", "id": "rev-27", "kind": "report_published", "round_no": 27, "status": "published", "title": "27차 P0-A~F + GitHub 협업 원장 보고"}
+{"at": "2026-11-20T18:44:00+09:00", "commit": "fcd2585", "evidence": "https://github.com/mju1417-max/market-dashboard/blob/main/research/reports/gpt_27th_p0_report_20261120.md", "id": "rev-27-publish", "kind": "published_to_github", "round_no": 27, "status": "published", "title": "27차 P0 보고서 게시"}
