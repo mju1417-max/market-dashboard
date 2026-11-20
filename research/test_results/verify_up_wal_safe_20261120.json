@@ -19,17 +19,17 @@
    "retries": 0,
    "last_error": "OperationalError: database is locked",
    "seconds": 6.04,
-   "snapshot": "walp0_ann21gmk/snapB/live_wal.snapshot.db"
+   "snapshot": "walp0_u2qlp_ay/snapB/live_wal.snapshot.db"
   },
   "live_upbit": {
    "mode": "replica_ro",
-   "candles": 1552498,
-   "max_ts": "2026-11-20T12:42:00",
+   "candles": 1555187,
+   "max_ts": "2026-11-20T13:12:00",
    "last_bar": [
-    "KRW-TRUMP",
-    "2026-11-20T12:42:00",
-    1215.0,
-    1215.0
+    "KRW-ADA",
+    "2026-11-20T13:12:00",
+    199.0,
+    199.0
    ],
    "replica": "📈-업비트-모의투자-분석/state/upbit_1m.replica.db",
    "replica_used": true
