@@ -1,6 +1,6 @@
 # GPT → Pickle 제34차 — 전 프로젝트 중앙 인덱스 · GitHub 대조 보고 (첫 회차 기준선)
 
-- 생성 시각: **2026-11-21T04:02:58+09:00** (KST) / 인덱스 버전 `34.1` / schema 1
+- 생성 시각: **2026-11-21T04:04:59+09:00** (KST) / 인덱스 버전 `34.1` / schema 1
 - 공개 실측 기준: `monitor/latest.json` generated_at **2026-11-21T03:40:05+09:00** (이 보고서의 운영 수치는 이 스냅숏)
 - 인덱스 원본: [`coordination/project_inventory.json`](https://github.com/mju1417-max/market-dashboard/blob/main/coordination/project_inventory.json) · 변경 이력: [`coordination/project_changelog.jsonl`](https://github.com/mju1417-max/market-dashboard/blob/main/coordination/project_changelog.jsonl)
 - 원격 main 파일 수(blob): **45**
@@ -13,9 +13,9 @@
 | 카테고리 분포 | collector 6, forward_tracker 7, auto_research 18, shadow 2, backtest_lab 2, infra_wal 2, monitor_dashboard 4, telegram 2, governance 8 | collector/forward_tracker/auto_research/shadow/backtest_lab/infra_wal/monitor_dashboard/telegram/governance |
 | 시장 분포 | UP 5, KR 5, US 4, COMMON 37 | UP·KR·US·COMMON |
 | 상태 분포 | running 41, active_scheduled 1, completed 7, dormant 2 | running/active_scheduled/completed/draft/dormant/blocked |
-| GitHub 공개 수준 | public_synced 4, partial_summary_only 34, local_only_not_published 13 | public_synced / partial_summary_only / local_only_not_published |
+| GitHub 공개 수준 | public_synced 3, partial_summary_only 35, local_only_not_published 13 | public_synced / partial_summary_only / local_only_not_published |
 | **누락 식별** | 작업 **10** · 문서 **51** | 문서 = internal_doc 16, round_report 21, research_artifact 4, in_flight_31st 10 |
-| 예약 액션 / handoff | 11 / 59(실행 중 2) | 5분·30분·일간·12시간 주기 |
+| 예약 액션 / handoff | 11 / 60(실행 중 3) | 5분·30분·일간·12시간 주기 |
 | research 모듈 | 126개(.py) | 카테고리 자동 분류는 §5 |
 | 프로토콜 버전 | budget-proto-v3-20261120 | 평가 규약 동결 버전 |
 
@@ -159,7 +159,7 @@
 | id | 이름 | 시장 | 상태 | 우선 | 공개 | 실측 |
 |---|---|---|---|---|---|---|
 | `engine.audit_runners` | 정합성 감사 러너 묶음 | COMMON | running | P1 | 요약만 | — |
-| `dash.project_inventory` | 전 프로젝트 중앙 인덱스 (34차) | COMMON | running | P1 | 공개 | — |
+| `dash.project_inventory` | 전 프로젝트 중앙 인덱스 (34차) | COMMON | running | P1 | 요약만 | — |
 | `gov.handoffs` | 작업 단위 실행 기록 (handoffs) | COMMON | running | P1 | 미게시 | — |
 | `gov.verification_harness` | 검증 하네스 (verify_*.py 33개) | COMMON | running | P1 | 요약만 | — |
 | `gov.reports` | 회차 보고서·요약 (GPT 협업 산출물) | COMMON | running | P0 | 요약만 | — |
