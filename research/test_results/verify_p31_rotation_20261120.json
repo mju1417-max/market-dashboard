@@ -1,0 +1,108 @@
+{
+ "ok": true,
+ "n": 9,
+ "n_pass": 9,
+ "checks": [
+  {
+   "check": "run_status_five",
+   "ok": true,
+   "detail": "('completed', 'no_new_data', 'partial', 'error', 'busy_skip')"
+  },
+  {
+   "check": "engine_to_run_mapping",
+   "ok": true,
+   "detail": "{'completed': 'completed', 'no_new_data': 'no_new_data', 'budget_stop': 'partial', 'ingest_partial': 'partial', 'waiting_for_days': 'partial', 'error': 'error'}"
+  },
+  {
+   "check": "recollection_three_times",
+   "ok": true,
+   "detail": "observed=2026-11-20 23:00:00 available=2026-11-20T21:56:00+09:00 evaluated=2026-11-20 23:00:31"
+  },
+  {
+   "check": "recollection_fields",
+   "ok": true,
+   "detail": "new_rows=42 sample=3 late=7 rate=0.038889 retro=0"
+  },
+  {
+   "check": "recollection_budget_skip",
+   "ok": true,
+   "detail": "elapsed 29/30s → 표본 계측 생략"
+  },
+  {
+   "check": "ingest_cursor_forward_only",
+   "ok": true,
+   "detail": "ingest 는 체크포인트 다음 분부터만 읽는다"
+  },
+  {
+   "check": "late_arrival_not_graded",
+   "ok": true,
+   "detail": "과거 구간 재독 코드 없음(위 커서 확인)"
+  },
+  {
+   "check": "ledger_new_columns",
+   "ok": true,
+   "detail": "['available_at', 'data_sig', 'evaluated_at', 'finished_at', 'hypothesis_id', 'market', 'new_gen', 'note', 'observed_at', 'passed', 'prev_gen', 'prev_preserved', 'rejected', 'rotation_id', 'run_key', 'run_status', 'sec', 'shadow_registered', 'started_at', 'status', 'steps_json', 'tested', 'trigger']"
+  },
+  {
+   "check": "ledger_statuses_present",
+   "ok": true,
+   "detail": "raw={'budget_stop': 1, 'completed': 2, 'error': 4, 'ingest_partial': 16, 'interrupted': 3, 'no_new_data': 16} run_status={'(null)': 42} busy_skip_journal=0"
+  }
+ ],
+ "live": {
+  "by_status": {
+   "budget_stop": 1,
+   "completed": 2,
+   "error": 4,
+   "ingest_partial": 16,
+   "interrupted": 3,
+   "no_new_data": 16
+  },
+  "by_run_status": {
+   "(null)": 42
+  },
+  "busy_skip_journal": 0,
+  "recollection_rows": 0,
+  "recent_recollection_sample": {
+   "sample_symbols": 3,
+   "source_rows": 180,
+   "late_rows": 7,
+   "late_rate": 0.038889,
+   "window": [
+    "2026-11-20T00:00:00+09:00",
+    "2026-11-20T05:00:00+09:00"
+   ],
+   "seconds": 0.1,
+   "extrapolated": false
+  }
+ },
+ "late_arrival_sample": {
+  "sample_symbols": 2,
+  "source_rows": 646,
+  "panel_rows": 361,
+  "panel_coverage": 0.558824,
+  "late_rows": null,
+  "late_rate": null,
+  "late_rows_measurable": false,
+  "window": [
+   "2026-11-20T15:56:00+09:00",
+   "2026-11-20T21:56:00+09:00"
+  ],
+  "seconds": 0.07,
+  "extrapolated": false,
+  "note": "원본-패널 행수 차이는 패널의 가격·거래대금·세션 필터 때문에 늦은 도착의 증거가 될 수 없다 → 늦은 도착 건수는 null(미측정). 적재 커서가 앞으로만 가므로 채점에는 들어가지 않는다.",
+  "symbols_pool": 20,
+  "backfill_gap_class": {
+   "file": "upbit_gap_class_20261120.json",
+   "window": "dev",
+   "minutes_in_window": 2880,
+   "missing_fetch": 7617,
+   "missing_fetch_symbols": 55,
+   "no_trade": 629818,
+   "unresolved": 4869,
+   "restored_by": "공식 분봉 API 백필(upbit_backfill) — 수집 누락분을 나중에 채운 봉",
+   "note": "패널 적재 커서는 앞으로만 가므로 이 봉들은 채점에 쓰이지 않는다(소급 채점 금지)."
+  }
+ },
+ "at": "2026-11-20T23:08:42+09:00"
+}
