@@ -1,10 +1,10 @@
 {
  "schema": 3,
- "generated_at": "2026-11-21T00:25:28+09:00",
+ "generated_at": "2026-11-21T00:30:25+09:00",
  "note": "Public, de-identified collaboration snapshot. No credentials, personal data, or raw DB. schema 3: forward_signals_observed(전진검증)와 research_shadow_signals_prospective(연구 Shadow)를 분리했고, shadow_signals_measured·candidate_count 는 null(deprecated)이다.",
  "totals": {
   "symbols": 5557,
-  "candles_1m": 10903544,
+  "candles_1m": 10883727,
   "surges_ge5": 676,
   "forward_closed": 371,
   "forward_wins": 164,
@@ -40,15 +40,15 @@
    "label": "업비트 (KRW)",
    "db_ok": true,
    "db_source": "collector_stats",
-   "candles_1m": 1567225,
+   "candles_1m": 1547408,
    "symbols": 302,
    "universe": 302,
-   "last_candle": "2026-11-20T23:57:00",
-   "collector_last_run_at": "2026-11-21T00:23:06",
+   "last_candle": "2026-11-21T00:27:00",
+   "collector_last_run_at": "2026-11-21T00:28:02",
    "collector_errors": 0,
-   "candles_1m_query": "COUNT(*)",
-   "candles_1m_saved": 1546761,
-   "candle_count_delta": 20464,
+   "candles_1m_query": "SUM(fetch_log.candles_saved)",
+   "candles_1m_saved": 1547408,
+   "candle_count_delta": null,
    "schema_version": 3,
    "protocol_version": "budget-proto-v3-20261120",
    "protocol_hash": "d05c99d2376792b7",
@@ -277,11 +277,11 @@
    "symbols": 2099,
    "universe": 2128,
    "last_candle": "2026-11-21T00:02:59",
-   "collector_last_run_at": "2026-11-21T00:23:06",
+   "collector_last_run_at": "2026-11-21T00:28:02",
    "collector_errors": 0,
    "candles_1m_query": "COUNT(*)",
-   "candles_1m_saved": 4692143,
-   "candle_count_delta": -44174,
+   "candles_1m_saved": 4698958,
+   "candle_count_delta": -50989,
    "schema_version": 3,
    "protocol_version": "budget-proto-v3-20261120",
    "protocol_hash": "d05c99d2376792b7",
@@ -396,7 +396,7 @@
    "losses": 0,
    "win_rate": 100.0,
    "sum_pnl_pct": 4.895,
-   "last_run_at": "2026-11-21T00:23:38",
+   "last_run_at": "2026-11-21T00:28:34",
    "buckets": null,
    "ledger_version": null
   },
@@ -410,7 +410,7 @@
    "losses": 3,
    "win_rate": 70.0,
    "sum_pnl_pct": 16.064,
-   "last_run_at": "2026-11-21T00:23:43",
+   "last_run_at": "2026-11-21T00:28:38",
    "buckets": null,
    "ledger_version": null
   },
@@ -493,23 +493,16 @@
  "candle_count_audit": {
   "upbit": {
    "db_file": "upbit_1m.db",
-   "db_size": 244822016,
-   "db_mtime": 1795188240,
+   "db_size": 244961280,
+   "db_mtime": 1795188536,
    "universe_def": "fetch_log rows (감시 종목 1행/종목)",
    "bars_query": "SELECT COUNT(*) FROM candles_1m",
    "saved_query": "SELECT COALESCE(SUM(candles_saved),0) FROM fetch_log",
    "bars_actual": {
-    "bars": 1567225,
-    "sym_bars": 302,
-    "first": "2026-11-09T07:02:00",
-    "last": "2026-11-20T23:57:00",
-    "mode": "ro",
-    "seconds": 0.0,
-    "at": 1795187126.312379,
-    "cached": true,
-    "age_s": 1200.6
+    "error": "OperationalError: OperationalError: unable to open database file; OperationalError: unable to open database file",
+    "seconds": 3.74
    },
-   "generated_at": "2026-11-21T00:25:26+09:00"
+   "generated_at": "2026-11-21T00:30:20+09:00"
   },
   "kr": {
    "db_file": "kr_1m.db",
@@ -527,14 +520,14 @@
     "seconds": 0.0,
     "at": 1795187128.7836783,
     "cached": true,
-    "age_s": 1198.2
+    "age_s": 1495.2
    },
-   "generated_at": "2026-11-21T00:25:26+09:00"
+   "generated_at": "2026-11-21T00:30:23+09:00"
   },
   "us": {
    "db_file": "us_1m.db",
-   "db_size": 452616192,
-   "db_mtime": 1795188218,
+   "db_size": 453255168,
+   "db_mtime": 1795188514,
    "universe_def": "fetch_log rows (감시 종목 1행/종목)",
    "bars_query": "SELECT COUNT(*) FROM candles_1m",
    "saved_query": "SELECT COALESCE(SUM(candles_saved),0) FROM fetch_log",
@@ -547,9 +540,9 @@
     "seconds": 0.0,
     "at": 1795187228.8979542,
     "cached": true,
-    "age_s": 1098.1
+    "age_s": 1395.0
    },
-   "generated_at": "2026-11-21T00:25:26+09:00"
+   "generated_at": "2026-11-21T00:30:23+09:00"
   }
  },
  "research": {
@@ -1287,7 +1280,7 @@
    "schema_version": 3,
    "protocol_version": "budget-proto-v3-20261120"
   },
-  "_cache_age_s": 1112.3
+  "_cache_age_s": 1409.3
  },
  "research_consistency": {
   "forward_signals_sum": 709,
