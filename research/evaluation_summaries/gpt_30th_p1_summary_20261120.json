@@ -6,7 +6,7 @@
   "30/P1-B",
   "30/P1-F"
  ],
- "generated_at": "2026-11-20T22:53:55+09:00",
+ "generated_at": "2026-11-20T22:59:55+09:00",
  "note": "비식별 요약. 절대경로·비밀키·개인정보·원본 DB 없음. 모든 수치는 2026-11-20 KST 실측이며 미측정은 null 로 둔다.",
  "universe": {
   "UP": {
@@ -3080,11 +3080,11 @@
     "error": 4,
     "ingest_partial": 2,
     "interrupted": 2,
-    "no_new_data": 14
+    "no_new_data": 15
    },
    "last_generation": 3,
    "panel": {
-    "rows": 106996,
+    "rows": 107065,
     "symbols": 76,
     "first_day": "2026-11-09",
     "last_day": "2026-11-20"
@@ -3122,7 +3122,9 @@
    },
    "prod_stages": {
     "rotate": 8,
+    "shadow_evaluate": 1,
     "shadow_scan": 1,
+    "shadow_settle": 1,
     "shadow_sync": 1
    },
    "shadow_registered": 1,
@@ -3141,17 +3143,20 @@
   },
   "US": {
    "rotation_runs": {
+    "budget_stop": 1,
+    "completed": 1,
     "ingest_partial": 7
    },
-   "last_generation": null,
+   "last_generation": 1,
    "panel": {
-    "rows": 125903,
-    "symbols": 59,
+    "rows": 127954,
+    "symbols": 60,
     "first_day": "2026-11-10",
     "last_day": "2026-11-19"
    },
    "prod_stages": {
-    "rotate": 7
+    "rotate": 9,
+    "shadow_sync": 1
    },
    "shadow_registered": 1,
    "signals": {
