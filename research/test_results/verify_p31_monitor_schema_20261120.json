@@ -31,7 +31,7 @@
   {
    "check": "forward_equals_tracks_upbit",
    "ok": true,
-   "detail": "385 vs tracks 385"
+   "detail": "389 vs tracks 389"
   },
   {
    "check": "fields_kr",
@@ -76,22 +76,22 @@
   {
    "check": "sum_signals",
    "ok": true,
-   "detail": "{'upbit': 385, 'kr': 306, 'us': 14}"
+   "detail": "{'upbit': 389, 'kr': 306, 'us': 14}"
   },
   {
    "check": "sum_closed",
    "ok": true,
-   "detail": "{'upbit': 353, 'kr': 0, 'us': 11}"
+   "detail": "{'upbit': 356, 'kr': 0, 'us': 11}"
   },
   {
    "check": "totals_match_consistency",
    "ok": true,
-   "detail": "totals=705/364 delta={'signals': 0, 'closed': 0}"
+   "detail": "totals=709/367 delta={'signals': 0, 'closed': 0}"
   },
   {
    "check": "shadow_separate",
    "ok": true,
-   "detail": "forward=705 shadow_prospective=8"
+   "detail": "forward=709 shadow_prospective=8"
   },
   {
    "check": "shadow_arithmetic_upbit",
@@ -121,17 +121,17 @@
   {
    "check": "publish_body",
    "ok": true,
-   "detail": "37162 bytes"
+   "detail": "39858 bytes"
   }
  ],
  "totals": {
-  "forward_signals_observed": 705,
-  "forward_closed": 364,
+  "forward_signals_observed": 709,
+  "forward_closed": 367,
   "research_shadow_signals_prospective": 8,
   "research_shadow_labelled": 4,
   "research_shadow_tp": 0,
   "research_shadow_fp": 4,
   "research_shadow_censored": 1
  },
- "at": "2026-11-20T23:07:00+09:00"
+ "at": "2026-11-20T23:25:57+09:00"
 }
