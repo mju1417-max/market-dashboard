@@ -1,6 +1,6 @@
 # GPT → Pickle 제34차 — 전 프로젝트 중앙 인덱스 · GitHub 대조 보고 (첫 회차 기준선)
 
-- 생성 시각: **2026-11-21T04:07:06+09:00** (KST) / 인덱스 버전 `34.1` / schema 1
+- 생성 시각: **2026-11-21T04:07:21+09:00** (KST) / 인덱스 버전 `34.1` / schema 1
 - 공개 실측 기준: `monitor/latest.json` generated_at **2026-11-21T03:40:05+09:00** (이 보고서의 운영 수치는 이 스냅숏)
 - 인덱스 원본: [`coordination/project_inventory.json`](https://github.com/mju1417-max/market-dashboard/blob/main/coordination/project_inventory.json) · 변경 이력: [`coordination/project_changelog.jsonl`](https://github.com/mju1417-max/market-dashboard/blob/main/coordination/project_changelog.jsonl)
 - 원격 main 파일 수(blob): **45**
@@ -16,7 +16,7 @@
 | GitHub 공개 수준 | public_synced 3, partial_summary_only 35, local_only_not_published 13 | public_synced / partial_summary_only / local_only_not_published |
 | **누락 식별** | 작업 **10** · 문서 **51** | 문서 = internal_doc 16, round_report 21, research_artifact 4, in_flight_31st 10 |
 | 예약 액션 / handoff | 11 / 60(실행 중 3) | 5분·30분·일간·12시간 주기 |
-| research 모듈 | 127개(.py) | 카테고리 자동 분류는 §5 |
+| research 모듈 | 128개(.py) | 카테고리 자동 분류는 §5 |
 | 프로토콜 버전 | budget-proto-v3-20261120 | 평가 규약 동결 버전 |
 
 **핵심 판정 3가지**
@@ -176,13 +176,13 @@
 | 백테스트·감사 | 15 | backtest_strategies.py, budget_gen23_audit_20261120.py, causal_fifo_isolation_20261120.py, coverage_audit_upbit.py, dev_learning_loop_audit.py, dev_repanel_experiment.py … |
 | 규약·파리티 | 13 | audit_hot_movers_fix.py, freeze_eval_protocol_20261120.py, gen3_forward_parity.py, kr_gen28_promotion_gate_20261120.py, kr_gen2_probe.py, krx_calendar.py … |
 | 게시·요약 | 13 | build_collab_ledger_20261120.py, build_p1_summary_20261120.py, build_p1_summary_30th.py, build_p31_summary_20261120.py, build_three_market_summary_20261120.py, build_wave_template_us.py … |
+| 감사·규명 | 8 | kr_s16_supply_audit_20261120.py, p0_23_audit.py, p0_universe_causality_20261121.py, p0b_prune_verified.py, p0c_budget_audit_20261120.py, p0d_net_audit_20261120.py … |
 | 인프라·게시 | 7 | collab_ledger.py, export_dashboard_json.py, monitor_research_20261120.py, push_dashboard_api.py, safe_ro.py, telegram_reporter.py … |
-| 감사·규명 | 7 | kr_s16_supply_audit_20261120.py, p0_23_audit.py, p0_universe_causality_20261121.py, p0b_prune_verified.py, p0c_budget_audit_20261120.py, p0d_net_audit_20261120.py … |
 | 수집 | 5 | collector_audit_20261120.py, collector_dedup_audit_20261120.py, history_collect.py, kr_alpha_collect.py, upbit_backfill.py |
 | 전진·Shadow | 5 | forward_tracker.py, forward_tracker_kr_s16.py, forward_tracker_kr_vcp.py, shadow_engine.py, vcp_watch.py |
 | 기타 | 1 | audit38_measure_20261121.py |
 
-전체 **127개** .py. 파일별 1줄 설명은 인덱스 JSON `modules.items[].doc`에 있다.
+전체 **128개** .py. 파일별 1줄 설명은 인덱스 JSON `modules.items[].doc`에 있다.
 
 ## 6. GitHub 공개 현황과 누락
 
