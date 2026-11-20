@@ -1,0 +1,137 @@
+{
+ "ok": true,
+ "n": 24,
+ "n_pass": 24,
+ "checks": [
+  {
+   "check": "schema_version_3",
+   "ok": true,
+   "detail": "research schema=3, totals research_schema=3"
+  },
+  {
+   "check": "protocol_version",
+   "ok": true,
+   "detail": "budget-proto-v3-20261120 / budget-proto-v3-20261120"
+  },
+  {
+   "check": "fields_upbit",
+   "ok": true,
+   "detail": "missing forward=[] shadow=[] cand=[]"
+  },
+  {
+   "check": "deprecated_null_upbit",
+   "ok": true,
+   "detail": "deprecated=['shadow_signals_measured', 'shadow_signals_estimated', 'candidate_count', 'frozen_count']"
+  },
+  {
+   "check": "denominators_upbit",
+   "ok": true,
+   "detail": "forward tracks=['UPBIT_GEN3', 'UP_ZVOL_GATE', 'UPBIT_GEN2']"
+  },
+  {
+   "check": "forward_equals_tracks_upbit",
+   "ok": true,
+   "detail": "385 vs tracks 385"
+  },
+  {
+   "check": "fields_kr",
+   "ok": true,
+   "detail": "missing forward=[] shadow=[] cand=[]"
+  },
+  {
+   "check": "deprecated_null_kr",
+   "ok": true,
+   "detail": "deprecated=['shadow_signals_measured', 'shadow_signals_estimated', 'candidate_count', 'frozen_count']"
+  },
+  {
+   "check": "denominators_kr",
+   "ok": true,
+   "detail": "forward tracks=['KR_S16', 'KR_VCP']"
+  },
+  {
+   "check": "forward_equals_tracks_kr",
+   "ok": true,
+   "detail": "306 vs tracks 306"
+  },
+  {
+   "check": "fields_us",
+   "ok": true,
+   "detail": "missing forward=[] shadow=[] cand=[]"
+  },
+  {
+   "check": "deprecated_null_us",
+   "ok": true,
+   "detail": "deprecated=['shadow_signals_measured', 'shadow_signals_estimated', 'candidate_count', 'frozen_count']"
+  },
+  {
+   "check": "denominators_us",
+   "ok": true,
+   "detail": "forward tracks=['US_GEN16', 'US_WAVE']"
+  },
+  {
+   "check": "forward_equals_tracks_us",
+   "ok": true,
+   "detail": "14 vs tracks 14"
+  },
+  {
+   "check": "sum_signals",
+   "ok": true,
+   "detail": "{'upbit': 385, 'kr': 306, 'us': 14}"
+  },
+  {
+   "check": "sum_closed",
+   "ok": true,
+   "detail": "{'upbit': 353, 'kr': 0, 'us': 11}"
+  },
+  {
+   "check": "totals_match_consistency",
+   "ok": true,
+   "detail": "totals=705/364 delta={'signals': 0, 'closed': 0}"
+  },
+  {
+   "check": "shadow_separate",
+   "ok": true,
+   "detail": "forward=705 shadow_prospective=8"
+  },
+  {
+   "check": "shadow_arithmetic_upbit",
+   "ok": true,
+   "detail": "labelled=4 tp=0 fp=4 censored=1 pending=3 prospective=8"
+  },
+  {
+   "check": "shadow_signal_ids",
+   "ok": true,
+   "detail": "ids=['P_BASE_UP:KRW-FOLD:1795177500', 'P_BASE_UP:KRW-META2:1795177560', 'P_BASE_UP:KRW-BMT:1795177680']"
+  },
+  {
+   "check": "shadow_exact_vs_assumed",
+   "ok": true,
+   "detail": "exact=8 assumed=0 prospective=8"
+  },
+  {
+   "check": "null_vs_zero_documented",
+   "ok": true,
+   "detail": "null fields=[]"
+  },
+  {
+   "check": "public_hygiene",
+   "ok": true,
+   "detail": "clean"
+  },
+  {
+   "check": "publish_body",
+   "ok": true,
+   "detail": "37162 bytes"
+  }
+ ],
+ "totals": {
+  "forward_signals_observed": 705,
+  "forward_closed": 364,
+  "research_shadow_signals_prospective": 8,
+  "research_shadow_labelled": 4,
+  "research_shadow_tp": 0,
+  "research_shadow_fp": 4,
+  "research_shadow_censored": 1
+ },
+ "at": "2026-11-20T23:07:00+09:00"
+}
