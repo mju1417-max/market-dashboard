@@ -2,7 +2,7 @@
  "schema": 1,
  "kind": "project_inventory",
  "inventory_version": "34.1",
- "generated_at": "2026-11-21T03:58:48+09:00",
+ "generated_at": "2026-11-21T03:59:15+09:00",
  "source_of_truth": {
   "live_status": "monitor/latest.json (5분 갱신) — 이 인덱스의 수치는 생성 시점 스냅숏",
   "live_monitor_generated_at": "2026-11-21T03:40:05+09:00",
@@ -87,15 +87,15 @@
      "path": "scheduled-actions/📈-업비트-모의투자-분석/state/upbit_1m.db",
      "exists": true,
      "kind": "file",
-     "size_kb": 242320.0,
-     "mtime": "2026-11-21T03:53:44+09:00"
+     "size_kb": 242392.0,
+     "mtime": "2026-11-21T03:58:50+09:00"
     },
     {
      "path": "scheduled-actions/📈-업비트-모의투자-분석/state/portfolio.json",
      "exists": true,
      "kind": "file",
      "size_kb": 9.6,
-     "mtime": "2026-11-21T03:53:44+09:00"
+     "mtime": "2026-11-21T03:58:50+09:00"
     }
    ],
    "published_paths": [
@@ -131,7 +131,7 @@
    },
    "owner": null,
    "missing_sources": [],
-   "updated_at": "2026-11-21T03:53:44+09:00",
+   "updated_at": "2026-11-21T03:58:50+09:00",
    "scheduled_action": {
     "folder": "📈-업비트-모의투자-분석",
     "schedule": [
@@ -2857,8 +2857,8 @@
      "path": "research/project_inventory.py",
      "exists": true,
      "kind": "file",
-     "size_kb": 94.7,
-     "mtime": "2026-11-21T03:58:48+09:00"
+     "size_kb": 96.8,
+     "mtime": "2026-11-21T03:59:15+09:00"
     }
    ],
    "published_paths": [
@@ -2866,24 +2866,24 @@
      "path": "coordination/project_inventory.json",
      "on_remote": true,
      "files_on_remote": null,
-     "size_kb": 153.3
+     "size_kb": 153.6
     },
     {
      "path": "coordination/project_changelog.jsonl",
      "on_remote": true,
      "files_on_remote": null,
-     "size_kb": 1.3
+     "size_kb": 2.6
     },
     {
      "path": "research/reports/gpt_34th_project_inventory_20261121.md",
      "on_remote": true,
      "files_on_remote": null,
-     "size_kb": 23.4
+     "size_kb": 23.5
     }
    ],
    "github_visibility": "public_synced",
    "visibility_note": "",
-   "latest_commit": "dc0d475",
+   "latest_commit": "68aa2d2",
    "verification_status": "이 회차에서 생성·게시(raw 200·JSON 파싱·비밀 스캔 0건).",
    "commit_note": "자기 자신의 게시 커밋은 파일 안에 담을 수 없다(자기참조). 변경 이력은 project_changelog.jsonl의 커밋을 본다.",
    "known_issues": [
@@ -2893,7 +2893,7 @@
    "live": null,
    "owner": null,
    "missing_sources": [],
-   "updated_at": "2026-11-21T03:58:48+09:00"
+   "updated_at": "2026-11-21T03:59:15+09:00"
   },
   {
    "id": "tg.reporter",
@@ -3039,7 +3039,7 @@
    "live": null,
    "owner": null,
    "missing_sources": [],
-   "updated_at": "2026-11-21T03:58:48+09:00"
+   "updated_at": "2026-11-21T03:59:15+09:00"
   },
   {
    "id": "gov.verification_harness",
@@ -3210,7 +3210,7 @@
    "missing_sources": [
     "research/gpt_31st_p0_report_20261120.md"
    ],
-   "updated_at": "2026-11-21T03:58:48+09:00"
+   "updated_at": "2026-11-21T03:59:15+09:00"
   },
   {
    "id": "gov.heartbeat",
@@ -3429,9 +3429,9 @@
     "alternative": "회차 보고서 요약"
    },
    {
-    "path": "research/history_*.md, gpt_3rd~26차 보고서 등 47건",
+    "path": "research/history_*.md · gpt_3rd~26차 보고서 등 로컬 전용 문서",
     "why": "과거 회차 문서가 현재 main에 없음",
-    "alternative": "없음 — 누락 목록 참조"
+    "alternative": "없음 — §6 누락 목록 참조"
    }
   ],
   "personal_boundary": [
@@ -3969,7 +3969,7 @@
    "paused": false,
    "check_sh": true,
    "check_sh_kb": 30.6,
-   "next_run_at": "2026-11-20T18:57:45.641426Z",
+   "next_run_at": "2026-11-20T19:02:45.641426Z",
    "last_started_run_at": "2026-11-20T18:57:45.641426Z",
    "check_fail_count": 0,
    "check_failure_generation": 3
@@ -3997,7 +3997,7 @@
    "paused": false,
    "check_sh": true,
    "check_sh_kb": 35.4,
-   "next_run_at": "2026-11-20T18:57:45.210141Z",
+   "next_run_at": "2026-11-20T19:02:45.210141Z",
    "last_started_run_at": "2026-11-20T18:57:45.210141Z",
    "check_fail_count": 0,
    "check_failure_generation": 8
@@ -4054,13 +4054,13 @@
     "id": "📋-34차-전체-프로젝트-인덱스-github-공유-체계-구축",
     "state": "running",
     "created_at": "2026-11-20T18:54:58.370280Z",
-    "updated_at": "2026-11-20T18:58:47.897523Z"
+    "updated_at": "2026-11-20T18:59:14.936234Z"
    },
    {
     "id": "🛠️-31차-독립검증-p0-인과-분할-shadow-p1-4종",
     "state": "running",
     "created_at": "2026-11-20T18:47:15.452856Z",
-    "updated_at": "2026-11-20T18:58:27.940387Z"
+    "updated_at": "2026-11-20T18:58:56.724202Z"
    }
   ]
  },
@@ -4489,7 +4489,7 @@
    },
    {
     "file": "research/project_inventory.py",
-    "kb": 94.7,
+    "kb": 96.8,
     "category": "게시·요약",
     "doc": "research/project_inventory.py — 전 프로젝트 중앙 인덱스 (GPT 제34차 지시 이행)."
    },
