@@ -12,7 +12,7 @@
 
 | # | 요구 | 결과 | 실측 증거 |
 |---|---|---|---|
-| ⑥ | KR·US **운영 자가발전** 연결 + `production_connected` 구분 | **연결·가동.** 30분 액션 회차마다 KR→US 순환으로 한 시장 한 단계가 실제로 돈다. KR 세대교체 **완주(gen 1, 272 격자, 0 통과)**, US는 적재 진행 중(패널 125,903행·59종목). `e2e_connected`와 `production_connected`를 `monitor/latest.json` `research.markets.<시장>.connection`에 분리 표기 | §1 |
+| ⑥ | KR·US **운영 자가발전** 연결 + `production_connected` 구분 | **연결·완주.** 30분 액션 회차마다 KR→US 순환으로 한 시장 한 단계가 실제로 돈다. **KR·US 모두 자기 세대를 처음 생성**(KR-G001 91,704 DEV행 · US-G001 102,882 DEV행, 각 272 격자 평가·**통과 0**)하고 60종목 패널을 유지한다. `e2e_connected`와 `production_connected`를 `monitor/latest.json` `research.markets.<시장>.connection`에 분리 표기 | §1 |
 | ⑥ | **진짜 미래 Shadow**(historical replay 아님) | **가동.** 등록 **이후** 봉에서만 신호를 만들고, 실제 수신·판단 시각과 봉 마감 대비 지연을 기록. UP 기준선 참조 Shadow에서 **8신호·라벨 4·TP 0·FP 4·상승폭 MAE 4.703%p·순손익 −2.97%/건** 실측 | §1-4 |
 | ⑦ | US `stale_max_sec` 게이트 & 늦은 봉 분리 | **완료.** 사전 동결 420초, 초과 시 신호 대신 `expired`(누락 수치 보존). 대안 규칙은 `US_GEN16_STALEFILL`·`US_WAVE_RANK_STALEFILL` **미래 전용** ID로만 등록. 검증 **13/13 PASS** | §2 |
 | ⑦ | `true_early_TP`·`late_event`·`no_event`·`decision_to_event_seconds`·`entry_to_event_seconds`·`execution_net` 분리 | **완료.** `US_GEN16` = 사전포착 **0** / 늦은 관측 **3** / 미도달 **10**(판단→사건 평균 **−282초**) · `US_WAVE_RANK` = 늦은 관측 1(−46초) · `UPBIT_GEN3` = 사전포착 11 / 늦은 2 / 미도달 346(+1,809초) | §2-3 |
@@ -68,13 +68,14 @@
 | 시장 | 세대교체(회차) | 마지막 상태 | 패널 | 격자 | 동결 | 운영 Shadow 등록 | 측정 신호 | 라벨 | TP/FP | 상승폭 MAE | 순손익/건 |
 |---|---|---|---|---|---|---|---|---|---|---|---|
 | UP | 13회 `no_new_data` + 기존 | `no_new_data` gen 3 | 106,931행·76종목 | 0(변화 없음) | 0 | **2** (사전등록 가설 + 기준선 참조) | **8** | 4 | 0 / 4 | **4.703%p** | **−2.97%** |
-| KR | **8회**(1 완주·7 적재중) | **`completed` gen 1** | **106,907행·60종목** | **272** | 0 | 1 | 0 | 0 | — | — | — |
-| US | **7회**(전부 적재중) | `ingest_partial` | **125,903행·59종목** | 0 | 0 | 1 | 0 | 0 | — | — | — |
+| KR | **8회**(1 완주·7 적재) | **`completed` gen 1** | **106,907행·60종목** | **272** | 0 | 1 | 0 | 0 | — | — | — |
+| US | **9회**(8 적재·1 완주) | **`completed` gen 1** | **127,954행·60종목** | **272** | 0 | 1 | 0 | 0 | — | — | — |
 
 읽는 법(정직):
 
 - **KR은 처음으로 운영 원장에 자기 세대(generation 1)를 만들었다.** 272개 격자를 실제 KR 데이터(11-10~11-20, 60종목)로 평가했고 **통과 0건**이다. 이는 29차 격리 e2e(KR DEV 통과 0)와 같은 방향의 결과이며, 이제는 **운영 스케줄에서** 반복된다.
-- **US는 아직 적재 중**이다(7회, 125,903행). 60종목 백필이 30분 회차당 10~20k행씩 진행되며, 다음 회차들이 이어받는다. 적재가 끝나면 272 격자가 자동으로 돈다 — 이 회차에 완료됐다고 말하지 않는다.
+- **US도 완주했다**(9회). 60종목 백필이 회차당 10~21k행씩 진행돼 127,954행이 됐고, 22:59 회차에 `US-G001`(DEV 11-10~11-17 · HOLD 11-18~11-19 · DEV 102,882행)이 생성되며 **272 격자 평가·통과 0**으로 끝났다. 적재 중(`ingest_partial`·`budget_stop`)에는 단계 순환이 `rotate`를 건너뛰지 않도록 고정해, 백필이 다른 단계 뒤로 밀리지 않게 했다.
+- 즉 **세 시장이 모두 운영 원장에 자기 세대를 가진다**: UP-G003(기존) · KR-G001 · US-G001. 셋 다 272 격자에서 통과 0건이다 — 29차 격리 e2e에서 UP만 후보가 나왔던 것과 같은 방향이며, 이제는 **운영 스케줄에서** 반복된다.
 - **UP의 8신호는 '첫 관측 catch-up'** 이다. 기준선 참조 Shadow(`ZVOL2.5`)를 등록하면서 시작 시각을 90분 과거로 두었고, 그래서 `staleness_sec` 이 3,300~5,100초로 찍혔다. 이 값은 숨기지 않고 그대로 남겼다: **이 8건은 사전포착이 아니라 늦은 관측**이며, 라벨·순손익만 유효하다. 이후 회차부터는 30분마다 새 봉만 본다.
 - 사전 등록 가설 `PREREG_H60_MOMVOL`(UP H=60 최상 가설)은 UP·KR·US 모두에 등록했고 아직 신호 0건이다(조건이 드물다). KR·US는 장 마감 시간대라 오늘 신호가 없는 것이 정상이다.
 
@@ -287,13 +288,17 @@ research.stale_gate = { values: {US: 420}, hash: "f0c02b728ca0c7c1", basis, froz
 
 - 이 보고서: `https://raw.githubusercontent.com/mju1417-max/market-dashboard/main/research/reports/gpt_30th_p1_report_20261120.md` — HTTP **200** (아래 실행 기록)
 - 요약 JSON: `https://raw.githubusercontent.com/mju1417-max/market-dashboard/main/research/evaluation_summaries/gpt_30th_p1_summary_20261120.json` — HTTP **200**
-- `monitor/latest.json` — `research.markets` 3시장 + `connection` + `stale_gate` 확인(§5). 게시는 5분 푸시가 P0-B 경로로 수행하며, 이 회차에서도 `research={}` 로 덮이지 않는 것을 확인했다.
+- `monitor/latest.json` — **GitHub Contents API로 원격 실물 확인**(2026-11-20 22:57 KST 게시분):
+  `research.schema=3`, `research.stale_gate={values:{US:420}, hash:"f0c02b728ca0c7c1"}`,
+  `research.markets.{upbit,kr,us}.connection` 각각 `{production_connected:true, e2e_connected:true, rotation:{status:no_new_data|completed|completed}, signals_prospective:8|0|0, price_gain_error:{mae_pct:4.7031}|null|null}`.
+  `research_source=argument`(빈 dict 로 덮이지 않음).
+  참고: `raw.githubusercontent.com` 은 CDN 캐시 때문에 이 시점 조회에서 직전 문서(schema 2)가 보였다 — 같은 순간 Contents API 는 새 문서를 반환했다. 캐시는 수 분 내 갱신된다(TTL).
 
 ---
 
 ## 8. 하지 않은 것 · 검증하지 못한 것 (정직 기록)
 
-1. **US 세대교체는 아직 적재 중**이다(7회, 125,903행·59종목). 272 격자·동결은 완료되지 않았다. 다음 회차가 이어받으며, 이 보고서는 US의 "발견 결과"를 말하지 않는다.
+1. **US 세대교체는 완주했지만 표본이 짧다** — US-G001 의 DEV 102,882행은 11-10~11-17 8세션이다. 272 격자에서 통과 0건이라는 사실은 "이 표본에서 후보가 없다"는 뜻이며, 더 긴 이력이 쌓이면 다시 평가해야 한다.
 2. **KR·US 운영 Shadow 신호 0건** — KR 장 마감·US 정규장 전(프리마켓)이었고, 사전 등록 가설 조건이 드물다. 경로는 테스트 10/10과 UP 실측 8신호로 증명했지만, **KR·US에서 실제 신호가 나온 것은 아직 아니다**.
 3. **UP 8신호는 catch-up(90분 과거 시작)** 이다. `staleness_sec` 3,300~5,100초를 그대로 남겼고, 사전포착 통계에 넣지 않았다. 이 8건으로 전략 성과를 말하지 않는다.
 4. **`SUPPLY_F5` 가설은 미측정**이다(공표 후 커버리지 부족). 0으로 채우지 않았다.
