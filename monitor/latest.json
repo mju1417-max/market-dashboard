@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "generated_at": "2026-11-20T22:20:17+09:00",
+ "generated_at": "2026-11-20T22:25:14+09:00",
  "note": "Public, de-identified collaboration snapshot. No credentials, personal data, or raw DB.",
  "totals": {
   "symbols": 5534,
@@ -19,11 +19,11 @@
    "symbols": 302,
    "universe": 302,
    "last_candle": "2026-11-20T22:02:00",
-   "collector_last_run_at": "2026-11-20T22:18:06",
+   "collector_last_run_at": "2026-11-20T22:23:09",
    "collector_errors": 0,
    "candles_1m_query": "COUNT(*)",
-   "candles_1m_saved": 1536786,
-   "candle_count_delta": 17647
+   "candles_1m_saved": 1537125,
+   "candle_count_delta": 17308
   },
   "kr": {
    "label": "한국주식 (KOSPI·KOSDAQ)",
@@ -47,11 +47,11 @@
    "symbols": 2076,
    "universe": 2077,
    "last_candle": "2026-11-20T22:06:13",
-   "collector_last_run_at": "2026-11-20T22:18:04",
+   "collector_last_run_at": "2026-11-20T22:23:09",
    "collector_errors": 0,
    "candles_1m_query": "COUNT(*)",
-   "candles_1m_saved": 4589470,
-   "candle_count_delta": -1011
+   "candles_1m_saved": 4589981,
+   "candle_count_delta": -1522
   }
  },
  "forward_tracks": {
@@ -65,7 +65,7 @@
    "losses": 0,
    "win_rate": 100.0,
    "sum_pnl_pct": 4.895,
-   "last_run_at": "2026-11-20T22:18:36"
+   "last_run_at": "2026-11-20T22:23:41"
   },
   "US_GEN16": {
    "label": "미국주식 2세대 GEN16",
@@ -77,7 +77,7 @@
    "losses": 3,
    "win_rate": 70.0,
    "sum_pnl_pct": 16.064,
-   "last_run_at": "2026-11-20T22:18:36"
+   "last_run_at": "2026-11-20T22:23:42"
   },
   "KR_VCP": {
    "label": "한국주식 VCP 돌파",
@@ -101,7 +101,7 @@
    "losses": 0,
    "win_rate": null,
    "sum_pnl_pct": 0.0,
-   "last_run_at": "2026-11-20T22:15:51"
+   "last_run_at": "2026-11-20T22:20:26"
   },
   "UP_ZVOL_GATE": {
    "label": "업비트 거래대금 Z 게이트",
@@ -113,7 +113,7 @@
    "losses": 12,
    "win_rate": 40.0,
    "sum_pnl_pct": -8.85,
-   "last_run_at": "2026-11-20T22:19:51"
+   "last_run_at": "2026-11-20T22:25:00"
   },
   "UPBIT_GEN3": {
    "label": "업비트 3세대 GEN3 (Shadow)",
@@ -125,7 +125,7 @@
    "losses": 173,
    "win_rate": 43.6,
    "sum_pnl_pct": -61.609,
-   "last_run_at": "2026-11-20T22:19:58"
+   "last_run_at": "2026-11-20T22:25:06"
   },
   "UPBIT_GEN2": {
    "label": "업비트 2세대 GEN2",
@@ -137,14 +137,14 @@
    "losses": 0,
    "win_rate": null,
    "sum_pnl_pct": 0.0,
-   "last_run_at": "2026-11-20T22:19:55"
+   "last_run_at": "2026-11-20T22:25:04"
   }
  },
  "candle_count_audit": {
   "upbit": {
    "db_file": "upbit_1m.db",
-   "db_size": 242704384,
-   "db_mtime": 1795180732,
+   "db_size": 242782208,
+   "db_mtime": 1795181035,
    "universe_def": "fetch_log rows (감시 종목 1행/종목)",
    "bars_query": "SELECT COUNT(*) FROM candles_1m",
    "saved_query": "SELECT COALESCE(SUM(candles_saved),0) FROM fetch_log",
@@ -154,12 +154,12 @@
     "first": "2026-11-09T07:02:00",
     "last": "2026-11-20T22:02:00",
     "mode": "ro",
-    "seconds": 0.01,
+    "seconds": 0.0,
     "at": 1795180094.4104788,
     "cached": true,
-    "age_s": 721.2
+    "age_s": 1018.9
    },
-   "generated_at": "2026-11-20T22:20:15+09:00"
+   "generated_at": "2026-11-20T22:25:13+09:00"
   },
   "kr": {
    "db_file": "kr_1m.db",
@@ -177,14 +177,14 @@
     "seconds": 0.0,
     "at": 1795180097.51233,
     "cached": true,
-    "age_s": 718.1
+    "age_s": 1015.9
    },
-   "generated_at": "2026-11-20T22:20:15+09:00"
+   "generated_at": "2026-11-20T22:25:13+09:00"
   },
   "us": {
    "db_file": "us_1m.db",
-   "db_size": 442859520,
-   "db_mtime": 1795180716,
+   "db_size": 442900480,
+   "db_mtime": 1795181021,
    "universe_def": "fetch_log rows (감시 종목 1행/종목)",
    "bars_query": "SELECT COUNT(*) FROM candles_1m",
    "saved_query": "SELECT COALESCE(SUM(candles_saved),0) FROM fetch_log",
@@ -197,20 +197,20 @@
     "seconds": 0.0,
     "at": 1795180102.5160892,
     "cached": true,
-    "age_s": 713.2
+    "age_s": 1010.9
    },
-   "generated_at": "2026-11-20T22:20:15+09:00"
+   "generated_at": "2026-11-20T22:25:13+09:00"
   }
  },
  "research": {
-  "generated_at": "2026-11-20T22:01:01+09:00",
+  "generated_at": "2026-11-20T22:25:08+09:00",
   "schema": 2,
   "note": "시장별 연구 상태(Ⅴ.2). null 은 미구현·미측정이며 status_fields 에 사유가 있다. 절대경로·비밀·개인정보 없음.",
   "markets": {
    "upbit": {
-    "data_cutoff": "2026-11-20T21:57",
+    "data_cutoff": "2026-11-20T22:22",
     "last_complete_session": "2026-11-20",
-    "candle_count": 1535583,
+    "candle_count": 1537125,
     "universe": 302,
     "source_id": "upbit_1m.db",
     "collector_errors": 0,
@@ -221,7 +221,7 @@
     "last_error_at": null,
     "candidate_count": 0,
     "frozen_count": 0,
-    "shadow_signals_measured": 377,
+    "shadow_signals_measured": 379,
     "shadow_signals_estimated": null,
     "labelled": 0,
     "tp": null,
@@ -235,12 +235,12 @@
     "forward_tracks": [
      {
       "track": "UPBIT_GEN3",
-      "closed": 305,
-      "wins": 132,
+      "closed": 307,
+      "wins": 134,
       "win_rate": null,
       "open": null,
-      "signals": 357,
-      "last_run_at": "2026-11-20T22:00:14"
+      "signals": 359,
+      "last_run_at": "2026-11-20T22:25:06"
      },
      {
       "track": "UP_ZVOL_GATE",
@@ -249,7 +249,7 @@
       "win_rate": null,
       "open": null,
       "signals": 20,
-      "last_run_at": "2026-11-20T22:00:11"
+      "last_run_at": "2026-11-20T22:25:00"
      },
      {
       "track": "UPBIT_GEN2",
@@ -258,10 +258,10 @@
       "win_rate": null,
       "open": null,
       "signals": 0,
-      "last_run_at": "2026-11-20T22:00:12"
+      "last_run_at": "2026-11-20T22:25:04"
      }
     ],
-    "forward_closed": 325,
+    "forward_closed": 327,
     "lab": {
      "experiment_id": null,
      "data_cutoff": null,
@@ -277,7 +277,7 @@
      "price_gain_error": "not_measured: 상승폭 절대오차 미산출",
      "latency": "not_measured: 결정 지연(수신-사건) 미집계"
     },
-    "updated_at": "2026-11-20T22:01:01+09:00",
+    "updated_at": "2026-11-20T22:25:08+09:00",
     "generation": "UP-G003",
     "status": "rotation:no_new_data",
     "last_error": null,
@@ -292,7 +292,7 @@
     "collector_errors": 5,
     "generation_id": "lab_KR_20261120_3f1a339d",
     "research_status": "daily_track_active",
-    "last_success": "2026-11-20T22:00:48+09:00",
+    "last_success": "2026-11-20T22:20:26+09:00",
     "last_error_type": null,
     "last_error_at": null,
     "candidate_count": 1344187,
@@ -307,16 +307,16 @@
     "uplift_vs_baseline": null,
     "price_gain_error": null,
     "latency": null,
-    "code_sha": "8810a10518f7",
+    "code_sha": "186de7aceca6",
     "forward_tracks": [
      {
       "track": "KR_S16",
       "closed": 0,
       "wins": 0,
       "win_rate": null,
-      "open": 9,
+      "open": 3,
       "signals": 304,
-      "last_run_at": "2026-11-20T22:00:48+09:00"
+      "last_run_at": "2026-11-20T22:20:26+09:00"
      },
      {
       "track": "KR_VCP",
@@ -340,7 +340,7 @@
       "data_gate": "complete",
       "coverage": null,
       "gap_dates": null,
-      "open": 9,
+      "open": 3,
       "pending": 58
      },
      "KR_VCP": {
@@ -363,16 +363,16 @@
      "price_gain_error": "not_measured",
      "latency": "not_measured"
     },
-    "updated_at": "2026-11-20T22:01:01+09:00",
+    "updated_at": "2026-11-20T22:25:08+09:00",
     "generation": "lab_KR_20261120_3f1a339d",
     "status": "daily_track_active",
     "last_error": null,
     "shadow_signals_historical": null
    },
    "us": {
-    "data_cutoff": "2026-11-20T21:57+09:00",
+    "data_cutoff": "2026-11-20T22:22+09:00",
     "last_complete_session": "2026-11-19",
-    "candle_count": 4587501,
+    "candle_count": 4589981,
     "universe": 2077,
     "source_id": "us_1m.db",
     "collector_errors": 0,
@@ -460,7 +460,7 @@
       "win_rate": null,
       "open": null,
       "signals": 13,
-      "last_run_at": "2026-11-20T21:58:53"
+      "last_run_at": "2026-11-20T22:23:42"
      },
      {
       "track": "US_WAVE",
@@ -469,7 +469,7 @@
       "win_rate": null,
       "open": null,
       "signals": 1,
-      "last_run_at": "2026-11-20T21:58:52"
+      "last_run_at": "2026-11-20T22:23:41"
      }
     ],
     "forward_closed": 11,
@@ -480,14 +480,14 @@
      "price_gain_error": "not_measured",
      "latency": "not_measured"
     },
-    "updated_at": "2026-11-20T22:01:01+09:00",
+    "updated_at": "2026-11-20T22:25:08+09:00",
     "generation": "lab_US_20261119_11d1253a",
     "status": "lab_complete",
     "last_error": null,
     "shadow_signals_historical": null
    }
   },
-  "_cache_age_s": 1152.3
+  "_cache_age_s": 1.7
  },
  "research_source": "argument"
 }
