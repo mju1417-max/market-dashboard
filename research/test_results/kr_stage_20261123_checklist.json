@@ -1,0 +1,57 @@
+{
+ "target_trading_day": "2026-11-23",
+ "items": [
+  {
+   "id": "K1",
+   "area": "KR stage",
+   "check": "surge_stage --stage status → stage=PUBLISHED, experiment_id 의 data_cutoff=2026-11-23, units 전부 done, published.sha256 기록"
+  },
+  {
+   "id": "K2",
+   "area": "KR stage",
+   "check": "게시본 generation 29 의 promotion 블록 — OOS ev>0·pos_days>=1 이 아니면 promoted=false 유지(음수 승격 금지)"
+  },
+  {
+   "id": "K3",
+   "area": "KR stage",
+   "check": "중간 취소 재개 — 회차가 40초에서 끊겼을 때 다음 회차가 같은 체크포인트에서 이어지고 feature chunk seq 가 중복되지 않는지"
+  },
+  {
+   "id": "K4",
+   "area": "KR stage",
+   "check": "원자적 게시 — .tmp 잔여 0, 재독 generation 일치, 정본 mtime 1회 갱신"
+  },
+  {
+   "id": "K5",
+   "area": "KR_S16",
+   "check": "11-20 신호의 11-23 체결 — decision_at(11-20 20:54) <= 체결가(11-23 15:30), stats.prospective.entries=3, buckets.prospective_forward=3, initialization_replay=3 유지"
+  },
+  {
+   "id": "K6",
+   "area": "KR_S16 수급",
+   "check": "11-23 새 수급 행에 first_available_at 이 실제로 찍혀 availability.exact>0 이 되는지(같은 날 미증명 행 가드 통과 여부)"
+  },
+  {
+   "id": "K7",
+   "area": "KR_VCP",
+   "check": "11-23 일봉 커버리지·지어소프트 중복 진입 없음"
+  },
+  {
+   "id": "K8",
+   "area": "rotation",
+   "check": "11-23 회차 recollection_ledger 에 observed/available/evaluated 3시각과 retroactive_grading=0 기록"
+  },
+  {
+   "id": "K9",
+   "area": "monitor",
+   "check": "monitor/latest.json 의 KR forward_entries=3, forward_closed=0(20거래일 뒤 청산), research_shadow KR 는 registered_no_signal 유지"
+  },
+  {
+   "id": "K10",
+   "area": "성과 분리",
+   "check": "gen 28 은 계속 promoted=false — 어떤 소비자도 전진검증·알림에 연결하지 않았는지"
+  }
+ ],
+ "prepared_at": "2026-11-20T23:09:20+09:00",
+ "note": "11-23 완결 거래일 예약 구동 때 이 항목을 순서대로 확인한다."
+}
