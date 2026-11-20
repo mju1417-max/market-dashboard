@@ -2,7 +2,7 @@
  "schema": 1,
  "kind": "project_inventory",
  "inventory_version": "34.1",
- "generated_at": "2026-11-21T04:02:58+09:00",
+ "generated_at": "2026-11-21T04:04:59+09:00",
  "source_of_truth": {
   "live_status": "monitor/latest.json (5분 갱신) — 이 인덱스의 수치는 생성 시점 스냅숏",
   "live_monitor_generated_at": "2026-11-21T03:40:05+09:00",
@@ -41,8 +41,8 @@
    "blocked": 0
   },
   "by_visibility": {
-   "public_synced": 4,
-   "partial_summary_only": 34,
+   "public_synced": 3,
+   "partial_summary_only": 35,
    "local_only_not_published": 13
   },
   "missing_docs_total": 51,
@@ -54,8 +54,8 @@
   },
   "missing_items_total": 10,
   "scheduled_actions_total": 11,
-  "handoffs_total": 59,
-  "handoffs_running": 2,
+  "handoffs_total": 60,
+  "handoffs_running": 3,
   "research_modules_total": 126
  },
  "items": [
@@ -73,8 +73,8 @@
      "path": "scheduled-actions/📈-업비트-모의투자-분석/check.sh",
      "exists": true,
      "kind": "file",
-     "size_kb": 35.4,
-     "mtime": "2026-11-21T00:30:56+09:00"
+     "size_kb": 37.4,
+     "mtime": "2026-11-21T04:04:30+09:00"
     },
     {
      "path": "scheduled-actions/📈-업비트-모의투자-분석/analyze_1m.py",
@@ -87,15 +87,15 @@
      "path": "scheduled-actions/📈-업비트-모의투자-분석/state/upbit_1m.db",
      "exists": true,
      "kind": "file",
-     "size_kb": 242392.0,
-     "mtime": "2026-11-21T03:58:50+09:00"
+     "size_kb": 242456.0,
+     "mtime": "2026-11-21T04:04:06+09:00"
     },
     {
      "path": "scheduled-actions/📈-업비트-모의투자-분석/state/portfolio.json",
      "exists": true,
      "kind": "file",
      "size_kb": 9.6,
-     "mtime": "2026-11-21T03:58:50+09:00"
+     "mtime": "2026-11-21T04:04:06+09:00"
     }
    ],
    "published_paths": [
@@ -131,14 +131,14 @@
    },
    "owner": null,
    "missing_sources": [],
-   "updated_at": "2026-11-21T03:58:50+09:00",
+   "updated_at": "2026-11-21T04:04:30+09:00",
    "scheduled_action": {
     "folder": "📈-업비트-모의투자-분석",
     "schedule": [
      "interval 5m"
     ],
     "paused": false,
-    "last_started_run_at": "2026-11-20T18:57:45.210141Z",
+    "last_started_run_at": "2026-11-20T19:02:45.210141Z",
     "check_fail_count": 0,
     "check_failure_generation": 8
    }
@@ -157,8 +157,8 @@
      "path": "scheduled-actions/🇰🇷-한국주식-패턴-분석/check.sh",
      "exists": true,
      "kind": "file",
-     "size_kb": 30.7,
-     "mtime": "2026-11-20T20:14:47+09:00"
+     "size_kb": 32.4,
+     "mtime": "2026-11-21T04:04:30+09:00"
     },
     {
      "path": "scheduled-actions/🇰🇷-한국주식-패턴-분석/state/kr_1m.db",
@@ -216,7 +216,7 @@
    },
    "owner": null,
    "missing_sources": [],
-   "updated_at": "2026-11-20T23:55:48+09:00",
+   "updated_at": "2026-11-21T04:04:30+09:00",
    "scheduled_action": {
     "folder": "🇰🇷-한국주식-패턴-분석",
     "schedule": [
@@ -242,15 +242,15 @@
      "path": "scheduled-actions/🇺🇸-미국주식-패턴-분석/check.sh",
      "exists": true,
      "kind": "file",
-     "size_kb": 30.6,
-     "mtime": "2026-11-19T07:15:38+09:00"
+     "size_kb": 32.2,
+     "mtime": "2026-11-21T04:04:30+09:00"
     },
     {
      "path": "scheduled-actions/🇺🇸-미국주식-패턴-분석/state/us_1m.db",
      "exists": true,
      "kind": "file",
-     "size_kb": 471368.0,
-     "mtime": "2026-11-21T03:58:41+09:00"
+     "size_kb": 472096.0,
+     "mtime": "2026-11-21T04:03:57+09:00"
     },
     {
      "path": "scheduled-actions/🇺🇸-미국주식-패턴-분석/state/us_universe.json",
@@ -294,14 +294,14 @@
    },
    "owner": null,
    "missing_sources": [],
-   "updated_at": "2026-11-21T03:58:41+09:00",
+   "updated_at": "2026-11-21T04:04:30+09:00",
    "scheduled_action": {
     "folder": "🇺🇸-미국주식-패턴-분석",
     "schedule": [
      "interval 5m"
     ],
     "paused": false,
-    "last_started_run_at": "2026-11-20T18:57:45.641426Z",
+    "last_started_run_at": "2026-11-20T19:02:45.641426Z",
     "check_fail_count": 0,
     "check_failure_generation": 3
    }
@@ -712,8 +712,8 @@
      "path": "scheduled-actions/🇺🇸-미국주식-패턴-분석/state/forward_trades_gen16.json",
      "exists": true,
      "kind": "file",
-     "size_kb": 192.4,
-     "mtime": "2026-11-21T03:58:48+09:00"
+     "size_kb": 193.0,
+     "mtime": "2026-11-21T04:04:04+09:00"
     }
    ],
    "published_paths": [
@@ -751,14 +751,14 @@
    },
    "owner": null,
    "missing_sources": [],
-   "updated_at": "2026-11-21T03:58:48+09:00",
+   "updated_at": "2026-11-21T04:04:04+09:00",
    "scheduled_action": {
     "folder": "🇺🇸-미국주식-패턴-분석",
     "schedule": [
      "interval 5m"
     ],
     "paused": false,
-    "last_started_run_at": "2026-11-20T18:57:45.641426Z",
+    "last_started_run_at": "2026-11-20T19:02:45.641426Z",
     "check_fail_count": 0,
     "check_failure_generation": 3
    }
@@ -845,7 +845,7 @@
      "interval 5m"
     ],
     "paused": false,
-    "last_started_run_at": "2026-11-20T18:57:45.641426Z",
+    "last_started_run_at": "2026-11-20T19:02:45.641426Z",
     "check_fail_count": 0,
     "check_failure_generation": 3
    }
@@ -1345,8 +1345,8 @@
      "path": "research/production_connected.py",
      "exists": true,
      "kind": "file",
-     "size_kb": 39.3,
-     "mtime": "2026-11-21T04:02:52+09:00"
+     "size_kb": 44.7,
+     "mtime": "2026-11-21T04:03:10+09:00"
     },
     {
      "path": "research/verify_production_connected_20261120.py",
@@ -1389,7 +1389,7 @@
    "live": null,
    "owner": null,
    "missing_sources": [],
-   "updated_at": "2026-11-21T04:02:52+09:00",
+   "updated_at": "2026-11-21T04:03:10+09:00",
    "scheduled_action": {
     "folder": "🔬-자가발전-패턴-연구",
     "schedule": [
@@ -1473,7 +1473,7 @@
      "interval 5m"
     ],
     "paused": false,
-    "last_started_run_at": "2026-11-20T18:59:14.963349Z",
+    "last_started_run_at": "2026-11-20T19:04:14.963349Z",
     "check_fail_count": 0,
     "check_failure_generation": 0
    }
@@ -2604,8 +2604,8 @@
      "path": "scheduled-actions/📈-업비트-모의투자-분석/state/upbit_1m.db",
      "exists": true,
      "kind": "file",
-     "size_kb": 242392.0,
-     "mtime": "2026-11-21T03:58:50+09:00"
+     "size_kb": 242456.0,
+     "mtime": "2026-11-21T04:04:06+09:00"
     },
     {
      "path": "scheduled-actions/🇰🇷-한국주식-패턴-분석/state/kr_1m.db",
@@ -2618,8 +2618,8 @@
      "path": "scheduled-actions/🇺🇸-미국주식-패턴-분석/state/us_1m.db",
      "exists": true,
      "kind": "file",
-     "size_kb": 471368.0,
-     "mtime": "2026-11-21T03:58:41+09:00"
+     "size_kb": 472096.0,
+     "mtime": "2026-11-21T04:03:57+09:00"
     },
     {
      "path": "research/history_data.db",
@@ -2663,7 +2663,7 @@
    "live": null,
    "owner": null,
    "missing_sources": [],
-   "updated_at": "2026-11-21T03:58:50+09:00"
+   "updated_at": "2026-11-21T04:04:06+09:00"
   },
   {
    "id": "dash.export_status",
@@ -2679,8 +2679,8 @@
      "path": "research/export_dashboard_json.py",
      "exists": true,
      "kind": "file",
-     "size_kb": 26.7,
-     "mtime": "2026-11-21T03:12:23+09:00"
+     "size_kb": 27.2,
+     "mtime": "2026-11-21T04:04:03+09:00"
     },
     {
      "path": "research/push_dashboard_api.py",
@@ -2716,7 +2716,7 @@
    "live": null,
    "owner": null,
    "missing_sources": [],
-   "updated_at": "2026-11-21T03:12:23+09:00"
+   "updated_at": "2026-11-21T04:04:03+09:00"
   },
   {
    "id": "dash.monitor_research",
@@ -2732,8 +2732,8 @@
      "path": "research/monitor_research_20261120.py",
      "exists": true,
      "kind": "file",
-     "size_kb": 40.6,
-     "mtime": "2026-11-20T23:06:49+09:00"
+     "size_kb": 44.9,
+     "mtime": "2026-11-21T04:03:38+09:00"
     },
     {
      "path": "research/build_three_market_summary_20261120.py",
@@ -2763,7 +2763,7 @@
    "live": null,
    "owner": null,
    "missing_sources": [],
-   "updated_at": "2026-11-20T23:06:49+09:00"
+   "updated_at": "2026-11-21T04:03:38+09:00"
   },
   {
    "id": "dash.collab_ledger",
@@ -2779,8 +2779,8 @@
      "path": "research/collab_ledger.py",
      "exists": true,
      "kind": "file",
-     "size_kb": 17.6,
-     "mtime": "2026-11-20T23:25:33+09:00"
+     "size_kb": 18.7,
+     "mtime": "2026-11-21T04:03:41+09:00"
     },
     {
      "path": "research/build_collab_ledger_20261120.py",
@@ -2841,7 +2841,7 @@
    "live": null,
    "owner": null,
    "missing_sources": [],
-   "updated_at": "2026-11-20T23:25:33+09:00"
+   "updated_at": "2026-11-21T04:03:41+09:00"
   },
   {
    "id": "dash.project_inventory",
@@ -2857,8 +2857,8 @@
      "path": "research/project_inventory.py",
      "exists": true,
      "kind": "file",
-     "size_kb": 98.5,
-     "mtime": "2026-11-21T04:02:58+09:00"
+     "size_kb": 113.0,
+     "mtime": "2026-11-21T04:04:56+09:00"
     }
    ],
    "published_paths": [
@@ -2878,10 +2878,10 @@
      "path": "research/reports/gpt_34th_project_inventory_20261121.md",
      "on_remote": true,
      "files_on_remote": null,
-     "size_kb": 23.5
+     "size_kb": 23.8
     }
    ],
-   "github_visibility": "public_synced",
+   "github_visibility": "partial_summary_only",
    "visibility_note": "",
    "latest_commit": "605a9b5",
    "verification_status": "이 회차에서 생성·게시(raw 200·JSON 파싱·비밀 스캔 0건).",
@@ -2893,7 +2893,7 @@
    "live": null,
    "owner": null,
    "missing_sources": [],
-   "updated_at": "2026-11-21T04:02:58+09:00"
+   "updated_at": "2026-11-21T04:04:56+09:00"
   },
   {
    "id": "tg.reporter",
@@ -2916,8 +2916,8 @@
      "path": "scheduled-actions/📈-업비트-모의투자-분석/check.sh",
      "exists": true,
      "kind": "file",
-     "size_kb": 35.4,
-     "mtime": "2026-11-21T00:30:56+09:00"
+     "size_kb": 37.4,
+     "mtime": "2026-11-21T04:04:30+09:00"
     }
    ],
    "published_paths": [
@@ -2941,14 +2941,14 @@
    "live": null,
    "owner": null,
    "missing_sources": [],
-   "updated_at": "2026-11-21T00:30:56+09:00",
+   "updated_at": "2026-11-21T04:04:30+09:00",
    "scheduled_action": {
     "folder": "📈-업비트-모의투자-분석",
     "schedule": [
      "interval 5m"
     ],
     "paused": false,
-    "last_started_run_at": "2026-11-20T18:57:45.210141Z",
+    "last_started_run_at": "2026-11-20T19:02:45.210141Z",
     "check_fail_count": 0,
     "check_failure_generation": 8
    }
@@ -3004,7 +3004,7 @@
      "interval 5m"
     ],
     "paused": false,
-    "last_started_run_at": "2026-11-20T18:57:45.210141Z",
+    "last_started_run_at": "2026-11-20T19:02:45.210141Z",
     "check_fail_count": 0,
     "check_failure_generation": 8
    }
@@ -3023,7 +3023,7 @@
      "path": "handoffs",
      "exists": true,
      "kind": "dir",
-     "files": 197
+     "files": 200
     }
    ],
    "published_paths": [],
@@ -3039,7 +3039,7 @@
    "live": null,
    "owner": null,
    "missing_sources": [],
-   "updated_at": "2026-11-21T04:02:58+09:00"
+   "updated_at": "2026-11-21T04:04:59+09:00"
   },
   {
    "id": "gov.verification_harness",
@@ -3210,7 +3210,7 @@
    "missing_sources": [
     "research/gpt_31st_p0_report_20261120.md"
    ],
-   "updated_at": "2026-11-21T04:02:58+09:00"
+   "updated_at": "2026-11-21T04:04:59+09:00"
   },
   {
    "id": "gov.heartbeat",
@@ -3948,8 +3948,8 @@
    "paused": false,
    "check_sh": true,
    "check_sh_kb": 3.1,
-   "next_run_at": "2026-11-20T19:04:14.963349Z",
-   "last_started_run_at": "2026-11-20T18:59:14.963349Z",
+   "next_run_at": "2026-11-20T19:09:14.963349Z",
+   "last_started_run_at": "2026-11-20T19:04:14.963349Z",
    "check_fail_count": 0,
    "check_failure_generation": 0
   },
@@ -3961,7 +3961,7 @@
    ],
    "paused": false,
    "check_sh": true,
-   "check_sh_kb": 30.7,
+   "check_sh_kb": 32.4,
    "next_run_at": "2026-11-20T19:05:09.170030Z",
    "last_started_run_at": "2026-11-20T19:00:09.170030Z",
    "check_fail_count": 0,
@@ -3975,9 +3975,9 @@
    ],
    "paused": false,
    "check_sh": true,
-   "check_sh_kb": 30.6,
-   "next_run_at": "2026-11-20T19:02:45.641426Z",
-   "last_started_run_at": "2026-11-20T18:57:45.641426Z",
+   "check_sh_kb": 32.2,
+   "next_run_at": "2026-11-20T19:07:45.641426Z",
+   "last_started_run_at": "2026-11-20T19:02:45.641426Z",
    "check_fail_count": 0,
    "check_failure_generation": 3
   },
@@ -4003,9 +4003,9 @@
    ],
    "paused": false,
    "check_sh": true,
-   "check_sh_kb": 35.4,
-   "next_run_at": "2026-11-20T19:02:45.210141Z",
-   "last_started_run_at": "2026-11-20T18:57:45.210141Z",
+   "check_sh_kb": 37.4,
+   "next_run_at": "2026-11-20T19:07:45.210141Z",
+   "last_started_run_at": "2026-11-20T19:02:45.210141Z",
    "check_fail_count": 0,
    "check_failure_generation": 8
   },
@@ -4053,21 +4053,27 @@
   }
  ],
  "handoffs": {
-  "total": 59,
+  "total": 60,
   "done": 57,
-  "running": 2,
+  "running": 3,
   "recent": [
    {
     "id": "📋-34차-전체-프로젝트-인덱스-github-공유-체계-구축",
     "state": "running",
     "created_at": "2026-11-20T18:54:58.370280Z",
-    "updated_at": "2026-11-20T19:02:58.061176Z"
+    "updated_at": "2026-11-20T19:04:59.678729Z"
+   },
+   {
+    "id": "🔎-38차-실태감사-12항목-활용률-실패원장-level1-3",
+    "state": "running",
+    "created_at": "2026-11-20T19:04:23.528163Z",
+    "updated_at": "2026-11-20T19:04:59.341417Z"
    },
    {
     "id": "🛠️-31차-독립검증-p0-인과-분할-shadow-p1-4종",
     "state": "running",
     "created_at": "2026-11-20T18:47:15.452856Z",
-    "updated_at": "2026-11-20T19:02:52.819808Z"
+    "updated_at": "2026-11-20T19:04:57.103909Z"
    }
   ]
  },
@@ -4148,7 +4154,7 @@
    },
    {
     "file": "research/collab_ledger.py",
-    "kb": 17.6,
+    "kb": 18.7,
     "category": "인프라·게시",
     "doc": "GitHub 협업 원장(monitor/·coordination/·research/) 게시 도구 — 27차 Ⅲ장."
    },
@@ -4196,7 +4202,7 @@
    },
    {
     "file": "research/export_dashboard_json.py",
-    "kb": 26.7,
+    "kb": 27.2,
     "category": "인프라·게시",
     "doc": "Public dashboard snapshot exporter."
    },
@@ -4412,7 +4418,7 @@
    },
    {
     "file": "research/monitor_research_20261120.py",
-    "kb": 40.6,
+    "kb": 44.9,
     "category": "인프라·게시",
     "doc": "research/monitor_research_20261120.py — monitor/latest.json 의 `research` 3시장 문서 (schema 3)."
    },
@@ -4490,13 +4496,13 @@
    },
    {
     "file": "research/production_connected.py",
-    "kb": 39.3,
+    "kb": 44.7,
     "category": "연구 엔진",
     "doc": "research/production_connected.py — 30차 P1-E: **운영 스케줄에 실제로 연결된** 3시장 자기발전."
    },
    {
     "file": "research/project_inventory.py",
-    "kb": 98.5,
+    "kb": 113.0,
     "category": "게시·요약",
     "doc": "research/project_inventory.py — 전 프로젝트 중앙 인덱스 (GPT 제34차 지시 이행)."
    },
@@ -5036,5 +5042,14 @@
     ]
    }
   ]
+ },
+ "state_fingerprint": "8a7f70db47154992",
+ "fingerprint_sections": {
+  "registry": "21d638c781549c3d",
+  "actions": "707381f7a61cc7c4",
+  "modules": "cc3a72738931050e",
+  "docs": "703510fb9552ce2a",
+  "handoffs": "2afcd2a621f84180",
+  "sources_present": "79ee0736e5595831"
  }
 }
