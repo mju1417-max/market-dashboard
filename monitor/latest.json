@@ -1,19 +1,19 @@
 {
  "schema": 3,
- "generated_at": "2026-11-21T03:11:38+09:00",
+ "generated_at": "2026-11-21T03:12:36+09:00",
  "note": "Public, de-identified collaboration snapshot. No credentials, personal data, or raw DB. schema 3: forward_signals_observed(전진검증)와 research_shadow_signals_prospective(연구 Shadow)를 분리했고, shadow_signals_measured·candidate_count 는 null(deprecated)이다.",
  "totals": {
   "symbols": 5613,
   "candles_1m": 11216449,
   "surges_ge5": 676,
   "forward_closed": 398,
-  "forward_wins": 169,
+  "forward_wins": 172,
   "forward_signals": 761,
   "forward_tracks_signals_sum": 761,
-  "forward_tracks_closed_sum": 404,
+  "forward_tracks_closed_sum": 410,
   "totals_source": "monitor/latest.json:forward_tracks",
   "forward_signals_observed": 761,
-  "forward_wins_from_tracks": 169,
+  "forward_wins_from_tracks": 172,
   "research_shadow_signals_prospective": 35,
   "research_shadow_labelled": 29,
   "research_shadow_tp": 2,
@@ -21,7 +21,7 @@
   "research_shadow_censored": 3,
   "forward_research_delta": {
    "signals": 0,
-   "closed": 6
+   "closed": 12
   },
   "forward_research_consistent": true,
   "forward_split_by_market": {
@@ -466,7 +466,7 @@
    "losses": 14,
    "win_rate": 36.4,
    "sum_pnl_pct": -12.295,
-   "last_run_at": "2026-11-21T03:09:50",
+   "last_run_at": "2026-11-21T03:12:29",
    "buckets": null,
    "ledger_version": null
   },
@@ -475,12 +475,12 @@
    "market": "upbit",
    "signals": 405,
    "entries": 386,
-   "closed": 357,
-   "wins": 153,
-   "losses": 204,
-   "win_rate": 42.9,
-   "sum_pnl_pct": -93.883,
-   "last_run_at": "2026-11-21T03:09:55",
+   "closed": 363,
+   "wins": 156,
+   "losses": 207,
+   "win_rate": 43.0,
+   "sum_pnl_pct": -97.027,
+   "last_run_at": "2026-11-21T03:12:32",
    "buckets": null,
    "ledger_version": null
   },
@@ -494,7 +494,7 @@
    "losses": 0,
    "win_rate": null,
    "sum_pnl_pct": 0.0,
-   "last_run_at": "2026-11-21T03:09:54",
+   "last_run_at": "2026-11-21T03:12:30",
    "buckets": null,
    "ledger_version": null
   }
@@ -513,9 +513,12 @@
     "first": "2026-11-09T07:02:00",
     "last": "2026-11-21T03:06:00",
     "mode": "ro",
-    "seconds": 12.63
+    "seconds": 0.0,
+    "at": 1795198245.9302561,
+    "cached": true,
+    "age_s": 108.9
    },
-   "generated_at": "2026-11-21T03:10:33+09:00"
+   "generated_at": "2026-11-21T03:12:34+09:00"
   },
   "kr": {
    "db_file": "kr_1m.db",
@@ -530,9 +533,12 @@
     "first": "2026-11-10T09:00:00",
     "last": "2026-11-20T15:44:00",
     "mode": "ro",
-    "seconds": 2.38
+    "seconds": 0.0,
+    "at": 1795198248.3504617,
+    "cached": true,
+    "age_s": 106.5
    },
-   "generated_at": "2026-11-21T03:10:45+09:00"
+   "generated_at": "2026-11-21T03:12:34+09:00"
   },
   "us": {
    "db_file": "us_1m.db",
@@ -547,9 +553,12 @@
     "first": "2026-11-09T23:30:00",
     "last": "2026-11-21T03:06:57",
     "mode": "ro",
-    "seconds": 50.23
+    "seconds": 0.0,
+    "at": 1795198298.6316736,
+    "cached": true,
+    "age_s": 56.2
    },
-   "generated_at": "2026-11-21T03:10:48+09:00"
+   "generated_at": "2026-11-21T03:12:34+09:00"
   }
  },
  "research": {
