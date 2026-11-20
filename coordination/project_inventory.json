@@ -2,7 +2,7 @@
  "schema": 1,
  "kind": "project_inventory",
  "inventory_version": "34.1",
- "generated_at": "2026-11-21T04:07:37+09:00",
+ "generated_at": "2026-11-21T04:09:32+09:00",
  "source_of_truth": {
   "live_status": "monitor/latest.json (5분 갱신) — 이 인덱스의 수치는 생성 시점 스냅숏",
   "live_monitor_generated_at": "2026-11-21T03:40:05+09:00",
@@ -40,16 +40,24 @@
    "dormant": 2,
    "blocked": 0
   },
+  "by_automation": {
+   "python_only": 42,
+   "python_alert_fallback": 1,
+   "python_with_ai_daily": 3,
+   "ai_required": 5
+  },
+  "ai_free_items": 46,
+  "ai_required_items": 5,
   "by_visibility": {
    "public_synced": 4,
    "partial_summary_only": 34,
    "local_only_not_published": 13
   },
-  "missing_docs_total": 51,
+  "missing_docs_total": 54,
   "missing_docs_by_class": {
    "internal_doc": 16,
-   "round_report": 21,
-   "research_artifact": 4,
+   "round_report": 23,
+   "research_artifact": 5,
    "in_flight_31st": 10
   },
   "missing_items_total": 10,
@@ -64,6 +72,11 @@
    "name": "🪙 업비트 5분 수집기 + 모의투자 정산",
    "category": "collector",
    "market": "UP",
+   "automation": {
+    "level": "python_with_ai_daily",
+    "label": "파이썬 + 하루 1회 AI",
+    "ai_calls_note": "수집·모의투자·텔레그램 직송은 파이썬. 하루 1회 마감 결산만 AI"
+   },
    "status": "running",
    "priority": "P0",
    "purpose": "업비트 KRW 마켓 전체 1분봉 5분 수집·급등 직전 패턴 스냅숏·모의투자(종목당 가상 100만원, +5% 익절/-3% 손절/24h 만기) 정산. 30분 정기·+5% 속보·체결 알림은 파이썬 텔레그램 직송(AI 호출 0).",
@@ -87,15 +100,15 @@
      "path": "scheduled-actions/📈-업비트-모의투자-분석/state/upbit_1m.db",
      "exists": true,
      "kind": "file",
-     "size_kb": 242456.0,
-     "mtime": "2026-11-21T04:04:06+09:00"
+     "size_kb": 242760.0,
+     "mtime": "2026-11-21T04:08:45+09:00"
     },
     {
      "path": "scheduled-actions/📈-업비트-모의투자-분석/state/portfolio.json",
      "exists": true,
      "kind": "file",
      "size_kb": 9.6,
-     "mtime": "2026-11-21T04:04:06+09:00"
+     "mtime": "2026-11-21T04:08:45+09:00"
     }
    ],
    "published_paths": [
@@ -131,14 +144,14 @@
    },
    "owner": null,
    "missing_sources": [],
-   "updated_at": "2026-11-21T04:04:30+09:00",
+   "updated_at": "2026-11-21T04:08:45+09:00",
    "scheduled_action": {
     "folder": "📈-업비트-모의투자-분석",
     "schedule": [
      "interval 5m"
     ],
     "paused": false,
-    "last_started_run_at": "2026-11-20T19:02:45.210141Z",
+    "last_started_run_at": "2026-11-20T19:07:45.210141Z",
     "check_fail_count": 0,
     "check_failure_generation": 8
    }
@@ -148,6 +161,11 @@
    "name": "🇰🇷 한국주식 5분 수집기",
    "category": "collector",
    "market": "KR",
+   "automation": {
+    "level": "python_with_ai_daily",
+    "label": "파이썬 + 하루 1회 AI",
+    "ai_calls_note": "5분 수집·30분 보고는 파이썬. 장마감 결산·보유 리뷰 1회 AI"
+   },
    "status": "running",
    "priority": "P0",
    "purpose": "코스피·코스닥 3,200여 종목 1분봉 5분 순환 수집(야후 증분 + 네이버 실시간 170종목 보강), 급등 직전 패턴 스냅숏, 장 마감 후 KR_S16·KR_VCP 일봉 갱신.",
@@ -233,6 +251,11 @@
    "name": "🇺🇸 미국주식 5분 수집기",
    "category": "collector",
    "market": "US",
+   "automation": {
+    "level": "python_with_ai_daily",
+    "label": "파이썬 + 하루 1회 AI",
+    "ai_calls_note": "5분 수집·보고는 파이썬. KST 06시 이후 첫 보고 1회 AI"
+   },
    "status": "running",
    "priority": "P0",
    "purpose": "미국 전종목 감시 풀(기준 1,400 + 당일 활발 100)을 프리마켓~애프터마켓 5분마다 순환 수집. KST 06:00 이후 첫 보고만 AI 회차로 열어 일일 결산.",
@@ -249,8 +272,8 @@
      "path": "scheduled-actions/🇺🇸-미국주식-패턴-분석/state/us_1m.db",
      "exists": true,
      "kind": "file",
-     "size_kb": 472096.0,
-     "mtime": "2026-11-21T04:03:57+09:00"
+     "size_kb": 472420.0,
+     "mtime": "2026-11-21T04:08:36+09:00"
     },
     {
      "path": "scheduled-actions/🇺🇸-미국주식-패턴-분석/state/us_universe.json",
@@ -294,14 +317,14 @@
    },
    "owner": null,
    "missing_sources": [],
-   "updated_at": "2026-11-21T04:04:30+09:00",
+   "updated_at": "2026-11-21T04:08:36+09:00",
    "scheduled_action": {
     "folder": "🇺🇸-미국주식-패턴-분석",
     "schedule": [
      "interval 5m"
     ],
     "paused": false,
-    "last_started_run_at": "2026-11-20T19:02:45.641426Z",
+    "last_started_run_at": "2026-11-20T19:07:45.641426Z",
     "check_fail_count": 0,
     "check_failure_generation": 3
    }
@@ -311,6 +334,11 @@
    "name": "🏛️ 우체국금융개발원 이전 감시",
    "category": "collector",
    "market": "COMMON",
+   "automation": {
+    "level": "python_alert_fallback",
+    "label": "파이썬 + 사건 시 AI",
+    "ai_calls_note": "5분 감시·텔레그램 속보는 파이썬. 새 소식 1건당 AI 1회"
+   },
    "status": "running",
    "priority": "P3",
    "purpose": "공공기관 이전·우체국금융개발원(POSID) 지방이전·사옥·2차 이전 관련 뉴스·공지를 5분마다 무과금 감시하고 새 소식만 텔레그램 속보로 보낸다.",
@@ -361,6 +389,11 @@
    "name": "📚 과거 대용량 데이터 수집(연구 전용)",
    "category": "collector",
    "market": "COMMON",
+   "automation": {
+    "level": "python_only",
+    "label": "파이썬만(AI 0회)",
+    "ai_calls_note": "일회성 수집 스크립트"
+   },
    "status": "completed",
    "priority": "P2",
    "purpose": "무료 API로 과거 30일 업비트 1분봉·한국/미국 3년 일봉·네이버 수급/공시를 별도 DB로 적재해 역추적·백테스트의 표본을 넓혔다.",
@@ -416,6 +449,11 @@
    "name": "업비트 결측 분해·증분 백필",
    "category": "collector",
    "market": "UP",
+   "automation": {
+    "level": "python_only",
+    "label": "파이썬만(AI 0회)",
+    "ai_calls_note": "백필·감사 모두 파이썬"
+   },
    "status": "completed",
    "priority": "P2",
    "purpose": "1분봉 결측을 '거래 없음'과 '수집 누락'으로 분해하고 멱등 증분 백필로 복원한다.",
@@ -463,6 +501,11 @@
    "name": "업비트 2세대 GEN2 (낙폭 되돌림·120분 고정청산)",
    "category": "forward_tracker",
    "market": "UP",
+   "automation": {
+    "level": "python_only",
+    "label": "파이썬만(AI 0회)",
+    "ai_calls_note": "5분 채점 파이썬"
+   },
    "status": "active_scheduled",
    "priority": "P2",
    "purpose": "시장폭 붕괴 뒤 낙폭 되돌림 매수, 120분 고정 청산. 신호가 드물어 표본 대기 중.",
@@ -536,6 +579,11 @@
    "name": "업비트 3세대 GEN3 (저점권 낙폭 매수, 알림 Off Shadow)",
    "category": "forward_tracker",
    "market": "UP",
+   "automation": {
+    "level": "python_only",
+    "label": "파이썬만(AI 0회)",
+    "ai_calls_note": "5분 채점 파이썬(알림 Off)"
+   },
    "status": "running",
    "priority": "P2",
    "purpose": "3세대 5대 기법 탐색에서 살아남은 저점권 낙폭 매수 계열. 장부는 계속 기록하되 알림은 끈다.",
@@ -609,6 +657,11 @@
    "name": "업비트 거래대금 Z 게이트 (Shadow)",
    "category": "forward_tracker",
    "market": "UP",
+   "automation": {
+    "level": "python_only",
+    "label": "파이썬만(AI 0회)",
+    "ai_calls_note": "5분 채점 파이썬"
+   },
    "status": "running",
    "priority": "P2",
    "purpose": "거래대금 5분 Z≥2.5 & 5분 +1% & 60분 거래대금≥10억, 하루 10건 FIFO, +5%/-3%/60분. 24차에서 고친 v2 특징 정의를 쓰는 Shadow 트랙.",
@@ -682,6 +735,11 @@
    "name": "미국 2세대 GEN16 (역추세 주도주)",
    "category": "forward_tracker",
    "market": "US",
+   "automation": {
+    "level": "python_only",
+    "label": "파이썬만(AI 0회)",
+    "ai_calls_note": "5분 채점 파이썬"
+   },
    "status": "running",
    "priority": "P1",
    "purpose": "2세대 폭등 역추적에서 나온 첫 플러스 OOS 규칙. 시장이 눌릴 때 혼자 살아남는 역추세 주도주 계열.",
@@ -712,8 +770,8 @@
      "path": "scheduled-actions/🇺🇸-미국주식-패턴-분석/state/forward_trades_gen16.json",
      "exists": true,
      "kind": "file",
-     "size_kb": 193.0,
-     "mtime": "2026-11-21T04:04:04+09:00"
+     "size_kb": 193.1,
+     "mtime": "2026-11-21T04:08:43+09:00"
     }
    ],
    "published_paths": [
@@ -751,14 +809,14 @@
    },
    "owner": null,
    "missing_sources": [],
-   "updated_at": "2026-11-21T04:04:04+09:00",
+   "updated_at": "2026-11-21T04:08:43+09:00",
    "scheduled_action": {
     "folder": "🇺🇸-미국주식-패턴-분석",
     "schedule": [
      "interval 5m"
     ],
     "paused": false,
-    "last_started_run_at": "2026-11-20T19:02:45.641426Z",
+    "last_started_run_at": "2026-11-20T19:07:45.641426Z",
     "check_fail_count": 0,
     "check_failure_generation": 3
    }
@@ -768,6 +826,11 @@
    "name": "미국 ACCEL×파형 랭크 (WAVE)",
    "category": "forward_tracker",
    "market": "US",
+   "automation": {
+    "level": "python_only",
+    "label": "파이썬만(AI 0회)",
+    "ai_calls_note": "5분 채점 파이썬"
+   },
    "status": "running",
    "priority": "P2",
    "purpose": "거래대금 가속×과거 파형 유사도로 순위를 매기는 규칙. 템플릿은 동결해 라이브가 그대로 쓴다.",
@@ -845,7 +908,7 @@
      "interval 5m"
     ],
     "paused": false,
-    "last_started_run_at": "2026-11-20T19:02:45.641426Z",
+    "last_started_run_at": "2026-11-20T19:07:45.641426Z",
     "check_fail_count": 0,
     "check_failure_generation": 3
    }
@@ -855,6 +918,11 @@
    "name": "한국 S16 (20일선 위 눌림 + 외인 수급 20일 스윙)",
    "category": "forward_tracker",
    "market": "KR",
+   "automation": {
+    "level": "python_only",
+    "label": "파이썬만(AI 0회)",
+    "ai_calls_note": "장마감 후 1회 파이썬 갱신"
+   },
    "status": "running",
    "priority": "P1",
    "purpose": "한국장 수급·재료 해법에서 살아남은 유일한 계열 — 당일 추격이 아니라 20일선 위 눌림목 + 외인 순매수 스윙.",
@@ -935,6 +1003,11 @@
    "name": "한국 VCP (Minervini 변동성 축소 돌파)",
    "category": "forward_tracker",
    "market": "KR",
+   "automation": {
+    "level": "python_only",
+    "label": "파이썬만(AI 0회)",
+    "ai_calls_note": "장마감 후 1회 파이썬 갱신"
+   },
    "status": "running",
    "priority": "P2",
    "purpose": "변동성 축소(VCP) 후 거래량 돌파를 일봉 스윙으로 검증한다.",
@@ -1009,6 +1082,11 @@
    "name": "폭등 역추적 규칙 탐색 엔진 (2세대)",
    "category": "auto_research",
    "market": "COMMON",
+   "automation": {
+    "level": "python_only",
+    "label": "파이썬만(AI 0회)",
+    "ai_calls_note": "탐색 실행은 파이썬(--stage). 규칙 해석·코드 수정만 AI"
+   },
    "status": "running",
    "priority": "P0",
    "purpose": "실제 +5% 이상 폭등을 먼저 끄집어내고, 그 직전 조건을 역추적해 규칙 후보를 만들고 IS/OOS로 평가한다. 3시장 공용.",
@@ -1064,6 +1142,11 @@
    "name": "폭등공식 단계 실행기 (state machine)",
    "category": "auto_research",
    "market": "COMMON",
+   "automation": {
+    "level": "python_only",
+    "label": "파이썬만(AI 0회)",
+    "ai_calls_note": "단계 실행기 파이썬"
+   },
    "status": "running",
    "priority": "P0",
    "purpose": "183초 일괄 분석을 60초 회차 여러 번으로 쪼개 PENDING→…→PUBLISHED를 완주한다. 체크포인트·원자적 정본 교체.",
@@ -1124,6 +1207,11 @@
    "name": "3세대 5대 기법 랩 (전수 백테스트 + OOS)",
    "category": "auto_research",
    "market": "COMMON",
+   "automation": {
+    "level": "python_only",
+    "label": "파이썬만(AI 0회)",
+    "ai_calls_note": "전수 백테스트 파이썬"
+   },
    "status": "running",
    "priority": "P0",
    "purpose": "ORB·VWAP 돌파·상대강도·스퀴즈·모멘텀 지속 등 기법 패밀리를 조합 전수로 돌리고 시간분할 OOS로 거른다.",
@@ -1214,6 +1302,11 @@
    "name": "세계 유명 투자기법 전수 대입 (6대)",
    "category": "auto_research",
    "market": "COMMON",
+   "automation": {
+    "level": "python_only",
+    "label": "파이썬만(AI 0회)",
+    "ai_calls_note": "기법 대입·재계산 파이썬"
+   },
    "status": "completed",
    "priority": "P1",
    "purpose": "래리 윌리엄스·일목균형표·듀얼 모멘텀·볼린저·엘더 임펄스·외인/기관 쌍끌이를 3시장에 대입하고 독립 재계산으로 검증.",
@@ -1268,6 +1361,11 @@
    "name": "자가발전 자동 패턴 발견·반증 엔진",
    "category": "auto_research",
    "market": "COMMON",
+   "automation": {
+    "level": "python_only",
+    "label": "파이썬만(AI 0회)",
+    "ai_calls_note": "30분 순환 파이썬"
+   },
    "status": "running",
    "priority": "P0",
    "purpose": "가설 생성 → DEV 평가 → VAL → HOLD → 동결 → Shadow 등록을 자동 순환한다. 실패 원인을 다음 가설로 되먹인다.",
@@ -1336,6 +1434,11 @@
    "name": "운영 연결 자가발전 (KR→US 30분 순환)",
    "category": "auto_research",
    "market": "COMMON",
+   "automation": {
+    "level": "python_only",
+    "label": "파이썬만(AI 0회)",
+    "ai_calls_note": "30분 한 단계 파이썬"
+   },
    "status": "running",
    "priority": "P0",
    "purpose": "연구 엔진을 실제 운영 스케줄에 붙여 30분마다 한 시장 한 단계씩 진행한다. 라이브 전략 파라미터는 건드리지 않는다.",
@@ -1406,6 +1509,11 @@
    "name": "일일 재탐색 러너 (폭등공식+랩+요약)",
    "category": "auto_research",
    "market": "COMMON",
+   "automation": {
+    "level": "python_only",
+    "label": "파이썬만(AI 0회)",
+    "ai_calls_note": "일일 재탐색 파이썬(무과금 액션)"
+   },
    "status": "running",
    "priority": "P1",
    "purpose": "일일 결산에 재탐색을 자동 연결한다. 2026-11-20부터는 한국장 전용 무과금 액션이 회차당 한 단계씩 대신 돈다.",
@@ -1483,6 +1591,11 @@
    "name": "지평 랩 H=30/60/120 (3시장)",
    "category": "auto_research",
    "market": "COMMON",
+   "automation": {
+    "level": "python_only",
+    "label": "파이썬만(AI 0회)",
+    "ai_calls_note": "지평 평가 파이썬"
+   },
    "status": "running",
    "priority": "P0",
    "purpose": "동결 유니버스·인과적 분할에서 지평별 후보를 평가한다. 31차 P0에서 cutoff·pre-DEV 동결 유니버스로 재구축 중.",
@@ -1564,6 +1677,11 @@
    "name": "연구 유니버스 (컷오프 고정 150종목)",
    "category": "auto_research",
    "market": "COMMON",
+   "automation": {
+    "level": "python_only",
+    "label": "파이썬만(AI 0회)",
+    "ai_calls_note": "유니버스 생성·해시 파이썬"
+   },
    "status": "running",
    "priority": "P0",
    "purpose": "각 시장에서 컷오프 시점에 고정되는 150종목 유니버스를 만들고 해시로 동결한다. 사후 종목 변경을 막는 장치.",
@@ -1625,6 +1743,11 @@
    "name": "저유동성 시간격자 연구 (sparse grid/shards)",
    "category": "auto_research",
    "market": "COMMON",
+   "automation": {
+    "level": "python_only",
+    "label": "파이썬만(AI 0회)",
+    "ai_calls_note": "격자 연구 파이썬"
+   },
    "status": "running",
    "priority": "P2",
    "purpose": "거래가 간헐적인 종목도 연구 대상에 넣기 위한 무거래 시간격자 경로. 시간 단위 샤딩·아카이브 계층 포함.",
@@ -1693,6 +1816,11 @@
    "name": "신호·사건 공통 원장",
    "category": "auto_research",
    "market": "COMMON",
+   "automation": {
+    "level": "python_only",
+    "label": "파이썬만(AI 0회)",
+    "ai_calls_note": "원장 적재 파이썬"
+   },
    "status": "running",
    "priority": "P1",
    "purpose": "신호(signal_id)와 사건(event) 두 모집단을 분리해 동일 시각·동일 체결로 비교할 수 있게 한다.",
@@ -1747,6 +1875,11 @@
    "name": "3시장 공통 인터페이스·어댑터",
    "category": "auto_research",
    "market": "COMMON",
+   "automation": {
+    "level": "python_only",
+    "label": "파이썬만(AI 0회)",
+    "ai_calls_note": "공통 인터페이스(라이브러리)"
+   },
    "status": "running",
    "priority": "P1",
    "purpose": "UP·KR·US를 같은 인터페이스로 다루는 공통 계층과 시장별 어댑터. 표준 지표 산출도 여기에 붙는다.",
@@ -1814,6 +1947,11 @@
    "name": "실패 원장 기반 가설 생성 + 선행 가속 실험",
    "category": "auto_research",
    "market": "COMMON",
+   "automation": {
+    "level": "python_only",
+    "label": "파이썬만(AI 0회)",
+    "ai_calls_note": "가설 생성 파이썬"
+   },
    "status": "completed",
    "priority": "P2",
    "purpose": "실패한 가설의 원인을 분해해 다음 세대 가설을 자동 생성하고, 거래대금 선행 가속 같은 신규 특징을 최초 실험한다.",
@@ -1868,6 +2006,11 @@
    "name": "자동 세대교체 스케줄",
    "category": "auto_research",
    "market": "COMMON",
+   "automation": {
+    "level": "python_only",
+    "label": "파이썬만(AI 0회)",
+    "ai_calls_note": "세대교체 파이썬"
+   },
    "status": "running",
    "priority": "P1",
    "purpose": "세대(규칙 후보)를 자동으로 교체·보존하고 회전 상태를 남긴다. 과거 정본은 아카이브로 보존.",
@@ -1922,6 +2065,11 @@
    "name": "표준 온라인 평가기",
    "category": "auto_research",
    "market": "COMMON",
+   "automation": {
+    "level": "python_only",
+    "label": "파이썬만(AI 0회)",
+    "ai_calls_note": "표준 평가기(라이브러리)"
+   },
    "status": "running",
    "priority": "P1",
    "purpose": "실시간 신호를 표준 규약(budget-proto-v3)으로 채점하는 단일 평가기. 라이브와 연구가 같은 규칙을 쓰게 한다.",
@@ -1983,6 +2131,11 @@
    "name": "지식 원장",
    "category": "auto_research",
    "market": "COMMON",
+   "automation": {
+    "level": "python_only",
+    "label": "파이썬만(AI 0회)",
+    "ai_calls_note": "지식 원장(라이브러리)"
+   },
    "status": "running",
    "priority": "P2",
    "purpose": "시도한 가설과 결과를 SQLite에 누적해 같은 연구를 반복하지 않게 한다(내용 해시 기반 중복 차단).",
@@ -2030,6 +2183,11 @@
    "name": "한국 수급·재료 분석 세트",
    "category": "auto_research",
    "market": "KR",
+   "automation": {
+    "level": "python_only",
+    "label": "파이썬만(AI 0회)",
+    "ai_calls_note": "수급·재료 분석 파이썬"
+   },
    "status": "completed",
    "priority": "P1",
    "purpose": "네이버 수급·공시·일봉으로 한국장 급등 해법을 탐색(전략 스캔·포트폴리오 시뮬·독립 교차검증).",
@@ -2099,6 +2257,11 @@
    "name": "파형 유사도 랭크 (WAVE v1/v2)",
    "category": "auto_research",
    "market": "US",
+   "automation": {
+    "level": "python_only",
+    "label": "파이썬만(AI 0회)",
+    "ai_calls_note": "파형 유사도 파이썬"
+   },
    "status": "completed",
    "priority": "P2",
    "purpose": "과거 상승 파형과의 유사도(Z 정규화)로 순위를 매긴다. v1 데이터 오염을 찾아 v2 패널로 재구축.",
@@ -2152,6 +2315,11 @@
    "name": "과거 일봉·1분봉 랩 (2년/30일)",
    "category": "backtest_lab",
    "market": "COMMON",
+   "automation": {
+    "level": "python_only",
+    "label": "파이썬만(AI 0회)",
+    "ai_calls_note": "과거 랩 파이썬"
+   },
    "status": "completed",
    "priority": "P2",
    "purpose": "과거 DB에서 '폭등 직전 공식'을 실제 매매 규칙으로 검증하고 오버나이트 규칙까지 독립 재계산한다.",
@@ -2213,6 +2381,11 @@
    "name": "1분봉 다전략 백테스터",
    "category": "backtest_lab",
    "market": "COMMON",
+   "automation": {
+    "level": "python_only",
+    "label": "파이썬만(AI 0회)",
+    "ai_calls_note": "백테스터(라이브러리)"
+   },
    "status": "dormant",
    "priority": "P3",
    "purpose": "업비트·한국·미국 1분봉 공통 백테스터. 지금은 strategy_lab·surge_miner가 주력이고 이 모듈은 보조.",
@@ -2253,6 +2426,11 @@
    "name": "정합성 감사 러너 묶음",
    "category": "governance",
    "market": "COMMON",
+   "automation": {
+    "level": "python_only",
+    "label": "파이썬만(AI 0회)",
+    "ai_calls_note": "감사 러너 파이썬"
+   },
    "status": "running",
    "priority": "P1",
    "purpose": "예산·공통 사건·429 계측·봉 수 대조·체결지연·수집 중복 등 GPT 지적 항목을 실측으로 규명하는 1회성 러너 묶음.",
@@ -2356,6 +2534,11 @@
    "name": "Shadow 자동 연결 엔진 (프리레그(사전 등록))",
    "category": "shadow",
    "market": "COMMON",
+   "automation": {
+    "level": "python_only",
+    "label": "파이썬만(AI 0회)",
+    "ai_calls_note": "Shadow 등록·채점 파이썬"
+   },
    "status": "running",
    "priority": "P1",
    "purpose": "후보 동결 직후 미래 신호를 사전 등록(프리레그)하고, 60분 +5% 라벨로 정밀도·검열을 채점한다. 전진검증과 분모를 합산하지 않는다.",
@@ -2410,6 +2593,11 @@
    "name": "KR 전진 인과성 감사 (S16·VCP)",
    "category": "shadow",
    "market": "KR",
+   "automation": {
+    "level": "python_only",
+    "label": "파이썬만(AI 0회)",
+    "ai_calls_note": "인과성 감사 파이썬"
+   },
    "status": "running",
    "priority": "P1",
    "purpose": "KR_S16·KR_VCP의 소급 체결이 '그 시점에 알 수 있었는가'를 signal_id 단위로 감사하고 버킷으로 분리한다.",
@@ -2464,6 +2652,11 @@
    "name": "WAL 일관 복제본·안전 읽기",
    "category": "infra_wal",
    "market": "COMMON",
+   "automation": {
+    "level": "python_only",
+    "label": "파이썬만(AI 0회)",
+    "ai_calls_note": "복제·안전읽기 파이썬"
+   },
    "status": "running",
    "priority": "P0",
    "purpose": "활성 WAL DB를 잠그지 않고 읽는 안전 경로(safe_ro)와 일관 복제본 게시(wal_replica)를 제공한다. 운영 5분 파이프라인을 멈추지 않기 위한 장치.",
@@ -2531,6 +2724,11 @@
    "name": "🛡️ 파이프라인 정지 감시 (외부 워치독)",
    "category": "monitor_dashboard",
    "market": "COMMON",
+   "automation": {
+    "level": "python_only",
+    "label": "파이썬만(AI 0회)",
+    "ai_calls_note": "5분 감시·경보 파이썬(외부 워크플로 포함)"
+   },
    "status": "running",
    "priority": "P1",
    "purpose": "공개 status.json의 generated_at이 30분 이상 멈추면 폰으로 직접 경보한다. AI·유료 API 없이 동작.",
@@ -2595,6 +2793,11 @@
    "name": "운영·연구 원본 DB (약 1.6GB)",
    "category": "infra_wal",
    "market": "COMMON",
+   "automation": {
+    "level": "python_only",
+    "label": "파이썬만(AI 0회)",
+    "ai_calls_note": "DB 자체(수집기가 관리)"
+   },
    "status": "running",
    "priority": "P0",
    "purpose": "1분봉 3종(업비트·한국·미국)과 연구 DB(history·kr_alpha·sparse_grid·knowledge). 모든 수치의 원천.",
@@ -2604,8 +2807,8 @@
      "path": "scheduled-actions/📈-업비트-모의투자-분석/state/upbit_1m.db",
      "exists": true,
      "kind": "file",
-     "size_kb": 242456.0,
-     "mtime": "2026-11-21T04:04:06+09:00"
+     "size_kb": 242760.0,
+     "mtime": "2026-11-21T04:08:45+09:00"
     },
     {
      "path": "scheduled-actions/🇰🇷-한국주식-패턴-분석/state/kr_1m.db",
@@ -2618,8 +2821,8 @@
      "path": "scheduled-actions/🇺🇸-미국주식-패턴-분석/state/us_1m.db",
      "exists": true,
      "kind": "file",
-     "size_kb": 472096.0,
-     "mtime": "2026-11-21T04:03:57+09:00"
+     "size_kb": 472420.0,
+     "mtime": "2026-11-21T04:08:36+09:00"
     },
     {
      "path": "research/history_data.db",
@@ -2663,13 +2866,18 @@
    "live": null,
    "owner": null,
    "missing_sources": [],
-   "updated_at": "2026-11-21T04:04:06+09:00"
+   "updated_at": "2026-11-21T04:08:45+09:00"
   },
   {
    "id": "dash.export_status",
    "name": "공개 대시보드 스냅숏 내보내기",
    "category": "monitor_dashboard",
    "market": "COMMON",
+   "automation": {
+    "level": "python_only",
+    "label": "파이썬만(AI 0회)",
+    "ai_calls_note": "5분 스냅숏·게시 파이썬"
+   },
    "status": "running",
    "priority": "P0",
    "purpose": "3시장 수집 현황·전진 트랙 성적·최근 급등을 data/status.json으로 만든다(5분 주기, 페이지가 60초마다 다시 읽음).",
@@ -2723,6 +2931,11 @@
    "name": "monitor/latest.json 연구 3시장 문서 (schema 3)",
    "category": "monitor_dashboard",
    "market": "COMMON",
+   "automation": {
+    "level": "python_only",
+    "label": "파이썬만(AI 0회)",
+    "ai_calls_note": "5분 요약 생성 파이썬"
+   },
    "status": "running",
    "priority": "P0",
    "purpose": "전진검증과 연구 Shadow를 분리한 공개 요약. GPT·사용자가 보는 단일 화면.",
@@ -2770,6 +2983,11 @@
    "name": "GitHub 협업 원장 게시 도구",
    "category": "monitor_dashboard",
    "market": "COMMON",
+   "automation": {
+    "level": "python_only",
+    "label": "파이썬만(AI 0회)",
+    "ai_calls_note": "게시 도구 파이썬"
+   },
    "status": "running",
    "priority": "P0",
    "purpose": "monitor/·coordination/·research/ 파일을 Contents API로 게시한다(변경 없으면 커밋 생략, 409 재시도).",
@@ -2848,6 +3066,11 @@
    "name": "전 프로젝트 중앙 인덱스 (34차)",
    "category": "governance",
    "market": "COMMON",
+   "automation": {
+    "level": "python_only",
+    "label": "파이썬만(AI 0회)",
+    "ai_calls_note": "이 인덱스 — --auto 모드는 AI 0회"
+   },
    "status": "running",
    "priority": "P1",
    "purpose": "이 문서를 만든 도구. 예약 액션·연구 엔진·트랙·인프라·보고 체계를 한 인덱스로 모으고, 원격 GitHub와 대조해 누락·접근 경계를 남긴다. 변경 시 project_changelog.jsonl에 append.",
@@ -2857,8 +3080,8 @@
      "path": "research/project_inventory.py",
      "exists": true,
      "kind": "file",
-     "size_kb": 117.5,
-     "mtime": "2026-11-21T04:07:37+09:00"
+     "size_kb": 113.3,
+     "mtime": "2026-11-21T04:09:19+09:00"
     }
    ],
    "published_paths": [
@@ -2866,24 +3089,24 @@
      "path": "coordination/project_inventory.json",
      "on_remote": true,
      "files_on_remote": null,
-     "size_kb": 154.8
+     "size_kb": 163.4
     },
     {
      "path": "coordination/project_changelog.jsonl",
      "on_remote": true,
      "files_on_remote": null,
-     "size_kb": 31.6
+     "size_kb": 39.7
     },
     {
      "path": "research/reports/gpt_34th_project_inventory_20261121.md",
      "on_remote": true,
      "files_on_remote": null,
-     "size_kb": 27.0
+     "size_kb": 10.9
     }
    ],
    "github_visibility": "public_synced",
    "visibility_note": "",
-   "latest_commit": "d62167b",
+   "latest_commit": "a89d2d0",
    "verification_status": "이 회차에서 생성·게시(raw 200·JSON 파싱·비밀 스캔 0건).",
    "commit_note": "자기 자신의 게시 커밋은 파일 안에 담을 수 없다(자기참조). 변경 이력은 project_changelog.jsonl의 커밋을 본다.",
    "known_issues": [
@@ -2893,13 +3116,18 @@
    "live": null,
    "owner": null,
    "missing_sources": [],
-   "updated_at": "2026-11-21T04:07:37+09:00"
+   "updated_at": "2026-11-21T04:09:19+09:00"
   },
   {
    "id": "tg.reporter",
    "name": "텔레그램 직송 리포터 (사용량 0원 보고)",
    "category": "telegram",
    "market": "COMMON",
+   "automation": {
+    "level": "python_only",
+    "label": "파이썬만(AI 0회)",
+    "ai_calls_note": "직송 파이썬"
+   },
    "status": "running",
    "priority": "P0",
    "purpose": "check.sh에서 AI를 깨우지 않고 폰으로 정기·속보·아침·검수팩을 직접 보낸다. 중복 발송은 내용 서명으로 차단.",
@@ -2948,7 +3176,7 @@
      "interval 5m"
     ],
     "paused": false,
-    "last_started_run_at": "2026-11-20T19:02:45.210141Z",
+    "last_started_run_at": "2026-11-20T19:07:45.210141Z",
     "check_fail_count": 0,
     "check_failure_generation": 8
    }
@@ -2958,6 +3186,11 @@
    "name": "일일 GPT 검수팩·아침 브리핑",
    "category": "telegram",
    "market": "COMMON",
+   "automation": {
+    "level": "python_only",
+    "label": "파이썬만(AI 0회)",
+    "ai_calls_note": "06:00/08:30 발송 파이썬"
+   },
    "status": "running",
    "priority": "P1",
    "purpose": "06:00 검수팩(수집·DB 무결성·스크립트 SHA·8전략 규칙·전진성적·재탐색 OOS·급등 TOP3)과 08:30 아침 브리핑(간밤 미국장·한국 보유·업비트·세종/대전 날씨)을 하루 1회 발송.",
@@ -3004,7 +3237,7 @@
      "interval 5m"
     ],
     "paused": false,
-    "last_started_run_at": "2026-11-20T19:02:45.210141Z",
+    "last_started_run_at": "2026-11-20T19:07:45.210141Z",
     "check_fail_count": 0,
     "check_failure_generation": 8
    }
@@ -3014,6 +3247,11 @@
    "name": "작업 단위 실행 기록 (handoffs)",
    "category": "governance",
    "market": "COMMON",
+   "automation": {
+    "level": "ai_required",
+    "label": "AI 턴 필요",
+    "ai_calls_note": "작업 실행·보고 자체가 AI 턴"
+   },
    "status": "running",
    "priority": "P1",
    "purpose": "모든 개발·검증 작업은 handoff 폴더에 계획(plan.md)·진행(log.md)·완료 검증(verdicts.jsonl)을 남긴다. 이 기록이 인덱스의 '누가 무엇을 언제 했는가' 근거다.",
@@ -3039,13 +3277,18 @@
    "live": null,
    "owner": null,
    "missing_sources": [],
-   "updated_at": "2026-11-21T04:07:37+09:00"
+   "updated_at": "2026-11-21T04:09:32+09:00"
   },
   {
    "id": "gov.verification_harness",
    "name": "검증 하네스 (verify_*.py 33개)",
    "category": "governance",
    "market": "COMMON",
+   "automation": {
+    "level": "python_only",
+    "label": "파이썬만(AI 0회)",
+    "ai_calls_note": "검증 스크립트 파이썬"
+   },
    "status": "running",
    "priority": "P1",
    "purpose": "모든 회차의 주장을 코드로 재검증하는 스크립트 묶음. 결과 JSON은 research/test_results/에 남는다.",
@@ -3148,6 +3391,11 @@
    "name": "회차 보고서·요약 (GPT 협업 산출물)",
    "category": "governance",
    "market": "COMMON",
+   "automation": {
+    "level": "ai_required",
+    "label": "AI 턴 필요",
+    "ai_calls_note": "회차 보고서 작성은 AI 턴(수치 산출은 파이썬)"
+   },
    "status": "running",
    "priority": "P0",
    "purpose": "GPT 지적에 대한 회차 보고서와 집계 요약. 공개 저장소 research/reports·evaluation_summaries·test_results.",
@@ -3157,13 +3405,13 @@
      "path": "research/reports",
      "exists": true,
      "kind": "dir",
-     "files": 33
+     "files": 34
     },
     {
      "path": "research/evaluation_summaries",
      "exists": true,
      "kind": "dir",
-     "files": 5
+     "files": 7
     },
     {
      "path": "research/test_results",
@@ -3210,13 +3458,18 @@
    "missing_sources": [
     "research/gpt_31st_p0_report_20261120.md"
    ],
-   "updated_at": "2026-11-21T04:07:37+09:00"
+   "updated_at": "2026-11-21T04:09:32+09:00"
   },
   {
    "id": "gov.heartbeat",
    "name": "하트비트 (12시간 점검)",
    "category": "governance",
    "market": "COMMON",
+   "automation": {
+    "level": "ai_required",
+    "label": "AI 턴 필요",
+    "ai_calls_note": "12시간 점검은 AI 턴"
+   },
    "status": "running",
    "priority": "P3",
    "purpose": "연결된 소스와 24시간 일정을 12시간마다 훑어 선제적으로 처리할 일을 찾는다(Pickle 실행 계층).",
@@ -3260,6 +3513,11 @@
    "name": "Explore 제안 갱신 (일 1회)",
    "category": "governance",
    "market": "COMMON",
+   "automation": {
+    "level": "ai_required",
+    "label": "AI 턴 필요",
+    "ai_calls_note": "제안 판단은 AI 턴"
+   },
    "status": "running",
    "priority": "P3",
    "purpose": "매일 03:26 제안 카드 집합을 사용자 상황에 맞게 갱신·순위화한다(결과는 카드로만).",
@@ -3303,6 +3561,11 @@
    "name": "아침 브리핑 (일시정지)",
    "category": "governance",
    "market": "COMMON",
+   "automation": {
+    "level": "ai_required",
+    "label": "AI 턴 필요",
+    "ai_calls_note": "브리핑 작성은 AI 턴(현재 paused)"
+   },
    "status": "dormant",
    "priority": "P3",
    "purpose": "07:19 아침 브리핑 액션. 현재 paused 상태로 등록만 남아 있다(브리핑은 텔레그램 08:30이 담당).",
@@ -3431,7 +3694,7 @@
    {
     "path": "research/history_*.md · gpt_3rd~26차 보고서 등 로컬 전용 문서",
     "why": "과거 회차 문서가 현재 main에 없음",
-    "alternative": "없음 — §6 누락 목록 참조"
+    "alternative": "없음 — §3 누락 목록 참조"
    }
   ],
   "personal_boundary": [
@@ -3550,6 +3813,20 @@
     "mtime": "2026-11-19T08:01:50+09:00",
     "classification": "internal_doc",
     "note": "내부 계획·분석 문서 — 공개 대상 아님(정책)"
+   },
+   {
+    "path": "research/evaluation_summaries/audit38_full_event_measure_20261121.json",
+    "size_kb": 6.7,
+    "mtime": "2026-11-21T04:08:05+09:00",
+    "classification": "round_report",
+    "note": "과거 회차 보고서 — 그 회차에는 게시되었으나 현재 main 경로에 없음(경로 이동·미게시)"
+   },
+   {
+    "path": "research/evaluation_summaries/audit38_panel_events_20261121.json",
+    "size_kb": 1.4,
+    "mtime": "2026-11-21T04:08:42+09:00",
+    "classification": "round_report",
+    "note": "과거 회차 보고서 — 그 회차에는 게시되었으나 현재 main 경로에 없음(경로 이동·미게시)"
    },
    {
     "path": "research/global_strategies_report.md",
@@ -3797,6 +4074,13 @@
     "note": "31차 독립검증(실행 중) 산출물 — 그 작업이 자기 회차 보고서와 함께 게시 예정"
    },
    {
+    "path": "research/reports/p1_analysis_20261121.json",
+    "size_kb": 6.6,
+    "mtime": "2026-11-21T04:09:38+09:00",
+    "classification": "research_artifact",
+    "note": "연구 중간 산출물(유니버스·시점 계측 등) — 요약 JSON에 흡수되어 단독 게시 안 됨"
+   },
+   {
     "path": "research/reports/strategy_lab_KR_sync_ledger_20261120.json",
     "size_kb": 4.5,
     "mtime": "2026-11-20T22:05:20+09:00",
@@ -3976,8 +4260,8 @@
    "paused": false,
    "check_sh": true,
    "check_sh_kb": 32.2,
-   "next_run_at": "2026-11-20T19:07:45.641426Z",
-   "last_started_run_at": "2026-11-20T19:02:45.641426Z",
+   "next_run_at": "2026-11-20T19:12:45.641426Z",
+   "last_started_run_at": "2026-11-20T19:07:45.641426Z",
    "check_fail_count": 0,
    "check_failure_generation": 3
   },
@@ -4004,8 +4288,8 @@
    "paused": false,
    "check_sh": true,
    "check_sh_kb": 37.4,
-   "next_run_at": "2026-11-20T19:07:45.210141Z",
-   "last_started_run_at": "2026-11-20T19:02:45.210141Z",
+   "next_run_at": "2026-11-20T19:12:45.210141Z",
+   "last_started_run_at": "2026-11-20T19:07:45.210141Z",
    "check_fail_count": 0,
    "check_failure_generation": 8
   },
@@ -4061,19 +4345,19 @@
     "id": "📋-34차-전체-프로젝트-인덱스-github-공유-체계-구축",
     "state": "running",
     "created_at": "2026-11-20T18:54:58.370280Z",
-    "updated_at": "2026-11-20T19:07:36.939333Z"
+    "updated_at": "2026-11-20T19:09:32.116714Z"
    },
    {
     "id": "🔎-38차-실태감사-12항목-활용률-실패원장-level1-3",
     "state": "running",
     "created_at": "2026-11-20T19:04:23.528163Z",
-    "updated_at": "2026-11-20T19:07:30.030363Z"
+    "updated_at": "2026-11-20T19:09:29.715816Z"
    },
    {
     "id": "🛠️-31차-독립검증-p0-인과-분할-shadow-p1-4종",
     "state": "running",
     "created_at": "2026-11-20T18:47:15.452856Z",
-    "updated_at": "2026-11-20T19:07:16.000220Z"
+    "updated_at": "2026-11-20T19:08:55.497105Z"
    }
   ]
  },
@@ -4490,7 +4774,7 @@
    },
    {
     "file": "research/p1_analysis_20261121.py",
-    "kb": 21.1,
+    "kb": 23.0,
     "category": "감사·규명",
     "doc": "research/p1_analysis_20261121.py — 31차 P1(4~7) 실측."
    },
@@ -4514,7 +4798,7 @@
    },
    {
     "file": "research/project_inventory.py",
-    "kb": 117.5,
+    "kb": 113.3,
     "category": "게시·요약",
     "doc": "research/project_inventory.py — 전 프로젝트 중앙 인덱스 (GPT 제34차 지시 이행)."
    },
@@ -5055,12 +5339,12 @@
    }
   ]
  },
- "state_fingerprint": "9bc5727ac44e0fea",
+ "state_fingerprint": "42dabff77c8b7e69",
  "fingerprint_sections": {
   "registry": "9ff507ae78c32c88",
   "actions": "d85715c85b49c0ce",
   "modules": "35f97933393b8861",
-  "docs": "e4cb3967ecb151fd",
+  "docs": "68df43a3366ef6e6",
   "handoffs": "d1c178e47543dc65",
   "sources_present": "81c751453d0938fc"
  }
