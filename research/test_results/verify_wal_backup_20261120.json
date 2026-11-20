@@ -15,20 +15,20 @@
    "journal_mode": "delete"
   },
   "writer_during_backup": {
-   "writer_rows": 373,
-   "seconds": 0.23,
+   "writer_rows": 367,
+   "seconds": 0.39,
    "status": "ok",
    "replica": {
-    "rows": 503,
+    "rows": 502,
     "min_ts": "2026-11-20T00:00:00",
-    "max_ts": "2026-11-20T01:00:02"
+    "max_ts": "2026-11-20T01:00:01"
    },
    "manifest_watermark": {
     "table": "candles_1m",
-    "rows": 503,
+    "rows": 502,
     "min_ts": "2026-11-20T00:00:00",
-    "max_ts": "2026-11-20T01:00:02",
-    "data_hash": "5688196ec6bfcd77",
+    "max_ts": "2026-11-20T01:00:01",
+    "data_hash": "df964d6890526c70",
     "schema_sig": "0d38506968a4",
     "duplicate_rows": 0,
     "sym_col": "market"
@@ -99,9 +99,56 @@
     "max_ts": "2026-11-20T02:00:29"
    }
   },
+  "reseed_failure": {
+   "seed_status": "ok",
+   "bad_status": "hold",
+   "bad_defects": [
+    "exception:DatabaseError",
+    "file is not a database"
+   ],
+   "replica_bytes_unchanged": true,
+   "manifest_kept_ok": true,
+   "hold_file": true,
+   "reader_after_failure": [
+    "live.replica.db",
+    "ok"
+   ],
+   "reseed_after_repair": "ok",
+   "reseed_rows": 90
+  },
+  "cutoff_gate": {
+   "seed_status": "ok",
+   "ok_cutoff": {
+    "verdict": "ok",
+    "lag": 0.0,
+    "rows_delta": null,
+    "symbols": 1,
+    "schema_equal": true,
+    "gate": "open"
+   },
+   "lag_cutoff": {
+    "verdict": "lag_exceeded",
+    "lag": 10941.0,
+    "sector_lag": 10941.0,
+    "gate": "pause",
+    "reason": "watermark_lag_10941s>60s",
+    "eval": "fallback_source"
+   },
+   "paused_reader": [
+    "live.db",
+    "cutoff_gate_pause(watermark_lag_10941s>60s)"
+   ],
+   "sync_status": "ok",
+   "after_sync_gate": "open",
+   "after_sync_cutoff": "ok",
+   "reader_after_sync": [
+    "live.replica.db",
+    "ok"
+   ]
+  },
   "live_upbit": {
    "publish_status": "ok",
-   "seconds": 7.24,
+   "seconds": 11.88,
    "checks": {
     "level": "light",
     "quick_check": null,
@@ -114,19 +161,19 @@
    "defects": [],
    "watermark": {
     "table": "candles_1m",
-    "rows": 1554815,
+    "rows": 1562871,
     "min_ts": "2026-11-08T22:02:00",
-    "max_ts": "2026-11-20T13:06:00",
-    "data_hash": "5a0516c87c569e87",
+    "max_ts": "2026-11-20T14:17:00",
+    "data_hash": "432dfdc4554f1e2f",
     "schema_sig": "8754fe8eb4e7",
     "duplicate_rows": 0,
     "sym_col": "market"
    },
-   "source_rows_now": 1554815,
-   "source_max_now": "2026-11-20T13:06:00",
+   "source_rows_now": 1562871,
+   "source_max_now": "2026-11-20T14:17:00",
    "reader_used": "upbit_1m.replica.db",
    "reader_reason": "ok",
-   "previous_manifest_at": "2026-11-20T22:08:44+09:00"
+   "previous_manifest_at": "2026-11-20T23:21:03+09:00"
   }
  }
 }
