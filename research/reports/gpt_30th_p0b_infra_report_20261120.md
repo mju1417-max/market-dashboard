@@ -75,11 +75,11 @@ replica: journal_mode=delete, file_sha256=…(242,331,648B, page_count×page_siz
 ### 1.5 60초 상한 준수 (수집기 회차)
 
 - 위치: `📈-업비트-모의투자-분석/check.sh` 수집 파이썬 블록 직후(텔레그램 단계 앞).
-- 가드: `elapsed < 53초` 일 때만 실행 + **`timeout 4`** 하드 상한 + 내부 `--budget-s 3`. 회차 예산 초과 위험 없음(최악 57초, 상한 60초).
+- 가드: `elapsed < 51초` 일 때만 실행 + **`timeout 3`** 하드 상한 + 내부 `--budget-s 3`. 최악 55초로 상한(60초) 아래를 지킨다(실측 회차 49·54초).
 - 회차 로그(실측): `2026-11-20 22:08:42 KST status=ok copied=302 inserted=382 sec=2.7 defects=[]` / 회차 전체 `quiet 49s`. 22:04 회차는 `copied=60 sec=2.21`(당시 겹침 120분 → 예산 소진) → **겹침 15분으로 조정 후 302종목 전량 1회차 완료**.
 - 회전 커서: `--budget-s` 로 끝까지 못 가면 다음 회차가 이어서 복사한다(`copy_cursor` 가 manifest 에 남는다).
 - 실패·중단 시: 이전 복제본 유지, manifest 가 노후해지면 독자가 원본으로 폴백. **종료코드는 바꾸지 않는다.**
-- 정직한 한계: 수집기 회차가 46~52초로 길어 `elapsed<53` 가드에 걸리는 회차가 있다(22:04 는 52초로 통과). 걸린 회차는 `replica_skip:budget(elapsed=Ns)` 로 남고 다음 회차가 이어받는다. 초기 가드를 43초로 잡아 21:41~21:59 회차가 전부 skip 된 이력도 로그에 그대로 남아 있다(53초로 수정).
+- 정직한 한계: 수집기 회차가 46~52초로 길어 `elapsed<53` 가드에 걸리는 회차가 있다(22:04 52초·22:14 54초 통과). 걸린 회차는 `replica_skip:budget(elapsed=Ns)` 로 남고 다음 회차가 이어받는다. 초기 가드를 43초로 잡아 21:41~21:59 회차가 전부 skip 된 이력도 로그에 그대로 남아 있다(53초로 수정).
 
 ## 2. P0-C — 원장 잠금(`SQLITE_BUSY`) 계측 강화
 
@@ -176,7 +176,7 @@ us:    generation lab_US_20261119_11d1253a · status lab_complete · candidate_c
 | `research/monitor_research_20261120.py` | `29c0bf271005` |
 | `research/verify_wal_backup_20261120.py` (신규) | `e1dc109550f5` |
 | `research/verify_rotation_busy_metrics_20261120.py` (신규) | `e7d750066e79` |
-| `scheduled-actions/📈-업비트-모의투자-분석/check.sh` | `c2a93cb0cfac` |
+| `scheduled-actions/📈-업비트-모의투자-분석/check.sh` | `cfd8369c3759` |
 | `scheduled-actions/📊-업비트-전진검증-채점/check.sh` | `7f96a20a7d2b` |
 
 ```bash
@@ -201,7 +201,7 @@ python3 research/monitor_research_20261120.py --refresh --max-age 900
 
 1. **`quick_check` 전량 검사는 매 회차 미실행** — 콜드 캐시 242MB 에서 106초(실측). 회차 게시는 light(지문·중복·페이지/바이트·스키마 해시), 전체 구조 검사는 `--publish --deep`(테스트·수동)로 분리했다. 운영 복제본의 deep 검사는 아직 정기 스케줄에 붙이지 않았다(회차 상한 60초와 충돌).
 2. **복제본 소실 시 자동 재씨앗 없음** — `--sync` 는 `status=needs_seed` 로 알리고 원본으로 폴백한다. 재씨앗(전체 backup)은 AI 턴/수동 실행이 필요하다.
-3. **수집기 회차 예산** — 평시 46~52초 + 복제 동기화 2.7초(302종목). `elapsed<53` 가드를 넘긴 회차는 skip 되고 다음 회차가 이어받는다(로그로 확인 가능). 복제본 신선도가 30분을 넘으면 채점기는 원본 DB 로 폴백한다(오늘과 동일 동작).
+3. **수집기 회차 예산** — 평시 46~54초 + 복제 동기화 2.7~3.5초(부하 시 164~302종목/회차). 부하가 큰 회차는 일부 종목만 복사되어 **종목별 지연이 최대 1~2회차(5~10분)** 날 수 있다(회전 커서가 이어받는다). `elapsed<53` 가드를 넘긴 회차는 skip 되고 다음 회차가 이어받는다(로그로 확인 가능). 복제본 신선도가 30분을 넘으면 채점기는 원본 DB 로 폴백한다(오늘과 동일 동작).
 4. **KR·US DB 는 복제본 미적용** — 두 DB 는 `journal_mode=delete` 라 읽기 전용 직접 읽기가 안정적이다. 요청 범위(WAL)에 해당하지 않아 그대로 두었다.
 5. `shadow_signals_historical` 은 현재 null(추정치 미집계)이며 `shadow_signals_measured`(실측 373/306/14)만 채워져 있다 — 0 으로 채우지 않았다.
 6. `upbit.research_status` 가 `rotation:running` 으로 보이는 구간이 있다(30분 회차가 실제로 실행 중일 때의 정직한 상태 표기). 표본 시점에 따라 `rotation:no_new_data` 로 바뀐다.
