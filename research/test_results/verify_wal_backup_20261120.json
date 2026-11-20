@@ -1,0 +1,132 @@
+{
+ "ok": true,
+ "cases": {
+  "wal_only_commits": {
+   "source_rows": 200,
+   "wal_present": true,
+   "naive_file_copy_rows": "error:OperationalError",
+   "replica_rows": 200,
+   "manifest_status": "ok",
+   "quick_check": "ok",
+   "foreign_key_check": 0,
+   "duplicate_rows": 0,
+   "data_hash_equal": true,
+   "bytes_equal_pages": true,
+   "journal_mode": "delete"
+  },
+  "writer_during_backup": {
+   "writer_rows": 366,
+   "seconds": 0.23,
+   "status": "ok",
+   "replica": {
+    "rows": 502,
+    "min_ts": "2026-11-20T00:00:00",
+    "max_ts": "2026-11-20T01:00:01"
+   },
+   "manifest_watermark": {
+    "table": "candles_1m",
+    "rows": 502,
+    "min_ts": "2026-11-20T00:00:00",
+    "max_ts": "2026-11-20T01:00:01",
+    "data_hash": "df964d6890526c70",
+    "schema_sig": "0d38506968a4",
+    "duplicate_rows": 0,
+    "sym_col": "market"
+   },
+   "checks": {
+    "level": "deep",
+    "quick_check": "ok",
+    "foreign_key_check": 0,
+    "duplicate_rows": 0,
+    "data_hash_equal": true,
+    "bytes_equal_pages": true,
+    "schema_sig_equal": true
+   },
+   "defects": []
+  },
+  "defect_hold": {
+   "good_status": "ok",
+   "bad_status": "hold",
+   "bad_defects": [
+    "quick_check=*** in test: page 3: broken ***"
+   ],
+   "replica_bytes_unchanged": true,
+   "manifest_kept_ok": true,
+   "hold_file": true,
+   "reader_falls_back": "live.replica.db"
+  },
+  "resolve_reader": {
+   "fresh": [
+    "live.replica.db",
+    "ok"
+   ],
+   "stale": [
+    "live.db",
+    "stale(10000s>900s)"
+   ],
+   "size_mismatch": [
+    "live.db",
+    "size_mismatch(20480!=24576)"
+   ],
+   "looks_like_replica_file": true
+  },
+  "incremental_sync": {
+   "seed_status": "ok",
+   "sync1": {
+    "status": "ok",
+    "inserted": 30,
+    "watermark": {
+     "table": "candles_1m",
+     "rows": 130,
+     "max_ts": "2026-11-20T02:00:29",
+     "data_hash": "6f7c4663f84d514c",
+     "duplicate_rows": 0
+    },
+    "defects": []
+   },
+   "sync2_repair": {
+    "status": "ok",
+    "repaired": [
+     "KRW-BTC"
+    ],
+    "repaired_count": 1,
+    "defects": []
+   },
+   "sync2_max_ts": "2026-11-20T02:00:29",
+   "rows": {
+    "replica": 130,
+    "source": 130,
+    "max_ts": "2026-11-20T02:00:29"
+   }
+  },
+  "live_upbit": {
+   "publish_status": "ok",
+   "seconds": 7.49,
+   "checks": {
+    "level": "light",
+    "quick_check": null,
+    "foreign_key_check": null,
+    "duplicate_rows": 0,
+    "data_hash_equal": true,
+    "bytes_equal_pages": true,
+    "schema_sig_equal": true
+   },
+   "defects": [],
+   "watermark": {
+    "table": "candles_1m",
+    "rows": 1552498,
+    "min_ts": "2026-11-08T22:02:00",
+    "max_ts": "2026-11-20T12:42:00",
+    "data_hash": "d7341618bb8d8c83",
+    "schema_sig": "8754fe8eb4e7",
+    "duplicate_rows": 0,
+    "sym_col": "market"
+   },
+   "source_rows_now": 1552498,
+   "source_max_now": "2026-11-20T12:42:00",
+   "reader_used": "upbit_1m.replica.db",
+   "reader_reason": "ok",
+   "previous_manifest_at": "2026-11-20T21:44:41+09:00"
+  }
+ }
+}
