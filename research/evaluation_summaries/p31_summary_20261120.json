@@ -1,0 +1,309 @@
+{
+ "kind": "gpt_31st_p0_summary",
+ "generated_at": "2026-11-20T23:23:48+09:00",
+ "protocol_version": "budget-proto-v3-20261120",
+ "note": "제31차 P0-1~P0-7 구현·검증의 비식별 요약. 원본 DB·절대경로·비밀 없음. null=미측정, 0=실제 0.",
+ "p0_1_p0_2_schema": {
+  "verify": {
+   "ok": true,
+   "n": 24,
+   "n_pass": 24
+  },
+  "totals": {
+   "forward_signals_observed": 705,
+   "forward_closed": 364,
+   "research_shadow_signals_prospective": 8,
+   "research_shadow_labelled": 4,
+   "research_shadow_tp": 0,
+   "research_shadow_fp": 4,
+   "research_shadow_censored": 1
+  },
+  "split": {
+   "forward": "forward_signals_observed · forward_closed · forward_tracks (전진검증 장부)",
+   "research_shadow": "research_shadow_registered · research_shadow_signals_prospective · research_shadow_signals_historical_replay · shadow_labelled · shadow_tp · shadow_fp · shadow_censored · latency_exact_count",
+   "candidates": "raw_lab_candidate_rows · hypotheses_tested · dev_pass · val_pass · frozen_candidate_count · prospective_shadow_registered · rejected_count",
+   "deprecated": [
+    "shadow_signals_measured",
+    "shadow_signals_estimated",
+    "candidate_count",
+    "frozen_count"
+   ]
+  },
+  "consistency": "{'upbit': 385, 'kr': 306, 'us': 14}"
+ },
+ "p0_3_s16_split": {
+  "verify": {
+   "ok": true,
+   "n": 18,
+   "n_pass": 18
+  },
+  "numbers": {
+   "prospective": {
+    "signals": 304,
+    "entries": 0,
+    "open": 0,
+    "closed": 0,
+    "wins": 0,
+    "losses": 0,
+    "precision": null,
+    "sum_pnl_pct": 0.0,
+    "avg_pnl_pct": null,
+    "equity": 1.0,
+    "total_return_pct": 0.0,
+    "mdd_pct": 0.0,
+    "denominator": {
+     "precision": "wins / prospective closed",
+     "equity": "prospective 체결만의 자본곡선(종목당 10%) — 초기화·복구·레거시 제조",
+     "adoption_rule": "의사결정일 >= 2026-11-20 이고 의사결정 <= 체결가 시점(진입일 15:30)",
+     "ledger_version": 2,
+     "first_eligible_decision_at": "2026-11-20T00:00:00+09:00"
+    }
+   },
+   "legacy": {
+    "captured_at": "2026-11-20T22:58:20+09:00",
+    "ledger_version_before": 1,
+    "equity": 0.9974,
+    "total_return_pct": -0.257,
+    "entries": 3,
+    "n_closed": 0,
+    "wins": 0,
+    "sum_pnl_pct": 0.0,
+    "open_positions": 3,
+    "note": "분리 이전 장부(초기 backdated 3건 포함) — 전진 성과 아님. 삭제하지 않고 참고로 보존."
+   },
+   "buckets": {
+    "prospective_forward": 0,
+    "initialization_replay": 3,
+    "recovery_backfill": 6,
+    "legacy_cumulative": 3
+   },
+   "audit_verdicts": {
+    "reconstructed": 304
+   },
+   "audit_day_1119": "11-19 수급 행의 공표 시각은 11-20 09:00(assumed)이다. 그 행을 쓴 11-19 신호의 실제 의사결정은 11-20 20:14 이므로 **11-19 15:30 결정에 섞이지 않았다**(decision_causal=true). 다만 그 체결가는 11-19 15:30 이므로 전진이 아니라 recovery_backfill 로 간다."
+  }
+ },
+ "p0_4_supply_audit": {
+  "signals_audited": 304,
+  "verdicts": {
+   "reconstructed": 304
+  },
+  "availability_totals": {
+   "exact": 0,
+   "assumed": 1520
+  },
+  "supply_table": {
+   "rows": 32241,
+   "with_first_available_at": 0,
+   "without_first_available_at": 32241
+  },
+  "same_day_without_proof": 58,
+  "day_2026_11_19": {
+   "n": 89,
+   "n_with_1119_supply": 89,
+   "n_with_1119_supply_but_decision_before_publication": 0,
+   "decisions_after_1119_1530": true,
+   "decision_times": [
+    "2026-11-20T20:14:16+09:00"
+   ],
+   "verdicts": {
+    "reconstructed": 89
+   },
+   "note": "11-19 수급 행의 공표 시각은 11-20 09:00(assumed)이다. 그 행을 쓴 11-19 신호의 실제 의사결정은 11-20 20:14 이므로 **11-19 15:30 결정에 섞이지 않았다**(decision_causal=true). 다만 그 체결가는 11-19 15:30 이므로 전진이 아니라 recovery_backfill 로 간다."
+  }
+ },
+ "p0_5_wal_cutoff": {
+  "cases": [
+   "wal_only_commits",
+   "writer_during_backup",
+   "defect_hold",
+   "resolve_reader",
+   "incremental_sync",
+   "reseed_failure",
+   "cutoff_gate",
+   "live_upbit"
+  ],
+  "ok": true,
+  "reseed_failure": {
+   "seed_status": "ok",
+   "bad_status": "hold",
+   "bad_defects": [
+    "exception:DatabaseError",
+    "file is not a database"
+   ],
+   "replica_bytes_unchanged": true,
+   "manifest_kept_ok": true,
+   "hold_file": true,
+   "reader_after_failure": [
+    "live.replica.db",
+    "ok"
+   ],
+   "reseed_after_repair": "ok",
+   "reseed_rows": 90
+  },
+  "cutoff_gate": {
+   "seed_status": "ok",
+   "ok_cutoff": {
+    "verdict": "ok",
+    "lag": 0.0,
+    "rows_delta": null,
+    "symbols": 1,
+    "schema_equal": true,
+    "gate": "open"
+   },
+   "lag_cutoff": {
+    "verdict": "lag_exceeded",
+    "lag": 10941.0,
+    "sector_lag": 10941.0,
+    "gate": "pause",
+    "reason": "watermark_lag_10941s>60s",
+    "eval": "fallback_source"
+   },
+   "paused_reader": [
+    "live.db",
+    "cutoff_gate_pause(watermark_lag_10941s>60s)"
+   ],
+   "sync_status": "ok",
+   "after_sync_gate": "open",
+   "after_sync_cutoff": "ok",
+   "reader_after_sync": [
+    "live.replica.db",
+    "ok"
+   ]
+  },
+  "live": {
+   "table": "candles_1m",
+   "rows": 1562871,
+   "min_ts": "2026-11-08T22:02:00",
+   "max_ts": "2026-11-20T14:17:00",
+   "data_hash": "432dfdc4554f1e2f",
+   "schema_sig": "8754fe8eb4e7",
+   "duplicate_rows": 0,
+   "sym_col": "market"
+  }
+ },
+ "p0_6_rotation": {
+  "verify": {
+   "ok": true,
+   "n": 9,
+   "n_pass": 9
+  },
+  "live": {
+   "by_status": {
+    "budget_stop": 1,
+    "completed": 2,
+    "error": 4,
+    "ingest_partial": 16,
+    "interrupted": 3,
+    "no_new_data": 16
+   },
+   "by_run_status": {
+    "(null)": 42
+   },
+   "busy_skip_journal": 0,
+   "recollection_rows": 0,
+   "recent_recollection_sample": {
+    "sample_symbols": 3,
+    "source_rows": 180,
+    "late_rows": 7,
+    "late_rate": 0.038889,
+    "window": [
+     "2026-11-20T00:00:00+09:00",
+     "2026-11-20T05:00:00+09:00"
+    ],
+    "seconds": 0.1,
+    "extrapolated": false
+   }
+  },
+  "late_arrival_sample": {
+   "sample_symbols": 2,
+   "source_rows": 646,
+   "panel_rows": 361,
+   "panel_coverage": 0.558824,
+   "late_rows": null,
+   "late_rate": null,
+   "late_rows_measurable": false,
+   "window": [
+    "2026-11-20T15:56:00+09:00",
+    "2026-11-20T21:56:00+09:00"
+   ],
+   "seconds": 0.07,
+   "extrapolated": false,
+   "note": "원본-패널 행수 차이는 패널의 가격·거래대금·세션 필터 때문에 늦은 도착의 증거가 될 수 없다 → 늦은 도착 건수는 null(미측정). 적재 커서가 앞으로만 가므로 채점에는 들어가지 않는다.",
+   "symbols_pool": 20,
+   "backfill_gap_class": {
+    "file": "upbit_gap_class_20261120.json",
+    "window": "dev",
+    "minutes_in_window": 2880,
+    "missing_fetch": 7617,
+    "missing_fetch_symbols": 55,
+    "no_trade": 629818,
+    "unresolved": 4869,
+    "restored_by": "공식 분봉 API 백필(upbit_backfill) — 수집 누락분을 나중에 채운 봉",
+    "note": "패널 적재 커서는 앞으로만 가므로 이 봉들은 채점에 쓰이지 않는다(소급 채점 금지)."
+   }
+  }
+ },
+ "p0_7_kr_stage": {
+  "verify": {
+   "ok": true,
+   "n": 10,
+   "n_pass": 10
+  },
+  "gen28": {
+   "promoted": false,
+   "verdict": "rejected_negative_oos",
+   "gate": "oos_ev>0 and oos_pos_days>=1 and oos_n>=30",
+   "oos_n": 2714,
+   "oos_ev": -0.6001,
+   "oos_pos_days": 0,
+   "oos_days": 12,
+   "reasons": [
+    "oos_ev_-0.6001<=0"
+   ],
+   "per_rule": [
+    {
+     "stage": 1,
+     "rank": 1,
+     "n": 473,
+     "ev": -0.6132,
+     "pos_days": 0,
+     "days": 3
+    },
+    {
+     "stage": 1,
+     "rank": 2,
+     "n": 1072,
+     "ev": -0.6114,
+     "pos_days": 0,
+     "days": 3
+    },
+    {
+     "stage": 1,
+     "rank": 3,
+     "n": 875,
+     "ev": -0.5745,
+     "pos_days": 0,
+     "days": 3
+    },
+    {
+     "stage": 1,
+     "rank": 4,
+     "n": 294,
+     "ev": -0.6136,
+     "pos_days": 0,
+     "days": 3
+    }
+   ],
+   "rule": "OOS 순손익(비용 차감)이 0 이하이거나 OOS 양수 거래일이 하나도 없으면 승격하지 않는다. 규칙 자체는 후보로 게시하되 promoted=false 로 소비자(전진검증·알림)가 쓰지 않게 한다.",
+   "at": "2026-11-20T23:05:11+09:00"
+  },
+  "stage_verify_reference": {
+   "file": "verify_kr_surge_miner_stage_20261120.json",
+   "at": "2026-11-20 22:19:47",
+   "n": 17,
+   "n_pass": 17
+  },
+  "checklist_2026_11_23": "kr_stage_20261123_checklist.json"
+ }
+}
