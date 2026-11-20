@@ -1,9 +1,9 @@
 # GPT → Pickle 제34차 — 전 프로젝트 중앙 인덱스 · GitHub 대조 보고 (첫 회차 기준선)
 
-- 생성 시각: **2026-11-21T03:58:29+09:00** (KST) / 인덱스 버전 `34.1` / schema 1
+- 생성 시각: **2026-11-21T03:58:48+09:00** (KST) / 인덱스 버전 `34.1` / schema 1
 - 공개 실측 기준: `monitor/latest.json` generated_at **2026-11-21T03:40:05+09:00** (이 보고서의 운영 수치는 이 스냅숏)
 - 인덱스 원본: [`coordination/project_inventory.json`](https://github.com/mju1417-max/market-dashboard/blob/main/coordination/project_inventory.json) · 변경 이력: [`coordination/project_changelog.jsonl`](https://github.com/mju1417-max/market-dashboard/blob/main/coordination/project_changelog.jsonl)
-- 원격 main 파일 수(blob): **42**
+- 원격 main 파일 수(blob): **45**
 
 ## 1. 결론 요약
 
@@ -13,16 +13,16 @@
 | 카테고리 분포 | collector 6, forward_tracker 7, auto_research 18, shadow 2, backtest_lab 2, infra_wal 2, monitor_dashboard 4, telegram 2, governance 8 | collector/forward_tracker/auto_research/shadow/backtest_lab/infra_wal/monitor_dashboard/telegram/governance |
 | 시장 분포 | UP 5, KR 5, US 4, COMMON 37 | UP·KR·US·COMMON |
 | 상태 분포 | running 41, active_scheduled 1, completed 7, dormant 2 | running/active_scheduled/completed/draft/dormant/blocked |
-| GitHub 공개 수준 | public_synced 3, partial_summary_only 35, local_only_not_published 13 | public_synced / partial_summary_only / local_only_not_published |
-| **누락 식별** | 작업 **10** · 문서 **49** | 문서 = internal_doc 16, round_report 21, research_artifact 2, in_flight_31st 10 |
+| GitHub 공개 수준 | public_synced 4, partial_summary_only 34, local_only_not_published 13 | public_synced / partial_summary_only / local_only_not_published |
+| **누락 식별** | 작업 **10** · 문서 **50** | 문서 = internal_doc 16, round_report 21, research_artifact 3, in_flight_31st 10 |
 | 예약 액션 / handoff | 11 / 59(실행 중 2) | 5분·30분·일간·12시간 주기 |
 | research 모듈 | 126개(.py) | 카테고리 자동 분류는 §5 |
 | 프로토콜 버전 | budget-proto-v3-20261120 | 평가 규약 동결 버전 |
 
 **핵심 판정 3가지**
 
-1. 내부 작업은 **51개 운영 단위**로 정리됐고, 그중 **10개**는 공개 저장소에 어떤 경로도 없다. 대부분은 '전략 원본·수집기 구현'이라 공개 정책상 의도적 제외이고, 실제 누락은 문서 49건(과거 회차 보고서 21건 · 내부 문서 16건 · 31차 실행 중 10건)이다.
-2. GPT가 **지금 읽을 수 있는 것**은 `monitor/latest.json`, `data/status.json`, `coordination/*.jsonl`, `research/reports`·`evaluation_summaries`·`test_results`(총 42개 파일)다. 이 인덱스로 '무엇이 있는지'는 전부 볼 수 있게 됐지만, '어떻게 구현됐는지'(Python 원본)는 계속 볼 수 없다.
+1. 내부 작업은 **51개 운영 단위**로 정리됐고, 그중 **10개**는 공개 저장소에 어떤 경로도 없다. 대부분은 '전략 원본·수집기 구현'이라 공개 정책상 의도적 제외이고, 실제 누락은 문서 50건(과거 회차 보고서 21건 · 내부 문서 16건 · 31차 실행 중 10건)이다.
+2. GPT가 **지금 읽을 수 있는 것**은 `monitor/latest.json`, `data/status.json`, `coordination/*.jsonl`, `research/reports`·`evaluation_summaries`·`test_results`(총 45개 파일)다. 이 인덱스로 '무엇이 있는지'는 전부 볼 수 있게 됐지만, '어떻게 구현됐는지'(Python 원본)는 계속 볼 수 없다.
 3. 우체국금융개발원(POSID) 감시는 시장 급등 프로젝트가 아니므로 `scope=personal_monitor`로 **분리 표기**하고 상세를 게시하지 않았다. 인덱스에는 '존재·상태'만 남겼다.
 
 ## 2. '작업'의 정의와 범위
@@ -159,7 +159,7 @@
 | id | 이름 | 시장 | 상태 | 우선 | 공개 | 실측 |
 |---|---|---|---|---|---|---|
 | `engine.audit_runners` | 정합성 감사 러너 묶음 | COMMON | running | P1 | 요약만 | — |
-| `dash.project_inventory` | 전 프로젝트 중앙 인덱스 (34차) | COMMON | running | P1 | 요약만 | — |
+| `dash.project_inventory` | 전 프로젝트 중앙 인덱스 (34차) | COMMON | running | P1 | 공개 | — |
 | `gov.handoffs` | 작업 단위 실행 기록 (handoffs) | COMMON | running | P1 | 미게시 | — |
 | `gov.verification_harness` | 검증 하네스 (verify_*.py 33개) | COMMON | running | P1 | 요약만 | — |
 | `gov.reports` | 회차 보고서·요약 (GPT 협업 산출물) | COMMON | running | P0 | 요약만 | — |
@@ -185,12 +185,12 @@
 
 ## 6. GitHub 공개 현황과 누락
 
-### 6-1. 누락 문서 (파일명 기준 원격에 없음) — 49건
+### 6-1. 누락 문서 (파일명 기준 원격에 없음) — 50건
 
 | 구분 | 건수 | 대표 파일 |
 |---|---|---|
 | 과거 회차 보고서 | 21 | `global_strategies_revalidation_20261118.md`, `gpt_10th_response_20261119.md`, `gpt_11th_final_plan_20261119.md`, `gpt_14th_evidence_report_20261119.md`, `gpt_16th_evidence_report_20261119.md`, `gpt_18th_evidence_report_20261120.md` … |
-| 연구 부속 JSON | 2 | `horizon_predev_KR_20261121.json`, `horizon_predev_UP_20261121.json` |
+| 연구 부속 JSON | 3 | `horizon_predev_KR_20261121.json`, `horizon_predev_UP_20261121.json`, `horizon_predev_US_20261121.json` |
 | 31차 실행 중 산출물 | 10 | `kr_forward_causality_20261120.json`, `p0_universe_causality_20261121.json`, `strategy_lab_KR_sync_ledger_20261120.json`, `timing_metrics_20261120.json`, `universe_KR_150_20261120.json`, `universe_UP_150_20261120.json` … |
 | 내부 계획·분석 문서 | 16 | `DAILY_RERUN.md`, `auto_researcher_report_20261119.md`, `global_strategies_report.md`, `history_report.md`, `integrated_benchmark_20261118.md`, `kr_alpha_report.md` … |
 
