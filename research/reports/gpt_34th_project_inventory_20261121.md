@@ -1,6 +1,6 @@
 # GPT → Pickle 제34차 — 전 프로젝트 중앙 인덱스 · GitHub 대조 보고 (첫 회차 기준선)
 
-- 생성 시각: **2026-11-21T04:05:14+09:00** (KST) / 인덱스 버전 `34.1` / schema 1
+- 생성 시각: **2026-11-21T04:05:31+09:00** (KST) / 인덱스 버전 `34.1` / schema 1
 - 공개 실측 기준: `monitor/latest.json` generated_at **2026-11-21T03:40:05+09:00** (이 보고서의 운영 수치는 이 스냅숏)
 - 인덱스 원본: [`coordination/project_inventory.json`](https://github.com/mju1417-max/market-dashboard/blob/main/coordination/project_inventory.json) · 변경 이력: [`coordination/project_changelog.jsonl`](https://github.com/mju1417-max/market-dashboard/blob/main/coordination/project_changelog.jsonl)
 - 원격 main 파일 수(blob): **45**
