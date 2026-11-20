@@ -1,0 +1,3201 @@
+{
+ "schema": "gpt_30th_p1_summary/1.0.0",
+ "work_id": [
+  "30/P1-E",
+  "30/P1-C",
+  "30/P1-B",
+  "30/P1-F"
+ ],
+ "generated_at": "2026-11-20T22:53:55+09:00",
+ "note": "비식별 요약. 절대경로·비밀키·개인정보·원본 DB 없음. 모든 수치는 2026-11-20 KST 실측이며 미측정은 null 로 둔다.",
+ "universe": {
+  "UP": {
+   "cutoff_kst": "2026-11-20T22:23:00+09:00",
+   "n": 150,
+   "pool": 302,
+   "excluded": {
+    "price": 0,
+    "bars": 0
+   },
+   "hash": "79a5bbe513c7e4bc",
+   "method": "컷오프 이전 누적 거래대금(close×volume) 내림차순, 가격 하한 미만 제외, 컷오프 이후 봉·미래 상장/생존정보 미사용",
+   "source_id": "upbit_1m.db",
+   "db": {
+    "file": "upbit_1m.db",
+    "size": 242782208
+   }
+  },
+  "KR": {
+   "cutoff_kst": "2026-11-20T15:30:00+09:00",
+   "n": 150,
+   "pool": 3091,
+   "excluded": {
+    "price": 10,
+    "bars": 55
+   },
+   "hash": "50da33668c026f54",
+   "method": "컷오프 이전 누적 거래대금(close×volume) 내림차순, 가격 하한 미만 제외, 컷오프 이후 봉·미래 상장/생존정보 미사용",
+   "source_id": "kr_1m.db",
+   "db": {
+    "file": "kr_1m.db",
+    "size": 398352384
+   }
+  },
+  "US": {
+   "cutoff_kst": "2026-11-21T06:00:00+09:00",
+   "n": 150,
+   "pool": 1998,
+   "excluded": {
+    "price": 52,
+    "bars": 26
+   },
+   "hash": "b094c9ce8873eca8",
+   "method": "컷오프 이전 누적 거래대금(close×volume) 내림차순, 가격 하한 미만 제외, 컷오프 이후 봉·미래 상장/생존정보 미사용",
+   "source_id": "us_1m.db",
+   "db": {
+    "file": "us_1m.db",
+    "size": 442900480
+   }
+  }
+ },
+ "horizons": {
+  "UP": {
+   "30": {
+    "rows_raw": 200703,
+    "rows_purged": 53598,
+    "purge_dropped": 147105,
+    "censored": 43283,
+    "events": 424,
+    "event_rate": 0.0411,
+    "days": {
+     "n": 10,
+     "dev": [
+      "2026-11-11",
+      "2026-11-12",
+      "2026-11-13",
+      "2026-11-14",
+      "2026-11-15",
+      "2026-11-16"
+     ],
+     "val": [
+      "2026-11-17",
+      "2026-11-18"
+     ],
+     "hold": [
+      "2026-11-19",
+      "2026-11-20"
+     ]
+    },
+    "grid": {
+     "tested": 675,
+     "too_few": 329,
+     "passed_pre_gate": 9,
+     "passed_dev": 3,
+     "passed_val": 0,
+     "passed_hold": 3,
+     "alpha": 7.407407407407407e-05,
+     "family": 675,
+     "gate": {
+      "min_lab": 50,
+      "min_tp": 3,
+      "min_lift": 1.15,
+      "min_net": 0.0
+     },
+     "top": [
+      {
+       "id": "H0041",
+       "cond": "ret60≥0.017241 & vcontract≥1.27422",
+       "dev": {
+        "n": 60,
+        "n_lab": 60,
+        "tp": 12,
+        "fp": 48,
+        "precision": 0.2,
+        "base_rate": 0.0296,
+        "lift": 6.765,
+        "p": 1.663e-07,
+        "net_mean": 0.2241,
+        "win": 0.5,
+        "tp_rate": 0.2333,
+        "n_events": 182
+       },
+       "val": {
+        "n": 20,
+        "n_lab": 20,
+        "tp": 3,
+        "fp": 17,
+        "precision": 0.15,
+        "base_rate": 0.0561,
+        "lift": 2.676,
+        "p": 0.09855,
+        "net_mean": -0.7615,
+        "win": 0.25,
+        "tp_rate": 0.1,
+        "n_events": 105
+       },
+       "hold": {
+        "n": 20,
+        "n_lab": 20,
+        "tp": 7,
+        "fp": 13,
+        "precision": 0.35,
+        "base_rate": 0.0599,
+        "lift": 5.84,
+        "p": 0.0001073,
+        "net_mean": 0.5904,
+        "win": 0.5,
+        "tp_rate": 0.35,
+        "n_events": 137
+       }
+      },
+      {
+       "id": "H0404",
+       "cond": "ret60≥0.017241 & vcontract≥1.27422 & ret60_btc≥0.017115",
+       "dev": {
+        "n": 60,
+        "n_lab": 60,
+        "tp": 10,
+        "fp": 50,
+        "precision": 0.1667,
+        "base_rate": 0.0296,
+        "lift": 5.637,
+        "p": 9.932e-06,
+        "net_mean": 0.0417,
+        "win": 0.4833,
+        "tp_rate": 0.2167,
+        "n_events": 182
+       },
+       "val": {
+        "n": 20,
+        "n_lab": 20,
+        "tp": 3,
+        "fp": 17,
+        "precision": 0.15,
+        "base_rate": 0.0561,
+        "lift": 2.676,
+        "p": 0.09855,
+        "net_mean": -0.7044,
+        "win": 0.3,
+        "tp_rate": 0.1,
+        "n_events": 105
+       },
+       "hold": {
+        "n": 20,
+        "n_lab": 20,
+        "tp": 7,
+        "fp": 13,
+        "precision": 0.35,
+        "base_rate": 0.0599,
+        "lift": 5.84,
+        "p": 0.0001073,
+        "net_mean": 0.6341,
+        "win": 0.5,
+        "tp_rate": 0.35,
+        "n_events": 137
+       }
+      },
+      {
+       "id": "H0128",
+       "cond": "vcontract≤0.642839 & ret60_btc≥0.017115",
+       "dev": {
+        "n": 56,
+        "n_lab": 56,
+        "tp": 9,
+        "fp": 47,
+        "precision": 0.1607,
+        "base_rate": 0.0296,
+        "lift": 5.436,
+        "p": 3.713e-05,
+        "net_mean": 0.5314,
+        "win": 0.5357,
+        "tp_rate": 0.1786,
+        "n_events": 182
+       },
+       "val": {
+        "n": 20,
+        "n_lab": 20,
+        "tp": 2,
+        "fp": 18,
+        "precision": 0.1,
+        "base_rate": 0.0561,
+        "lift": 1.784,
+        "p": 0.3099,
+        "net_mean": -0.4434,
+        "win": 0.4,
+        "tp_rate": 0.1,
+        "n_events": 105
+       },
+       "hold": {
+        "n": 20,
+        "n_lab": 20,
+        "tp": 7,
+        "fp": 13,
+        "precision": 0.35,
+        "base_rate": 0.0599,
+        "lift": 5.84,
+        "p": 0.0001073,
+        "net_mean": 0.0304,
+        "win": 0.4,
+        "tp_rate": 0.2,
+        "n_events": 137
+       }
+      }
+     ]
+    },
+    "baselines": {
+     "ACCEL": {
+      "dev": {
+       "n": 50,
+       "n_lab": 50,
+       "tp": 12,
+       "fp": 38,
+       "precision": 0.24,
+       "base_rate": 0.0296,
+       "lift": 8.118,
+       "p": 1.898e-08,
+       "net_mean": -0.3688,
+       "win": 0.36,
+       "tp_rate": 0.22,
+       "n_events": 182
+      },
+      "val": {
+       "n": 20,
+       "n_lab": 20,
+       "tp": 2,
+       "fp": 18,
+       "precision": 0.1,
+       "base_rate": 0.0561,
+       "lift": 1.784,
+       "p": 0.3099,
+       "net_mean": -0.3775,
+       "win": 0.35,
+       "tp_rate": 0.1,
+       "n_events": 105
+      },
+      "hold": {
+       "n": 20,
+       "n_lab": 20,
+       "tp": 7,
+       "fp": 13,
+       "precision": 0.35,
+       "base_rate": 0.0599,
+       "lift": 5.84,
+       "p": 0.0001073,
+       "net_mean": 0.2877,
+       "win": 0.4,
+       "tp_rate": 0.35,
+       "n_events": 137
+      }
+     },
+     "ZVOL2.5": {
+      "dev": {
+       "n": 60,
+       "n_lab": 60,
+       "tp": 14,
+       "fp": 46,
+       "precision": 0.2333,
+       "base_rate": 0.0296,
+       "lift": 7.892,
+       "p": 1.874e-09,
+       "net_mean": 0.1691,
+       "win": 0.4833,
+       "tp_rate": 0.2333,
+       "n_events": 182
+      },
+      "val": {
+       "n": 20,
+       "n_lab": 20,
+       "tp": 2,
+       "fp": 18,
+       "precision": 0.1,
+       "base_rate": 0.0561,
+       "lift": 1.784,
+       "p": 0.3099,
+       "net_mean": -0.4736,
+       "win": 0.35,
+       "tp_rate": 0.05,
+       "n_events": 105
+      },
+      "hold": {
+       "n": 20,
+       "n_lab": 20,
+       "tp": 7,
+       "fp": 13,
+       "precision": 0.35,
+       "base_rate": 0.0599,
+       "lift": 5.84,
+       "p": 0.0001073,
+       "net_mean": 1.6657,
+       "win": 0.7,
+       "tp_rate": 0.4,
+       "n_events": 137
+      }
+     }
+    },
+    "new_families": {
+     "VCOMP_TVACCEL": {
+      "note": "변동성 압축(vcontract 하위25%) + 거래대금 가속(z_vol 또는 vol_ratio 상위25%)",
+      "alpha_family": 0.016666666666666666,
+      "family_size": 3,
+      "dev": {
+       "n": 60,
+       "n_lab": 60,
+       "tp": 0,
+       "fp": 60,
+       "precision": 0.0,
+       "base_rate": 0.0296,
+       "lift": 0.0,
+       "p": 1.0,
+       "net_mean": -0.2383,
+       "win": 0.3333,
+       "tp_rate": 0.0,
+       "n_events": 182
+      },
+      "val": {
+       "n": 20,
+       "n_lab": 20,
+       "tp": 2,
+       "fp": 18,
+       "precision": 0.1,
+       "base_rate": 0.0561,
+       "lift": 1.784,
+       "p": 0.3099,
+       "net_mean": 0.0521,
+       "win": 0.45,
+       "tp_rate": 0.05,
+       "n_events": 105
+      },
+      "hold": {
+       "n": 20,
+       "n_lab": 20,
+       "tp": 3,
+       "fp": 17,
+       "precision": 0.15,
+       "base_rate": 0.0599,
+       "lift": 2.503,
+       "p": 0.1147,
+       "net_mean": -0.2186,
+       "win": 0.3,
+       "tp_rate": 0.05,
+       "n_events": 137
+      },
+      "pass_dev": false,
+      "exploratory": true
+     },
+     "QUIET_RANGE": {
+      "note": "60분 횡보(|ret60| 중앙값 이하) + 변동성 압축 + 당일 레인지 상단",
+      "alpha_family": 0.016666666666666666,
+      "family_size": 3,
+      "dev": {
+       "n": 60,
+       "n_lab": 60,
+       "tp": 1,
+       "fp": 59,
+       "precision": 0.0167,
+       "base_rate": 0.0296,
+       "lift": 0.564,
+       "p": 0.8348,
+       "net_mean": -0.146,
+       "win": 0.3,
+       "tp_rate": 0.0167,
+       "n_events": 182
+      },
+      "val": {
+       "n": 20,
+       "n_lab": 20,
+       "tp": 0,
+       "fp": 20,
+       "precision": 0.0,
+       "base_rate": 0.0561,
+       "lift": 0.0,
+       "p": 1.0,
+       "net_mean": -0.0114,
+       "win": 0.45,
+       "tp_rate": 0.0,
+       "n_events": 105
+      },
+      "hold": {
+       "n": 20,
+       "n_lab": 20,
+       "tp": 1,
+       "fp": 19,
+       "precision": 0.05,
+       "base_rate": 0.0599,
+       "lift": 0.834,
+       "p": 0.7095,
+       "net_mean": 0.4166,
+       "win": 0.4,
+       "tp_rate": 0.05,
+       "n_events": 137
+      },
+      "pass_dev": false,
+      "exploratory": true
+     },
+     "BTC_REL": {
+      "note": "BTC 대비 60분 상대강도 상위10% + 변동성 압축 중앙값 이하",
+      "alpha_family": 0.016666666666666666,
+      "family_size": 3,
+      "dev": {
+       "n": 60,
+       "n_lab": 60,
+       "tp": 5,
+       "fp": 55,
+       "precision": 0.0833,
+       "base_rate": 0.0296,
+       "lift": 2.819,
+       "p": 0.03222,
+       "net_mean": -0.4955,
+       "win": 0.3667,
+       "tp_rate": 0.05,
+       "n_events": 182
+      },
+      "val": {
+       "n": 20,
+       "n_lab": 20,
+       "tp": 2,
+       "fp": 18,
+       "precision": 0.1,
+       "base_rate": 0.0561,
+       "lift": 1.784,
+       "p": 0.3099,
+       "net_mean": -0.1954,
+       "win": 0.45,
+       "tp_rate": 0.05,
+       "n_events": 105
+      },
+      "hold": {
+       "n": 20,
+       "n_lab": 20,
+       "tp": 5,
+       "fp": 15,
+       "precision": 0.25,
+       "base_rate": 0.0599,
+       "lift": 4.172,
+       "p": 0.005606,
+       "net_mean": 0.6261,
+       "win": 0.65,
+       "tp_rate": 0.15,
+       "n_events": 137
+      },
+      "pass_dev": false,
+      "exploratory": true
+     }
+    },
+    "runtime_s": 14.1
+   },
+   "60": {
+    "rows_raw": 200703,
+    "rows_purged": 29820,
+    "purge_dropped": 170883,
+    "censored": 25899,
+    "events": 348,
+    "event_rate": 0.0888,
+    "days": {
+     "n": 10,
+     "dev": [
+      "2026-11-11",
+      "2026-11-12",
+      "2026-11-13",
+      "2026-11-14",
+      "2026-11-15",
+      "2026-11-16"
+     ],
+     "val": [
+      "2026-11-17",
+      "2026-11-18"
+     ],
+     "hold": [
+      "2026-11-19",
+      "2026-11-20"
+     ]
+    },
+    "grid": {
+     "tested": 675,
+     "too_few": 452,
+     "passed_pre_gate": 26,
+     "passed_dev": 5,
+     "passed_val": 4,
+     "passed_hold": 3,
+     "alpha": 7.407407407407407e-05,
+     "family": 675,
+     "gate": {
+      "min_lab": 50,
+      "min_tp": 3,
+      "min_lift": 1.15,
+      "min_net": 0.0
+     },
+     "top": [
+      {
+       "id": "H0041",
+       "cond": "ret60≥0.017114 & vcontract≥1.27803",
+       "dev": {
+        "n": 53,
+        "n_lab": 53,
+        "tp": 24,
+        "fp": 29,
+        "precision": 0.4528,
+        "base_rate": 0.0691,
+        "lift": 6.555,
+        "p": 1.493e-14,
+        "net_mean": 0.3804,
+        "win": 0.434,
+        "tp_rate": 0.3585,
+        "n_events": 160
+       },
+       "val": {
+        "n": 20,
+        "n_lab": 20,
+        "tp": 7,
+        "fp": 13,
+        "precision": 0.35,
+        "base_rate": 0.1138,
+        "lift": 3.077,
+        "p": 0.004972,
+        "net_mean": 0.4294,
+        "win": 0.45,
+        "tp_rate": 0.25,
+        "n_events": 81
+       },
+       "hold": {
+        "n": 20,
+        "n_lab": 20,
+        "tp": 12,
+        "fp": 8,
+        "precision": 0.6,
+        "base_rate": 0.1198,
+        "lift": 5.007,
+        "p": 4.331e-07,
+        "net_mean": 1.0362,
+        "win": 0.5,
+        "tp_rate": 0.5,
+        "n_events": 107
+       }
+      },
+      {
+       "id": "H0404",
+       "cond": "ret60≥0.017114 & vcontract≥1.27803 & ret60_btc≥0.01708",
+       "dev": {
+        "n": 53,
+        "n_lab": 53,
+        "tp": 24,
+        "fp": 29,
+        "precision": 0.4528,
+        "base_rate": 0.0691,
+        "lift": 6.555,
+        "p": 1.493e-14,
+        "net_mean": 0.3996,
+        "win": 0.434,
+        "tp_rate": 0.3585,
+        "n_events": 160
+       },
+       "val": {
+        "n": 20,
+        "n_lab": 20,
+        "tp": 8,
+        "fp": 12,
+        "precision": 0.4,
+        "base_rate": 0.1138,
+        "lift": 3.516,
+        "p": 0.0009943,
+        "net_mean": 0.7736,
+        "win": 0.5,
+        "tp_rate": 0.25,
+        "n_events": 81
+       },
+       "hold": {
+        "n": 20,
+        "n_lab": 20,
+        "tp": 12,
+        "fp": 8,
+        "precision": 0.6,
+        "base_rate": 0.1198,
+        "lift": 5.007,
+        "p": 4.331e-07,
+        "net_mean": 1.0362,
+        "win": 0.5,
+        "tp_rate": 0.5,
+        "n_events": 107
+       }
+      },
+      {
+       "id": "H0134",
+       "cond": "vcontract≥1.27803 & ret60_btc≥0.01708",
+       "dev": {
+        "n": 54,
+        "n_lab": 54,
+        "tp": 21,
+        "fp": 33,
+        "precision": 0.3889,
+        "base_rate": 0.0691,
+        "lift": 5.629,
+        "p": 2.334e-11,
+        "net_mean": 0.2177,
+        "win": 0.4074,
+        "tp_rate": 0.3148,
+        "n_events": 160
+       },
+       "val": {
+        "n": 20,
+        "n_lab": 20,
+        "tp": 6,
+        "fp": 14,
+        "precision": 0.3,
+        "base_rate": 0.1138,
+        "lift": 2.637,
+        "p": 0.02046,
+        "net_mean": -0.0068,
+        "win": 0.4,
+        "tp_rate": 0.2,
+        "n_events": 81
+       },
+       "hold": {
+        "n": 20,
+        "n_lab": 20,
+        "tp": 12,
+        "fp": 8,
+        "precision": 0.6,
+        "base_rate": 0.1198,
+        "lift": 5.007,
+        "p": 4.331e-07,
+        "net_mean": 1.1753,
+        "win": 0.5,
+        "tp_rate": 0.5,
+        "n_events": 107
+       }
+      },
+      {
+       "id": "H0385",
+       "cond": "ret60≥0.017114 & tv5_share≤0.057429 & vcontract≤0.955311",
+       "dev": {
+        "n": 51,
+        "n_lab": 51,
+        "tp": 15,
+        "fp": 36,
+        "precision": 0.2941,
+        "base_rate": 0.0691,
+        "lift": 4.257,
+        "p": 1.13e-06,
+        "net_mean": 0.236,
+        "win": 0.4118,
+        "tp_rate": 0.2941,
+        "n_events": 160
+       },
+       "val": {
+        "n": 17,
+        "n_lab": 17,
+        "tp": 6,
+        "fp": 11,
+        "precision": 0.3529,
+        "base_rate": 0.1138,
+        "lift": 3.102,
+        "p": 0.008803,
+        "net_mean": 0.5321,
+        "win": 0.5294,
+        "tp_rate": 0.2941,
+        "n_events": 81
+       },
+       "hold": {
+        "n": 20,
+        "n_lab": 20,
+        "tp": 5,
+        "fp": 15,
+        "precision": 0.25,
+        "base_rate": 0.1198,
+        "lift": 2.086,
+        "p": 0.0823,
+        "net_mean": -0.5338,
+        "win": 0.3,
+        "tp_rate": 0.2,
+        "n_events": 107
+       }
+      },
+      {
+       "id": "H0662",
+       "cond": "tv5_share≤0.057429 & vcontract≤0.955311 & ret60_btc≥0.01708",
+       "dev": {
+        "n": 58,
+        "n_lab": 58,
+        "tp": 15,
+        "fp": 43,
+        "precision": 0.2586,
+        "base_rate": 0.0691,
+        "lift": 3.744,
+        "p": 6.637e-06,
+        "net_mean": 0.1261,
+        "win": 0.431,
+        "tp_rate": 0.2586,
+        "n_events": 160
+       },
+       "val": {
+        "n": 20,
+        "n_lab": 20,
+        "tp": 5,
+        "fp": 15,
+        "precision": 0.25,
+        "base_rate": 0.1138,
+        "lift": 2.198,
+        "p": 0.06874,
+        "net_mean": -0.0306,
+        "win": 0.5,
+        "tp_rate": 0.2,
+        "n_events": 81
+       },
+       "hold": {
+        "n": 20,
+        "n_lab": 20,
+        "tp": 6,
+        "fp": 14,
+        "precision": 0.3,
+        "base_rate": 0.1198,
+        "lift": 2.504,
+        "p": 0.02585,
+        "net_mean": -0.2503,
+        "win": 0.35,
+        "tp_rate": 0.25,
+        "n_events": 107
+       }
+      }
+     ]
+    },
+    "baselines": {
+     "ACCEL": {
+      "dev": {
+       "n": 32,
+       "n_lab": 32,
+       "tp": 14,
+       "fp": 18,
+       "precision": 0.4375,
+       "base_rate": 0.0691,
+       "lift": 6.333,
+       "p": 8.039e-09,
+       "net_mean": 0.3195,
+       "win": 0.4062,
+       "tp_rate": 0.375,
+       "n_events": 160
+      },
+      "val": {
+       "n": 10,
+       "n_lab": 10,
+       "tp": 5,
+       "fp": 5,
+       "precision": 0.5,
+       "base_rate": 0.1138,
+       "lift": 4.395,
+       "p": 0.002928,
+       "net_mean": 0.8842,
+       "win": 0.5,
+       "tp_rate": 0.4,
+       "n_events": 81
+      },
+      "hold": {
+       "n": 12,
+       "n_lab": 12,
+       "tp": 3,
+       "fp": 9,
+       "precision": 0.25,
+       "base_rate": 0.1198,
+       "lift": 2.086,
+       "p": 0.1662,
+       "net_mean": -0.0095,
+       "win": 0.4167,
+       "tp_rate": 0.3333,
+       "n_events": 107
+      }
+     },
+     "ZVOL2.5": {
+      "dev": {
+       "n": 40,
+       "n_lab": 40,
+       "tp": 15,
+       "fp": 25,
+       "precision": 0.375,
+       "base_rate": 0.0691,
+       "lift": 5.428,
+       "p": 2.957e-08,
+       "net_mean": -0.4659,
+       "win": 0.325,
+       "tp_rate": 0.275,
+       "n_events": 160
+      },
+      "val": {
+       "n": 15,
+       "n_lab": 15,
+       "tp": 8,
+       "fp": 7,
+       "precision": 0.5333,
+       "base_rate": 0.1138,
+       "lift": 4.688,
+       "p": 8.59e-05,
+       "net_mean": 0.877,
+       "win": 0.4667,
+       "tp_rate": 0.3333,
+       "n_events": 81
+      },
+      "hold": {
+       "n": 16,
+       "n_lab": 16,
+       "tp": 7,
+       "fp": 9,
+       "precision": 0.4375,
+       "base_rate": 0.1198,
+       "lift": 3.651,
+       "p": 0.001509,
+       "net_mean": 1.5923,
+       "win": 0.6875,
+       "tp_rate": 0.4375,
+       "n_events": 107
+      }
+     }
+    },
+    "new_families": {
+     "VCOMP_TVACCEL": {
+      "note": "변동성 압축(vcontract 하위25%) + 거래대금 가속(z_vol 또는 vol_ratio 상위25%)",
+      "alpha_family": 0.016666666666666666,
+      "family_size": 3,
+      "dev": {
+       "n": 60,
+       "n_lab": 60,
+       "tp": 4,
+       "fp": 56,
+       "precision": 0.0667,
+       "base_rate": 0.0691,
+       "lift": 0.965,
+       "p": 0.6021,
+       "net_mean": -0.1341,
+       "win": 0.3333,
+       "tp_rate": 0.0667,
+       "n_events": 160
+      },
+      "val": {
+       "n": 20,
+       "n_lab": 20,
+       "tp": 3,
+       "fp": 17,
+       "precision": 0.15,
+       "base_rate": 0.1138,
+       "lift": 1.319,
+       "p": 0.4017,
+       "net_mean": -0.0402,
+       "win": 0.45,
+       "tp_rate": 0.1,
+       "n_events": 81
+      },
+      "hold": {
+       "n": 20,
+       "n_lab": 20,
+       "tp": 3,
+       "fp": 17,
+       "precision": 0.15,
+       "base_rate": 0.1198,
+       "lift": 1.252,
+       "p": 0.4359,
+       "net_mean": 0.1602,
+       "win": 0.45,
+       "tp_rate": 0.15,
+       "n_events": 107
+      },
+      "pass_dev": false,
+      "exploratory": true
+     },
+     "QUIET_RANGE": {
+      "note": "60분 횡보(|ret60| 중앙값 이하) + 변동성 압축 + 당일 레인지 상단",
+      "alpha_family": 0.016666666666666666,
+      "family_size": 3,
+      "dev": {
+       "n": 54,
+       "n_lab": 54,
+       "tp": 2,
+       "fp": 52,
+       "precision": 0.037,
+       "base_rate": 0.0691,
+       "lift": 0.536,
+       "p": 0.8951,
+       "net_mean": -0.2506,
+       "win": 0.2222,
+       "tp_rate": 0.037,
+       "n_events": 160
+      },
+      "val": {
+       "n": 16,
+       "n_lab": 16,
+       "tp": 1,
+       "fp": 15,
+       "precision": 0.0625,
+       "base_rate": 0.1138,
+       "lift": 0.549,
+       "p": 0.8552,
+       "net_mean": -0.0864,
+       "win": 0.25,
+       "tp_rate": 0.0625,
+       "n_events": 81
+      },
+      "hold": {
+       "n": 20,
+       "n_lab": 20,
+       "tp": 1,
+       "fp": 19,
+       "precision": 0.05,
+       "base_rate": 0.1198,
+       "lift": 0.417,
+       "p": 0.9221,
+       "net_mean": 0.0864,
+       "win": 0.25,
+       "tp_rate": 0.05,
+       "n_events": 107
+      },
+      "pass_dev": false,
+      "exploratory": true
+     },
+     "BTC_REL": {
+      "note": "BTC 대비 60분 상대강도 상위10% + 변동성 압축 중앙값 이하",
+      "alpha_family": 0.016666666666666666,
+      "family_size": 3,
+      "dev": {
+       "n": 60,
+       "n_lab": 60,
+       "tp": 13,
+       "fp": 47,
+       "precision": 0.2167,
+       "base_rate": 0.0691,
+       "lift": 3.136,
+       "p": 0.0001926,
+       "net_mean": -0.2743,
+       "win": 0.3833,
+       "tp_rate": 0.2,
+       "n_events": 160
+      },
+      "val": {
+       "n": 20,
+       "n_lab": 20,
+       "tp": 6,
+       "fp": 14,
+       "precision": 0.3,
+       "base_rate": 0.1138,
+       "lift": 2.637,
+       "p": 0.02046,
+       "net_mean": 0.0058,
+       "win": 0.45,
+       "tp_rate": 0.25,
+       "n_events": 81
+      },
+      "hold": {
+       "n": 20,
+       "n_lab": 20,
+       "tp": 6,
+       "fp": 14,
+       "precision": 0.3,
+       "base_rate": 0.1198,
+       "lift": 2.504,
+       "p": 0.02585,
+       "net_mean": 0.3121,
+       "win": 0.5,
+       "tp_rate": 0.25,
+       "n_events": 107
+      },
+      "pass_dev": false,
+      "exploratory": true
+     }
+    },
+    "runtime_s": 14.0
+   },
+   "120": {
+    "rows_raw": 200703,
+    "rows_purged": 16004,
+    "purge_dropped": 184699,
+    "censored": 14538,
+    "events": 230,
+    "event_rate": 0.1569,
+    "days": {
+     "n": 10,
+     "dev": [
+      "2026-11-11",
+      "2026-11-12",
+      "2026-11-13",
+      "2026-11-14",
+      "2026-11-15",
+      "2026-11-16"
+     ],
+     "val": [
+      "2026-11-17",
+      "2026-11-18"
+     ],
+     "hold": [
+      "2026-11-19",
+      "2026-11-20"
+     ]
+    },
+    "grid": {
+     "tested": 675,
+     "too_few": 569,
+     "passed_pre_gate": 8,
+     "passed_dev": 1,
+     "passed_val": 1,
+     "passed_hold": 1,
+     "alpha": 7.407407407407407e-05,
+     "family": 675,
+     "gate": {
+      "min_lab": 50,
+      "min_tp": 3,
+      "min_lift": 1.15,
+      "min_net": 0.0
+     },
+     "top": [
+      {
+       "id": "H0044",
+       "cond": "ret60≥0.017606 & ret60_btc≥0.017249",
+       "dev": {
+        "n": 59,
+        "n_lab": 59,
+        "tp": 26,
+        "fp": 33,
+        "precision": 0.4407,
+        "base_rate": 0.126,
+        "lift": 3.497,
+        "p": 2.304e-09,
+        "net_mean": 0.0216,
+        "win": 0.4237,
+        "tp_rate": 0.339,
+        "n_events": 107
+       },
+       "val": {
+        "n": 20,
+        "n_lab": 20,
+        "tp": 8,
+        "fp": 12,
+        "precision": 0.4,
+        "base_rate": 0.1886,
+        "lift": 2.121,
+        "p": 0.02315,
+        "net_mean": -0.0131,
+        "win": 0.4,
+        "tp_rate": 0.25,
+        "n_events": 53
+       },
+       "hold": {
+        "n": 20,
+        "n_lab": 20,
+        "tp": 9,
+        "fp": 11,
+        "precision": 0.45,
+        "base_rate": 0.2083,
+        "lift": 2.16,
+        "p": 0.01307,
+        "net_mean": 0.3105,
+        "win": 0.45,
+        "tp_rate": 0.4,
+        "n_events": 70
+       }
+      }
+     ]
+    },
+    "baselines": {
+     "ACCEL": {
+      "dev": {
+       "n": 13,
+       "n_lab": 13,
+       "tp": 5,
+       "fp": 8,
+       "precision": 0.3846,
+       "base_rate": 0.126,
+       "lift": 3.052,
+       "p": 0.01704,
+       "net_mean": -0.0542,
+       "win": 0.3846,
+       "tp_rate": 0.3846,
+       "n_events": 107
+      },
+      "val": {
+       "n": 4,
+       "n_lab": 4,
+       "tp": 3,
+       "fp": 1,
+       "precision": 0.75,
+       "base_rate": 0.1886,
+       "lift": 3.976,
+       "p": 0.02304,
+       "net_mean": -0.3834,
+       "win": 0.5,
+       "tp_rate": 0.25,
+       "n_events": 53
+      },
+      "hold": {
+       "n": 8,
+       "n_lab": 8,
+       "tp": 4,
+       "fp": 4,
+       "precision": 0.5,
+       "base_rate": 0.2083,
+       "lift": 2.4,
+       "p": 0.06425,
+       "net_mean": 0.8,
+       "win": 0.5,
+       "tp_rate": 0.5,
+       "n_events": 70
+      }
+     },
+     "ZVOL2.5": {
+      "dev": {
+       "n": 18,
+       "n_lab": 18,
+       "tp": 5,
+       "fp": 13,
+       "precision": 0.2778,
+       "base_rate": 0.126,
+       "lift": 2.204,
+       "p": 0.06657,
+       "net_mean": -0.3248,
+       "win": 0.3333,
+       "tp_rate": 0.2778,
+       "n_events": 107
+      },
+      "val": {
+       "n": 3,
+       "n_lab": 3,
+       "tp": 3,
+       "fp": 0,
+       "precision": 1.0,
+       "base_rate": 0.1886,
+       "lift": 5.302,
+       "p": 0.00671,
+       "net_mean": 0.5554,
+       "win": 0.6667,
+       "tp_rate": 0.3333,
+       "n_events": 53
+      },
+      "hold": {
+       "n": 13,
+       "n_lab": 13,
+       "tp": 10,
+       "fp": 3,
+       "precision": 0.7692,
+       "base_rate": 0.2083,
+       "lift": 3.692,
+       "p": 2.35e-05,
+       "net_mean": 2.9538,
+       "win": 0.7692,
+       "tp_rate": 0.7692,
+       "n_events": 70
+      }
+     }
+    },
+    "new_families": {
+     "VCOMP_TVACCEL": {
+      "note": "변동성 압축(vcontract 하위25%) + 거래대금 가속(z_vol 또는 vol_ratio 상위25%)",
+      "alpha_family": 0.016666666666666666,
+      "family_size": 3,
+      "dev": {
+       "n": 46,
+       "n_lab": 46,
+       "tp": 6,
+       "fp": 40,
+       "precision": 0.1304,
+       "base_rate": 0.126,
+       "lift": 1.035,
+       "p": 0.5302,
+       "net_mean": -0.1148,
+       "win": 0.3043,
+       "tp_rate": 0.1304,
+       "n_events": 107
+      },
+      "val": {
+       "n": 15,
+       "n_lab": 15,
+       "tp": 2,
+       "fp": 13,
+       "precision": 0.1333,
+       "base_rate": 0.1886,
+       "lift": 0.707,
+       "p": 0.8048,
+       "net_mean": 0.3221,
+       "win": 0.6667,
+       "tp_rate": 0.1333,
+       "n_events": 53
+      },
+      "hold": {
+       "n": 18,
+       "n_lab": 18,
+       "tp": 3,
+       "fp": 15,
+       "precision": 0.1667,
+       "base_rate": 0.2083,
+       "lift": 0.8,
+       "p": 0.7563,
+       "net_mean": -0.4967,
+       "win": 0.3333,
+       "tp_rate": 0.1667,
+       "n_events": 70
+      },
+      "pass_dev": false,
+      "exploratory": true
+     },
+     "QUIET_RANGE": {
+      "note": "60분 횡보(|ret60| 중앙값 이하) + 변동성 압축 + 당일 레인지 상단",
+      "alpha_family": 0.016666666666666666,
+      "family_size": 3,
+      "dev": {
+       "n": 36,
+       "n_lab": 36,
+       "tp": 1,
+       "fp": 35,
+       "precision": 0.0278,
+       "base_rate": 0.126,
+       "lift": 0.22,
+       "p": 0.9922,
+       "net_mean": -0.5363,
+       "win": 0.1667,
+       "tp_rate": 0.0278,
+       "n_events": 107
+      },
+      "val": {
+       "n": 10,
+       "n_lab": 10,
+       "tp": 1,
+       "fp": 9,
+       "precision": 0.1,
+       "base_rate": 0.1886,
+       "lift": 0.53,
+       "p": 0.8763,
+       "net_mean": -0.1356,
+       "win": 0.3,
+       "tp_rate": 0.1,
+       "n_events": 53
+      },
+      "hold": {
+       "n": 7,
+       "n_lab": 7,
+       "tp": 1,
+       "fp": 6,
+       "precision": 0.1429,
+       "base_rate": 0.2083,
+       "lift": 0.686,
+       "p": 0.8051,
+       "net_mean": -0.3118,
+       "win": 0.2857,
+       "tp_rate": 0.1429,
+       "n_events": 70
+      },
+      "pass_dev": false,
+      "exploratory": true
+     },
+     "BTC_REL": {
+      "note": "BTC 대비 60분 상대강도 상위10% + 변동성 압축 중앙값 이하",
+      "alpha_family": 0.016666666666666666,
+      "family_size": 3,
+      "dev": {
+       "n": 42,
+       "n_lab": 42,
+       "tp": 20,
+       "fp": 22,
+       "precision": 0.4762,
+       "base_rate": 0.126,
+       "lift": 3.778,
+       "p": 3.186e-08,
+       "net_mean": 0.46,
+       "win": 0.4524,
+       "tp_rate": 0.3571,
+       "n_events": 107
+      },
+      "val": {
+       "n": 14,
+       "n_lab": 14,
+       "tp": 6,
+       "fp": 8,
+       "precision": 0.4286,
+       "base_rate": 0.1886,
+       "lift": 2.272,
+       "p": 0.03376,
+       "net_mean": 0.6872,
+       "win": 0.5,
+       "tp_rate": 0.4286,
+       "n_events": 53
+      },
+      "hold": {
+       "n": 19,
+       "n_lab": 19,
+       "tp": 8,
+       "fp": 11,
+       "precision": 0.4211,
+       "base_rate": 0.2083,
+       "lift": 2.021,
+       "p": 0.02933,
+       "net_mean": -0.2886,
+       "win": 0.3684,
+       "tp_rate": 0.3158,
+       "n_events": 70
+      },
+      "pass_dev": true,
+      "exploratory": true
+     }
+    },
+    "runtime_s": 14.0
+   }
+  },
+  "KR": {
+   "30": {
+    "rows_raw": 82720,
+    "rows_purged": 14308,
+    "purge_dropped": 68412,
+    "censored": 1462,
+    "events": 170,
+    "event_rate": 0.0132,
+    "days": {
+     "n": 10,
+     "dev": [
+      "2026-11-10",
+      "2026-11-11",
+      "2026-11-12",
+      "2026-11-13",
+      "2026-11-16"
+     ],
+     "val": [
+      "2026-11-17",
+      "2026-11-18"
+     ],
+     "hold": [
+      "2026-11-19",
+      "2026-11-20"
+     ]
+    },
+    "grid": {
+     "tested": 675,
+     "too_few": 285,
+     "passed_pre_gate": 23,
+     "passed_dev": 0,
+     "passed_val": 0,
+     "passed_hold": 0,
+     "alpha": 7.407407407407407e-05,
+     "family": 675,
+     "gate": {
+      "min_lab": 50,
+      "min_tp": 3,
+      "min_lift": 1.15,
+      "min_net": 0.0
+     },
+     "top": []
+    },
+    "baselines": {
+     "ACCEL": {
+      "dev": {
+       "n": 40,
+       "n_lab": 40,
+       "tp": 7,
+       "fp": 33,
+       "precision": 0.175,
+       "base_rate": 0.0126,
+       "lift": 13.888,
+       "p": 6.529e-07,
+       "net_mean": -0.9191,
+       "win": 0.225,
+       "tp_rate": 0.1,
+       "n_events": 94
+      },
+      "val": {
+       "n": 18,
+       "n_lab": 18,
+       "tp": 3,
+       "fp": 15,
+       "precision": 0.1667,
+       "base_rate": 0.0177,
+       "lift": 9.424,
+       "p": 0.003699,
+       "net_mean": -0.183,
+       "win": 0.3889,
+       "tp_rate": 0.1111,
+       "n_events": 59
+      },
+      "hold": {
+       "n": 14,
+       "n_lab": 14,
+       "tp": 2,
+       "fp": 12,
+       "precision": 0.1429,
+       "base_rate": 0.0083,
+       "lift": 17.227,
+       "p": 0.005857,
+       "net_mean": -0.1881,
+       "win": 0.4286,
+       "tp_rate": 0.1429,
+       "n_events": 17
+      }
+     },
+     "ZVOL2.5": {
+      "dev": {
+       "n": 43,
+       "n_lab": 43,
+       "tp": 6,
+       "fp": 37,
+       "precision": 0.1395,
+       "base_rate": 0.0126,
+       "lift": 11.074,
+       "p": 1.636e-05,
+       "net_mean": -0.603,
+       "win": 0.3256,
+       "tp_rate": 0.0698,
+       "n_events": 94
+      },
+      "val": {
+       "n": 19,
+       "n_lab": 19,
+       "tp": 5,
+       "fp": 14,
+       "precision": 0.2632,
+       "base_rate": 0.0177,
+       "lift": 14.88,
+       "p": 1.635e-05,
+       "net_mean": -0.0404,
+       "win": 0.3684,
+       "tp_rate": 0.1053,
+       "n_events": 59
+      },
+      "hold": {
+       "n": 20,
+       "n_lab": 20,
+       "tp": 3,
+       "fp": 17,
+       "precision": 0.15,
+       "base_rate": 0.0083,
+       "lift": 18.088,
+       "p": 0.0005849,
+       "net_mean": -0.0818,
+       "win": 0.4,
+       "tp_rate": 0.15,
+       "n_events": 17
+      }
+     }
+    },
+    "new_families": {
+     "VCOMP_TVACCEL": {
+      "note": "변동성 압축(vcontract 하위25%) + 거래대금 가속(z_vol 또는 vol_ratio 상위25%)",
+      "alpha_family": 0.016666666666666666,
+      "family_size": 3,
+      "dev": {
+       "n": 50,
+       "n_lab": 50,
+       "tp": 5,
+       "fp": 45,
+       "precision": 0.1,
+       "base_rate": 0.0126,
+       "lift": 7.936,
+       "p": 0.0004199,
+       "net_mean": -0.4061,
+       "win": 0.28,
+       "tp_rate": 0.04,
+       "n_events": 94
+      },
+      "val": {
+       "n": 20,
+       "n_lab": 20,
+       "tp": 1,
+       "fp": 19,
+       "precision": 0.05,
+       "base_rate": 0.0177,
+       "lift": 2.827,
+       "p": 0.3001,
+       "net_mean": -0.15,
+       "win": 0.45,
+       "tp_rate": 0.0,
+       "n_events": 59
+      },
+      "hold": {
+       "n": 20,
+       "n_lab": 20,
+       "tp": 1,
+       "fp": 19,
+       "precision": 0.05,
+       "base_rate": 0.0083,
+       "lift": 6.029,
+       "p": 0.1534,
+       "net_mean": -0.7661,
+       "win": 0.3,
+       "tp_rate": 0.05,
+       "n_events": 17
+      },
+      "pass_dev": false,
+      "exploratory": true
+     },
+     "QUIET_RANGE": {
+      "note": "60분 횡보(|ret60| 중앙값 이하) + 변동성 압축 + 당일 레인지 상단",
+      "alpha_family": 0.016666666666666666,
+      "family_size": 3,
+      "dev": {
+       "n": 50,
+       "n_lab": 50,
+       "tp": 0,
+       "fp": 50,
+       "precision": 0.0,
+       "base_rate": 0.0126,
+       "lift": 0.0,
+       "p": 1.0,
+       "net_mean": -0.2275,
+       "win": 0.28,
+       "tp_rate": 0.0,
+       "n_events": 94
+      },
+      "val": {
+       "n": 20,
+       "n_lab": 20,
+       "tp": 0,
+       "fp": 20,
+       "precision": 0.0,
+       "base_rate": 0.0177,
+       "lift": 0.0,
+       "p": 1.0,
+       "net_mean": -0.6004,
+       "win": 0.15,
+       "tp_rate": 0.0,
+       "n_events": 59
+      },
+      "hold": {
+       "n": 18,
+       "n_lab": 18,
+       "tp": 0,
+       "fp": 18,
+       "precision": 0.0,
+       "base_rate": 0.0083,
+       "lift": 0.0,
+       "p": 1.0,
+       "net_mean": -0.3163,
+       "win": 0.3333,
+       "tp_rate": 0.0,
+       "n_events": 17
+      },
+      "pass_dev": false,
+      "exploratory": true
+     },
+     "NIGHT_GAP": {
+      "note": "야간 갭 상위10%(그날 시가/전일 종가) + 변동성 압축 중앙값 이하",
+      "alpha_family": 0.016666666666666666,
+      "family_size": 3,
+      "dev": {
+       "n": 40,
+       "n_lab": 40,
+       "tp": 5,
+       "fp": 35,
+       "precision": 0.125,
+       "base_rate": 0.0126,
+       "lift": 9.92,
+       "p": 0.0001447,
+       "net_mean": -0.3735,
+       "win": 0.325,
+       "tp_rate": 0.1,
+       "n_events": 94
+      },
+      "val": {
+       "n": 10,
+       "n_lab": 10,
+       "tp": 0,
+       "fp": 10,
+       "precision": 0.0,
+       "base_rate": 0.0177,
+       "lift": 0.0,
+       "p": 1.0,
+       "net_mean": -1.0075,
+       "win": 0.3,
+       "tp_rate": 0.0,
+       "n_events": 59
+      },
+      "hold": {
+       "n": 16,
+       "n_lab": 16,
+       "tp": 2,
+       "fp": 14,
+       "precision": 0.125,
+       "base_rate": 0.0083,
+       "lift": 15.074,
+       "p": 0.007639,
+       "net_mean": 0.5633,
+       "win": 0.5625,
+       "tp_rate": 0.125,
+       "n_events": 17
+      },
+      "pass_dev": false,
+      "exploratory": true
+     }
+    },
+    "runtime_s": 4.8
+   },
+   "60": {
+    "rows_raw": 82720,
+    "rows_purged": 7355,
+    "purge_dropped": 75365,
+    "censored": 1280,
+    "events": 188,
+    "event_rate": 0.0309,
+    "days": {
+     "n": 10,
+     "dev": [
+      "2026-11-10",
+      "2026-11-11",
+      "2026-11-12",
+      "2026-11-13",
+      "2026-11-16"
+     ],
+     "val": [
+      "2026-11-17",
+      "2026-11-18"
+     ],
+     "hold": [
+      "2026-11-19",
+      "2026-11-20"
+     ]
+    },
+    "grid": {
+     "tested": 675,
+     "too_few": 376,
+     "passed_pre_gate": 15,
+     "passed_dev": 0,
+     "passed_val": 0,
+     "passed_hold": 0,
+     "alpha": 7.407407407407407e-05,
+     "family": 675,
+     "gate": {
+      "min_lab": 50,
+      "min_tp": 3,
+      "min_lift": 1.15,
+      "min_net": 0.0
+     },
+     "top": []
+    },
+    "baselines": {
+     "ACCEL": {
+      "dev": {
+       "n": 40,
+       "n_lab": 40,
+       "tp": 7,
+       "fp": 33,
+       "precision": 0.175,
+       "base_rate": 0.0336,
+       "lift": 5.205,
+       "p": 0.0003408,
+       "net_mean": -1.0984,
+       "win": 0.225,
+       "tp_rate": 0.1,
+       "n_events": 116
+      },
+      "val": {
+       "n": 16,
+       "n_lab": 16,
+       "tp": 3,
+       "fp": 13,
+       "precision": 0.1875,
+       "base_rate": 0.0325,
+       "lift": 5.77,
+       "p": 0.01399,
+       "net_mean": 0.6414,
+       "win": 0.625,
+       "tp_rate": 0.1875,
+       "n_events": 53
+      },
+      "hold": {
+       "n": 11,
+       "n_lab": 11,
+       "tp": 2,
+       "fp": 9,
+       "precision": 0.1818,
+       "base_rate": 0.0191,
+       "lift": 9.512,
+       "p": 0.01792,
+       "net_mean": -0.6296,
+       "win": 0.3636,
+       "tp_rate": 0.1818,
+       "n_events": 19
+      }
+     },
+     "ZVOL2.5": {
+      "dev": {
+       "n": 41,
+       "n_lab": 41,
+       "tp": 7,
+       "fp": 34,
+       "precision": 0.1707,
+       "base_rate": 0.0336,
+       "lift": 5.078,
+       "p": 0.0003991,
+       "net_mean": -0.7071,
+       "win": 0.3171,
+       "tp_rate": 0.0976,
+       "n_events": 116
+      },
+      "val": {
+       "n": 16,
+       "n_lab": 16,
+       "tp": 5,
+       "fp": 11,
+       "precision": 0.3125,
+       "base_rate": 0.0325,
+       "lift": 9.617,
+       "p": 0.0001172,
+       "net_mean": 0.8591,
+       "win": 0.5625,
+       "tp_rate": 0.25,
+       "n_events": 53
+      },
+      "hold": {
+       "n": 18,
+       "n_lab": 18,
+       "tp": 2,
+       "fp": 16,
+       "precision": 0.1111,
+       "base_rate": 0.0191,
+       "lift": 5.813,
+       "p": 0.04565,
+       "net_mean": -0.9306,
+       "win": 0.3333,
+       "tp_rate": 0.1111,
+       "n_events": 19
+      }
+     }
+    },
+    "new_families": {
+     "VCOMP_TVACCEL": {
+      "note": "변동성 압축(vcontract 하위25%) + 거래대금 가속(z_vol 또는 vol_ratio 상위25%)",
+      "alpha_family": 0.016666666666666666,
+      "family_size": 3,
+      "dev": {
+       "n": 50,
+       "n_lab": 50,
+       "tp": 5,
+       "fp": 45,
+       "precision": 0.1,
+       "base_rate": 0.0336,
+       "lift": 2.974,
+       "p": 0.026,
+       "net_mean": -0.2114,
+       "win": 0.32,
+       "tp_rate": 0.06,
+       "n_events": 116
+      },
+      "val": {
+       "n": 20,
+       "n_lab": 20,
+       "tp": 1,
+       "fp": 19,
+       "precision": 0.05,
+       "base_rate": 0.0325,
+       "lift": 1.539,
+       "p": 0.4835,
+       "net_mean": -0.3118,
+       "win": 0.4,
+       "tp_rate": 0.0,
+       "n_events": 53
+      },
+      "hold": {
+       "n": 20,
+       "n_lab": 20,
+       "tp": 0,
+       "fp": 20,
+       "precision": 0.0,
+       "base_rate": 0.0191,
+       "lift": 0.0,
+       "p": 1.0,
+       "net_mean": -0.9924,
+       "win": 0.25,
+       "tp_rate": 0.0,
+       "n_events": 19
+      },
+      "pass_dev": false,
+      "exploratory": true
+     },
+     "QUIET_RANGE": {
+      "note": "60분 횡보(|ret60| 중앙값 이하) + 변동성 압축 + 당일 레인지 상단",
+      "alpha_family": 0.016666666666666666,
+      "family_size": 3,
+      "dev": {
+       "n": 48,
+       "n_lab": 48,
+       "tp": 0,
+       "fp": 48,
+       "precision": 0.0,
+       "base_rate": 0.0336,
+       "lift": 0.0,
+       "p": 1.0,
+       "net_mean": -0.1246,
+       "win": 0.3542,
+       "tp_rate": 0.0,
+       "n_events": 116
+      },
+      "val": {
+       "n": 20,
+       "n_lab": 20,
+       "tp": 0,
+       "fp": 20,
+       "precision": 0.0,
+       "base_rate": 0.0325,
+       "lift": 0.0,
+       "p": 1.0,
+       "net_mean": -1.4653,
+       "win": 0.05,
+       "tp_rate": 0.0,
+       "n_events": 53
+      },
+      "hold": {
+       "n": 13,
+       "n_lab": 13,
+       "tp": 0,
+       "fp": 13,
+       "precision": 0.0,
+       "base_rate": 0.0191,
+       "lift": 0.0,
+       "p": 1.0,
+       "net_mean": -0.6292,
+       "win": 0.2308,
+       "tp_rate": 0.0,
+       "n_events": 19
+      },
+      "pass_dev": false,
+      "exploratory": true
+     },
+     "NIGHT_GAP": {
+      "note": "야간 갭 상위10%(그날 시가/전일 종가) + 변동성 압축 중앙값 이하",
+      "alpha_family": 0.016666666666666666,
+      "family_size": 3,
+      "dev": {
+       "n": 40,
+       "n_lab": 40,
+       "tp": 3,
+       "fp": 37,
+       "precision": 0.075,
+       "base_rate": 0.0336,
+       "lift": 2.231,
+       "p": 0.1507,
+       "net_mean": -0.2211,
+       "win": 0.4,
+       "tp_rate": 0.05,
+       "n_events": 116
+      },
+      "val": {
+       "n": 10,
+       "n_lab": 10,
+       "tp": 0,
+       "fp": 10,
+       "precision": 0.0,
+       "base_rate": 0.0325,
+       "lift": 0.0,
+       "p": 1.0,
+       "net_mean": -3.2335,
+       "win": 0.0,
+       "tp_rate": 0.0,
+       "n_events": 53
+      },
+      "hold": {
+       "n": 12,
+       "n_lab": 12,
+       "tp": 0,
+       "fp": 12,
+       "precision": 0.0,
+       "base_rate": 0.0191,
+       "lift": 0.0,
+       "p": 1.0,
+       "net_mean": -1.0727,
+       "win": 0.25,
+       "tp_rate": 0.0,
+       "n_events": 19
+      },
+      "pass_dev": false,
+      "exploratory": true
+     }
+    },
+    "runtime_s": 4.6
+   },
+   "120": {
+    "rows_raw": 82720,
+    "rows_purged": 4031,
+    "purge_dropped": 78689,
+    "censored": 1231,
+    "events": 198,
+    "event_rate": 0.0707,
+    "days": {
+     "n": 10,
+     "dev": [
+      "2026-11-10",
+      "2026-11-11",
+      "2026-11-12",
+      "2026-11-13",
+      "2026-11-16"
+     ],
+     "val": [
+      "2026-11-17",
+      "2026-11-18"
+     ],
+     "hold": [
+      "2026-11-19",
+      "2026-11-20"
+     ]
+    },
+    "grid": {
+     "tested": 675,
+     "too_few": 463,
+     "passed_pre_gate": 3,
+     "passed_dev": 0,
+     "passed_val": 0,
+     "passed_hold": 0,
+     "alpha": 7.407407407407407e-05,
+     "family": 675,
+     "gate": {
+      "min_lab": 50,
+      "min_tp": 3,
+      "min_lift": 1.15,
+      "min_net": 0.0
+     },
+     "top": []
+    },
+    "baselines": {
+     "ACCEL": {
+      "dev": {
+       "n": 40,
+       "n_lab": 40,
+       "tp": 10,
+       "fp": 30,
+       "precision": 0.25,
+       "base_rate": 0.0834,
+       "lift": 2.998,
+       "p": 0.00133,
+       "net_mean": -1.4064,
+       "win": 0.225,
+       "tp_rate": 0.1,
+       "n_events": 127
+      },
+      "val": {
+       "n": 14,
+       "n_lab": 14,
+       "tp": 1,
+       "fp": 13,
+       "precision": 0.0714,
+       "base_rate": 0.0652,
+       "lift": 1.096,
+       "p": 0.6107,
+       "net_mean": -2.2511,
+       "win": 0.0714,
+       "tp_rate": 0.0714,
+       "n_events": 52
+      },
+      "hold": {
+       "n": 10,
+       "n_lab": 10,
+       "tp": 1,
+       "fp": 9,
+       "precision": 0.1,
+       "base_rate": 0.0397,
+       "lift": 2.521,
+       "p": 0.3329,
+       "net_mean": -1.0906,
+       "win": 0.3,
+       "tp_rate": 0.1,
+       "n_events": 19
+      }
+     },
+     "ZVOL2.5": {
+      "dev": {
+       "n": 41,
+       "n_lab": 41,
+       "tp": 9,
+       "fp": 32,
+       "precision": 0.2195,
+       "base_rate": 0.0834,
+       "lift": 2.632,
+       "p": 0.00584,
+       "net_mean": -0.8244,
+       "win": 0.2927,
+       "tp_rate": 0.0976,
+       "n_events": 127
+      },
+      "val": {
+       "n": 14,
+       "n_lab": 14,
+       "tp": 3,
+       "fp": 11,
+       "precision": 0.2143,
+       "base_rate": 0.0652,
+       "lift": 3.288,
+       "p": 0.05862,
+       "net_mean": -1.6484,
+       "win": 0.1429,
+       "tp_rate": 0.1429,
+       "n_events": 52
+      },
+      "hold": {
+       "n": 16,
+       "n_lab": 16,
+       "tp": 2,
+       "fp": 14,
+       "precision": 0.125,
+       "base_rate": 0.0397,
+       "lift": 3.151,
+       "p": 0.1309,
+       "net_mean": -1.0774,
+       "win": 0.25,
+       "tp_rate": 0.125,
+       "n_events": 19
+      }
+     }
+    },
+    "new_families": {
+     "VCOMP_TVACCEL": {
+      "note": "변동성 압축(vcontract 하위25%) + 거래대금 가속(z_vol 또는 vol_ratio 상위25%)",
+      "alpha_family": 0.016666666666666666,
+      "family_size": 3,
+      "dev": {
+       "n": 33,
+       "n_lab": 33,
+       "tp": 8,
+       "fp": 25,
+       "precision": 0.2424,
+       "base_rate": 0.0834,
+       "lift": 2.907,
+       "p": 0.004861,
+       "net_mean": -0.481,
+       "win": 0.2727,
+       "tp_rate": 0.1515,
+       "n_events": 127
+      },
+      "val": {
+       "n": 18,
+       "n_lab": 18,
+       "tp": 2,
+       "fp": 16,
+       "precision": 0.1111,
+       "base_rate": 0.0652,
+       "lift": 1.705,
+       "p": 0.3296,
+       "net_mean": -0.2958,
+       "win": 0.3889,
+       "tp_rate": 0.0556,
+       "n_events": 52
+      },
+      "hold": {
+       "n": 13,
+       "n_lab": 13,
+       "tp": 0,
+       "fp": 13,
+       "precision": 0.0,
+       "base_rate": 0.0397,
+       "lift": 0.0,
+       "p": 1.0,
+       "net_mean": -1.4028,
+       "win": 0.2308,
+       "tp_rate": 0.0,
+       "n_events": 19
+      },
+      "pass_dev": false,
+      "exploratory": true
+     },
+     "QUIET_RANGE": {
+      "note": "60분 횡보(|ret60| 중앙값 이하) + 변동성 압축 + 당일 레인지 상단",
+      "alpha_family": 0.016666666666666666,
+      "family_size": 3,
+      "dev": {
+       "n": 24,
+       "n_lab": 24,
+       "tp": 0,
+       "fp": 24,
+       "precision": 0.0,
+       "base_rate": 0.0834,
+       "lift": 0.0,
+       "p": 1.0,
+       "net_mean": -0.7612,
+       "win": 0.2083,
+       "tp_rate": 0.0,
+       "n_events": 127
+      },
+      "val": {
+       "n": 4,
+       "n_lab": 4,
+       "tp": 1,
+       "fp": 3,
+       "precision": 0.25,
+       "base_rate": 0.0652,
+       "lift": 3.837,
+       "p": 0.2363,
+       "net_mean": 0.98,
+       "win": 0.75,
+       "tp_rate": 0.25,
+       "n_events": 52
+      },
+      "hold": {
+       "n": 2,
+       "n_lab": 2,
+       "tp": 0,
+       "fp": 2,
+       "precision": 0.0,
+       "base_rate": 0.0397,
+       "lift": 0.0,
+       "p": 1.0,
+       "net_mean": -0.4096,
+       "win": 0.0,
+       "tp_rate": 0.0,
+       "n_events": 19
+      },
+      "pass_dev": false,
+      "exploratory": true
+     },
+     "NIGHT_GAP": {
+      "note": "야간 갭 상위10%(그날 시가/전일 종가) + 변동성 압축 중앙값 이하",
+      "alpha_family": 0.016666666666666666,
+      "family_size": 3,
+      "dev": {
+       "n": 38,
+       "n_lab": 38,
+       "tp": 1,
+       "fp": 37,
+       "precision": 0.0263,
+       "base_rate": 0.0834,
+       "lift": 0.316,
+       "p": 0.9634,
+       "net_mean": -0.9925,
+       "win": 0.2105,
+       "tp_rate": 0.0263,
+       "n_events": 127
+      },
+      "val": {
+       "n": 10,
+       "n_lab": 10,
+       "tp": 0,
+       "fp": 10,
+       "precision": 0.0,
+       "base_rate": 0.0652,
+       "lift": 0.0,
+       "p": 1.0,
+       "net_mean": 1.0403,
+       "win": 1.0,
+       "tp_rate": 0.0,
+       "n_events": 52
+      },
+      "hold": {
+       "n": 11,
+       "n_lab": 11,
+       "tp": 1,
+       "fp": 10,
+       "precision": 0.0909,
+       "base_rate": 0.0397,
+       "lift": 2.292,
+       "p": 0.3593,
+       "net_mean": -0.4762,
+       "win": 0.4545,
+       "tp_rate": 0.0909,
+       "n_events": 19
+      },
+      "pass_dev": false,
+      "exploratory": true
+     }
+    },
+    "runtime_s": 4.8
+   }
+  },
+  "US": {
+   "30": {
+    "rows_raw": 84023,
+    "rows_purged": 14735,
+    "purge_dropped": 69288,
+    "censored": 1147,
+    "events": 27,
+    "event_rate": 0.002,
+    "days": {
+     "n": 10,
+     "dev": [
+      "2026-11-10",
+      "2026-11-11",
+      "2026-11-12",
+      "2026-11-13"
+     ],
+     "val": [
+      "2026-11-16",
+      "2026-11-17"
+     ],
+     "hold": [
+      "2026-11-18",
+      "2026-11-19"
+     ]
+    },
+    "grid": {
+     "tested": 675,
+     "too_few": 311,
+     "passed_pre_gate": 96,
+     "passed_dev": 0,
+     "passed_val": 0,
+     "passed_hold": 0,
+     "alpha": 7.407407407407407e-05,
+     "family": 675,
+     "gate": {
+      "min_lab": 50,
+      "min_tp": 3,
+      "min_lift": 1.15,
+      "min_net": 0.0
+     },
+     "top": []
+    },
+    "baselines": {
+     "ACCEL": {
+      "dev": {
+       "n": 18,
+       "n_lab": 18,
+       "tp": 2,
+       "fp": 16,
+       "precision": 0.1111,
+       "base_rate": 0.0038,
+       "lift": 29.556,
+       "p": 0.002077,
+       "net_mean": -0.4304,
+       "win": 0.4444,
+       "tp_rate": 0.0556,
+       "n_events": 25
+      },
+      "val": {
+       "n": 10,
+       "n_lab": 10,
+       "tp": 0,
+       "fp": 10,
+       "precision": 0.0,
+       "base_rate": 0.0005,
+       "lift": 0.0,
+       "p": 1.0,
+       "net_mean": -0.8278,
+       "win": 0.1,
+       "tp_rate": 0.0,
+       "n_events": 2
+      },
+      "hold": {
+       "n": 11,
+       "n_lab": 11,
+       "tp": 0,
+       "fp": 11,
+       "precision": 0.0,
+       "base_rate": 0.0,
+       "lift": null,
+       "p": null,
+       "net_mean": -0.3109,
+       "win": 0.2727,
+       "tp_rate": 0.0,
+       "n_events": 0
+      }
+     },
+     "ZVOL2.5": {
+      "dev": {
+       "n": 29,
+       "n_lab": 29,
+       "tp": 4,
+       "fp": 25,
+       "precision": 0.1379,
+       "base_rate": 0.0038,
+       "lift": 36.69,
+       "p": 4.401e-06,
+       "net_mean": 0.5228,
+       "win": 0.5172,
+       "tp_rate": 0.1034,
+       "n_events": 25
+      },
+      "val": {
+       "n": 12,
+       "n_lab": 12,
+       "tp": 0,
+       "fp": 12,
+       "precision": 0.0,
+       "base_rate": 0.0005,
+       "lift": 0.0,
+       "p": 1.0,
+       "net_mean": -0.4069,
+       "win": 0.25,
+       "tp_rate": 0.0,
+       "n_events": 2
+      },
+      "hold": {
+       "n": 15,
+       "n_lab": 15,
+       "tp": 0,
+       "fp": 15,
+       "precision": 0.0,
+       "base_rate": 0.0,
+       "lift": null,
+       "p": null,
+       "net_mean": -0.2369,
+       "win": 0.5333,
+       "tp_rate": 0.0,
+       "n_events": 0
+      }
+     }
+    },
+    "new_families": {
+     "VCOMP_TVACCEL": {
+      "note": "변동성 압축(vcontract 하위25%) + 거래대금 가속(z_vol 또는 vol_ratio 상위25%)",
+      "alpha_family": 0.025,
+      "family_size": 2,
+      "dev": {
+       "n": 40,
+       "n_lab": 40,
+       "tp": 3,
+       "fp": 37,
+       "precision": 0.075,
+       "base_rate": 0.0038,
+       "lift": 19.95,
+       "p": 0.000473,
+       "net_mean": 0.3091,
+       "win": 0.425,
+       "tp_rate": 0.075,
+       "n_events": 25
+      },
+      "val": {
+       "n": 20,
+       "n_lab": 20,
+       "tp": 0,
+       "fp": 20,
+       "precision": 0.0,
+       "base_rate": 0.0005,
+       "lift": 0.0,
+       "p": 1.0,
+       "net_mean": -0.4826,
+       "win": 0.35,
+       "tp_rate": 0.0,
+       "n_events": 2
+      },
+      "hold": {
+       "n": 20,
+       "n_lab": 20,
+       "tp": 0,
+       "fp": 20,
+       "precision": 0.0,
+       "base_rate": 0.0,
+       "lift": null,
+       "p": null,
+       "net_mean": -0.0377,
+       "win": 0.35,
+       "tp_rate": 0.0,
+       "n_events": 0
+      },
+      "pass_dev": true,
+      "exploratory": true
+     },
+     "QUIET_RANGE": {
+      "note": "60분 횡보(|ret60| 중앙값 이하) + 변동성 압축 + 당일 레인지 상단",
+      "alpha_family": 0.025,
+      "family_size": 2,
+      "dev": {
+       "n": 40,
+       "n_lab": 40,
+       "tp": 0,
+       "fp": 40,
+       "precision": 0.0,
+       "base_rate": 0.0038,
+       "lift": 0.0,
+       "p": 1.0,
+       "net_mean": -0.1421,
+       "win": 0.425,
+       "tp_rate": 0.0,
+       "n_events": 25
+      },
+      "val": {
+       "n": 20,
+       "n_lab": 20,
+       "tp": 0,
+       "fp": 20,
+       "precision": 0.0,
+       "base_rate": 0.0005,
+       "lift": 0.0,
+       "p": 1.0,
+       "net_mean": -0.1624,
+       "win": 0.25,
+       "tp_rate": 0.0,
+       "n_events": 2
+      },
+      "hold": {
+       "n": 20,
+       "n_lab": 20,
+       "tp": 0,
+       "fp": 20,
+       "precision": 0.0,
+       "base_rate": 0.0,
+       "lift": null,
+       "p": null,
+       "net_mean": -0.157,
+       "win": 0.4,
+       "tp_rate": 0.0,
+       "n_events": 0
+      },
+      "pass_dev": false,
+      "exploratory": true
+     }
+    },
+    "runtime_s": 5.9
+   },
+   "60": {
+    "rows_raw": 84023,
+    "rows_purged": 7502,
+    "purge_dropped": 76521,
+    "censored": 1141,
+    "events": 42,
+    "event_rate": 0.0066,
+    "days": {
+     "n": 10,
+     "dev": [
+      "2026-11-10",
+      "2026-11-11",
+      "2026-11-12",
+      "2026-11-13"
+     ],
+     "val": [
+      "2026-11-16",
+      "2026-11-17"
+     ],
+     "hold": [
+      "2026-11-18",
+      "2026-11-19"
+     ]
+    },
+    "grid": {
+     "tested": 675,
+     "too_few": 384,
+     "passed_pre_gate": 77,
+     "passed_dev": 0,
+     "passed_val": 0,
+     "passed_hold": 0,
+     "alpha": 7.407407407407407e-05,
+     "family": 675,
+     "gate": {
+      "min_lab": 50,
+      "min_tp": 3,
+      "min_lift": 1.15,
+      "min_net": 0.0
+     },
+     "top": []
+    },
+    "baselines": {
+     "ACCEL": {
+      "dev": {
+       "n": 11,
+       "n_lab": 11,
+       "tp": 4,
+       "fp": 7,
+       "precision": 0.3636,
+       "base_rate": 0.0126,
+       "lift": 28.923,
+       "p": 7.683e-06,
+       "net_mean": 0.3112,
+       "win": 0.5455,
+       "tp_rate": 0.1818,
+       "n_events": 39
+      },
+      "val": {
+       "n": 1,
+       "n_lab": 1,
+       "tp": 0,
+       "fp": 1,
+       "precision": 0.0,
+       "base_rate": 0.0017,
+       "lift": 0.0,
+       "p": 1.0,
+       "net_mean": -1.5766,
+       "win": 0.0,
+       "tp_rate": 0.0,
+       "n_events": 3
+      },
+      "hold": {
+       "n": 11,
+       "n_lab": 11,
+       "tp": 0,
+       "fp": 11,
+       "precision": 0.0,
+       "base_rate": 0.0,
+       "lift": null,
+       "p": null,
+       "net_mean": -0.9298,
+       "win": 0.2727,
+       "tp_rate": 0.0,
+       "n_events": 0
+      }
+     },
+     "ZVOL2.5": {
+      "dev": {
+       "n": 28,
+       "n_lab": 28,
+       "tp": 6,
+       "fp": 22,
+       "precision": 0.2143,
+       "base_rate": 0.0126,
+       "lift": 17.044,
+       "p": 1.173e-06,
+       "net_mean": 0.6477,
+       "win": 0.6071,
+       "tp_rate": 0.1429,
+       "n_events": 39
+      },
+      "val": {
+       "n": 8,
+       "n_lab": 8,
+       "tp": 0,
+       "fp": 8,
+       "precision": 0.0,
+       "base_rate": 0.0017,
+       "lift": 0.0,
+       "p": 1.0,
+       "net_mean": -1.2773,
+       "win": 0.25,
+       "tp_rate": 0.0,
+       "n_events": 3
+      },
+      "hold": {
+       "n": 14,
+       "n_lab": 14,
+       "tp": 0,
+       "fp": 14,
+       "precision": 0.0,
+       "base_rate": 0.0,
+       "lift": null,
+       "p": null,
+       "net_mean": -0.5137,
+       "win": 0.3571,
+       "tp_rate": 0.0,
+       "n_events": 0
+      }
+     }
+    },
+    "new_families": {
+     "VCOMP_TVACCEL": {
+      "note": "변동성 압축(vcontract 하위25%) + 거래대금 가속(z_vol 또는 vol_ratio 상위25%)",
+      "alpha_family": 0.025,
+      "family_size": 2,
+      "dev": {
+       "n": 40,
+       "n_lab": 40,
+       "tp": 2,
+       "fp": 38,
+       "precision": 0.05,
+       "base_rate": 0.0126,
+       "lift": 3.977,
+       "p": 0.09012,
+       "net_mean": 0.3053,
+       "win": 0.45,
+       "tp_rate": 0.1,
+       "n_events": 39
+      },
+      "val": {
+       "n": 20,
+       "n_lab": 20,
+       "tp": 0,
+       "fp": 20,
+       "precision": 0.0,
+       "base_rate": 0.0017,
+       "lift": 0.0,
+       "p": 1.0,
+       "net_mean": -0.8545,
+       "win": 0.3,
+       "tp_rate": 0.0,
+       "n_events": 3
+      },
+      "hold": {
+       "n": 20,
+       "n_lab": 20,
+       "tp": 0,
+       "fp": 20,
+       "precision": 0.0,
+       "base_rate": 0.0,
+       "lift": null,
+       "p": null,
+       "net_mean": -0.0904,
+       "win": 0.45,
+       "tp_rate": 0.0,
+       "n_events": 0
+      },
+      "pass_dev": false,
+      "exploratory": true
+     },
+     "QUIET_RANGE": {
+      "note": "60분 횡보(|ret60| 중앙값 이하) + 변동성 압축 + 당일 레인지 상단",
+      "alpha_family": 0.025,
+      "family_size": 2,
+      "dev": {
+       "n": 40,
+       "n_lab": 40,
+       "tp": 0,
+       "fp": 40,
+       "precision": 0.0,
+       "base_rate": 0.0126,
+       "lift": 0.0,
+       "p": 1.0,
+       "net_mean": -0.0299,
+       "win": 0.5,
+       "tp_rate": 0.0,
+       "n_events": 39
+      },
+      "val": {
+       "n": 20,
+       "n_lab": 20,
+       "tp": 0,
+       "fp": 20,
+       "precision": 0.0,
+       "base_rate": 0.0017,
+       "lift": 0.0,
+       "p": 1.0,
+       "net_mean": -0.1247,
+       "win": 0.3,
+       "tp_rate": 0.0,
+       "n_events": 3
+      },
+      "hold": {
+       "n": 13,
+       "n_lab": 13,
+       "tp": 0,
+       "fp": 13,
+       "precision": 0.0,
+       "base_rate": 0.0,
+       "lift": null,
+       "p": null,
+       "net_mean": -0.1544,
+       "win": 0.3077,
+       "tp_rate": 0.0,
+       "n_events": 0
+      },
+      "pass_dev": false,
+      "exploratory": true
+     }
+    },
+    "runtime_s": 5.9
+   },
+   "120": {
+    "rows_raw": 84023,
+    "rows_purged": 4143,
+    "purge_dropped": 79880,
+    "censored": 1137,
+    "events": 53,
+    "event_rate": 0.0176,
+    "days": {
+     "n": 10,
+     "dev": [
+      "2026-11-10",
+      "2026-11-11",
+      "2026-11-12",
+      "2026-11-13"
+     ],
+     "val": [
+      "2026-11-16",
+      "2026-11-17"
+     ],
+     "hold": [
+      "2026-11-18",
+      "2026-11-19"
+     ]
+    },
+    "grid": {
+     "tested": 675,
+     "too_few": 455,
+     "passed_pre_gate": 51,
+     "passed_dev": 0,
+     "passed_val": 0,
+     "passed_hold": 0,
+     "alpha": 7.407407407407407e-05,
+     "family": 675,
+     "gate": {
+      "min_lab": 50,
+      "min_tp": 3,
+      "min_lift": 1.15,
+      "min_net": 0.0
+     },
+     "top": []
+    },
+    "baselines": {
+     "ACCEL": {
+      "dev": {
+       "n": 11,
+       "n_lab": 11,
+       "tp": 4,
+       "fp": 7,
+       "precision": 0.3636,
+       "base_rate": 0.0329,
+       "lift": 11.062,
+       "p": 0.00032,
+       "net_mean": 0.4702,
+       "win": 0.6364,
+       "tp_rate": 0.1818,
+       "n_events": 50
+      },
+      "val": {
+       "n": 1,
+       "n_lab": 1,
+       "tp": 0,
+       "fp": 1,
+       "precision": 0.0,
+       "base_rate": 0.0034,
+       "lift": 0.0,
+       "p": 1.0,
+       "net_mean": -1.9891,
+       "win": 0.0,
+       "tp_rate": 0.0,
+       "n_events": 3
+      },
+      "hold": {
+       "n": 11,
+       "n_lab": 11,
+       "tp": 0,
+       "fp": 11,
+       "precision": 0.0,
+       "base_rate": 0.0,
+       "lift": null,
+       "p": null,
+       "net_mean": -1.185,
+       "win": 0.3636,
+       "tp_rate": 0.0,
+       "n_events": 0
+      }
+     },
+     "ZVOL2.5": {
+      "dev": {
+       "n": 28,
+       "n_lab": 28,
+       "tp": 7,
+       "fp": 21,
+       "precision": 0.25,
+       "base_rate": 0.0329,
+       "lift": 7.605,
+       "p": 2.669e-05,
+       "net_mean": 1.3381,
+       "win": 0.7143,
+       "tp_rate": 0.2143,
+       "n_events": 50
+      },
+      "val": {
+       "n": 8,
+       "n_lab": 8,
+       "tp": 0,
+       "fp": 8,
+       "precision": 0.0,
+       "base_rate": 0.0034,
+       "lift": 0.0,
+       "p": 1.0,
+       "net_mean": -1.2752,
+       "win": 0.25,
+       "tp_rate": 0.0,
+       "n_events": 3
+      },
+      "hold": {
+       "n": 14,
+       "n_lab": 14,
+       "tp": 0,
+       "fp": 14,
+       "precision": 0.0,
+       "base_rate": 0.0,
+       "lift": null,
+       "p": null,
+       "net_mean": -1.4401,
+       "win": 0.3571,
+       "tp_rate": 0.0,
+       "n_events": 0
+      }
+     }
+    },
+    "new_families": {
+     "VCOMP_TVACCEL": {
+      "note": "변동성 압축(vcontract 하위25%) + 거래대금 가속(z_vol 또는 vol_ratio 상위25%)",
+      "alpha_family": 0.025,
+      "family_size": 2,
+      "dev": {
+       "n": 40,
+       "n_lab": 40,
+       "tp": 6,
+       "fp": 34,
+       "precision": 0.15,
+       "base_rate": 0.0329,
+       "lift": 4.563,
+       "p": 0.001852,
+       "net_mean": 0.781,
+       "win": 0.6,
+       "tp_rate": 0.2,
+       "n_events": 50
+      },
+      "val": {
+       "n": 20,
+       "n_lab": 20,
+       "tp": 0,
+       "fp": 20,
+       "precision": 0.0,
+       "base_rate": 0.0034,
+       "lift": 0.0,
+       "p": 1.0,
+       "net_mean": -0.7714,
+       "win": 0.35,
+       "tp_rate": 0.0,
+       "n_events": 3
+      },
+      "hold": {
+       "n": 13,
+       "n_lab": 13,
+       "tp": 0,
+       "fp": 13,
+       "precision": 0.0,
+       "base_rate": 0.0,
+       "lift": null,
+       "p": null,
+       "net_mean": -1.0327,
+       "win": 0.3077,
+       "tp_rate": 0.0,
+       "n_events": 0
+      },
+      "pass_dev": true,
+      "exploratory": true
+     },
+     "QUIET_RANGE": {
+      "note": "60분 횡보(|ret60| 중앙값 이하) + 변동성 압축 + 당일 레인지 상단",
+      "alpha_family": 0.025,
+      "family_size": 2,
+      "dev": {
+       "n": 32,
+       "n_lab": 32,
+       "tp": 0,
+       "fp": 32,
+       "precision": 0.0,
+       "base_rate": 0.0329,
+       "lift": 0.0,
+       "p": 1.0,
+       "net_mean": 0.053,
+       "win": 0.5938,
+       "tp_rate": 0.0,
+       "n_events": 50
+      },
+      "val": {
+       "n": 11,
+       "n_lab": 11,
+       "tp": 0,
+       "fp": 11,
+       "precision": 0.0,
+       "base_rate": 0.0034,
+       "lift": 0.0,
+       "p": 1.0,
+       "net_mean": -0.4139,
+       "win": 0.2727,
+       "tp_rate": 0.0,
+       "n_events": 3
+      },
+      "hold": {
+       "n": 13,
+       "n_lab": 13,
+       "tp": 0,
+       "fp": 13,
+       "precision": 0.0,
+       "base_rate": 0.0,
+       "lift": null,
+       "p": null,
+       "net_mean": -0.287,
+       "win": 0.1538,
+       "tp_rate": 0.0,
+       "n_events": 0
+      },
+      "pass_dev": false,
+      "exploratory": true
+     }
+    },
+    "runtime_s": 5.9
+   }
+  }
+ },
+ "bonferroni": {
+  "family": 675,
+  "alpha": 7.407407407407407e-05,
+  "fdr_used": false,
+  "note": "675가설(2~3조건) 기준 유지. FDR(BH) 완화 미사용."
+ },
+ "timing_metrics": {
+  "definitions": {
+   "true_early_TP": "사건(+5%)이 있고 decision_at ≤ event_ts",
+   "late_event": "사건이 있으나 decision_at > event_ts",
+   "no_event": "60분 안 +5% 미도달",
+   "decision_to_event_seconds": "event_ts − decision_at (음수=늦음)",
+   "entry_to_event_seconds": "event_ts − entry_ts",
+   "execution_net": "실제 청산 손익(비용 차감)"
+  },
+  "tracks": {
+   "US_GEN16": {
+    "market": "US",
+    "summary": {
+     "n": 13,
+     "n_classified": 13,
+     "kinds": {
+      "no_event": 10,
+      "late_event": 3
+     },
+     "true_early_TP": 0,
+     "late_event": 3,
+     "no_event": 10,
+     "censored": 0,
+     "decision_to_event_seconds": -282.33,
+     "entry_to_event_seconds": -300.0,
+     "execution_net": 1.61,
+     "execution_net_early": null,
+     "execution_net_late": 2.23,
+     "price_gain_mae": 9.43,
+     "ex_post_hit_rate": 0.2308,
+     "early_capture_rate": 0.0,
+     "note": "ex_post_hit_rate = (true_early_TP+late_event)/분류가능 · early_capture_rate = true_early_TP/분류가능. 두 비율을 섞어 '적중률'로 말하지 않는다."
+    },
+    "expired_stale": 0,
+    "last_expired": null
+   },
+   "US_WAVE_RANK": {
+    "market": "US",
+    "summary": {
+     "n": 1,
+     "n_classified": 1,
+     "kinds": {
+      "late_event": 1
+     },
+     "true_early_TP": 0,
+     "late_event": 1,
+     "no_event": 0,
+     "censored": 0,
+     "decision_to_event_seconds": -46.0,
+     "entry_to_event_seconds": -60.0,
+     "execution_net": 4.89,
+     "execution_net_early": null,
+     "execution_net_late": 4.89,
+     "price_gain_mae": 8.88,
+     "ex_post_hit_rate": 1.0,
+     "early_capture_rate": 0.0,
+     "note": "ex_post_hit_rate = (true_early_TP+late_event)/분류가능 · early_capture_rate = true_early_TP/분류가능. 두 비율을 섞어 '적중률'로 말하지 않는다."
+    },
+    "expired_stale": 0,
+    "last_expired": null
+   },
+   "UPBIT_GEN3": {
+    "market": "UP",
+    "summary": {
+     "n": 359,
+     "n_classified": 359,
+     "kinds": {
+      "no_event": 346,
+      "true_early_TP": 11,
+      "late_event": 2
+     },
+     "true_early_TP": 11,
+     "late_event": 2,
+     "no_event": 346,
+     "censored": 0,
+     "decision_to_event_seconds": 1809.38,
+     "entry_to_event_seconds": 1670.77,
+     "execution_net": -0.22,
+     "execution_net_early": 1.76,
+     "execution_net_late": 9.01,
+     "price_gain_mae": 4.2,
+     "ex_post_hit_rate": 0.0362,
+     "early_capture_rate": 0.0306,
+     "note": "ex_post_hit_rate = (true_early_TP+late_event)/분류가능 · early_capture_rate = true_early_TP/분류가능. 두 비율을 섞어 '적중률'로 말하지 않는다."
+    },
+    "expired_stale": 0,
+    "last_expired": null
+   }
+  },
+  "production": {
+   "UP": {
+    "n": 0,
+    "summary": {
+     "n": 0,
+     "n_classified": 0,
+     "kinds": {},
+     "true_early_TP": 0,
+     "late_event": 0,
+     "no_event": 0,
+     "censored": 0,
+     "decision_to_event_seconds": null,
+     "entry_to_event_seconds": null,
+     "execution_net": null,
+     "execution_net_early": null,
+     "execution_net_late": null,
+     "price_gain_mae": null,
+     "ex_post_hit_rate": null,
+     "early_capture_rate": null,
+     "note": "ex_post_hit_rate = (true_early_TP+late_event)/분류가능 · early_capture_rate = true_early_TP/분류가능. 두 비율을 섞어 '적중률'로 말하지 않는다."
+    },
+    "expired": 0
+   },
+   "KR": {
+    "n": 0,
+    "summary": {
+     "n": 0,
+     "n_classified": 0,
+     "kinds": {},
+     "true_early_TP": 0,
+     "late_event": 0,
+     "no_event": 0,
+     "censored": 0,
+     "decision_to_event_seconds": null,
+     "entry_to_event_seconds": null,
+     "execution_net": null,
+     "execution_net_early": null,
+     "execution_net_late": null,
+     "price_gain_mae": null,
+     "ex_post_hit_rate": null,
+     "early_capture_rate": null,
+     "note": "ex_post_hit_rate = (true_early_TP+late_event)/분류가능 · early_capture_rate = true_early_TP/분류가능. 두 비율을 섞어 '적중률'로 말하지 않는다."
+    },
+    "expired": 0
+   },
+   "US": {
+    "n": 0,
+    "summary": {
+     "n": 0,
+     "n_classified": 0,
+     "kinds": {},
+     "true_early_TP": 0,
+     "late_event": 0,
+     "no_event": 0,
+     "censored": 0,
+     "decision_to_event_seconds": null,
+     "entry_to_event_seconds": null,
+     "execution_net": null,
+     "execution_net_early": null,
+     "execution_net_late": null,
+     "price_gain_mae": null,
+     "ex_post_hit_rate": null,
+     "early_capture_rate": null,
+     "note": "ex_post_hit_rate = (true_early_TP+late_event)/분류가능 · early_capture_rate = true_early_TP/분류가능. 두 비율을 섞어 '적중률'로 말하지 않는다."
+    },
+    "expired": 0
+   }
+  }
+ },
+ "stale_gate": {
+  "values": {
+   "US": 420
+  },
+  "scope": [
+   "US_GEN16",
+   "US_WAVE_RANK"
+  ],
+  "hash": "f0c02b728ca0c7c1",
+  "frozen_at": "2026-11-20T22:30:00+09:00",
+  "basis": "5분 수집 주기(300초) + 수집·계산 여유 120초. 이보다 오래된 봉은 '지금 진입 가능한 가격'이 아니다. 실측된 수집 지연(466~770초)은 이 한도를 넘으며, 그런 봉으로 만든 신호는 사전포착이 아니라 늦은 관측이다.",
+  "change_rule": "관측 중 변경 금지. 바꾸려면 새 전략 ID로 등록하고 미래 데이터로만 검증한다.",
+  "alternative_strategies": [
+   {
+    "strategy_id": "US_GEN16_STALEFILL",
+    "status": "future_only",
+    "wired_to_live": false,
+    "validation_start": "2026-11-20T22:30:00+09:00"
+   },
+   {
+    "strategy_id": "US_WAVE_RANK_STALEFILL",
+    "status": "future_only",
+    "wired_to_live": false,
+    "validation_start": "2026-11-20T22:30:00+09:00"
+   }
+  ]
+ },
+ "production_connected": {
+  "UP": {
+   "rotation_runs": {
+    "error": 4,
+    "ingest_partial": 2,
+    "interrupted": 2,
+    "no_new_data": 14
+   },
+   "last_generation": 3,
+   "panel": {
+    "rows": 106996,
+    "symbols": 76,
+    "first_day": "2026-11-09",
+    "last_day": "2026-11-20"
+   },
+   "prod_stages": {
+    "shadow_evaluate": 1,
+    "shadow_scan": 1,
+    "shadow_settle": 2
+   },
+   "shadow_registered": 2,
+   "signals": {
+    "rows": 8,
+    "signal": 8,
+    "expired": 0,
+    "tp": 0,
+    "fp": 4,
+    "price_gain_mae": 4.7031,
+    "execution_net": -2.9745,
+    "censored": 1
+   },
+   "production_connected": true,
+   "e2e_connected": true
+  },
+  "KR": {
+   "rotation_runs": {
+    "completed": 1,
+    "ingest_partial": 7
+   },
+   "last_generation": 1,
+   "panel": {
+    "rows": 106907,
+    "symbols": 60,
+    "first_day": "2026-11-10",
+    "last_day": "2026-11-20"
+   },
+   "prod_stages": {
+    "rotate": 8,
+    "shadow_scan": 1,
+    "shadow_sync": 1
+   },
+   "shadow_registered": 1,
+   "signals": {
+    "rows": 0,
+    "signal": 0,
+    "expired": 0,
+    "tp": 0,
+    "fp": 0,
+    "price_gain_mae": null,
+    "execution_net": null,
+    "censored": 0
+   },
+   "production_connected": true,
+   "e2e_connected": true
+  },
+  "US": {
+   "rotation_runs": {
+    "ingest_partial": 7
+   },
+   "last_generation": null,
+   "panel": {
+    "rows": 125903,
+    "symbols": 59,
+    "first_day": "2026-11-10",
+    "last_day": "2026-11-19"
+   },
+   "prod_stages": {
+    "rotate": 7
+   },
+   "shadow_registered": 1,
+   "signals": {
+    "rows": 0,
+    "signal": 0,
+    "expired": 0,
+    "tp": 0,
+    "fp": 0,
+    "price_gain_mae": null,
+    "execution_net": null,
+    "censored": 0
+   },
+   "production_connected": true,
+   "e2e_connected": true
+  }
+ },
+ "definition": {
+  "e2e_connected": "29차 격리 e2e 계약 실증(별개)",
+  "production_connected": "운영 30분 액션에서 rotation_runs 행 + prod_runs(Shadow 단계) 호출 기록이 모두 있음",
+  "note": "연결(실행 증거)과 성과(손익)를 섞지 않는다."
+ },
+ "tests": {
+  "verify_stale_gate_20261120": {
+   "total": 13,
+   "passed": 13,
+   "failed": []
+  },
+  "verify_production_connected_20261120": {
+   "total": 10,
+   "passed": 10,
+   "failed": []
+  },
+  "verify_horizon_lab_20261120": {
+   "total": 6,
+   "passed": 6,
+   "failed": []
+  }
+ },
+ "scheduled_action": {
+  "path": "scheduled-actions/🔬-자가발전-패턴-연구",
+  "check": "quiet(exit 1)",
+  "elapsed_s": 25,
+  "production_stage": "production_connected.py --stage next --budget 11 (timeout 14)",
+  "up_rotation": "generation_rotation.py --market upbit --budget 28 (timeout 38)",
+  "wall_cap_s": 60
+ }
+}
