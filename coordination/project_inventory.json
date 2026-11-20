@@ -2,7 +2,7 @@
  "schema": 1,
  "kind": "project_inventory",
  "inventory_version": "34.1",
- "generated_at": "2026-11-21T03:59:15+09:00",
+ "generated_at": "2026-11-21T04:01:10+09:00",
  "source_of_truth": {
   "live_status": "monitor/latest.json (5분 갱신) — 이 인덱스의 수치는 생성 시점 스냅숏",
   "live_monitor_generated_at": "2026-11-21T03:40:05+09:00",
@@ -45,11 +45,11 @@
    "partial_summary_only": 34,
    "local_only_not_published": 13
   },
-  "missing_docs_total": 50,
+  "missing_docs_total": 51,
   "missing_docs_by_class": {
    "internal_doc": 16,
    "round_report": 21,
-   "research_artifact": 3,
+   "research_artifact": 4,
    "in_flight_31st": 10
   },
   "missing_items_total": 10,
@@ -223,7 +223,7 @@
      "interval 5m"
     ],
     "paused": false,
-    "last_started_run_at": "2026-11-20T18:55:09.170030Z",
+    "last_started_run_at": "2026-11-20T19:00:09.170030Z",
     "check_fail_count": 0,
     "check_failure_generation": 1
    }
@@ -328,7 +328,7 @@
      "exists": true,
      "kind": "file",
      "size_kb": 0.8,
-     "mtime": "2026-11-21T03:56:06+09:00"
+     "mtime": "2026-11-21T04:00:43+09:00"
     }
    ],
    "published_paths": [],
@@ -344,14 +344,14 @@
    "live": null,
    "owner": null,
    "missing_sources": [],
-   "updated_at": "2026-11-21T03:56:06+09:00",
+   "updated_at": "2026-11-21T04:00:43+09:00",
    "scheduled_action": {
     "folder": "🏛️-우체국금융개발원-이전-감시",
     "schedule": [
      "interval 5m"
     ],
     "paused": false,
-    "last_started_run_at": "2026-11-20T18:55:28.238505Z",
+    "last_started_run_at": "2026-11-20T19:00:28.238505Z",
     "check_fail_count": 0,
     "check_failure_generation": 0
    }
@@ -487,7 +487,7 @@
      "exists": true,
      "kind": "file",
      "size_kb": 17.9,
-     "mtime": "2026-11-21T03:54:56+09:00"
+     "mtime": "2026-11-21T04:00:08+09:00"
     }
    ],
    "published_paths": [
@@ -519,14 +519,14 @@
    },
    "owner": null,
    "missing_sources": [],
-   "updated_at": "2026-11-21T03:54:56+09:00",
+   "updated_at": "2026-11-21T04:00:08+09:00",
    "scheduled_action": {
     "folder": "📊-업비트-전진검증-채점",
     "schedule": [
      "interval 5m"
     ],
     "paused": false,
-    "last_started_run_at": "2026-11-20T18:54:40.310354Z",
+    "last_started_run_at": "2026-11-20T18:59:40.310354Z",
     "check_fail_count": 0,
     "check_failure_generation": 7
    }
@@ -560,7 +560,7 @@
      "exists": true,
      "kind": "file",
      "size_kb": 825.1,
-     "mtime": "2026-11-21T03:54:58+09:00"
+     "mtime": "2026-11-21T04:00:09+09:00"
     }
    ],
    "published_paths": [
@@ -592,14 +592,14 @@
    },
    "owner": null,
    "missing_sources": [],
-   "updated_at": "2026-11-21T03:54:58+09:00",
+   "updated_at": "2026-11-21T04:00:09+09:00",
    "scheduled_action": {
     "folder": "📊-업비트-전진검증-채점",
     "schedule": [
      "interval 5m"
     ],
     "paused": false,
-    "last_started_run_at": "2026-11-20T18:54:40.310354Z",
+    "last_started_run_at": "2026-11-20T18:59:40.310354Z",
     "check_fail_count": 0,
     "check_failure_generation": 7
    }
@@ -633,7 +633,7 @@
      "exists": true,
      "kind": "file",
      "size_kb": 62.8,
-     "mtime": "2026-11-21T03:54:54+09:00"
+     "mtime": "2026-11-21T04:00:05+09:00"
     }
    ],
    "published_paths": [
@@ -665,14 +665,14 @@
    },
    "owner": null,
    "missing_sources": [],
-   "updated_at": "2026-11-21T03:54:54+09:00",
+   "updated_at": "2026-11-21T04:00:05+09:00",
    "scheduled_action": {
     "folder": "📊-업비트-전진검증-채점",
     "schedule": [
      "interval 5m"
     ],
     "paused": false,
-    "last_started_run_at": "2026-11-20T18:54:40.310354Z",
+    "last_started_run_at": "2026-11-20T18:59:40.310354Z",
     "check_fail_count": 0,
     "check_failure_generation": 7
    }
@@ -925,7 +925,7 @@
      "interval 5m"
     ],
     "paused": false,
-    "last_started_run_at": "2026-11-20T18:55:09.170030Z",
+    "last_started_run_at": "2026-11-20T19:00:09.170030Z",
     "check_fail_count": 0,
     "check_failure_generation": 1
    }
@@ -999,7 +999,7 @@
      "interval 5m"
     ],
     "paused": false,
-    "last_started_run_at": "2026-11-20T18:55:09.170030Z",
+    "last_started_run_at": "2026-11-20T19:00:09.170030Z",
     "check_fail_count": 0,
     "check_failure_generation": 1
    }
@@ -1396,7 +1396,7 @@
      "interval 30m"
     ],
     "paused": false,
-    "last_started_run_at": "2026-11-20T18:28:50.655704Z",
+    "last_started_run_at": "2026-11-20T18:58:50.655704Z",
     "check_fail_count": 0,
     "check_failure_generation": 1
    }
@@ -1473,7 +1473,7 @@
      "interval 5m"
     ],
     "paused": false,
-    "last_started_run_at": "2026-11-20T18:54:14.963349Z",
+    "last_started_run_at": "2026-11-20T18:59:14.963349Z",
     "check_fail_count": 0,
     "check_failure_generation": 0
    }
@@ -1492,8 +1492,8 @@
      "path": "research/horizon_lab.py",
      "exists": true,
      "kind": "file",
-     "size_kb": 30.6,
-     "mtime": "2026-11-21T03:52:23+09:00"
+     "size_kb": 31.9,
+     "mtime": "2026-11-21T04:00:31+09:00"
     },
     {
      "path": "research/verify_horizon_lab_20261120.py",
@@ -1557,7 +1557,7 @@
    "live": null,
    "owner": "handoffs/🛠️-31차-독립검증-p0-인과-분할-shadow-p1-4종",
    "missing_sources": [],
-   "updated_at": "2026-11-21T03:52:23+09:00"
+   "updated_at": "2026-11-21T04:00:31+09:00"
   },
   {
    "id": "engine.research_universe",
@@ -2857,8 +2857,8 @@
      "path": "research/project_inventory.py",
      "exists": true,
      "kind": "file",
-     "size_kb": 96.8,
-     "mtime": "2026-11-21T03:59:15+09:00"
+     "size_kb": 97.5,
+     "mtime": "2026-11-21T04:01:09+09:00"
     }
    ],
    "published_paths": [
@@ -2872,7 +2872,7 @@
      "path": "coordination/project_changelog.jsonl",
      "on_remote": true,
      "files_on_remote": null,
-     "size_kb": 2.6
+     "size_kb": 5.8
     },
     {
      "path": "research/reports/gpt_34th_project_inventory_20261121.md",
@@ -2883,7 +2883,7 @@
    ],
    "github_visibility": "public_synced",
    "visibility_note": "",
-   "latest_commit": "68aa2d2",
+   "latest_commit": "4bf2f04",
    "verification_status": "이 회차에서 생성·게시(raw 200·JSON 파싱·비밀 스캔 0건).",
    "commit_note": "자기 자신의 게시 커밋은 파일 안에 담을 수 없다(자기참조). 변경 이력은 project_changelog.jsonl의 커밋을 본다.",
    "known_issues": [
@@ -2893,7 +2893,7 @@
    "live": null,
    "owner": null,
    "missing_sources": [],
-   "updated_at": "2026-11-21T03:59:15+09:00"
+   "updated_at": "2026-11-21T04:01:09+09:00"
   },
   {
    "id": "tg.reporter",
@@ -3039,7 +3039,7 @@
    "live": null,
    "owner": null,
    "missing_sources": [],
-   "updated_at": "2026-11-21T03:59:15+09:00"
+   "updated_at": "2026-11-21T04:01:10+09:00"
   },
   {
    "id": "gov.verification_harness",
@@ -3157,7 +3157,7 @@
      "path": "research/reports",
      "exists": true,
      "kind": "dir",
-     "files": 32
+     "files": 33
     },
     {
      "path": "research/evaluation_summaries",
@@ -3210,7 +3210,7 @@
    "missing_sources": [
     "research/gpt_31st_p0_report_20261120.md"
    ],
-   "updated_at": "2026-11-21T03:59:15+09:00"
+   "updated_at": "2026-11-21T04:01:10+09:00"
   },
   {
    "id": "gov.heartbeat",
@@ -3755,6 +3755,13 @@
     "note": "내부 계획·분석 문서 — 공개 대상 아님(정책)"
    },
    {
+    "path": "research/reports/horizon_olduni_gated_UP_20261121.json",
+    "size_kb": 35.5,
+    "mtime": "2026-11-21T04:01:14+09:00",
+    "classification": "research_artifact",
+    "note": "연구 중간 산출물(유니버스·시점 계측 등) — 요약 JSON에 흡수되어 단독 게시 안 됨"
+   },
+   {
     "path": "research/reports/horizon_predev_KR_20261121.json",
     "size_kb": 19.1,
     "mtime": "2026-11-21T03:58:26+09:00",
@@ -3941,8 +3948,8 @@
    "paused": false,
    "check_sh": true,
    "check_sh_kb": 3.1,
-   "next_run_at": "2026-11-20T18:59:14.963349Z",
-   "last_started_run_at": "2026-11-20T18:54:14.963349Z",
+   "next_run_at": "2026-11-20T19:04:14.963349Z",
+   "last_started_run_at": "2026-11-20T18:59:14.963349Z",
    "check_fail_count": 0,
    "check_failure_generation": 0
   },
@@ -3955,8 +3962,8 @@
    "paused": false,
    "check_sh": true,
    "check_sh_kb": 30.7,
-   "next_run_at": "2026-11-20T19:00:09.170030Z",
-   "last_started_run_at": "2026-11-20T18:55:09.170030Z",
+   "next_run_at": "2026-11-20T19:05:09.170030Z",
+   "last_started_run_at": "2026-11-20T19:00:09.170030Z",
    "check_fail_count": 0,
    "check_failure_generation": 1
   },
@@ -3983,8 +3990,8 @@
    "paused": false,
    "check_sh": true,
    "check_sh_kb": 6.5,
-   "next_run_at": "2026-11-20T19:00:28.238505Z",
-   "last_started_run_at": "2026-11-20T18:55:28.238505Z",
+   "next_run_at": "2026-11-20T19:05:28.238505Z",
+   "last_started_run_at": "2026-11-20T19:00:28.238505Z",
    "check_fail_count": 0,
    "check_failure_generation": 0
   },
@@ -4011,8 +4018,8 @@
    "paused": false,
    "check_sh": true,
    "check_sh_kb": 6.2,
-   "next_run_at": "2026-11-20T18:59:40.310354Z",
-   "last_started_run_at": "2026-11-20T18:54:40.310354Z",
+   "next_run_at": "2026-11-20T19:04:40.310354Z",
+   "last_started_run_at": "2026-11-20T18:59:40.310354Z",
    "check_fail_count": 0,
    "check_failure_generation": 7
   },
@@ -4025,8 +4032,8 @@
    "paused": false,
    "check_sh": true,
    "check_sh_kb": 6.8,
-   "next_run_at": "2026-11-20T18:58:50.655704Z",
-   "last_started_run_at": "2026-11-20T18:28:50.655704Z",
+   "next_run_at": "2026-11-20T19:28:50.655704Z",
+   "last_started_run_at": "2026-11-20T18:58:50.655704Z",
    "check_fail_count": 0,
    "check_failure_generation": 1
   },
@@ -4054,13 +4061,13 @@
     "id": "📋-34차-전체-프로젝트-인덱스-github-공유-체계-구축",
     "state": "running",
     "created_at": "2026-11-20T18:54:58.370280Z",
-    "updated_at": "2026-11-20T18:59:14.936234Z"
+    "updated_at": "2026-11-20T19:01:09.907713Z"
    },
    {
     "id": "🛠️-31차-독립검증-p0-인과-분할-shadow-p1-4종",
     "state": "running",
     "created_at": "2026-11-20T18:47:15.452856Z",
-    "updated_at": "2026-11-20T18:58:56.724202Z"
+    "updated_at": "2026-11-20T19:00:33.650348Z"
    }
   ]
  },
@@ -4291,7 +4298,7 @@
    },
    {
     "file": "research/horizon_lab.py",
-    "kb": 30.6,
+    "kb": 31.9,
     "category": "연구 엔진",
     "doc": "research/horizon_lab.py — 30차 P1-F: 3시장 × H=30/60/120 독립 연구."
    },
@@ -4489,7 +4496,7 @@
    },
    {
     "file": "research/project_inventory.py",
-    "kb": 96.8,
+    "kb": 97.5,
     "category": "게시·요약",
     "doc": "research/project_inventory.py — 전 프로젝트 중앙 인덱스 (GPT 제34차 지시 이행)."
    },
