@@ -1,6 +1,6 @@
 {
  "schema": 3,
- "generated_at": "2026-11-20T22:55:30+09:00",
+ "generated_at": "2026-11-20T22:55:58+09:00",
  "note": "Public, de-identified collaboration snapshot. No credentials, personal data, or raw DB. schema 3: forward_signals_observed(전진검증)와 research_shadow_signals_prospective(연구 Shadow)를 분리했고, shadow_signals_measured·candidate_count 는 null(deprecated)이다.",
  "totals": {
   "symbols": 5534,
@@ -12,8 +12,28 @@
   "forward_tracks_signals_sum": 705,
   "forward_tracks_closed_sum": 343,
   "totals_source": "monitor/latest.json:forward_tracks",
-  "forward_research_consistent": null,
-  "note_forward_research": "research 문서 없음 — 전진/Shadow 분리 합계 미확인"
+  "forward_signals_observed": 705,
+  "forward_wins_from_tracks": 151,
+  "research_shadow_signals_prospective": 8,
+  "research_shadow_labelled": 4,
+  "research_shadow_tp": 0,
+  "research_shadow_fp": 4,
+  "research_shadow_censored": 1,
+  "forward_research_delta": {
+   "signals": 0,
+   "closed": 0
+  },
+  "forward_research_consistent": true,
+  "forward_split_by_market": {
+   "upbit": 385,
+   "kr": 306,
+   "us": 14
+  },
+  "research_snapshot_at": "2026-11-20T22:55:43+09:00",
+  "research_schema": 3,
+  "protocol_version": "budget-proto-v3-20261120",
+  "forward_definition": "전진검증 장부(실시간 가상 체결) — 연구 Shadow 와 합산하지 않는다",
+  "research_shadow_definition": "프리레그istered Shadow(60분 +5% 라벨) — 전진검증과 다른 분모"
  },
  "markets": {
   "upbit": {
@@ -29,10 +49,80 @@
    "candles_1m_query": "COUNT(*)",
    "candles_1m_saved": 1539546,
    "candle_count_delta": 20821,
+   "schema_version": 3,
+   "protocol_version": "budget-proto-v3-20261120",
+   "protocol_hash": "d05c99d2376792b7",
+   "forward_signals_observed": 385,
+   "forward_entries": 367,
+   "forward_open": 35,
    "forward_closed": 332,
+   "forward_wins": 143,
+   "forward_win_rate": 43.1,
+   "forward_sum_pnl_pct": -76.981,
+   "forward_denominator": {
+    "definition": "실제로 돌린 전진검증 장부의 신호·체결·청산 (가상 체결, 실주문 아님)",
+    "time_range": [
+     "2026-11-18T17:34:00",
+     "2026-11-20T22:47:00"
+    ],
+    "source_ledger": "scheduled-actions/*/forward_trades_*.json (track 별)",
+    "tracks": [
+     "UPBIT_GEN3",
+     "UP_ZVOL_GATE",
+     "UPBIT_GEN2"
+    ],
+    "note": "signals = 장부의 signals_detected, closed = n_closed. Shadow 와 합산하지 않는다."
+   },
+   "research_shadow_registered": 2,
+   "research_shadow_signals_prospective": 8,
+   "research_shadow_signals_historical_replay": 0,
+   "shadow_labelled": 4,
+   "shadow_tp": 0,
+   "shadow_fp": 4,
+   "shadow_censored": 1,
+   "shadow_pending": 3,
+   "shadow_precision": 0.0,
+   "shadow_precision_worst": 0.0,
+   "latency_exact_count": 8,
+   "latency_assumed_count": 0,
+   "shadow_median_staleness_sec": 4460,
+   "shadow_status": "measured",
+   "shadow_source_ledger": "knowledge.db:prod_shadow(등록)/prod_signals(신호·라벨)",
+   "shadow_denominator": {
+    "precision": "TP / (TP+FP) — 라벨 확정(labelled)만 분모",
+    "precision_worst": "TP / (prospective signals) — 검열을 전부 오탐으로 가정한 보수적 하한",
+    "censored": "prospective − labelled",
+    "pending": "prospective − labelled − censored (창 미완결)",
+    "latency_exact": "source='live' 이고 first_received_ts 가 기록된 신호"
+   },
+   "raw_lab_candidate_rows": 1130509,
+   "hypotheses_tested": 272,
+   "trials_total": 4896,
+   "dev_pass": 0,
+   "val_pass": 0,
+   "frozen_candidate_count": 0,
+   "prospective_shadow_registered": 2,
+   "rejected_count": 4896,
+   "experiment_sha": "de22d4ebc4f73ea0",
+   "candidate_denominator": {
+    "raw_lab_candidate_rows": "연구 랩·패널의 원시 후보 '행' 수(가설 수가 아니다)",
+    "hypotheses_tested": "서로 다른 가설(candidate_key) 수",
+    "trials_total": "가설×실행 회차(candidate_trials 행) 수",
+    "dev_pass": "DEV 게이트를 통과한 가설 수",
+    "val_pass": "VAL 검증까지 통과한 가설 수",
+    "frozen_candidate_count": "원장에 동결된 후보 수(strategy_registry/candidate_trials)",
+    "prospective_shadow_registered": "프로스펙티브 Shadow 로 등록된 규칙 수(prod_shadow)",
+    "rejected_count": "기각된 가설 판정 수"
+   },
+   "deprecated_keys": {
+    "shadow_signals_measured": "제31차 P0-1: 전진검증 합계와 혼용돼 있었다 → forward_signals_observed (전진) / research_shadow_signals_prospective (연구 Shadow)로 분리",
+    "shadow_signals_estimated": "→ research_shadow_signals_historical_replay",
+    "candidate_count": "제31차 P0-2: 원시 후보 행 수였다 → raw_lab_candidate_rows / hypotheses_tested / frozen_candidate_count 등으로 분리",
+    "frozen_count": "→ frozen_candidate_count"
+   },
    "research_generation_id": "UP-G003",
    "research_status": "rotation:no_new_data",
-   "research_updated_at": "2026-11-20T22:51:37+09:00"
+   "research_updated_at": "2026-11-20T22:55:43+09:00"
   },
   "kr": {
    "label": "한국주식 (KOSPI·KOSDAQ)",
@@ -47,10 +137,79 @@
    "candles_1m_query": "COUNT(*)",
    "candles_1m_saved": 4678981,
    "candle_count_delta": 9369,
+   "schema_version": 3,
+   "protocol_version": "budget-proto-v3-20261120",
+   "protocol_hash": "d05c99d2376792b7",
+   "forward_signals_observed": 306,
+   "forward_entries": 4,
+   "forward_open": 4,
    "forward_closed": 0,
+   "forward_wins": 0,
+   "forward_win_rate": null,
+   "forward_sum_pnl_pct": 0.0,
+   "forward_denominator": {
+    "definition": "실제로 돌린 전진검증 장부의 신호·체결·청산 (가상 체결, 실주문 아님)",
+    "time_range": [
+     "2026-11-17",
+     "2026-11-20"
+    ],
+    "source_ledger": "scheduled-actions/*/forward_trades_*.json (track 별)",
+    "tracks": [
+     "KR_S16",
+     "KR_VCP"
+    ],
+    "note": "signals = 장부의 signals_detected, closed = n_closed. Shadow 와 합산하지 않는다."
+   },
+   "research_shadow_registered": 1,
+   "research_shadow_signals_prospective": 0,
+   "research_shadow_signals_historical_replay": 0,
+   "shadow_labelled": 0,
+   "shadow_tp": 0,
+   "shadow_fp": 0,
+   "shadow_censored": 0,
+   "shadow_pending": 0,
+   "shadow_precision": null,
+   "shadow_precision_worst": null,
+   "latency_exact_count": 0,
+   "latency_assumed_count": 0,
+   "shadow_median_staleness_sec": null,
+   "shadow_status": "registered_no_signal",
+   "shadow_source_ledger": "knowledge.db:prod_shadow(등록)/prod_signals(신호·라벨)",
+   "shadow_denominator": {
+    "precision": "TP / (TP+FP) — 라벨 확정(labelled)만 분모",
+    "precision_worst": "TP / (prospective signals) — 검열을 전부 오탐으로 가정한 보수적 하한",
+    "censored": "prospective − labelled",
+    "pending": "prospective − labelled − censored (창 미완결)",
+    "latency_exact": "source='live' 이고 first_received_ts 가 기록된 신호"
+   },
+   "raw_lab_candidate_rows": 1344187,
+   "hypotheses_tested": 272,
+   "trials_total": 272,
+   "dev_pass": 0,
+   "val_pass": 0,
+   "frozen_candidate_count": 0,
+   "prospective_shadow_registered": 1,
+   "rejected_count": 272,
+   "experiment_sha": "a33cc80eb06ce6b2",
+   "candidate_denominator": {
+    "raw_lab_candidate_rows": "연구 랩·패널의 원시 후보 '행' 수(가설 수가 아니다)",
+    "hypotheses_tested": "서로 다른 가설(candidate_key) 수",
+    "trials_total": "가설×실행 회차(candidate_trials 행) 수",
+    "dev_pass": "DEV 게이트를 통과한 가설 수",
+    "val_pass": "VAL 검증까지 통과한 가설 수",
+    "frozen_candidate_count": "원장에 동결된 후보 수(strategy_registry/candidate_trials)",
+    "prospective_shadow_registered": "프로스펙티브 Shadow 로 등록된 규칙 수(prod_shadow)",
+    "rejected_count": "기각된 가설 판정 수"
+   },
+   "deprecated_keys": {
+    "shadow_signals_measured": "제31차 P0-1: 전진검증 합계와 혼용돼 있었다 → forward_signals_observed (전진) / research_shadow_signals_prospective (연구 Shadow)로 분리",
+    "shadow_signals_estimated": "→ research_shadow_signals_historical_replay",
+    "candidate_count": "제31차 P0-2: 원시 후보 행 수였다 → raw_lab_candidate_rows / hypotheses_tested / frozen_candidate_count 등으로 분리",
+    "frozen_count": "→ frozen_candidate_count"
+   },
    "research_generation_id": "lab_KR_20261120_3f1a339d",
    "research_status": "daily_track_active",
-   "research_updated_at": "2026-11-20T22:51:37+09:00"
+   "research_updated_at": "2026-11-20T22:55:43+09:00"
   },
   "us": {
    "label": "미국주식",
@@ -65,10 +224,79 @@
    "candles_1m_query": "COUNT(*)",
    "candles_1m_saved": 4595355,
    "candle_count_delta": 0,
+   "schema_version": 3,
+   "protocol_version": "budget-proto-v3-20261120",
+   "protocol_hash": "d05c99d2376792b7",
+   "forward_signals_observed": 14,
+   "forward_entries": 11,
+   "forward_open": 0,
    "forward_closed": 11,
+   "forward_wins": 8,
+   "forward_win_rate": 72.7,
+   "forward_sum_pnl_pct": 20.959,
+   "forward_denominator": {
+    "definition": "실제로 돌린 전진검증 장부의 신호·체결·청산 (가상 체결, 실주문 아님)",
+    "time_range": [
+     "2026-11-18T00:45:00",
+     "2026-11-20T04:00:00"
+    ],
+    "source_ledger": "scheduled-actions/*/forward_trades_*.json (track 별)",
+    "tracks": [
+     "US_GEN16",
+     "US_WAVE"
+    ],
+    "note": "signals = 장부의 signals_detected, closed = n_closed. Shadow 와 합산하지 않는다."
+   },
+   "research_shadow_registered": 1,
+   "research_shadow_signals_prospective": 0,
+   "research_shadow_signals_historical_replay": 0,
+   "shadow_labelled": 0,
+   "shadow_tp": 0,
+   "shadow_fp": 0,
+   "shadow_censored": 0,
+   "shadow_pending": 0,
+   "shadow_precision": null,
+   "shadow_precision_worst": null,
+   "latency_exact_count": 0,
+   "latency_assumed_count": 0,
+   "shadow_median_staleness_sec": null,
+   "shadow_status": "registered_no_signal",
+   "shadow_source_ledger": "knowledge.db:prod_shadow(등록)/prod_signals(신호·라벨)",
+   "shadow_denominator": {
+    "precision": "TP / (TP+FP) — 라벨 확정(labelled)만 분모",
+    "precision_worst": "TP / (prospective signals) — 검열을 전부 오탐으로 가정한 보수적 하한",
+    "censored": "prospective − labelled",
+    "pending": "prospective − labelled − censored (창 미완결)",
+    "latency_exact": "source='live' 이고 first_received_ts 가 기록된 신호"
+   },
+   "raw_lab_candidate_rows": 3627819,
+   "hypotheses_tested": 0,
+   "trials_total": 0,
+   "dev_pass": 0,
+   "val_pass": 0,
+   "frozen_candidate_count": null,
+   "prospective_shadow_registered": 1,
+   "rejected_count": 0,
+   "experiment_sha": "bb0f54cc2327381d",
+   "candidate_denominator": {
+    "raw_lab_candidate_rows": "연구 랩·패널의 원시 후보 '행' 수(가설 수가 아니다)",
+    "hypotheses_tested": "서로 다른 가설(candidate_key) 수",
+    "trials_total": "가설×실행 회차(candidate_trials 행) 수",
+    "dev_pass": "DEV 게이트를 통과한 가설 수",
+    "val_pass": "VAL 검증까지 통과한 가설 수",
+    "frozen_candidate_count": "원장에 동결된 후보 수(strategy_registry/candidate_trials)",
+    "prospective_shadow_registered": "프로스펙티브 Shadow 로 등록된 규칙 수(prod_shadow)",
+    "rejected_count": "기각된 가설 판정 수"
+   },
+   "deprecated_keys": {
+    "shadow_signals_measured": "제31차 P0-1: 전진검증 합계와 혼용돼 있었다 → forward_signals_observed (전진) / research_shadow_signals_prospective (연구 Shadow)로 분리",
+    "shadow_signals_estimated": "→ research_shadow_signals_historical_replay",
+    "candidate_count": "제31차 P0-2: 원시 후보 행 수였다 → raw_lab_candidate_rows / hypotheses_tested / frozen_candidate_count 등으로 분리",
+    "frozen_count": "→ frozen_candidate_count"
+   },
    "research_generation_id": "lab_US_20261119_11d1253a",
    "research_status": "lab_complete",
-   "research_updated_at": "2026-11-20T22:51:37+09:00"
+   "research_updated_at": "2026-11-20T22:55:43+09:00"
   }
  },
  "forward_tracks": {
@@ -124,7 +352,7 @@
    "losses": 0,
    "win_rate": null,
    "sum_pnl_pct": 0.0,
-   "last_run_at": "2026-11-20T22:50:38",
+   "last_run_at": "2026-11-20T22:55:29",
    "buckets": null,
    "ledger_version": null
   },
@@ -185,9 +413,12 @@
     "first": "2026-11-09T07:02:00",
     "last": "2026-11-20T22:52:00",
     "mode": "ro",
-    "seconds": 47.93
+    "seconds": 0.01,
+    "at": 1795182924.1357095,
+    "cached": true,
+    "age_s": 32.6
    },
-   "generated_at": "2026-11-20T22:54:36+09:00"
+   "generated_at": "2026-11-20T22:55:56+09:00"
   },
   "kr": {
    "db_file": "kr_1m.db",
@@ -202,9 +433,12 @@
     "first": "2026-11-10T09:00:00",
     "last": "2026-11-20T15:44:00",
     "mode": "ro",
-    "seconds": 2.46
+    "seconds": 0.0,
+    "at": 1795182926.6207178,
+    "cached": true,
+    "age_s": 30.2
    },
-   "generated_at": "2026-11-20T22:55:24+09:00"
+   "generated_at": "2026-11-20T22:55:56+09:00"
   },
   "us": {
    "db_file": "us_1m.db",
@@ -219,32 +453,25 @@
     "first": "2026-11-09T23:30:00",
     "last": "2026-11-20T22:52:58",
     "mode": "ro",
-    "seconds": 1.92
+    "seconds": 0.0,
+    "at": 1795182928.5924659,
+    "cached": true,
+    "age_s": 28.2
    },
-   "generated_at": "2026-11-20T22:55:26+09:00"
+   "generated_at": "2026-11-20T22:55:56+09:00"
   }
  },
  "research": {
-  "generated_at": "2026-11-20T22:51:37+09:00",
+  "generated_at": "2026-11-20T22:55:43+09:00",
   "schema": 3,
-  "stale_gate": {
-   "values": {
-    "US": 420
-   },
-   "hash": "f0c02b728ca0c7c1",
-   "scope": [
-    "US_GEN16",
-    "US_WAVE_RANK"
-   ],
-   "basis": "5분 수집 주기(300초) + 수집·계산 여유 120초. 이보다 오래된 봉은 '지금 진입 가능한 가격'이 아니다. 실측된 수집 지연(466~770초)은 이 한도를 넘으며, 그런 봉으로 만든 신호는 사전포착이 아니라 늦은 관측이다.",
-   "frozen_at": "2026-11-20T22:30:00+09:00"
-  },
-  "note": "시장별 연구 상태(Ⅴ.2). null 은 미구현·미측정이며 status_fields 에 사유가 있다. 절대경로·비밀·개인정보 없음.",
+  "protocol_version": "budget-proto-v3-20261120",
+  "protocol_hash": "d05c99d2376792b7",
+  "note": "시장별 연구 상태(Ⅴ.2) — 전진검증과 연구 Shadow 를 분리한 schema 3. null 은 미측정·미구현이며 status_fields 에 사유가 있다. 0 은 실제 0. 절대경로·비밀·개인정보 없음.",
   "markets": {
    "upbit": {
-    "data_cutoff": "2026-11-20T22:47",
+    "data_cutoff": "2026-11-20T22:52",
     "last_complete_session": "2026-11-20",
-    "candle_count": 1539072,
+    "candle_count": 1539546,
     "universe": 302,
     "source_id": "upbit_1m.db",
     "collector_errors": 0,
@@ -253,22 +480,17 @@
     "last_success": "2026-11-20 08:59:54",
     "last_error_type": null,
     "last_error_at": null,
-    "candidate_count": 0,
-    "frozen_count": 0,
-    "shadow_signals_measured": 8,
-    "shadow_signals_estimated": null,
-    "labelled": 0,
-    "tp": 0,
-    "fp": 4,
-    "censored": 1,
-    "calibration": null,
-    "uplift_vs_baseline": null,
-    "price_gain_error": {
-     "mae_pct": 4.703,
-     "definition": "|실제 최대 상승폭 − 예상 +5%| (운영 연결 Shadow 실측)"
-    },
-    "latency": null,
     "code_sha": "87b2db1b9883",
+    "schema_version": 3,
+    "protocol_version": "budget-proto-v3-20261120",
+    "protocol_hash": "d05c99d2376792b7",
+    "forward_signals_observed": 385,
+    "forward_entries": 367,
+    "forward_open": 35,
+    "forward_closed": 332,
+    "forward_wins": 143,
+    "forward_win_rate": 43.1,
+    "forward_sum_pnl_pct": -76.981,
     "forward_tracks": [
      {
       "track": "UPBIT_GEN3",
@@ -277,9 +499,9 @@
       "win_rate": null,
       "open": null,
       "signals": 365,
-      "last_run_at": "2026-11-20T22:50:07",
-      "expired_stale": 0,
-      "stale_max_sec": null
+      "last_run_at": "2026-11-20T22:55:00",
+      "ledger_version": null,
+      "prospective": null
      },
      {
       "track": "UP_ZVOL_GATE",
@@ -288,9 +510,9 @@
       "win_rate": null,
       "open": null,
       "signals": 20,
-      "last_run_at": "2026-11-20T22:50:03",
-      "expired_stale": 0,
-      "stale_max_sec": null
+      "last_run_at": "2026-11-20T22:54:54",
+      "ledger_version": null,
+      "prospective": null
      },
      {
       "track": "UPBIT_GEN2",
@@ -299,12 +521,108 @@
       "win_rate": null,
       "open": null,
       "signals": 0,
-      "last_run_at": "2026-11-20T22:50:05",
-      "expired_stale": 0,
-      "stale_max_sec": null
+      "last_run_at": "2026-11-20T22:54:58",
+      "ledger_version": null,
+      "prospective": null
      }
     ],
-    "forward_closed": 332,
+    "forward_denominator": {
+     "definition": "실제로 돌린 전진검증 장부의 신호·체결·청산 (가상 체결, 실주문 아님)",
+     "time_range": [
+      "2026-11-18T17:34:00",
+      "2026-11-20T22:47:00"
+     ],
+     "source_ledger": "scheduled-actions/*/forward_trades_*.json (track 별)",
+     "tracks": [
+      "UPBIT_GEN3",
+      "UP_ZVOL_GATE",
+      "UPBIT_GEN2"
+     ],
+     "note": "signals = 장부의 signals_detected, closed = n_closed. Shadow 와 합산하지 않는다."
+    },
+    "forward_last_run_at": "2026-11-20T22:55:00",
+    "forward_errors": null,
+    "research_shadow_registered": 2,
+    "research_shadow_signals_prospective": 8,
+    "research_shadow_signals_historical_replay": 0,
+    "shadow_labelled": 4,
+    "shadow_tp": 0,
+    "shadow_fp": 4,
+    "shadow_censored": 1,
+    "shadow_pending": 3,
+    "shadow_precision": 0.0,
+    "shadow_precision_worst": 0.0,
+    "latency_exact_count": 8,
+    "latency_assumed_count": 0,
+    "shadow_median_staleness_sec": 4460,
+    "shadow_median_price_gain_err_pct": 4.8199,
+    "shadow_status": "measured",
+    "shadow_time_range": [
+     1795177500,
+     1795180500
+    ],
+    "shadow_signal_ids": [
+     "P_BASE_UP:KRW-FOLD:1795177500",
+     "P_BASE_UP:KRW-META2:1795177560",
+     "P_BASE_UP:KRW-BMT:1795177680",
+     "P_BASE_UP:KRW-SENT:1795178160",
+     "P_BASE_UP:KRW-ERA:1795178460",
+     "P_BASE_UP:KRW-CYBER:1795179300",
+     "P_BASE_UP:KRW-PIEVERSE:1795180020",
+     "P_BASE_UP:KRW-POD:1795180500"
+    ],
+    "shadow_prod_ids": [
+     "P_PREREG_UP",
+     "P_BASE_UP"
+    ],
+    "shadow_registered_statuses": {
+     "shadow": 1,
+     "watching": 1
+    },
+    "shadow_source_ledger": "knowledge.db:prod_shadow(등록)/prod_signals(신호·라벨)",
+    "shadow_denominator": {
+     "precision": "TP / (TP+FP) — 라벨 확정(labelled)만 분모",
+     "precision_worst": "TP / (prospective signals) — 검열을 전부 오탐으로 가정한 보수적 하한",
+     "censored": "prospective − labelled",
+     "pending": "prospective − labelled − censored (창 미완결)",
+     "latency_exact": "source='live' 이고 first_received_ts 가 기록된 신호"
+    },
+    "raw_lab_candidate_rows": 1130509,
+    "hypotheses_tested": 272,
+    "trials_total": 4896,
+    "dev_pass": 0,
+    "val_pass": 0,
+    "frozen_candidate_count": 0,
+    "prospective_shadow_registered": 2,
+    "rejected_count": 4896,
+    "experiment_sha": "de22d4ebc4f73ea0",
+    "candidate_denominator": {
+     "raw_lab_candidate_rows": "연구 랩·패널의 원시 후보 '행' 수(가설 수가 아니다)",
+     "hypotheses_tested": "서로 다른 가설(candidate_key) 수",
+     "trials_total": "가설×실행 회차(candidate_trials 행) 수",
+     "dev_pass": "DEV 게이트를 통과한 가설 수",
+     "val_pass": "VAL 검증까지 통과한 가설 수",
+     "frozen_candidate_count": "원장에 동결된 후보 수(strategy_registry/candidate_trials)",
+     "prospective_shadow_registered": "프로스펙티브 Shadow 로 등록된 규칙 수(prod_shadow)",
+     "rejected_count": "기각된 가설 판정 수"
+    },
+    "candidate_source_ledger": "knowledge.db:candidate_trials/research_generations/strategy_registry + strategy_lab_*.json",
+    "candidate_data_cutoff": null,
+    "candidate_generation_id": "UP-G003",
+    "candidate_count": null,
+    "frozen_count": null,
+    "shadow_signals_measured": null,
+    "shadow_signals_estimated": null,
+    "deprecated_keys": {
+     "shadow_signals_measured": "제31차 P0-1: 전진검증 합계와 혼용돼 있었다 → forward_signals_observed (전진) / research_shadow_signals_prospective (연구 Shadow)로 분리",
+     "shadow_signals_estimated": "→ research_shadow_signals_historical_replay",
+     "candidate_count": "제31차 P0-2: 원시 후보 행 수였다 → raw_lab_candidate_rows / hypotheses_tested / frozen_candidate_count 등으로 분리",
+     "frozen_count": "→ frozen_candidate_count"
+    },
+    "status_fields": {
+     "shadow_tp_fp_censored": "measured: prod_signals 의 lab/censored (60분 +5% 도달 기준)",
+     "research_shadow": "registered_no_signal = 등록만 되고 아직 신호 0(실제 0)"
+    },
     "lab": {
      "experiment_id": null,
      "data_cutoff": null,
@@ -312,40 +630,11 @@
      "n_candidates": 1130509,
      "sessions": 12
     },
-    "trials": 5168,
-    "status_fields": {
-     "tp_fp_censored": "not_measured: 실현 손익 라벨(censored 포함) 집계 미구현",
-     "calibration": "not_implemented: 확률 캘리브레이션 미구현",
-     "uplift_vs_baseline": "not_implemented: 기준선 대비 uplift 미산출",
-     "price_gain_error": "measured: 운영 연결 Shadow의 |실제 최대 − 예상 +5%|",
-     "latency": "measured: 사건 시각 대비 판단·진입 시각(음수=늦은 관측)"
-    },
-    "connection": {
-     "e2e_connected": true,
-     "production_connected": true,
-     "production_signals": 8,
-     "production_rows": 8,
-     "expired_stale": 0,
-     "shadow_registered": 2,
-     "rotation_status": "no_new_data",
-     "rotation_at": "2026-11-20 22:47:56",
-     "rotation_generation": 3,
-     "last_stage": {
-      "stage": "shadow_settle",
-      "status": "ok",
-      "at": "2026-11-20T22:51:30+09:00",
-      "sec": 0.07
-     },
-     "measured_at": "2026-11-20T22:51:37+09:00",
-     "stale_max_sec": null,
-     "note": "production_connected = 운영 스케줄(30분 액션)에서 이 시장의 세대교체가 실제로 돈 기록이 있음. e2e_connected = 29차 격리 e2e 계약 실증(별개)."
-    },
-    "execution_net": -2.9745,
-    "updated_at": "2026-11-20T22:51:37+09:00",
+    "updated_at": "2026-11-20T22:55:43+09:00",
     "generation": "UP-G003",
     "status": "rotation:no_new_data",
     "last_error": null,
-    "shadow_signals_historical": null
+    "shadow_signals_historical": 0
    },
    "kr": {
     "data_cutoff": "2026-11-20T15:44+09:00",
@@ -356,51 +645,10 @@
     "collector_errors": 5,
     "generation_id": "lab_KR_20261120_3f1a339d",
     "research_status": "daily_track_active",
-    "last_success": "2026-11-20T22:50:38+09:00",
+    "last_success": "2026-11-20T22:55:29+09:00",
     "last_error_type": null,
     "last_error_at": null,
-    "candidate_count": 1344187,
-    "frozen_count": null,
-    "shadow_signals_measured": 306,
-    "shadow_signals_estimated": null,
-    "labelled": null,
-    "tp": null,
-    "fp": null,
-    "censored": null,
-    "calibration": null,
-    "uplift_vs_baseline": null,
-    "price_gain_error": null,
-    "latency": null,
     "code_sha": "186de7aceca6",
-    "forward_tracks": [
-     {
-      "track": "KR_S16",
-      "closed": 0,
-      "wins": 0,
-      "win_rate": null,
-      "open": 3,
-      "signals": 304,
-      "last_run_at": "2026-11-20T22:50:38+09:00",
-      "expired_stale": 0,
-      "stale_max_sec": null
-     },
-     {
-      "track": "KR_VCP",
-      "closed": 0,
-      "wins": 0,
-      "win_rate": null,
-      "open": 1,
-      "signals": 2,
-      "last_run_at": "2026-11-20T20:21:08+09:00",
-      "expired_stale": 0,
-      "stale_max_sec": null
-     },
-     {
-      "track": "KR_S3",
-      "status": "state_missing"
-     }
-    ],
-    "forward_closed": 0,
     "daily_tracks": {
      "KR_S16": {
       "as_of": "2026-11-20",
@@ -409,7 +657,11 @@
       "coverage": null,
       "gap_dates": null,
       "open": 3,
-      "pending": 58
+      "pending": 58,
+      "ledger_version": null,
+      "initialization_replay": 0,
+      "recovery_backfill": 6,
+      "prospective": null
      },
      "KR_VCP": {
       "as_of": "2026-11-20",
@@ -422,43 +674,135 @@
      "experiment_id": "lab_KR_20261120_3f1a339d",
      "data_cutoff": "2026-11-20",
      "complete": true,
+     "n_candidates": 1344187,
      "sessions": 8
     },
-    "status_fields": {
-     "tp_fp_censored": "not_measured: 일봉 트랙 실현 라벨 미집계",
-     "calibration": "not_implemented",
-     "uplift_vs_baseline": "not_implemented"
-    },
-    "connection": {
-     "e2e_connected": true,
-     "production_connected": true,
-     "production_signals": 0,
-     "production_rows": 0,
-     "expired_stale": 0,
-     "shadow_registered": 1,
-     "rotation_status": "completed",
-     "rotation_at": "2026-11-20 22:45:58",
-     "rotation_generation": 1,
-     "last_stage": {
-      "stage": "shadow_sync",
-      "status": "ok",
-      "at": "2026-11-20T22:48:04+09:00",
-      "sec": 0.12
+    "schema_version": 3,
+    "protocol_version": "budget-proto-v3-20261120",
+    "protocol_hash": "d05c99d2376792b7",
+    "forward_signals_observed": 306,
+    "forward_entries": 4,
+    "forward_open": 4,
+    "forward_closed": 0,
+    "forward_wins": 0,
+    "forward_win_rate": null,
+    "forward_sum_pnl_pct": 0.0,
+    "forward_tracks": [
+     {
+      "track": "KR_S16",
+      "closed": 0,
+      "wins": 0,
+      "win_rate": null,
+      "open": 3,
+      "signals": 304,
+      "last_run_at": "2026-11-20T22:55:29+09:00",
+      "ledger_version": null,
+      "prospective": null
      },
-     "measured_at": "2026-11-20T22:51:37+09:00",
-     "stale_max_sec": null,
-     "note": "production_connected = 운영 스케줄(30분 액션)에서 이 시장의 세대교체가 실제로 돈 기록이 있음. e2e_connected = 29차 격리 e2e 계약 실증(별개)."
+     {
+      "track": "KR_VCP",
+      "closed": 0,
+      "wins": 0,
+      "win_rate": null,
+      "open": 1,
+      "signals": 2,
+      "last_run_at": "2026-11-20T20:21:08+09:00",
+      "ledger_version": null,
+      "prospective": null
+     }
+    ],
+    "forward_denominator": {
+     "definition": "실제로 돌린 전진검증 장부의 신호·체결·청산 (가상 체결, 실주문 아님)",
+     "time_range": [
+      "2026-11-17",
+      "2026-11-20"
+     ],
+     "source_ledger": "scheduled-actions/*/forward_trades_*.json (track 별)",
+     "tracks": [
+      "KR_S16",
+      "KR_VCP"
+     ],
+     "note": "signals = 장부의 signals_detected, closed = n_closed. Shadow 와 합산하지 않는다."
     },
-    "updated_at": "2026-11-20T22:51:37+09:00",
+    "forward_last_run_at": "2026-11-20T22:55:29+09:00",
+    "forward_errors": null,
+    "research_shadow_registered": 1,
+    "research_shadow_signals_prospective": 0,
+    "research_shadow_signals_historical_replay": 0,
+    "shadow_labelled": 0,
+    "shadow_tp": 0,
+    "shadow_fp": 0,
+    "shadow_censored": 0,
+    "shadow_pending": 0,
+    "shadow_precision": null,
+    "shadow_precision_worst": null,
+    "latency_exact_count": 0,
+    "latency_assumed_count": 0,
+    "shadow_median_staleness_sec": null,
+    "shadow_median_price_gain_err_pct": null,
+    "shadow_status": "registered_no_signal",
+    "shadow_time_range": null,
+    "shadow_signal_ids": [],
+    "shadow_prod_ids": [
+     "P_PREREG_KR"
+    ],
+    "shadow_registered_statuses": {
+     "shadow": 1
+    },
+    "shadow_source_ledger": "knowledge.db:prod_shadow(등록)/prod_signals(신호·라벨)",
+    "shadow_denominator": {
+     "precision": "TP / (TP+FP) — 라벨 확정(labelled)만 분모",
+     "precision_worst": "TP / (prospective signals) — 검열을 전부 오탐으로 가정한 보수적 하한",
+     "censored": "prospective − labelled",
+     "pending": "prospective − labelled − censored (창 미완결)",
+     "latency_exact": "source='live' 이고 first_received_ts 가 기록된 신호"
+    },
+    "raw_lab_candidate_rows": 1344187,
+    "hypotheses_tested": 272,
+    "trials_total": 272,
+    "dev_pass": 0,
+    "val_pass": 0,
+    "frozen_candidate_count": 0,
+    "prospective_shadow_registered": 1,
+    "rejected_count": 272,
+    "experiment_sha": "a33cc80eb06ce6b2",
+    "candidate_denominator": {
+     "raw_lab_candidate_rows": "연구 랩·패널의 원시 후보 '행' 수(가설 수가 아니다)",
+     "hypotheses_tested": "서로 다른 가설(candidate_key) 수",
+     "trials_total": "가설×실행 회차(candidate_trials 행) 수",
+     "dev_pass": "DEV 게이트를 통과한 가설 수",
+     "val_pass": "VAL 검증까지 통과한 가설 수",
+     "frozen_candidate_count": "원장에 동결된 후보 수(strategy_registry/candidate_trials)",
+     "prospective_shadow_registered": "프로스펙티브 Shadow 로 등록된 규칙 수(prod_shadow)",
+     "rejected_count": "기각된 가설 판정 수"
+    },
+    "candidate_source_ledger": "knowledge.db:candidate_trials/research_generations/strategy_registry + strategy_lab_*.json",
+    "candidate_data_cutoff": "2026-11-20",
+    "candidate_generation_id": "KR-G001",
+    "candidate_count": null,
+    "frozen_count": null,
+    "shadow_signals_measured": null,
+    "shadow_signals_estimated": null,
+    "deprecated_keys": {
+     "shadow_signals_measured": "제31차 P0-1: 전진검증 합계와 혼용돼 있었다 → forward_signals_observed (전진) / research_shadow_signals_prospective (연구 Shadow)로 분리",
+     "shadow_signals_estimated": "→ research_shadow_signals_historical_replay",
+     "candidate_count": "제31차 P0-2: 원시 후보 행 수였다 → raw_lab_candidate_rows / hypotheses_tested / frozen_candidate_count 등으로 분리",
+     "frozen_count": "→ frozen_candidate_count"
+    },
+    "status_fields": {
+     "shadow_tp_fp_censored": "measured: prod_signals 의 lab/censored (60분 +5% 도달 기준)",
+     "research_shadow": "registered_no_signal = 등록만 되고 아직 신호 0(실제 0)"
+    },
+    "updated_at": "2026-11-20T22:55:43+09:00",
     "generation": "lab_KR_20261120_3f1a339d",
     "status": "daily_track_active",
     "last_error": null,
-    "shadow_signals_historical": null
+    "shadow_signals_historical": 0
    },
    "us": {
-    "data_cutoff": "2026-11-20T22:47+09:00",
+    "data_cutoff": "2026-11-20T22:52+09:00",
     "last_complete_session": "2026-11-19",
-    "candle_count": 4594410,
+    "candle_count": 4595355,
     "universe": 2077,
     "source_id": "us_1m.db",
     "collector_errors": 0,
@@ -467,18 +811,6 @@
     "last_success": "2026-11-19",
     "last_error_type": null,
     "last_error_at": null,
-    "candidate_count": 3627819,
-    "frozen_count": null,
-    "shadow_signals_measured": 14,
-    "shadow_signals_estimated": null,
-    "labelled": 11,
-    "tp": null,
-    "fp": null,
-    "censored": null,
-    "calibration": null,
-    "uplift_vs_baseline": null,
-    "price_gain_error": null,
-    "latency": null,
     "code_sha": "bb0f54cc2327381d",
     "lab": {
      "experiment_id": "lab_US_20261119_11d1253a",
@@ -538,6 +870,16 @@
      "completeness": "7/7",
      "cooldown_scope": "session"
     },
+    "schema_version": 3,
+    "protocol_version": "budget-proto-v3-20261120",
+    "protocol_hash": "d05c99d2376792b7",
+    "forward_signals_observed": 14,
+    "forward_entries": 11,
+    "forward_open": 0,
+    "forward_closed": 11,
+    "forward_wins": 8,
+    "forward_win_rate": 72.7,
+    "forward_sum_pnl_pct": 20.959,
     "forward_tracks": [
      {
       "track": "US_GEN16",
@@ -546,9 +888,9 @@
       "win_rate": null,
       "open": null,
       "signals": 13,
-      "last_run_at": "2026-11-20T22:48:54",
-      "expired_stale": 0,
-      "stale_max_sec": null
+      "last_run_at": "2026-11-20T22:53:35",
+      "ledger_version": null,
+      "prospective": null
      },
      {
       "track": "US_WAVE",
@@ -557,46 +899,161 @@
       "win_rate": null,
       "open": null,
       "signals": 1,
-      "last_run_at": "2026-11-20T22:48:54",
-      "expired_stale": 0,
-      "stale_max_sec": null
+      "last_run_at": "2026-11-20T22:53:34",
+      "ledger_version": null,
+      "prospective": null
      }
     ],
-    "forward_closed": 11,
+    "forward_denominator": {
+     "definition": "실제로 돌린 전진검증 장부의 신호·체결·청산 (가상 체결, 실주문 아님)",
+     "time_range": [
+      "2026-11-18T00:45:00",
+      "2026-11-20T04:00:00"
+     ],
+     "source_ledger": "scheduled-actions/*/forward_trades_*.json (track 별)",
+     "tracks": [
+      "US_GEN16",
+      "US_WAVE"
+     ],
+     "note": "signals = 장부의 signals_detected, closed = n_closed. Shadow 와 합산하지 않는다."
+    },
+    "forward_last_run_at": "2026-11-20T22:53:35",
+    "forward_errors": null,
+    "research_shadow_registered": 1,
+    "research_shadow_signals_prospective": 0,
+    "research_shadow_signals_historical_replay": 0,
+    "shadow_labelled": 0,
+    "shadow_tp": 0,
+    "shadow_fp": 0,
+    "shadow_censored": 0,
+    "shadow_pending": 0,
+    "shadow_precision": null,
+    "shadow_precision_worst": null,
+    "latency_exact_count": 0,
+    "latency_assumed_count": 0,
+    "shadow_median_staleness_sec": null,
+    "shadow_median_price_gain_err_pct": null,
+    "shadow_status": "registered_no_signal",
+    "shadow_time_range": null,
+    "shadow_signal_ids": [],
+    "shadow_prod_ids": [
+     "P_PREREG_US"
+    ],
+    "shadow_registered_statuses": {
+     "shadow": 1
+    },
+    "shadow_source_ledger": "knowledge.db:prod_shadow(등록)/prod_signals(신호·라벨)",
+    "shadow_denominator": {
+     "precision": "TP / (TP+FP) — 라벨 확정(labelled)만 분모",
+     "precision_worst": "TP / (prospective signals) — 검열을 전부 오탐으로 가정한 보수적 하한",
+     "censored": "prospective − labelled",
+     "pending": "prospective − labelled − censored (창 미완결)",
+     "latency_exact": "source='live' 이고 first_received_ts 가 기록된 신호"
+    },
+    "raw_lab_candidate_rows": 3627819,
+    "hypotheses_tested": 0,
+    "trials_total": 0,
+    "dev_pass": 0,
+    "val_pass": 0,
+    "frozen_candidate_count": null,
+    "prospective_shadow_registered": 1,
+    "rejected_count": 0,
+    "experiment_sha": "bb0f54cc2327381d",
+    "candidate_denominator": {
+     "raw_lab_candidate_rows": "연구 랩·패널의 원시 후보 '행' 수(가설 수가 아니다)",
+     "hypotheses_tested": "서로 다른 가설(candidate_key) 수",
+     "trials_total": "가설×실행 회차(candidate_trials 행) 수",
+     "dev_pass": "DEV 게이트를 통과한 가설 수",
+     "val_pass": "VAL 검증까지 통과한 가설 수",
+     "frozen_candidate_count": "원장에 동결된 후보 수(strategy_registry/candidate_trials)",
+     "prospective_shadow_registered": "프로스펙티브 Shadow 로 등록된 규칙 수(prod_shadow)",
+     "rejected_count": "기각된 가설 판정 수"
+    },
+    "candidate_source_ledger": "knowledge.db:candidate_trials/research_generations/strategy_registry + strategy_lab_*.json",
+    "candidate_data_cutoff": "2026-11-19",
+    "candidate_generation_id": "lab_US_20261119_11d1253a",
+    "candidate_count": null,
+    "frozen_count": null,
+    "shadow_signals_measured": null,
+    "shadow_signals_estimated": null,
+    "deprecated_keys": {
+     "shadow_signals_measured": "제31차 P0-1: 전진검증 합계와 혼용돼 있었다 → forward_signals_observed (전진) / research_shadow_signals_prospective (연구 Shadow)로 분리",
+     "shadow_signals_estimated": "→ research_shadow_signals_historical_replay",
+     "candidate_count": "제31차 P0-2: 원시 후보 행 수였다 → raw_lab_candidate_rows / hypotheses_tested / frozen_candidate_count 등으로 분리",
+     "frozen_count": "→ frozen_candidate_count"
+    },
     "status_fields": {
-     "tp_fp_censored": "not_measured: 분봉 규칙 라벨별 TP/FP/censored 미집계",
-     "calibration": "not_implemented",
-     "uplift_vs_baseline": "not_implemented"
+     "shadow_tp_fp_censored": "measured: prod_signals 의 lab/censored (60분 +5% 도달 기준)",
+     "research_shadow": "registered_no_signal = 등록만 되고 아직 신호 0(실제 0)"
     },
-    "connection": {
-     "e2e_connected": true,
-     "production_connected": true,
-     "production_signals": 0,
-     "production_rows": 0,
-     "expired_stale": 0,
-     "shadow_registered": 1,
-     "rotation_status": "ingest_partial",
-     "rotation_at": "2026-11-20 22:46:44",
-     "rotation_generation": null,
-     "last_stage": {
-      "stage": "rotate",
-      "status": "ok",
-      "at": "2026-11-20T22:46:44+09:00",
-      "sec": 42.23
-     },
-     "measured_at": "2026-11-20T22:51:37+09:00",
-     "stale_max_sec": null,
-     "note": "production_connected = 운영 스케줄(30분 액션)에서 이 시장의 세대교체가 실제로 돈 기록이 있음. e2e_connected = 29차 격리 e2e 계약 실증(별개)."
-    },
-    "updated_at": "2026-11-20T22:51:37+09:00",
+    "updated_at": "2026-11-20T22:55:43+09:00",
     "generation": "lab_US_20261119_11d1253a",
     "status": "lab_complete",
     "last_error": null,
-    "shadow_signals_historical": null
+    "shadow_signals_historical": 0
    }
   },
-  "_cache_age_s": 228.9
+  "consistency": {
+   "forward_signals_sum": 705,
+   "forward_closed_sum": 343,
+   "research_shadow_prospective_sum": 8,
+   "forward_by_market": {
+    "upbit": 385,
+    "kr": 306,
+    "us": 14
+   },
+   "forward_closed_by_market": {
+    "upbit": 332,
+    "kr": 0,
+    "us": 11
+   },
+   "shadow_prospective_by_market": {
+    "upbit": 8,
+    "kr": 0,
+    "us": 0
+   },
+   "tracks_signals_by_market": {
+    "upbit": 385,
+    "kr": 306,
+    "us": 14
+   },
+   "forward_equals_tracks": true,
+   "shadow_separate_from_forward": true,
+   "deprecated_null": true,
+   "schema_version": 3,
+   "protocol_version": "budget-proto-v3-20261120"
+  },
+  "_cache_age_s": 10.4
  },
- "research_consistency": null,
+ "research_consistency": {
+  "forward_signals_sum": 705,
+  "forward_closed_sum": 343,
+  "research_shadow_prospective_sum": 8,
+  "forward_by_market": {
+   "upbit": 385,
+   "kr": 306,
+   "us": 14
+  },
+  "forward_closed_by_market": {
+   "upbit": 332,
+   "kr": 0,
+   "us": 11
+  },
+  "shadow_prospective_by_market": {
+   "upbit": 8,
+   "kr": 0,
+   "us": 0
+  },
+  "tracks_signals_by_market": {
+   "upbit": 385,
+   "kr": 306,
+   "us": 14
+  },
+  "forward_equals_tracks": true,
+  "shadow_separate_from_forward": true,
+  "deprecated_null": true,
+  "schema_version": 3,
+  "protocol_version": "budget-proto-v3-20261120"
+ },
  "research_source": "argument"
 }
