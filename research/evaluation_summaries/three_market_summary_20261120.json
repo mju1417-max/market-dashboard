@@ -1,0 +1,616 @@
+{
+ "schema": 1,
+ "generated_at": "2026-11-20T19:45:26+09:00",
+ "note": "실측 스냅숏. 원본 DB·비밀·개인정보 없음. 경로는 저장소 상대 표기.",
+ "markets": {
+  "upbit": {
+   "label": "업비트 (KRW 마켓)",
+   "db": {
+    "bars": 1538894,
+    "symbols": 302,
+    "first": "2026-11-09T07:02:00",
+    "last": "2026-11-20T19:41:00",
+    "days": 12
+   },
+   "universe": 302,
+   "fetch_rows": 302,
+   "fetch_errors": 0,
+   "collector_last_run_at": "2026-11-20T19:42:55.937337+09:00",
+   "scope": "KRW 마켓 전종목(300~302), BTC/USDT 제외",
+   "window": "24시간(휴장 없음)",
+   "surges": {
+    "total": 87,
+    "ge5": 68,
+    "ge10": 14,
+    "max_jump_pct": 41.89,
+    "last_detected_at": "2026-11-20T18:02:52",
+    "source": "dashboard status.json"
+   }
+  },
+  "kr": {
+   "label": "한국주식 (KOSPI·KOSDAQ)",
+   "db": {
+    "bars": 4688350,
+    "symbols": 3156,
+    "first": "2026-11-10T09:00:00",
+    "last": "2026-11-20T15:44:00",
+    "days": 9
+   },
+   "universe": 3146,
+   "fetch_rows": 3205,
+   "fetch_errors": 5,
+   "error_detail": "404 Not Found 5종목(066410.KQ·121800.KQ·214610.KQ·265690.KS·377460.KQ)",
+   "collector_last_run_at": "2026-11-20T15:45:40.878373+09:00",
+   "scope": "KOSPI·KOSDAQ 전종목(유니버스 3,146 · 봉 보유 3,156)",
+   "window": "정규장 09:00~15:30 KST",
+   "surges": {
+    "total": 300,
+    "ge5": 300,
+    "ge10": 74,
+    "max_jump_pct": 30.12,
+    "last_detected_at": "2026-11-20T15:35:35",
+    "source": "dashboard status.json"
+   }
+  },
+  "us": {
+   "label": "미국주식",
+   "db": {
+    "bars": 4570960,
+    "symbols": 2076,
+    "first": "2026-11-09T23:30:00",
+    "last": "2026-11-20T19:41:25",
+    "days": 11
+   },
+   "universe": 1500,
+   "universe_detail": {
+    "base": 1400,
+    "dynamic": 100,
+    "source": "nasdaq_listing+symdir"
+   },
+   "fetch_rows": 2077,
+   "fetch_errors": 0,
+   "collector_last_run_at": "2026-11-20T19:42:56.753265+09:00",
+   "scope": "기준 1,400 + 당일 활발 100 = 최대 1,500종목/일, 누적 추적 2,077종목",
+   "window": "프리·정규·애프터마켓(월 18:00 ~ 토 10:15 KST), 토스 데이마켓(24h) 제외",
+   "surges": {
+    "total": 288,
+    "ge5": 287,
+    "ge10": 53,
+    "max_jump_pct": 243.69,
+    "last_detected_at": "2026-11-20T18:48:26",
+    "source": "dashboard status.json"
+   }
+  },
+  "total": {
+   "symbols": 5533,
+   "candles_1m": 10798204,
+   "note": "합계 봉 수는 이 스냅숏의 세 DB 실측 합. 대시보드 totals(10,772,142)는 19:39 집계 시점 차이."
+  }
+ },
+ "forward_tracks": {
+  "UPBIT_GEN3": {
+   "track": "UPBIT_GEN3",
+   "market": "upbit",
+   "forward_started_at": "2026-11-18T17:29:11",
+   "last_run_at": "2026-11-20T19:45:24",
+   "run_count": 294,
+   "signals": 316,
+   "entries": 304,
+   "no_fill": 11,
+   "closed": 298,
+   "wins": 130,
+   "losses": 168,
+   "win_rate": 43.6,
+   "sum_pnl_pct": -49.8496,
+   "avg_pnl_pct": -0.1673,
+   "exit_reasons": {
+    "120분 만기": 297,
+    "120분 만기(데이터 공백)": 1
+   },
+   "open_now": 6,
+   "pending": 1,
+   "last_status_ok": true,
+   "last_status_at": "2026-11-20T19:45:24"
+  },
+  "UP_ZVOL_GATE": {
+   "track": "UP_ZVOL_GATE",
+   "market": "upbit",
+   "forward_started_at": "2026-11-19T07:16:35",
+   "last_run_at": "2026-11-20T19:45:20",
+   "run_count": 229,
+   "signals": 20,
+   "entries": 20,
+   "no_fill": 0,
+   "closed": 20,
+   "wins": 8,
+   "losses": 12,
+   "win_rate": 40.0,
+   "sum_pnl_pct": -8.8502,
+   "avg_pnl_pct": -0.4425,
+   "exit_reasons": {
+    "SL": 9,
+    "TP": 3,
+    "60분 만기": 6,
+    "SL(갭)": 2
+   },
+   "open_now": 0,
+   "pending": 0,
+   "last_status_ok": true,
+   "last_status_at": "2026-11-20T19:45:20"
+  },
+  "UPBIT_GEN2": {
+   "track": "UPBIT_GEN2",
+   "market": "upbit",
+   "forward_started_at": "2026-11-18T10:54:59",
+   "last_run_at": "2026-11-20T19:45:22",
+   "run_count": 407,
+   "signals": 0,
+   "entries": 0,
+   "no_fill": 0,
+   "closed": 0,
+   "wins": 0,
+   "losses": 0,
+   "win_rate": null,
+   "sum_pnl_pct": 0.0,
+   "avg_pnl_pct": null,
+   "exit_reasons": {},
+   "open_now": 0,
+   "pending": 0,
+   "last_status_ok": true,
+   "last_status_at": "2026-11-20T19:45:22"
+  },
+  "KR_S16": {
+   "track": "KR_S16",
+   "market": "kr",
+   "forward_started_at": "2026-11-18T19:37:16+09:00",
+   "last_run_at": "2026-11-20T15:51:03+09:00",
+   "run_count": 16,
+   "signals": 72,
+   "entries": 3,
+   "no_fill": 69,
+   "closed": 0,
+   "wins": 0,
+   "losses": 0,
+   "win_rate": null,
+   "sum_pnl_pct": 0.0,
+   "avg_pnl_pct": null,
+   "exit_reasons": {},
+   "open_now": 3,
+   "pending": 0,
+   "last_status_ok": true,
+   "last_status_at": "2026-11-20T15:51:02+09:00"
+  },
+  "KR_VCP": {
+   "track": "KR_VCP",
+   "market": "kr",
+   "forward_started_at": "2026-11-18T19:44:49+09:00",
+   "last_run_at": "2026-11-18T19:44:50+09:00",
+   "run_count": 1,
+   "signals": 1,
+   "entries": 0,
+   "no_fill": 0,
+   "closed": 0,
+   "wins": 0,
+   "losses": 0,
+   "win_rate": null,
+   "sum_pnl_pct": 0,
+   "avg_pnl_pct": null,
+   "exit_reasons": {},
+   "open_now": 0,
+   "pending": 1,
+   "last_status_ok": true,
+   "last_status_at": "2026-11-20T19:45:23+09:00"
+  },
+  "US_GEN16": {
+   "track": "US_GEN16",
+   "market": "us",
+   "forward_started_at": "2026-11-17T21:41:27",
+   "last_run_at": "2026-11-20T19:43:29",
+   "run_count": 582,
+   "signals": 13,
+   "entries": 10,
+   "no_fill": 3,
+   "closed": 10,
+   "wins": 7,
+   "losses": 3,
+   "win_rate": 70.0,
+   "sum_pnl_pct": 16.0642,
+   "avg_pnl_pct": 1.6064,
+   "exit_reasons": {
+    "60분 만기": 6,
+    "TP": 3,
+    "SL": 1
+   },
+   "open_now": 0,
+   "pending": 0,
+   "last_status_ok": true,
+   "last_status_at": "2026-11-20T19:43:29"
+  },
+  "US_WAVE_RANK": {
+   "track": "US_WAVE_RANK",
+   "market": "us",
+   "forward_started_at": "2026-11-19T07:17:22",
+   "last_run_at": "2026-11-20T19:43:29",
+   "run_count": 227,
+   "signals": 1,
+   "entries": 1,
+   "no_fill": 0,
+   "closed": 1,
+   "wins": 1,
+   "losses": 0,
+   "win_rate": 100.0,
+   "sum_pnl_pct": 4.895,
+   "avg_pnl_pct": 4.895,
+   "exit_reasons": {
+    "TP": 1
+   },
+   "open_now": 0,
+   "pending": 0,
+   "last_status_ok": true,
+   "last_status_at": "2026-11-20T19:43:29"
+  }
+ },
+ "archived_tracks": {
+  "UPBIT_S1": {
+   "track": "UPBIT_S1",
+   "market": "upbit",
+   "forward_started_at": "2026-11-17T08:06:41",
+   "last_run_at": "2026-11-19T07:15:13",
+   "run_count": 533,
+   "signals": 22,
+   "entries": 14,
+   "no_fill": 8,
+   "closed": 14,
+   "wins": 4,
+   "losses": 10,
+   "win_rate": 28.6,
+   "sum_pnl_pct": -7.2816,
+   "avg_pnl_pct": -0.5201,
+   "exit_reasons": {
+    "SL(갭)": 2,
+    "SL": 4,
+    "30분 만기": 7,
+    "TP": 1
+   },
+   "open_now": 0,
+   "pending": 0,
+   "last_status_ok": true,
+   "last_status_at": "2026-11-19T07:15:13"
+  },
+  "US_S3": {
+   "track": "US_S3",
+   "market": "us",
+   "forward_started_at": "2026-11-17T08:07:26",
+   "last_run_at": "2026-11-19T07:13:32",
+   "run_count": 525,
+   "signals": 10,
+   "entries": 9,
+   "no_fill": 1,
+   "closed": 9,
+   "wins": 3,
+   "losses": 6,
+   "win_rate": 33.3,
+   "sum_pnl_pct": -7.7046,
+   "avg_pnl_pct": -0.8561,
+   "exit_reasons": {
+    "TP": 1,
+    "SL": 5,
+    "SL(갭)": 1,
+    "30분 만기": 2
+   },
+   "open_now": 0,
+   "pending": 0,
+   "last_status_ok": true,
+   "last_status_at": "2026-11-19T07:13:32"
+  },
+  "KR_S3": {
+   "track": "KR_S3",
+   "market": "kr",
+   "forward_started_at": "2026-11-17T08:06:47",
+   "last_run_at": "2026-11-19T07:10:25",
+   "run_count": 542,
+   "signals": 3,
+   "entries": 3,
+   "no_fill": 0,
+   "closed": 3,
+   "wins": 1,
+   "losses": 2,
+   "win_rate": 33.3,
+   "sum_pnl_pct": -3.312,
+   "avg_pnl_pct": -1.104,
+   "exit_reasons": {
+    "SL": 2,
+    "30분 만기": 1
+   },
+   "open_now": 0,
+   "pending": 0,
+   "last_status_ok": true,
+   "last_status_at": "2026-11-19T07:10:25"
+  }
+ },
+ "research": {
+  "up_auto_researcher": {
+   "ledger_rows": {
+    "research_panel": 104024,
+    "archive": 125095,
+    "research_runs": 18,
+    "candidate_trials": 4896,
+    "strategy_registry": 272,
+    "failure_patterns": 292,
+    "holdout_ledger": 0,
+    "shadow_registry": 0,
+    "shadow_signals": 0,
+    "hypotheses": 0,
+    "rotation_runs": 10
+   },
+   "registry_status": {
+    "rejected": 272
+   },
+   "split": {
+    "dev_start": "2026-11-09",
+    "dev_end": "2026-11-18",
+    "hold_start": "2026-11-19",
+    "hold_end": "2026-11-19",
+    "panel_generation": "3",
+    "split_version": "split/2.0.0"
+   },
+   "frozen_candidates": 0,
+   "note": "272개 고정 격자 전부 rejected. 동결 후보 0 → Shadow 등록 0(합성 e2e만 검증).",
+   "rotation_status": {
+    "error": 3,
+    "ingest_partial": 2,
+    "no_new_data": 5
+   }
+  },
+  "sparse_grid": {
+   "generated_at": "2026-11-20 17:56:40",
+   "schema_ver": "sparse-grid-shard-1",
+   "feat_ver": "v2",
+   "shards": 11,
+   "shard_rows": 4653960,
+   "shard_bytes": 404267008,
+   "shard_days": [
+    "2026-11-09",
+    "2026-11-10",
+    "2026-11-11",
+    "2026-11-12",
+    "2026-11-13",
+    "2026-11-14",
+    "2026-11-15",
+    "2026-11-16",
+    "2026-11-17",
+    "2026-11-18",
+    "2026-11-19"
+   ],
+   "window_days": {
+    "hold": [
+     "hold"
+    ],
+    "dev": [
+     "dev"
+    ]
+   },
+   "dev_days": 10,
+   "hold_days": 1,
+   "active_rows_after_prune": 866880,
+   "active_bytes_after_prune": 67125248,
+   "before_prune_rows": 4653960,
+   "before_prune_bytes": 403025920,
+   "note": "11일 샤드(11-09~11-19). DEV 10일 + HOLD 1일. 프루닝으로 활성 866,880행/67MB만 유지, 원본 패널 내용해시 동일."
+  },
+  "common_ledger": {
+   "dev": {
+    "days": 10,
+    "rules": {
+     "ACCEL": {
+      "selected": 1792,
+      "labelled": 1414,
+      "tp": 188,
+      "fp": 1226,
+      "precision": 0.133
+     },
+     "ZVOL2.5": {
+      "selected": 1577,
+      "labelled": 1332,
+      "tp": 78,
+      "fp": 1254,
+      "precision": 0.0586
+     }
+    }
+   },
+   "hold": {
+    "days": 1,
+    "rules": {
+     "ACCEL": {
+      "selected": 205,
+      "labelled": 180,
+      "tp": 44,
+      "fp": 136,
+      "precision": 0.2444
+     },
+     "ZVOL2.5": {
+      "selected": 149,
+      "labelled": 131,
+      "tp": 14,
+      "fp": 117,
+      "precision": 0.1069
+     }
+    }
+   },
+   "leading_accel": {
+    "engine": "leading_accel/1.0.0",
+    "universe": {
+     "A_continuous": 66,
+     "B_low_liquidity": 236,
+     "total": 302,
+     "disjoint": true
+    },
+    "valid_candidates": 0,
+    "note": "A·B 두 유니버스, 68+8개 규칙 시험, 유효 후보 0개(정직 기록)."
+   }
+  }
+ },
+ "code": {
+  "files": {
+   "surge_miner.py": {
+    "lines": 1552,
+    "sha256_8": "a24d87af"
+   },
+   "strategy_lab.py": {
+    "lines": 922,
+    "sha256_8": "45314c4a"
+   },
+   "auto_researcher.py": {
+    "lines": 1835,
+    "sha256_8": "390eef71"
+   },
+   "generation_rotation.py": {
+    "lines": 384,
+    "sha256_8": "bb0c0a33"
+   },
+   "shadow_engine.py": {
+    "lines": 681,
+    "sha256_8": "ffe7ba83"
+   },
+   "failure_hypothesis.py": {
+    "lines": 738,
+    "sha256_8": "1aed1239"
+   },
+   "common_ledger.py": {
+    "lines": 1509,
+    "sha256_8": "02cc557a"
+   },
+   "sparse_grid.py": {
+    "lines": 1056,
+    "sha256_8": "e3822788"
+   },
+   "sparse_shards.py": {
+    "lines": 750,
+    "sha256_8": "767d4e55"
+   },
+   "forward_tracker.py": {
+    "lines": 3786,
+    "sha256_8": "4695daa6"
+   },
+   "forward_tracker_kr_s16.py": {
+    "lines": 1240,
+    "sha256_8": "e5d7d50e"
+   },
+   "forward_tracker_kr_vcp.py": {
+    "lines": 1000,
+    "sha256_8": "cf104200"
+   },
+   "telegram_reporter.py": {
+    "lines": 1784,
+    "sha256_8": "b159e115"
+   },
+   "export_dashboard_json.py": {
+    "lines": 518,
+    "sha256_8": "46af4d49"
+   },
+   "push_dashboard_api.py": {
+    "lines": 95,
+    "sha256_8": "08e51c95"
+   },
+   "collab_ledger.py": {
+    "lines": 210,
+    "sha256_8": "a6aa74c0"
+   },
+   "daily_rerun.py": {
+    "lines": 569,
+    "sha256_8": "3f88c812"
+   }
+  },
+  "engines": {
+   "surge_miner": "2.0",
+   "auto_researcher": "auto_researcher/1.0.0",
+   "panel": "panel/1.0.0",
+   "grid": "grid/1.0.0",
+   "generation_rotation": "generation_rotation/1.0.0",
+   "shadow_engine": "shadow_engine/1.0.0",
+   "failure_hypothesis": "failure_hypothesis/1.0.0",
+   "leading_accel": "leading_accel/1.0.0",
+   "sparse_grid": "v2(feat v2)",
+   "sparse_shards": "sparse-grid-shard-1",
+   "common_ledger": "budget-proto-v3-20261120"
+  },
+  "repo_head_before_publish": "882e5fb18d66235783819a705ce71cf302c97cea 2026-11-20T10:45:28Z"
+ },
+ "tests": {
+  "at": "2026-11-20T18:40:00+09:00",
+  "results": [
+   {
+    "script": "verify_sparse_grid.py",
+    "status": "PASS",
+    "detail": "65/65"
+   },
+   {
+    "script": "verify_18th.py",
+    "status": "PASS",
+    "detail": "21/21"
+   },
+   {
+    "script": "verify_429_counter_20261120.py",
+    "status": "PASS",
+    "detail": "13/13"
+   },
+   {
+    "script": "p0f_exitcode_verify_20261120.py",
+    "status": "PASS",
+    "detail": "12/12"
+   },
+   {
+    "script": "verify_p0b_panel_parity.py",
+    "status": "PASS",
+    "detail": "프루닝 전 both·후 integrated, diff=None"
+   },
+   {
+    "script": "p0c_budget_audit_20261120.py",
+    "status": "PASS",
+    "detail": null
+   },
+   {
+    "script": "p0d_net_audit_20261120.py",
+    "status": "PASS",
+    "detail": "agrees_with_track1=true"
+   },
+   {
+    "script": "p0f_snapshot_probe_20261120.py",
+    "status": "PASS",
+    "detail": "1.99s, 0/20 실패"
+   }
+  ],
+  "shadow_evolution": "verify_shadow_and_evolution_20261120.json: S1 합성 26신호 정밀도 11.5%→자동 기각, R1 격리 세대교체 3→4 완료, S2 실제 0건(8항목 PASS)"
+ },
+ "open_issues": [],
+ "forward_aggregate": {
+  "active": {
+   "tracks": 4,
+   "closed": 329,
+   "wins": 146,
+   "win_rate": 44.4,
+   "sum_pnl_pct": -37.7406
+  },
+  "archived": {
+   "tracks": 3,
+   "closed": 26,
+   "wins": 8,
+   "win_rate": 30.8,
+   "sum_pnl_pct": -18.2982
+  },
+  "all_time": {
+   "closed": 355,
+   "sum_pnl_pct": -56.0388
+  }
+ },
+ "upbit_paper_portfolio": {
+  "stats": {
+   "total_trades": 18,
+   "wins": 5,
+   "losses": 13,
+   "total_pnl_krw": -90397
+  },
+  "open_positions": 0,
+  "rule": "종목당 가상 100만원 · 최대 3종목 · +5% 익절/-3% 손절/24h 만기"
+ }
+}
