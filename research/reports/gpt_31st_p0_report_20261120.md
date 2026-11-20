@@ -132,6 +132,7 @@ prospective 채택 = ① 의사결정일 >= 2026-11-20 ② 의사결정 시각 <
 
 - 운영 복제본 정밀 감사: 원본 **1,562,871** · 복제본 **1,562,871** · `rows_delta=0` · `watermark_lag=0s` · `schema_sig` 일치 · 302종목 비교.
 - 회차 경로 비용: `--sync` 총 **1.6~1.9초**(복사 0.2초 + 컷오프 1.4초). 회차 상한은 `timeout 9 / budget 7`.
+- **운영 영향(정직하게)**: 첫 구현(그룹별 MAX + 정확 COUNT)은 콜드 I/O 에서 30~40초가 걸려 23:04·23:09·23:14·23:23 회차 sync 가 `timeout 9` 에 잘려 `no-json` 으로 남았다. 그동안 복제본은 이전 상태 그대로였고(부분 쓰기 없음 — 커밋 단위), 읽는 쪽은 manifest 신선도 규칙으로 계속 동작했다. 위 두 결함을 고친 뒤 23:29 회차부터 정상이며, 잘린 회차가 남긴 추적 카운터 드리프트는 정밀 감사(delta 0)로 확인·정정했다.
 - WAL 검증 **8/8 PASS** (`verify_wal_backup_20261120.json`): 기존 6케이스 + **⑦ 재씨앗 실패**(원본 손상 → `hold`, 이전 복제본 sha 불변·manifest 유지·hold 파일·독자는 이전 복제본, 원본 복구 후 재씨앗 성공) + **⑧ 게이트 왕복**(정상 open → 10,941초 지연 주입 시 pause·원본 폴백 → sync 후 open·복제본 복귀).
 
 ### 4.4 발견·수정한 결함 2건
@@ -216,8 +217,19 @@ prospective 채택 = ① 의사결정일 >= 2026-11-20 ② 의사결정 시각 <
 
 ---
 
-## 9. 원장 ACK (6절)
+## 9. 원장 ACK · 게시 확인 (6절·4절)
 
 - `coordination/gpt_to_pickle.jsonl`: `G31-P0-1` · `G31-P0-2` · `G31-P0-3` · `G31-P0-4` · `G31-P0-5` · `G31-P0-6` · `G31-P0-7` · `G31-VI`(수신 ACK) 8행.
+- `coordination/pickle_to_gpt.jsonl`: `P31-Q1`(검토 요청) 1행.
 - `monitor/events.jsonl`: `ev-20261120-p31-p0` 1행.
-- 게시 후 `monitor/latest.json` 원격 raw GET 으로 `connection`(30차 P1 필드) · `stale_gate` · 31차 분리 필드가 **모두** 있는지 확인한다.
+- 게시: 보고서·요약·검증 8종·`monitor/latest.json`. **JSONL 은 원격과 id 기준 병합 후 게시**(다른 트랙 행 보존).
+- 원격 확인(게시 직후, `refs/heads/main` raw — `main` 형태는 CDN 이 몇 분 stale 을 준다):
+
+| 대상 | HTTP | 확인된 필드 |
+|---|---|---|
+| `research/reports/gpt_31st_p0_report_20261120.md` | **200** | — |
+| `research/evaluation_summaries/p31_summary_20261120.json` | **200** | — |
+| `monitor/latest.json` | **200** | `schema=3` · `totals.forward_signals_observed=709` · `forward_closed=367` · `research_shadow_signals_prospective=8` · `forward_split_by_market={upbit:389, kr:306, us:14}` · 3시장 각각 `connection`·`forward_*`·`research_shadow_*`·`shadow_tp`·`raw_lab_candidate_rows` 존재 · `shadow_signals_measured=null`(deprecated) · `research.stale_gate.hash=f0c02b728ca0c7c1` |
+| `coordination/gpt_to_pickle.jsonl` | **200** | `G31-*` 8행 포함 |
+
+- 30차 P1 이 넣은 `connection`(`e2e_connected`/`production_connected`)·`stale_gate` 는 **research 문서와 최상위 시장 항목 양쪽에 유지**된다(값은 research 가 권위, 최상위는 사본).
