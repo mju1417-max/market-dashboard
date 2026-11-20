@@ -2,7 +2,7 @@
  "schema": 1,
  "kind": "project_inventory",
  "inventory_version": "34.1",
- "generated_at": "2026-11-21T04:04:59+09:00",
+ "generated_at": "2026-11-21T04:05:14+09:00",
  "source_of_truth": {
   "live_status": "monitor/latest.json (5분 갱신) — 이 인덱스의 수치는 생성 시점 스냅숏",
   "live_monitor_generated_at": "2026-11-21T03:40:05+09:00",
@@ -487,7 +487,7 @@
      "exists": true,
      "kind": "file",
      "size_kb": 17.9,
-     "mtime": "2026-11-21T04:00:08+09:00"
+     "mtime": "2026-11-21T04:05:11+09:00"
     }
    ],
    "published_paths": [
@@ -519,14 +519,14 @@
    },
    "owner": null,
    "missing_sources": [],
-   "updated_at": "2026-11-21T04:00:08+09:00",
+   "updated_at": "2026-11-21T04:05:11+09:00",
    "scheduled_action": {
     "folder": "📊-업비트-전진검증-채점",
     "schedule": [
      "interval 5m"
     ],
     "paused": false,
-    "last_started_run_at": "2026-11-20T18:59:40.310354Z",
+    "last_started_run_at": "2026-11-20T19:04:40.310354Z",
     "check_fail_count": 0,
     "check_failure_generation": 7
    }
@@ -560,7 +560,7 @@
      "exists": true,
      "kind": "file",
      "size_kb": 825.1,
-     "mtime": "2026-11-21T04:00:09+09:00"
+     "mtime": "2026-11-21T04:05:13+09:00"
     }
    ],
    "published_paths": [
@@ -592,14 +592,14 @@
    },
    "owner": null,
    "missing_sources": [],
-   "updated_at": "2026-11-21T04:00:09+09:00",
+   "updated_at": "2026-11-21T04:05:13+09:00",
    "scheduled_action": {
     "folder": "📊-업비트-전진검증-채점",
     "schedule": [
      "interval 5m"
     ],
     "paused": false,
-    "last_started_run_at": "2026-11-20T18:59:40.310354Z",
+    "last_started_run_at": "2026-11-20T19:04:40.310354Z",
     "check_fail_count": 0,
     "check_failure_generation": 7
    }
@@ -633,7 +633,7 @@
      "exists": true,
      "kind": "file",
      "size_kb": 62.8,
-     "mtime": "2026-11-21T04:00:05+09:00"
+     "mtime": "2026-11-21T04:05:08+09:00"
     }
    ],
    "published_paths": [
@@ -665,14 +665,14 @@
    },
    "owner": null,
    "missing_sources": [],
-   "updated_at": "2026-11-21T04:00:05+09:00",
+   "updated_at": "2026-11-21T04:05:08+09:00",
    "scheduled_action": {
     "folder": "📊-업비트-전진검증-채점",
     "schedule": [
      "interval 5m"
     ],
     "paused": false,
-    "last_started_run_at": "2026-11-20T18:59:40.310354Z",
+    "last_started_run_at": "2026-11-20T19:04:40.310354Z",
     "check_fail_count": 0,
     "check_failure_generation": 7
    }
@@ -2866,13 +2866,13 @@
      "path": "coordination/project_inventory.json",
      "on_remote": true,
      "files_on_remote": null,
-     "size_kb": 153.9
+     "size_kb": 154.4
     },
     {
      "path": "coordination/project_changelog.jsonl",
      "on_remote": true,
      "files_on_remote": null,
-     "size_kb": 3.8
+     "size_kb": 7.3
     },
     {
      "path": "research/reports/gpt_34th_project_inventory_20261121.md",
@@ -3039,7 +3039,7 @@
    "live": null,
    "owner": null,
    "missing_sources": [],
-   "updated_at": "2026-11-21T04:04:59+09:00"
+   "updated_at": "2026-11-21T04:05:14+09:00"
   },
   {
    "id": "gov.verification_harness",
@@ -3210,7 +3210,7 @@
    "missing_sources": [
     "research/gpt_31st_p0_report_20261120.md"
    ],
-   "updated_at": "2026-11-21T04:04:59+09:00"
+   "updated_at": "2026-11-21T04:05:14+09:00"
   },
   {
    "id": "gov.heartbeat",
@@ -4019,7 +4019,7 @@
    "check_sh": true,
    "check_sh_kb": 6.2,
    "next_run_at": "2026-11-20T19:04:40.310354Z",
-   "last_started_run_at": "2026-11-20T18:59:40.310354Z",
+   "last_started_run_at": "2026-11-20T19:04:40.310354Z",
    "check_fail_count": 0,
    "check_failure_generation": 7
   },
@@ -4061,19 +4061,19 @@
     "id": "📋-34차-전체-프로젝트-인덱스-github-공유-체계-구축",
     "state": "running",
     "created_at": "2026-11-20T18:54:58.370280Z",
-    "updated_at": "2026-11-20T19:04:59.678729Z"
+    "updated_at": "2026-11-20T19:05:13.704488Z"
    },
    {
     "id": "🔎-38차-실태감사-12항목-활용률-실패원장-level1-3",
     "state": "running",
     "created_at": "2026-11-20T19:04:23.528163Z",
-    "updated_at": "2026-11-20T19:04:59.341417Z"
+    "updated_at": "2026-11-20T19:05:07.600138Z"
    },
    {
     "id": "🛠️-31차-독립검증-p0-인과-분할-shadow-p1-4종",
     "state": "running",
     "created_at": "2026-11-20T18:47:15.452856Z",
-    "updated_at": "2026-11-20T19:04:57.103909Z"
+    "updated_at": "2026-11-20T19:05:04.699499Z"
    }
   ]
  },
@@ -5043,13 +5043,13 @@
    }
   ]
  },
- "state_fingerprint": "8a7f70db47154992",
+ "state_fingerprint": "a63bff0fd1984ff1",
  "fingerprint_sections": {
   "registry": "21d638c781549c3d",
   "actions": "707381f7a61cc7c4",
   "modules": "cc3a72738931050e",
   "docs": "703510fb9552ce2a",
-  "handoffs": "2afcd2a621f84180",
+  "handoffs": "ac524957b2a97fb7",
   "sources_present": "79ee0736e5595831"
  }
 }
