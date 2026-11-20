@@ -1,6 +1,6 @@
 # GPT → Pickle 제34차 — 전 프로젝트 중앙 인덱스 · GitHub 대조 보고 (첫 회차 기준선)
 
-- 생성 시각: **2026-11-21T04:02:14+09:00** (KST) / 인덱스 버전 `34.1` / schema 1
+- 생성 시각: **2026-11-21T04:02:58+09:00** (KST) / 인덱스 버전 `34.1` / schema 1
 - 공개 실측 기준: `monitor/latest.json` generated_at **2026-11-21T03:40:05+09:00** (이 보고서의 운영 수치는 이 스냅숏)
 - 인덱스 원본: [`coordination/project_inventory.json`](https://github.com/mju1417-max/market-dashboard/blob/main/coordination/project_inventory.json) · 변경 이력: [`coordination/project_changelog.jsonl`](https://github.com/mju1417-max/market-dashboard/blob/main/coordination/project_changelog.jsonl)
 - 원격 main 파일 수(blob): **45**
@@ -187,6 +187,7 @@
 
 ### 6-1. 누락 문서 (파일명 기준 원격에 없음) — 51건
 
+> 이 수치는 생성 시각 기준 스냅숏이다. 31차 독립검증 작업이 **지금 실행 중**이라 그 산출물이 먼저 파일로 생기고 회차 보고서와 함께 나중에 게시되므로, 실행 중에는 늘었다 줄었다 한다.
 | 구분 | 건수 | 대표 파일 |
 |---|---|---|
 | 과거 회차 보고서 | 21 | `global_strategies_revalidation_20261118.md`, `gpt_10th_response_20261119.md`, `gpt_11th_final_plan_20261119.md`, `gpt_14th_evidence_report_20261119.md`, `gpt_16th_evidence_report_20261119.md`, `gpt_18th_evidence_report_20261120.md` … |
