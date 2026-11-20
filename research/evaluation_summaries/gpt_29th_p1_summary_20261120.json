@@ -1,0 +1,1403 @@
+{
+ "id": "gpt29-p1",
+ "generated_at": "2026-11-20T20:34:30+0900",
+ "track": "B",
+ "instruction": "#8429 Ⅳ장 P1-1~P1-4",
+ "scope": {
+  "completed": [
+   "P1-3 공통 인터페이스·시장별 어댑터",
+   "P1-4 3시장 격리 e2e 1순환",
+   "P1-1 UPBIT_GEN3·GEN2 표준 지표",
+   "P1-2 US_GEN16·WAVE_RANK 사전포착/늦은 관측"
+  ],
+  "not_touched": [
+   "운영 스케줄",
+   "KR_S16",
+   "KR_VCP",
+   "strategy_lab",
+   "generation_rotation",
+   "monitor/latest.json",
+   "수집기 check.sh"
+  ],
+  "no_live_orders": true
+ },
+ "verification": {
+  "checks_total": 28,
+  "checks_pass": 28,
+  "all_pass": true,
+  "elapsed_sec": 67.8,
+  "script": "research/verify_three_market_e2e.py",
+  "summary_path": "research/evaluation_summaries/p1_three_market_e2e_20261120.json"
+ },
+ "markets": {
+  "UP": {
+   "data_cutoff": "2026-11-20T20:32:00",
+   "last_complete_session": "2026-11-19",
+   "candle_count": 1544142,
+   "universe": 302,
+   "source_id": "up:upbit_1m.db:candles_1m",
+   "collector_errors": null,
+   "collector_errors_status": "not_measured(track A 소유)",
+   "calibration_status": "not_measured(표본 부족)",
+   "generation_id": "UPBIT_GEN3/GEN2",
+   "research_status": "e2e_connected_promoted_but_hold_negative",
+   "last_success": "2026-11-20T20:34:30+0900",
+   "last_error_type": null,
+   "last_error_at": null,
+   "candidate_count": 20,
+   "frozen_count": 1,
+   "shadow_signals_measured": 18,
+   "shadow_signals_estimated": null,
+   "labelled": 15,
+   "TP": 2,
+   "FP": 13,
+   "censored": 3,
+   "calibration": null,
+   "uplift_vs_baseline": 1.6274,
+   "price_gain_error": {
+    "target_pct": 5.0,
+    "mae": 3.458,
+    "bias": -2.73,
+    "within_2pp": 0.1333
+   },
+   "latency": {
+    "upbit_decision_lag_sec": 404.3,
+    "us_recv_lag_sec": null
+   },
+   "code_sha": "6a3f74f67469ee89",
+   "p1_e2e": {
+    "days": {
+     "all": [
+      "2026-11-11",
+      "2026-11-12",
+      "2026-11-13",
+      "2026-11-14",
+      "2026-11-15",
+      "2026-11-16",
+      "2026-11-17",
+      "2026-11-18",
+      "2026-11-19",
+      "2026-11-20"
+     ],
+     "dev": [
+      "2026-11-11",
+      "2026-11-12",
+      "2026-11-13",
+      "2026-11-14",
+      "2026-11-15",
+      "2026-11-16"
+     ],
+     "val": [
+      "2026-11-17",
+      "2026-11-18"
+     ],
+     "hold": [
+      "2026-11-19",
+      "2026-11-20"
+     ]
+    },
+    "candidates": 29994,
+    "events": 1638,
+    "controls": 24850,
+    "base_rate": 0.0618,
+    "hypotheses": 675,
+    "dev_pass": 20,
+    "frozen": "H0328",
+    "frozen_conditions": [
+     [
+      "ret60",
+      ">=",
+      0.016259
+     ],
+     [
+      "range_pos",
+      "<=",
+      0.466667
+     ],
+     [
+      "z_vol",
+      "<=",
+      -0.365567
+     ]
+    ],
+    "promoted": true,
+    "promotion_note": "DEV 통과 + VAL 통과 → 동결·승격",
+    "dev_metrics": {
+     "n": 46,
+     "n_unlab": 45,
+     "tp": 12,
+     "fp": 33,
+     "precision": 0.2667,
+     "recall": null,
+     "n_events": 0,
+     "net_mean": 0.3084,
+     "net_sum": 13.8794,
+     "n_trades": 45,
+     "win_rate": 0.4,
+     "tp_rate": 0.2889,
+     "sl_rate": 0.2889,
+     "base_rate": 0.0476,
+     "lift": 5.605,
+     "p_value": 8.84986643426719e-07
+    },
+    "val_metrics": {
+     "n": 17,
+     "n_unlab": 15,
+     "tp": 5,
+     "fp": 10,
+     "precision": 0.3333,
+     "recall": 0.1055,
+     "n_events": 199,
+     "net_mean": 0.68,
+     "net_sum": 10.1993,
+     "n_trades": 15,
+     "win_rate": 0.6,
+     "tp_rate": 0.3333,
+     "sl_rate": 0.3333,
+     "base_rate": 0.0837,
+     "lift": 3.9819,
+     "p_value": 0.006035726730078273
+    },
+    "hold_shadow": {
+     "n": 18,
+     "n_unlab": 15,
+     "tp": 2,
+     "fp": 13,
+     "precision": 0.1333,
+     "recall": 0.0632,
+     "n_events": 190,
+     "net_mean": -1.8767,
+     "net_sum": -28.1498,
+     "n_trades": 15,
+     "win_rate": 0.1333,
+     "tp_rate": 0.0667,
+     "sl_rate": 0.6,
+     "base_rate": 0.0819,
+     "lift": 1.6274,
+     "p_value": 0.3512098636393202,
+     "status": "shadowed",
+     "signature": "f848cd447876ddd1",
+     "promoted": true,
+     "promotion_note": "DEV 통과 + VAL 통과 → 동결·승격"
+    }
+   }
+  },
+  "KR": {
+   "data_cutoff": "2026-11-20T15:44:00",
+   "last_complete_session": "2026-11-20",
+   "candle_count": 4688350,
+   "universe": 3156,
+   "source_id": "kr:kr_1m.db:candles_1m",
+   "collector_errors": null,
+   "collector_errors_status": "not_measured(track A 소유)",
+   "calibration_status": "not_measured(표본 부족)",
+   "generation_id": "KR_S16/KR_VCP",
+   "research_status": "e2e_connected_no_validated_candidate",
+   "last_success": "2026-11-20T20:34:30+0900",
+   "last_error_type": null,
+   "last_error_at": null,
+   "candidate_count": 0,
+   "frozen_count": 1,
+   "shadow_signals_measured": 14,
+   "shadow_signals_estimated": null,
+   "labelled": 12,
+   "TP": 0,
+   "FP": 12,
+   "censored": 2,
+   "calibration": null,
+   "uplift_vs_baseline": 0.0,
+   "price_gain_error": null,
+   "latency": {
+    "upbit_decision_lag_sec": null,
+    "us_recv_lag_sec": null
+   },
+   "code_sha": "6a3f74f67469ee89",
+   "p1_e2e": {
+    "days": {
+     "all": [
+      "2026-11-10",
+      "2026-11-11",
+      "2026-11-12",
+      "2026-11-13",
+      "2026-11-16",
+      "2026-11-17",
+      "2026-11-18",
+      "2026-11-19",
+      "2026-11-20"
+     ],
+     "dev": [
+      "2026-11-10",
+      "2026-11-11",
+      "2026-11-12",
+      "2026-11-13",
+      "2026-11-16"
+     ],
+     "val": [
+      "2026-11-17",
+      "2026-11-18"
+     ],
+     "hold": [
+      "2026-11-19",
+      "2026-11-20"
+     ]
+    },
+    "candidates": 22646,
+    "events": 199,
+    "controls": 17905,
+    "base_rate": 0.011,
+    "hypotheses": 675,
+    "dev_pass": 0,
+    "frozen": "H0363",
+    "frozen_conditions": [
+     [
+      "ret60",
+      ">=",
+      0.015278
+     ],
+     [
+      "z_vol",
+      "<=",
+      -0.358653
+     ],
+     [
+      "vcontract",
+      "<=",
+      0.621281
+     ]
+    ],
+    "promoted": false,
+    "promotion_note": "DEV/VAL 승격 기준 미달 → 잠정 비교군(비승격)으로만 HOLD Shadow 실행",
+    "dev_metrics": {
+     "n": 46,
+     "n_unlab": 46,
+     "tp": 4,
+     "fp": 42,
+     "precision": 0.087,
+     "recall": null,
+     "n_events": 0,
+     "net_mean": 0.1353,
+     "net_sum": 6.2235,
+     "n_trades": 46,
+     "win_rate": 0.5217,
+     "tp_rate": 0.0652,
+     "sl_rate": 0.0652,
+     "base_rate": 0.0122,
+     "lift": 7.1185,
+     "p_value": 0.0024141735737117885
+    },
+    "val_metrics": {
+     "n": 17,
+     "n_unlab": 17,
+     "tp": 1,
+     "fp": 16,
+     "precision": 0.0588,
+     "recall": 0.0833,
+     "n_events": 24,
+     "net_mean": -0.8814,
+     "net_sum": -14.9832,
+     "n_trades": 17,
+     "win_rate": 0.2941,
+     "tp_rate": 0.0588,
+     "sl_rate": 0.2941,
+     "base_rate": 0.0124,
+     "lift": 4.7333,
+     "p_value": 0.19151601212997213
+    },
+    "hold_shadow": {
+     "n": 14,
+     "n_unlab": 12,
+     "tp": 0,
+     "fp": 12,
+     "precision": 0.0,
+     "recall": 0.0,
+     "n_events": 6,
+     "net_mean": 0.1454,
+     "net_sum": 1.7444,
+     "n_trades": 12,
+     "win_rate": 0.6667,
+     "tp_rate": 0.0,
+     "sl_rate": 0.1667,
+     "base_rate": 0.0037,
+     "lift": 0.0,
+     "p_value": 1.0,
+     "status": "shadowed",
+     "signature": "2c35fc9639d6bd89",
+     "promoted": false,
+     "promotion_note": "DEV/VAL 승격 기준 미달 → 잠정 비교군(비승격)으로만 HOLD Shadow 실행"
+    }
+   }
+  },
+  "US": {
+   "data_cutoff": "2026-11-20T20:32:55",
+   "last_complete_session": "2026-11-19",
+   "candle_count": 4576931,
+   "universe": 2076,
+   "source_id": "us:us_1m.db:candles_1m",
+   "collector_errors": null,
+   "collector_errors_status": "not_measured(track A 소유)",
+   "calibration_status": "not_measured(표본 부족)",
+   "generation_id": "US_GEN16/US_WAVE_RANK",
+   "research_status": "e2e_connected_no_validated_candidate",
+   "last_success": "2026-11-20T20:34:30+0900",
+   "last_error_type": null,
+   "last_error_at": null,
+   "candidate_count": 1,
+   "frozen_count": 1,
+   "shadow_signals_measured": 8,
+   "shadow_signals_estimated": null,
+   "labelled": 8,
+   "TP": 0,
+   "FP": 8,
+   "censored": 0,
+   "calibration": null,
+   "uplift_vs_baseline": 0.0,
+   "price_gain_error": {
+    "target_pct": 5.0,
+    "mae": 4.624,
+    "bias": 1.033,
+    "within_2pp": 0.3
+   },
+   "latency": {
+    "upbit_decision_lag_sec": null,
+    "us_recv_lag_sec": [
+     125,
+     223,
+     408,
+     123,
+     123,
+     627,
+     690,
+     770,
+     770,
+     770
+    ]
+   },
+   "code_sha": "6a3f74f67469ee89",
+   "p1_e2e": {
+    "days": {
+     "all": [
+      "2026-11-10",
+      "2026-11-11",
+      "2026-11-12",
+      "2026-11-13",
+      "2026-11-16",
+      "2026-11-17",
+      "2026-11-18",
+      "2026-11-19"
+     ],
+     "dev": [
+      "2026-11-10",
+      "2026-11-11",
+      "2026-11-12",
+      "2026-11-13"
+     ],
+     "val": [
+      "2026-11-16",
+      "2026-11-17"
+     ],
+     "hold": [
+      "2026-11-18",
+      "2026-11-19"
+     ]
+    },
+    "candidates": 22264,
+    "events": 57,
+    "controls": 18025,
+    "base_rate": 0.0032,
+    "hypotheses": 675,
+    "dev_pass": 1,
+    "frozen": "H0585",
+    "frozen_conditions": [
+     [
+      "z_vol",
+      "<=",
+      -1.204153
+     ],
+     [
+      "vcontract",
+      "<=",
+      0.616433
+     ],
+     [
+      "ret60_rel",
+      "<=",
+      -0.00668
+     ]
+    ],
+    "promoted": false,
+    "promotion_note": "DEV/VAL 승격 기준 미달 → 잠정 비교군(비승격)으로만 HOLD Shadow 실행",
+    "dev_metrics": {
+     "n": 23,
+     "n_unlab": 23,
+     "tp": 3,
+     "fp": 20,
+     "precision": 0.1304,
+     "recall": null,
+     "n_events": 0,
+     "net_mean": 0.5252,
+     "net_sum": 12.0789,
+     "n_trades": 23,
+     "win_rate": 0.5652,
+     "tp_rate": 0.087,
+     "sl_rate": 0.0,
+     "base_rate": 0.0057,
+     "lift": 22.9565,
+     "p_value": 0.0002983245944958537
+    },
+    "val_metrics": {
+     "n": 16,
+     "n_unlab": 16,
+     "tp": 0,
+     "fp": 16,
+     "precision": 0.0,
+     "recall": 0.0,
+     "n_events": 2,
+     "net_mean": -0.12,
+     "net_sum": -1.9202,
+     "n_trades": 16,
+     "win_rate": 0.375,
+     "tp_rate": 0.0,
+     "sl_rate": 0.125,
+     "base_rate": 0.0006,
+     "lift": 0.0,
+     "p_value": 1.0
+    },
+    "hold_shadow": {
+     "n": 8,
+     "n_unlab": 8,
+     "tp": 0,
+     "fp": 8,
+     "precision": 0.0,
+     "recall": 0.0,
+     "n_events": 2,
+     "net_mean": -0.5205,
+     "net_sum": -4.1642,
+     "n_trades": 8,
+     "win_rate": 0.25,
+     "tp_rate": 0.0,
+     "sl_rate": 0.0,
+     "base_rate": 0.0007,
+     "lift": 0.0,
+     "p_value": 1.0,
+     "status": "shadowed",
+     "signature": "be5e21b1733b7205",
+     "promoted": false,
+     "promotion_note": "DEV/VAL 승격 기준 미달 → 잠정 비교군(비승격)으로만 HOLD Shadow 실행"
+    }
+   }
+  }
+ },
+ "upbit_gen3": {
+  "snapshot": {
+   "signals": 321,
+   "entries": 307,
+   "no_fill": 11,
+   "closed": 304,
+   "wins": 132,
+   "losses": 172,
+   "sum_pnl_pct": -62.11,
+   "analyzed_n": 285,
+   "run_count": 300,
+   "note": "지시서 298건은 19:45 스냅숏, 20:30 기준 304청산"
+  },
+  "portfolio": {
+   "mean_pnl": -0.2273,
+   "median_pnl": -0.2,
+   "sum_pnl": -64.79,
+   "win": 0.4211,
+   "loss_mean": -1.4575
+  },
+  "raw_signal": {
+   "mean_fwd_max": 0.0227,
+   "median_fwd_max": 0.0161,
+   "mean_fwd_ret": 0.0035,
+   "median_fwd_ret": 0.0018,
+   "hit5": 0.0702,
+   "hit5_n": 20,
+   "hit5_ci": [
+    0.0405,
+    0.0998
+   ],
+   "mean_excess_vs_same_day": 0.0068
+  },
+  "entry": {
+   "mean_slip": 0.00378,
+   "median_slip": 0.00302,
+   "p90_slip": 0.01143,
+   "mean_decision_lag": 404.3
+  },
+  "recall": {
+   "covered": 31,
+   "common_denominator": 332,
+   "recall": 0.09337,
+   "note": "업비트 전 종목·GEN3 가동기간(11-18 17:29~11-20 20:10)·+5%/120분 사건(중복 제거)"
+  },
+  "magnitude": {
+   "target_pct": 5.0,
+   "mae": 3.458,
+   "bias": -2.73,
+   "within_2pp": 0.1333
+  },
+  "cost_sensitivity": {
+   "0.00%": {
+    "mean": -0.0273,
+    "median": 0.0,
+    "sum": -7.79,
+    "win": 0.4316
+   },
+   "0.05%": {
+    "mean": -0.0773,
+    "median": -0.05,
+    "sum": -22.04,
+    "win": 0.4316
+   },
+   "0.10%": {
+    "mean": -0.1273,
+    "median": -0.1,
+    "sum": -36.29,
+    "win": 0.4316
+   },
+   "0.15%": {
+    "mean": -0.1773,
+    "median": -0.15,
+    "sum": -50.54,
+    "win": 0.4246
+   },
+   "0.20%": {
+    "mean": -0.2273,
+    "median": -0.2,
+    "sum": -64.79,
+    "win": 0.4211
+   },
+   "0.30%": {
+    "mean": -0.3273,
+    "median": -0.3,
+    "sum": -93.29,
+    "win": 0.4035
+   },
+   "0.40%": {
+    "mean": -0.4273,
+    "median": -0.4,
+    "sum": -121.79,
+    "win": 0.3825
+   }
+  },
+  "clusters": {
+   "by_day": {
+    "mean": -0.22732631578947368,
+    "lo": -0.6594736842105263,
+    "hi": 0.10197333333333335,
+    "n_clusters": 3,
+    "draws": 2000
+   },
+   "by_symbol": {
+    "mean": -0.22732631578947368,
+    "lo": -0.46544941091215103,
+    "hi": 0.04048028398794897,
+    "n_clusters": 136,
+    "draws": 2000
+   },
+   "hit5_by_day": {
+    "mean": 0.07017543859649122,
+    "lo": 0.03664921465968586,
+    "hi": 0.14666666666666667,
+    "n_clusters": 3,
+    "draws": 2000
+   }
+  },
+  "by_day": {
+   "2026-11-18": {
+    "n": 19,
+    "mean_pnl": -0.6595,
+    "hit5": 0.1053
+   },
+   "2026-11-19": {
+    "n": 75,
+    "mean_pnl": 0.102,
+    "hit5": 0.1467
+   },
+   "2026-11-20": {
+    "n": 191,
+    "mean_pnl": -0.3136,
+    "hit5": 0.0366
+   }
+  },
+  "subgroups": [
+   {
+    "label": "거래대금 중앙값 이상",
+    "n": 143,
+    "mean_pnl": -0.3569,
+    "win": 0.4126,
+    "hit5": 0.0979,
+    "mean_fwd_ret": 0.0026
+   },
+   {
+    "label": "거래대금 중앙값 미만",
+    "n": 142,
+    "mean_pnl": -0.0969,
+    "win": 0.4296,
+    "hit5": 0.0423,
+    "mean_fwd_ret": 0.0044
+   },
+   {
+    "label": "당일 레인지 하단 5% 이내",
+    "n": 52,
+    "mean_pnl": -0.376,
+    "win": 0.4808,
+    "hit5": 0.0769,
+    "mean_fwd_ret": 0.0012
+   },
+   {
+    "label": "60분 -3% 이하",
+    "n": 38,
+    "mean_pnl": -0.5203,
+    "win": 0.3684,
+    "hit5": 0.1842,
+    "mean_fwd_ret": 0.0035
+   },
+   {
+    "label": "11-18",
+    "n": 19,
+    "mean_pnl": -0.6595,
+    "win": 0.3684,
+    "hit5": 0.1053,
+    "mean_fwd_ret": -0.004
+   },
+   {
+    "label": "11-19",
+    "n": 75,
+    "mean_pnl": 0.102,
+    "win": 0.4533,
+    "hit5": 0.1467,
+    "mean_fwd_ret": 0.0084
+   },
+   {
+    "label": "11-20",
+    "n": 191,
+    "mean_pnl": -0.3136,
+    "win": 0.4136,
+    "hit5": 0.0366,
+    "mean_fwd_ret": 0.0024
+   }
+  ],
+  "window_coverage": {
+   "share_ge50pct": 0.586,
+   "median_bars": 69.0,
+   "note": "120분 창 관측봉 수(무거래 공백 포함)"
+  },
+  "late_observation": {
+   "n": 2,
+   "share": 0.007,
+   "mean_pnl": 9.0095
+  },
+  "leakage": {
+   "n_checked": 285,
+   "decision_before_bar": 0,
+   "entry_before_decision": 0,
+   "note": "GEN3는 신호봉 종가 이후 다음 봉 진입(entry_after_decision_sec>0)만 사용"
+  },
+  "decomposition": {
+   "raw_fwd_ret_pct": 0.35,
+   "entry_slippage_pct": 0.378,
+   "roundtrip_cost_pct": 0.2,
+   "expected_net_pct": -0.228,
+   "actual_net_pct": -0.2273
+  },
+  "recommendation": "legacy_comparator: 승격·알림 금지, 관찰 유지. 지정가(신호봉 종가) 진입 변형만 신규 OOS로 검증"
+ },
+ "upbit_gen2": {
+  "run_count": 417,
+  "signals_detected": 0,
+  "rule": {
+   "drop_pct": -2.0,
+   "turnover_min": 10000000.0,
+   "turnover_max": 100000000.0,
+   "hold_sec": 7200,
+   "min_bars": 65
+  },
+  "feasibility": {
+   "bars": 1543453,
+   "rows_ret2": 91496,
+   "rows_band": 653166,
+   "rows_both": 22335,
+   "rows_both_dense61": 0,
+   "symbols_with_both": 269,
+   "days_with_both": 12,
+   "both_per_day": {
+    "2026-11-09": 1350,
+    "2026-11-10": 853,
+    "2026-11-11": 1619,
+    "2026-11-12": 1619,
+    "2026-11-13": 2177,
+    "2026-11-14": 2692,
+    "2026-11-15": 6227,
+    "2026-11-16": 1373,
+    "2026-11-17": 624,
+    "2026-11-18": 1255,
+    "2026-11-19": 939,
+    "2026-11-20": 1607
+   },
+   "top_symbols": [
+    [
+     "KRW-CARDS",
+     473
+    ],
+    [
+     "KRW-ZRO",
+     413
+    ],
+    [
+     "KRW-CASHCAT",
+     360
+    ],
+    [
+     "KRW-VVV",
+     347
+    ],
+    [
+     "KRW-ARX",
+     341
+    ],
+    [
+     "KRW-PUMP",
+     289
+    ],
+    [
+     "KRW-INJ",
+     268
+    ],
+    [
+     "KRW-B3",
+     249
+    ]
+   ]
+  },
+  "density_split": {
+   "n_dense": 65,
+   "n_sparse": 237,
+   "med_cov_dense": 0.702,
+   "med_cov_sparse": 0.182,
+   "med_to60_dense": 172517632.5666504,
+   "med_to60_band": 11662376.366950035,
+   "n_band": 245,
+   "n_dense_and_band": 13,
+   "dense_and_band": [
+    "KRW-AVAX",
+    "KRW-BCH",
+    "KRW-CHIP",
+    "KRW-ENSO",
+    "KRW-ETC",
+    "KRW-HYPE",
+    "KRW-LINK",
+    "KRW-MPLX",
+    "KRW-PRL",
+    "KRW-TRUMP",
+    "KRW-UP2",
+    "KRW-VVV",
+    "KRW-ZKP"
+   ]
+  },
+  "last_scan": {
+   "universe": 302,
+   "scanned": 300,
+   "dense": 31,
+   "truncated": false,
+   "hot": 95,
+   "hot_scanned": 95,
+   "hot_signals": 0,
+   "hot_order": [
+    [
+     "KRW-KERNEL",
+     "60분 변동 40.85%"
+    ],
+    [
+     "KRW-CYBER",
+     "60분 변동 13.27%"
+    ],
+    [
+     "KRW-CARV",
+     "60분 변동 11.31%"
+    ],
+    [
+     "KRW-STEEM",
+     "60분 변동 9.79%"
+    ],
+    [
+     "KRW-MMT",
+     "60분 변동 9.47%"
+    ],
+    [
+     "KRW-META2",
+     "60분 변동 9.11%"
+    ],
+    [
+     "KRW-IRYS",
+     "60분 변동 8.59%"
+    ],
+    [
+     "KRW-PIEVERSE",
+     "60분 변동 7.70%"
+    ],
+    [
+     "KRW-BMT",
+     "60분 변동 6.71%"
+    ],
+    [
+     "KRW-PROS",
+     "60분 변동 6.14%"
+    ],
+    [
+     "KRW-ID",
+     "60분 변동 5.72%"
+    ],
+    [
+     "KRW-SPX",
+     "60분 변동 5.04%"
+    ]
+   ],
+   "settle_ms": 0,
+   "fill_ms": 0,
+   "signal_ms": 1239,
+   "new_signals": 0,
+   "filled": 0,
+   "closed": 0,
+   "regime": null,
+   "regime_minutes": null,
+   "day_seed": null,
+   "wave_template": null,
+   "session": null,
+   "day_signals": {},
+   "exit_policy": {
+    "sl_pct": 50.0,
+    "tp_pct": 50.0,
+    "hold_sec": 7200
+   }
+  },
+  "verdict": "conditions are NOT distributionally impossible; the zero-signal is a scan/evaluator-scope artifact (dense-61 requirement vs turnover<=1e8 band)",
+  "recommendation": "dormant(definition_infeasible): 시간 기준 60분 창으로 평가기 개정 전까지 신호 0. 개정은 트랙 A/후속 소유"
+ },
+ "us_gen16": {
+  "stats": {
+   "signals_detected": 13,
+   "entries": 10,
+   "no_fill": 3,
+   "n_closed": 10,
+   "wins": 7,
+   "losses": 3,
+   "sum_pnl_pct": 16.0642,
+   "recommended_n": 10,
+   "recommended_sum_pnl_pct": 16.0642,
+   "exit_reasons": {
+    "60분 만기": 6,
+    "TP": 3,
+    "SL": 1
+   }
+  },
+  "n_signals": 13,
+  "n_no_fill": 3,
+  "n_closed": 10,
+  "portfolio": {
+   "mean_pnl": 1.6064,
+   "sum_pnl": 16.06,
+   "win": 0.7,
+   "median": 1.1965
+  },
+  "raw_signal": {
+   "hit5": 0.3,
+   "hit5_n": 3,
+   "hit5_ci": [
+    0.016,
+    0.584
+   ],
+   "mean_fwd_max": 0.0603,
+   "mean_fwd_ret": 0.03
+  },
+  "judgement_counts": {
+   "늦은 관측": 3,
+   "사건 미도달": 7
+  },
+  "precision": {
+   "tp": 3,
+   "fp": 7,
+   "precision": 0.3,
+   "ci": [
+    0.016,
+    0.584
+   ]
+  },
+  "recall": {
+   "covered": 6,
+   "common_denominator": 960,
+   "recall": 0.00625,
+   "note": "정규장·전 종목·GEN16 가동기간 +5%/60분 사건(중복 포함) 기준"
+  },
+  "lead_sec": {
+   "mean": -282.3,
+   "median": -290.0,
+   "min": -327,
+   "max": -230
+  },
+  "cluster_ci": {
+   "by_day": {
+    "mean": 1.6064,
+    "lo": 0.8562000000000002,
+    "hi": 2.545,
+    "n_clusters": 3,
+    "draws": 2000
+   },
+   "by_symbol": {
+    "mean": 1.6064,
+    "lo": -0.17036,
+    "hi": 3.195315,
+    "n_clusters": 10,
+    "draws": 2000
+   }
+  },
+  "magnitude": {
+   "target_pct": 5.0,
+   "mae": 4.624,
+   "bias": 1.033,
+   "within_2pp": 0.3
+  },
+  "leakage": {
+   "decision_before_bar_close": 0,
+   "entry_before_decision": 0,
+   "causal_ok": 3,
+   "n": 10
+  },
+  "trades": [
+   {
+    "id": "US_GEN16-00004",
+    "track": "US_GEN16",
+    "symbol": "IREN",
+    "signal_bar_ts": "2026-11-18T01:24:00",
+    "decision_at": "2026-11-18T01:26:05",
+    "decision_lag_sec": 125,
+    "signal_close": 15.76500034,
+    "price_at_decision": 15.774999618530273,
+    "decision_gain": 0.0006342707462494435,
+    "entry_price": 15.77999973,
+    "entry_vs_signal": 0.0009514360720908055,
+    "pnl": 0.701,
+    "exit_reason": "60분 만기",
+    "mfe": 2.345,
+    "mae": -1.204,
+    "hold_sec": 3540,
+    "turnover": 317440910.38,
+    "fwd_max": 0.02442113966528292,
+    "fwd_ret": 0.01237550436908652,
+    "hit5": false,
+    "n_bars": 60,
+    "event_ts": null,
+    "lead_sec": null,
+    "judgement": "사건 미도달",
+    "entry_hit5": false,
+    "day_open": 16.67,
+    "session_hit5_ts": "2026-11-18T08:08:00",
+    "bar_close_at": null,
+    "entry_after_decision": null,
+    "causal_ok": null,
+    "ledger_label": null,
+    "covered_event": null
+   },
+   {
+    "id": "US_GEN16-00005",
+    "track": "US_GEN16",
+    "symbol": "CIFR",
+    "signal_bar_ts": "2026-11-18T01:26:00",
+    "decision_at": "2026-11-18T01:29:43",
+    "decision_lag_sec": 223,
+    "signal_close": 6.3901,
+    "price_at_decision": 6.454999923706055,
+    "decision_gain": 0.01015632364220509,
+    "entry_price": 6.44999981,
+    "entry_vs_signal": 0.009373845479726306,
+    "pnl": -0.511,
+    "exit_reason": "60분 만기",
+    "mfe": 2.171,
+    "mae": -1.628,
+    "hold_sec": 3600,
+    "turnover": 57273560.12,
+    "fwd_max": 0.03128278903733461,
+    "fwd_ret": 0.006244006515627731,
+    "hit5": false,
+    "n_bars": 60,
+    "event_ts": null,
+    "lead_sec": null,
+    "judgement": "사건 미도달",
+    "entry_hit5": false,
+    "day_open": 6.57,
+    "session_hit5_ts": "2026-11-18T07:56:00",
+    "bar_close_at": null,
+    "entry_after_decision": null,
+    "causal_ok": null,
+    "ledger_label": null,
+    "covered_event": null
+   },
+   {
+    "id": "US_GEN16-00006",
+    "track": "US_GEN16",
+    "symbol": "NUAI",
+    "signal_bar_ts": "2026-11-18T01:26:00",
+    "decision_at": "2026-11-18T01:32:48",
+    "decision_lag_sec": 408,
+    "signal_close": 3.24499989,
+    "price_at_decision": 3.1600000858306885,
+    "decision_gain": -0.02619408537770751,
+    "entry_price": 3.16009998,
+    "entry_vs_signal": -0.026163301349141133,
+    "pnl": 1.692,
+    "exit_reason": "60분 만기",
+    "mfe": 4.111,
+    "mae": -1.269,
+    "hold_sec": 3600,
+    "turnover": 8215720.36,
+    "fwd_max": 0.013867512444054375,
+    "fwd_ret": 0.0030817347409899387,
+    "hit5": false,
+    "n_bars": 60,
+    "event_ts": null,
+    "lead_sec": null,
+    "judgement": "사건 미도달",
+    "entry_hit5": false,
+    "day_open": 3.1655,
+    "session_hit5_ts": "2026-11-18T07:55:00",
+    "bar_close_at": null,
+    "entry_after_decision": null,
+    "causal_ok": null,
+    "ledger_label": null,
+    "covered_event": null
+   },
+   {
+    "id": "US_GEN16-00007",
+    "track": "US_GEN16",
+    "symbol": "AXTI",
+    "signal_bar_ts": "2026-11-18T01:32:00",
+    "decision_at": "2026-11-18T01:34:03",
+    "decision_lag_sec": 123,
+    "signal_close": 35.40000153,
+    "price_at_decision": 35.31999969482422,
+    "decision_gain": -0.0022599387490981337,
+    "entry_price": 35.32500076,
+    "entry_vs_signal": -0.0021186657276394127,
+    "pnl": 2.724,
+    "exit_reason": "60분 만기",
+    "mfe": 3.468,
+    "mae": -0.948,
+    "hold_sec": 3480,
+    "turnover": 88906769.91,
+    "fwd_max": 0.03248580965006287,
+    "fwd_ret": 0.025141224612598156,
+    "hit5": false,
+    "n_bars": 60,
+    "event_ts": null,
+    "lead_sec": null,
+    "judgement": "사건 미도달",
+    "entry_hit5": false,
+    "day_open": 38.62,
+    "session_hit5_ts": null,
+    "bar_close_at": null,
+    "entry_after_decision": null,
+    "causal_ok": null,
+    "ledger_label": null,
+    "covered_event": null
+   },
+   {
+    "id": "US_GEN16-00008",
+    "track": "US_GEN16",
+    "symbol": "BTDR",
+    "signal_bar_ts": "2026-11-18T01:32:00",
+    "decision_at": "2026-11-18T01:34:03",
+    "decision_lag_sec": 123,
+    "signal_close": 4.0,
+    "price_at_decision": 3.9700000286102295,
+    "decision_gain": -0.007499992847442627,
+    "entry_price": 3.9749999,
+    "entry_vs_signal": -0.006250025000000048,
+    "pnl": -0.325,
+    "exit_reason": "60분 만기",
+    "mfe": 1.887,
+    "mae": -2.39,
+    "hold_sec": 3480,
+    "turnover": 23167599.36,
+    "fwd_max": 0.01250004768371582,
+    "fwd_ret": -0.008000016212463379,
+    "hit5": false,
+    "n_bars": 60,
+    "event_ts": null,
+    "lead_sec": null,
+    "judgement": "사건 미도달",
+    "entry_hit5": false,
+    "day_open": 4.55,
+    "session_hit5_ts": null,
+    "bar_close_at": null,
+    "entry_after_decision": null,
+    "causal_ok": null,
+    "ledger_label": null,
+    "covered_event": null
+   },
+   {
+    "id": "US_GEN16-00009",
+    "track": "US_GEN16",
+    "symbol": "TROX",
+    "signal_bar_ts": "2026-11-19T04:31:00",
+    "decision_at": "2026-11-19T04:41:27",
+    "decision_lag_sec": 627,
+    "signal_close": 1.38,
+    "price_at_decision": 1.409999966621399,
+    "decision_gain": 0.021739106247390616,
+    "entry_price": 1.41499996,
+    "entry_vs_signal": 0.025362289855072495,
+    "pnl": 4.895,
+    "exit_reason": "TP",
+    "mfe": 8.834,
+    "mae": 0.0,
+    "hold_sec": 240,
+    "turnover": 5485879.6,
+    "fwd_max": 0.1421739230714809,
+    "fwd_ret": 0.039855034592721994,
+    "hit5": true,
+    "n_bars": 61,
+    "event_ts": "2026-11-19T04:36:00",
+    "lead_sec": -327,
+    "judgement": "늦은 관측",
+    "entry_hit5": true,
+    "day_open": 1.8300000429153442,
+    "session_hit5_ts": null,
+    "bar_close_at": null,
+    "entry_after_decision": null,
+    "causal_ok": null,
+    "ledger_label": null,
+    "covered_event": null
+   },
+   {
+    "id": "US_GEN16-00010",
+    "track": "US_GEN16",
+    "symbol": "OPEN",
+    "signal_bar_ts": "2026-11-19T04:40:00",
+    "decision_at": "2026-11-19T04:51:30",
+    "decision_lag_sec": 690,
+    "signal_close": 1.27999997,
+    "price_at_decision": 1.2649999856948853,
+    "decision_gain": -0.011718738013028807,
+    "entry_price": 1.26499999,
+    "entry_vs_signal": -0.011718734649657891,
+    "pnl": 0.195,
+    "exit_reason": "60분 만기",
+    "mfe": 1.976,
+    "mae": -1.186,
+    "hold_sec": 3600,
+    "turnover": 6012362.72,
+    "fwd_max": 0.007812492724042164,
+    "fwd_ret": -0.011718739086063357,
+    "hit5": false,
+    "n_bars": 61,
+    "event_ts": null,
+    "lead_sec": null,
+    "judgement": "사건 미도달",
+    "entry_hit5": false,
+    "day_open": 1.3049999475479126,
+    "session_hit5_ts": null,
+    "bar_close_at": null,
+    "entry_after_decision": null,
+    "causal_ok": null,
+    "ledger_label": null,
+    "covered_event": null
+   },
+   {
+    "id": "US_GEN16-00011",
+    "track": "US_GEN16",
+    "symbol": "SEAT",
+    "signal_bar_ts": "2026-11-20T03:55:00",
+    "decision_at": "2026-11-20T04:08:50",
+    "decision_lag_sec": 770,
+    "signal_close": 1.72010005,
+    "price_at_decision": 1.9049999713897705,
+    "decision_gain": 0.10749370153775084,
+    "entry_price": 1.90009999,
+    "entry_vs_signal": 0.10464504085096671,
+    "pnl": 4.895,
+    "exit_reason": "TP",
+    "mfe": 5.258,
+    "mae": -1.053,
+    "hold_sec": 420,
+    "turnover": 7803250.52,
+    "fwd_max": 0.16847860023168226,
+    "fwd_ret": 0.13946862777643587,
+    "hit5": true,
+    "n_bars": 60,
+    "event_ts": "2026-11-20T04:05:00",
+    "lead_sec": -230,
+    "judgement": "늦은 관측",
+    "entry_hit5": true,
+    "day_open": 1.999899983406067,
+    "session_hit5_ts": "2026-11-20T00:07:00",
+    "bar_close_at": "2026-11-20T03:56:00",
+    "entry_after_decision": 10,
+    "causal_ok": true,
+    "ledger_label": "delayed_observation",
+    "covered_event": null
+   },
+   {
+    "id": "US_GEN16-00012",
+    "track": "US_GEN16",
+    "symbol": "LVWR",
+    "signal_bar_ts": "2026-11-20T03:55:00",
+    "decision_at": "2026-11-20T04:08:50",
+    "decision_lag_sec": 770,
+    "signal_close": 0.49000001,
+    "price_at_decision": 0.5084999799728394,
+    "decision_gain": 0.03775503999038565,
+    "entry_price": 0.5061,
+    "entry_vs_signal": 0.032857121778426146,
+    "pnl": -3.097,
+    "exit_reason": "SL",
+    "mfe": 0.0,
+    "mae": -4.228,
+    "hold_sec": 240,
+    "turnover": 2584958.16,
+    "fwd_max": 0.12224486658047917,
+    "fwd_ret": 0.06510201638860091,
+    "hit5": true,
+    "n_bars": 62,
+    "event_ts": "2026-11-20T04:04:00",
+    "lead_sec": -290,
+    "judgement": "늦은 관측",
+    "entry_hit5": false,
+    "day_open": 0.42800000309944153,
+    "session_hit5_ts": "2026-11-20T00:08:00",
+    "bar_close_at": "2026-11-20T03:56:00",
+    "entry_after_decision": 10,
+    "causal_ok": true,
+    "ledger_label": "delayed_observation",
+    "covered_event": null
+   },
+   {
+    "id": "US_GEN16-00013",
+    "track": "US_GEN16",
+    "symbol": "ANT",
+    "signal_bar_ts": "2026-11-20T03:55:00",
+    "decision_at": "2026-11-20T04:08:50",
+    "decision_lag_sec": 770,
+    "signal_close": 95.05000305,
+    "price_at_decision": 93.56999969482422,
+    "decision_gain": -0.01557078703508552,
+    "entry_price": 93.58350372,
+    "entry_vs_signal": -0.015428714181403791,
+    "pnl": 4.895,
+    "exit_reason": "TP",
+    "mfe": 5.2,
+    "mae": 0.0,
+    "hold_sec": 1860,
+    "turnover": 117585362406.15,
+    "fwd_max": 0.04807995316250224,
+    "fwd_ret": 0.02798522827260075,
+    "hit5": false,
+    "n_bars": 60,
+    "event_ts": null,
+    "lead_sec": null,
+    "judgement": "사건 미도달",
+    "entry_hit5": true,
+    "day_open": 83.0,
+    "session_hit5_ts": "2026-11-20T01:48:00",
+    "bar_close_at": "2026-11-20T03:56:00",
+    "entry_after_decision": 10,
+    "causal_ok": true,
+    "ledger_label": "delayed_observation",
+    "covered_event": null
+   }
+  ],
+  "recommendation": "observe_only: 표본 10·사전포착 0·정밀도 CI 1.6~58.4% → 승격 근거 없음"
+ },
+ "us_wave_rank": {
+  "n": 1,
+  "trade": {
+   "id": "US_WAVE_RANK-00001",
+   "track": "US_WAVE_RANK",
+   "symbol": "SEAT",
+   "signal_bar_ts": "2026-11-20T04:00:00",
+   "decision_at": "2026-11-20T04:08:46",
+   "decision_lag_sec": 466,
+   "signal_close": 1.76499999,
+   "price_at_decision": 1.9049999713897705,
+   "decision_gain": 0.07932010321981386,
+   "entry_price": 1.90009999,
+   "entry_vs_signal": 0.07654390978211856,
+   "pnl": 4.895,
+   "exit_reason": "TP",
+   "mfe": 5.258,
+   "mae": -1.053,
+   "hold_sec": 420,
+   "turnover": 8134972.38,
+   "fwd_max": 0.1387536030417078,
+   "fwd_ret": 0.10487249907857632,
+   "hit5": true,
+   "n_bars": 60,
+   "event_ts": "2026-11-20T04:08:00",
+   "lead_sec": -46,
+   "judgement": "늦은 관측",
+   "entry_hit5": true,
+   "day_open": 1.999899983406067,
+   "session_hit5_ts": "2026-11-20T00:07:00",
+   "bar_close_at": "2026-11-20T04:01:00",
+   "entry_after_decision": 14,
+   "causal_ok": true,
+   "ledger_label": "delayed_observation"
+  },
+  "verdict": "late_observation",
+  "detail": {
+   "decision_gain_pct": 7.93,
+   "event_lead_sec": -46,
+   "recv_lag_sec": 466,
+   "fwd_max_pct": 13.88,
+   "captured_pct": 4.895,
+   "capture_ratio": 0.353
+  },
+  "recommendation": "observe_only: '사전포착 성공'으로 인용 금지. 수집 지연(466s) 개선은 트랙 A"
+ },
+ "recommendations": [
+  {
+   "id": "R1",
+   "target": "UPBIT_GEN3",
+   "action": "legacy_comparator",
+   "reason": "비용 0에서도 건당 -0.027%, +5% 도달 7.0%, 재현율 9.3%, 손실 주원인=진입 슬리피지 0.378%"
+  },
+  {
+   "id": "R2",
+   "target": "UPBIT_GEN2",
+   "action": "dormant(definition_infeasible)",
+   "reason": "조건 성립 22,335 bar-minute 중 61봉 연속 창 0건 — 평가기 게이트와 유동성 밴드의 교집합 공집합"
+  },
+  {
+   "id": "R3",
+   "target": "US_GEN16/US_WAVE_RANK",
+   "action": "observe_only",
+   "reason": "사전포착 0건, 늦은 관측 3건, WAVE 1건은 +5% 사건 46초 뒤 판단"
+  },
+  {
+   "id": "R4",
+   "target": "공통엔진(30차)",
+   "action": "extend",
+   "reason": "유니버스 50→150종목, 지평 30/60/120분, 진입 지연 명시, Bonferroni→FDR. 승격 문턱은 유지"
+  }
+ ],
+ "limits": [
+  "e2e는 50종목·8~10일 표본 — 시장 전체 성능으로 일반화 금지",
+  "GEN3 19건(6.2%)은 120분 창 관측봉 부족으로 지표 제외(삭제 아님)",
+  "실주문·실거래 없음(전진검증·모의 시뮬만)",
+  "collector_errors는 트랙 A 소유 영역이라 null(not_measured)"
+ ],
+ "artifacts": {
+  "report": "research/gpt_29th_p1_report_20261120.md",
+  "summary": "research/evaluation_summaries/gpt_29th_p1_summary_20261120.json",
+  "e2e_summary": "research/evaluation_summaries/p1_three_market_e2e_20261120.json",
+  "metrics_json": "research/p1_standard_metrics_20261120.json",
+  "modules": [
+   "research/market_common.py",
+   "research/market_adapters.py",
+   "research/verify_three_market_e2e.py",
+   "research/p1_standard_metrics_20261120.py"
+  ],
+  "isolated_dir": "research/.p1_e2e_test/"
+ }
+}
