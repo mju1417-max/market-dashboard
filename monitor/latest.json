@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "generated_at": "2026-11-20T22:15:16+09:00",
+ "generated_at": "2026-11-20T22:20:17+09:00",
  "note": "Public, de-identified collaboration snapshot. No credentials, personal data, or raw DB.",
  "totals": {
   "symbols": 5534,
@@ -19,11 +19,11 @@
    "symbols": 302,
    "universe": 302,
    "last_candle": "2026-11-20T22:02:00",
-   "collector_last_run_at": "2026-11-20T22:13:22",
+   "collector_last_run_at": "2026-11-20T22:18:06",
    "collector_errors": 0,
    "candles_1m_query": "COUNT(*)",
-   "candles_1m_saved": 1536424,
-   "candle_count_delta": 18009
+   "candles_1m_saved": 1536786,
+   "candle_count_delta": 17647
   },
   "kr": {
    "label": "한국주식 (KOSPI·KOSDAQ)",
@@ -47,11 +47,11 @@
    "symbols": 2076,
    "universe": 2077,
    "last_candle": "2026-11-20T22:06:13",
-   "collector_last_run_at": "2026-11-20T22:13:21",
+   "collector_last_run_at": "2026-11-20T22:18:04",
    "collector_errors": 0,
    "candles_1m_query": "COUNT(*)",
-   "candles_1m_saved": 4589115,
-   "candle_count_delta": -656
+   "candles_1m_saved": 4589470,
+   "candle_count_delta": -1011
   }
  },
  "forward_tracks": {
@@ -65,7 +65,7 @@
    "losses": 0,
    "win_rate": 100.0,
    "sum_pnl_pct": 4.895,
-   "last_run_at": "2026-11-20T22:13:54"
+   "last_run_at": "2026-11-20T22:18:36"
   },
   "US_GEN16": {
    "label": "미국주식 2세대 GEN16",
@@ -77,7 +77,7 @@
    "losses": 3,
    "win_rate": 70.0,
    "sum_pnl_pct": 16.064,
-   "last_run_at": "2026-11-20T22:13:54"
+   "last_run_at": "2026-11-20T22:18:36"
   },
   "KR_VCP": {
    "label": "한국주식 VCP 돌파",
@@ -101,7 +101,7 @@
    "losses": 0,
    "win_rate": null,
    "sum_pnl_pct": 0.0,
-   "last_run_at": "2026-11-20T22:10:18"
+   "last_run_at": "2026-11-20T22:15:51"
   },
   "UP_ZVOL_GATE": {
    "label": "업비트 거래대금 Z 게이트",
@@ -113,7 +113,7 @@
    "losses": 12,
    "win_rate": 40.0,
    "sum_pnl_pct": -8.85,
-   "last_run_at": "2026-11-20T22:15:08"
+   "last_run_at": "2026-11-20T22:19:51"
   },
   "UPBIT_GEN3": {
    "label": "업비트 3세대 GEN3 (Shadow)",
@@ -125,7 +125,7 @@
    "losses": 173,
    "win_rate": 43.6,
    "sum_pnl_pct": -61.609,
-   "last_run_at": "2026-11-20T22:15:12"
+   "last_run_at": "2026-11-20T22:19:58"
   },
   "UPBIT_GEN2": {
    "label": "업비트 2세대 GEN2",
@@ -137,14 +137,14 @@
    "losses": 0,
    "win_rate": null,
    "sum_pnl_pct": 0.0,
-   "last_run_at": "2026-11-20T22:15:10"
+   "last_run_at": "2026-11-20T22:19:55"
   }
  },
  "candle_count_audit": {
   "upbit": {
    "db_file": "upbit_1m.db",
-   "db_size": 242626560,
-   "db_mtime": 1795180453,
+   "db_size": 242704384,
+   "db_mtime": 1795180732,
    "universe_def": "fetch_log rows (감시 종목 1행/종목)",
    "bars_query": "SELECT COUNT(*) FROM candles_1m",
    "saved_query": "SELECT COALESCE(SUM(candles_saved),0) FROM fetch_log",
@@ -157,9 +157,9 @@
     "seconds": 0.01,
     "at": 1795180094.4104788,
     "cached": true,
-    "age_s": 420.0
+    "age_s": 721.2
    },
-   "generated_at": "2026-11-20T22:15:14+09:00"
+   "generated_at": "2026-11-20T22:20:15+09:00"
   },
   "kr": {
    "db_file": "kr_1m.db",
@@ -177,14 +177,14 @@
     "seconds": 0.0,
     "at": 1795180097.51233,
     "cached": true,
-    "age_s": 417.0
+    "age_s": 718.1
    },
-   "generated_at": "2026-11-20T22:15:14+09:00"
+   "generated_at": "2026-11-20T22:20:15+09:00"
   },
   "us": {
    "db_file": "us_1m.db",
-   "db_size": 442822656,
-   "db_mtime": 1795180434,
+   "db_size": 442859520,
+   "db_mtime": 1795180716,
    "universe_def": "fetch_log rows (감시 종목 1행/종목)",
    "bars_query": "SELECT COUNT(*) FROM candles_1m",
    "saved_query": "SELECT COALESCE(SUM(candles_saved),0) FROM fetch_log",
@@ -197,9 +197,9 @@
     "seconds": 0.0,
     "at": 1795180102.5160892,
     "cached": true,
-    "age_s": 412.0
+    "age_s": 713.2
    },
-   "generated_at": "2026-11-20T22:15:14+09:00"
+   "generated_at": "2026-11-20T22:20:15+09:00"
   }
  },
  "research": {
@@ -487,7 +487,7 @@
     "shadow_signals_historical": null
    }
   },
-  "_cache_age_s": 851.2
+  "_cache_age_s": 1152.3
  },
  "research_source": "argument"
 }
