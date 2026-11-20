@@ -1,10 +1,10 @@
 {
  "schema": 1,
- "generated_at": "2026-11-20T20:57:08+09:00",
+ "generated_at": "2026-11-20T20:58:19+09:00",
  "note": "Public, de-identified collaboration snapshot. No credentials, personal data, or raw DB.",
  "totals": {
   "symbols": 5534,
-  "candles_1m": 10812946,
+  "candles_1m": 10813078,
   "surges_ge5": 659,
   "forward_closed": 335,
   "forward_wins": 148,
@@ -43,14 +43,14 @@
    "label": "미국주식",
    "db_ok": true,
    "db_source": "db_read",
-   "candles_1m": 4578171,
+   "candles_1m": 4578303,
    "symbols": 2076,
    "universe": 2077,
-   "last_candle": "2026-11-20T20:51:50",
-   "collector_last_run_at": "2026-11-20T20:52:55",
+   "last_candle": "2026-11-20T20:56:00",
+   "collector_last_run_at": "2026-11-20T20:57:29",
    "collector_errors": 0,
    "candles_1m_query": "COUNT(*)",
-   "candles_1m_saved": 4578171,
+   "candles_1m_saved": 4578303,
    "candle_count_delta": 0
   }
  },
@@ -65,7 +65,7 @@
    "losses": 0,
    "win_rate": 100.0,
    "sum_pnl_pct": 4.895,
-   "last_run_at": "2026-11-20T20:53:28"
+   "last_run_at": "2026-11-20T20:58:02"
   },
   "US_GEN16": {
    "label": "미국주식 2세대 GEN16",
@@ -77,7 +77,7 @@
    "losses": 3,
    "win_rate": 70.0,
    "sum_pnl_pct": 16.064,
-   "last_run_at": "2026-11-20T20:53:28"
+   "last_run_at": "2026-11-20T20:58:02"
   },
   "KR_VCP": {
    "label": "한국주식 VCP 돌파",
@@ -101,7 +101,7 @@
    "losses": 0,
    "win_rate": null,
    "sum_pnl_pct": 0.0,
-   "last_run_at": "2026-11-20T20:55:22"
+   "last_run_at": "2026-11-20T20:57:26"
   },
   "UP_ZVOL_GATE": {
    "label": "업비트 거래대금 Z 게이트",
@@ -113,7 +113,7 @@
    "losses": 12,
    "win_rate": 40.0,
    "sum_pnl_pct": -8.85,
-   "last_run_at": "2026-11-20T20:55:20"
+   "last_run_at": "2026-11-20T20:58:06"
   },
   "UPBIT_GEN3": {
    "label": "업비트 3세대 GEN3 (Shadow)",
@@ -125,7 +125,7 @@
    "losses": 172,
    "win_rate": 43.4,
    "sum_pnl_pct": -62.11,
-   "last_run_at": "2026-11-20T20:55:30"
+   "last_run_at": "2026-11-20T20:58:09"
   },
   "UPBIT_GEN2": {
    "label": "업비트 2세대 GEN2",
@@ -137,7 +137,7 @@
    "losses": 0,
    "win_rate": null,
    "sum_pnl_pct": 0.0,
-   "last_run_at": "2026-11-20T20:55:25"
+   "last_run_at": "2026-11-20T20:58:08"
   }
  },
  "candle_count_audit": {
@@ -154,9 +154,9 @@
     "first": "2026-11-09T07:02:00",
     "last": "2026-11-20T20:51:00",
     "mode": "ro",
-    "seconds": 1.82
+    "seconds": 1.84
    },
-   "generated_at": "2026-11-20T20:56:55+09:00"
+   "generated_at": "2026-11-20T20:58:11+09:00"
   },
   "kr": {
    "db_file": "kr_1m.db",
@@ -171,297 +171,27 @@
     "first": "2026-11-10T09:00:00",
     "last": "2026-11-20T15:44:00",
     "mode": "ro",
-    "seconds": 2.73
+    "seconds": 2.71
    },
-   "generated_at": "2026-11-20T20:56:57+09:00"
+   "generated_at": "2026-11-20T20:58:13+09:00"
   },
   "us": {
    "db_file": "us_1m.db",
-   "db_size": 441790464,
-   "db_mtime": 1795175607,
+   "db_size": 441798656,
+   "db_mtime": 1795175881,
    "universe_def": "fetch_log rows (감시 종목 1행/종목)",
    "bars_query": "SELECT COUNT(*) FROM candles_1m",
    "saved_query": "SELECT COALESCE(SUM(candles_saved),0) FROM fetch_log",
    "bars_actual": {
-    "bars": 4578171,
+    "bars": 4578303,
     "sym_bars": 2076,
     "first": "2026-11-09T23:30:00",
-    "last": "2026-11-20T20:51:50",
+    "last": "2026-11-20T20:56:00",
     "mode": "ro",
-    "seconds": 1.82
+    "seconds": 2.02
    },
-   "generated_at": "2026-11-20T20:57:00+09:00"
+   "generated_at": "2026-11-20T20:58:16+09:00"
   }
  },
- "research": {
-  "generated_at": "2026-11-20T20:57:02+09:00",
-  "schema": 2,
-  "note": "시장별 연구 상태(Ⅴ.2). null 은 미구현·미측정이며 status_fields 에 사유가 있다. 절대경로·비밀·개인정보 없음.",
-  "markets": {
-   "upbit": {
-    "data_cutoff": "2026-11-20T11:51",
-    "last_complete_session": "2026-11-20",
-    "candle_count": 1546425,
-    "universe": 302,
-    "source_id": "upbit_1m.db",
-    "collector_errors": 0,
-    "generation_id": "UP-G003",
-    "research_status": "rotation:no_new_data",
-    "last_success": "2026-11-20 08:59:54",
-    "last_error_type": null,
-    "last_error_at": null,
-    "candidate_count": 0,
-    "frozen_count": 0,
-    "shadow_signals_measured": 343,
-    "shadow_signals_estimated": null,
-    "labelled": 0,
-    "tp": null,
-    "fp": null,
-    "censored": null,
-    "calibration": null,
-    "uplift_vs_baseline": null,
-    "price_gain_error": null,
-    "latency": null,
-    "code_sha": "7abec58f3b81",
-    "forward_tracks": [
-     {
-      "track": "UPBIT_GEN3",
-      "closed": 304,
-      "wins": 132,
-      "win_rate": null,
-      "open": null,
-      "signals": 323,
-      "last_run_at": "2026-11-20T20:55:30"
-     },
-     {
-      "track": "UP_ZVOL_GATE",
-      "closed": 20,
-      "wins": 8,
-      "win_rate": null,
-      "open": null,
-      "signals": 20,
-      "last_run_at": "2026-11-20T20:55:20"
-     },
-     {
-      "track": "UPBIT_GEN2",
-      "closed": 0,
-      "wins": 0,
-      "win_rate": null,
-      "open": null,
-      "signals": 0,
-      "last_run_at": "2026-11-20T20:55:25"
-     }
-    ],
-    "forward_closed": 324,
-    "lab": {
-     "experiment_id": null,
-     "data_cutoff": null,
-     "complete": null,
-     "n_candidates": 1130509,
-     "sessions": 12
-    },
-    "trials": 4896,
-    "status_fields": {
-     "tp_fp_censored": "not_measured: 실현 손익 라벨(censored 포함) 집계 미구현",
-     "calibration": "not_implemented: 확률 캘리브레이션 미구현",
-     "uplift_vs_baseline": "not_implemented: 기준선 대비 uplift 미산출",
-     "price_gain_error": "not_measured: 상승폭 절대오차 미산출",
-     "latency": "not_measured: 결정 지연(수신-사건) 미집계"
-    }
-   },
-   "kr": {
-    "data_cutoff": "2026-11-20T15:44",
-    "last_complete_session": "2026-11-20",
-    "candle_count": 4688350,
-    "universe": 3205,
-    "source_id": "kr_1m.db",
-    "collector_errors": 5,
-    "generation_id": "lab_KR_20261120_3f1a339d",
-    "research_status": "daily_track_active",
-    "last_success": "2026-11-20T20:55:22+09:00",
-    "last_error_type": null,
-    "last_error_at": null,
-    "candidate_count": 1344187,
-    "frozen_count": null,
-    "shadow_signals_measured": 306,
-    "shadow_signals_estimated": null,
-    "labelled": null,
-    "tp": null,
-    "fp": null,
-    "censored": null,
-    "calibration": null,
-    "uplift_vs_baseline": null,
-    "price_gain_error": null,
-    "latency": null,
-    "code_sha": "8810a10518f7",
-    "forward_tracks": [
-     {
-      "track": "KR_S16",
-      "closed": 0,
-      "wins": 0,
-      "win_rate": null,
-      "open": 9,
-      "signals": 304,
-      "last_run_at": "2026-11-20T20:55:22+09:00"
-     },
-     {
-      "track": "KR_VCP",
-      "closed": 0,
-      "wins": 0,
-      "win_rate": null,
-      "open": 1,
-      "signals": 2,
-      "last_run_at": "2026-11-20T20:21:08+09:00"
-     },
-     {
-      "track": "KR_S3",
-      "status": "state_missing"
-     }
-    ],
-    "forward_closed": 0,
-    "daily_tracks": {
-     "KR_S16": {
-      "as_of": "2026-11-20",
-      "target_date": "2026-11-20",
-      "data_gate": "complete",
-      "coverage": null,
-      "gap_dates": null,
-      "open": 9,
-      "pending": 58
-     },
-     "KR_VCP": {
-      "as_of": "2026-11-20",
-      "coverage": {},
-      "open": 1,
-      "pending": 1
-     }
-    },
-    "lab": {
-     "experiment_id": "lab_KR_20261120_3f1a339d",
-     "data_cutoff": "2026-11-20",
-     "complete": true,
-     "sessions": 8
-    },
-    "status_fields": {
-     "tp_fp_censored": "not_measured: 일봉 트랙 실현 라벨 미집계",
-     "calibration": "not_implemented",
-     "uplift_vs_baseline": "not_implemented",
-     "price_gain_error": "not_measured",
-     "latency": "not_measured"
-    }
-   },
-   "us": {
-    "data_cutoff": "2026-11-20T20:51",
-    "last_complete_session": "2026-11-19",
-    "candle_count": 4578171,
-    "universe": 2077,
-    "source_id": "us_1m.db",
-    "collector_errors": 0,
-    "generation_id": "lab_US_20261119_11d1253a",
-    "research_status": "lab_complete",
-    "last_success": "2026-11-19",
-    "last_error_type": null,
-    "last_error_at": null,
-    "candidate_count": 3627819,
-    "frozen_count": null,
-    "shadow_signals_measured": 14,
-    "shadow_signals_estimated": null,
-    "labelled": 11,
-    "tp": null,
-    "fp": null,
-    "censored": null,
-    "calibration": null,
-    "uplift_vs_baseline": null,
-    "price_gain_error": null,
-    "latency": null,
-    "code_sha": "bb0f54cc2327381d",
-    "lab": {
-     "experiment_id": "lab_US_20261119_11d1253a",
-     "data_cutoff": "2026-11-19",
-     "complete": true,
-     "sessions": [
-      {
-       "index": 0,
-       "day": 20768,
-       "n_candidates": 547443,
-       "seconds": 38.0,
-       "experiment_id": "lab_US_20261119_11d1253a"
-      },
-      {
-       "index": 1,
-       "day": 20769,
-       "n_candidates": 571876,
-       "seconds": 40.8,
-       "experiment_id": "lab_US_20261119_11d1253a"
-      },
-      {
-       "index": 2,
-       "day": 20770,
-       "n_candidates": 577058,
-       "seconds": 40.0,
-       "experiment_id": "lab_US_20261119_11d1253a"
-      },
-      {
-       "index": 3,
-       "day": 20773,
-       "n_candidates": 555388,
-       "seconds": 39.6,
-       "experiment_id": "lab_US_20261119_11d1253a"
-      },
-      {
-       "index": 4,
-       "day": 20774,
-       "n_candidates": 552624,
-       "seconds": 37.2,
-       "experiment_id": "lab_US_20261119_11d1253a"
-      },
-      {
-       "index": 5,
-       "day": 20775,
-       "n_candidates": 448594,
-       "seconds": 34.5,
-       "experiment_id": "lab_US_20261119_11d1253a"
-      },
-      {
-       "index": 6,
-       "day": 20776,
-       "n_candidates": 374836,
-       "seconds": 33.3,
-       "experiment_id": "lab_US_20261119_11d1253a"
-      }
-     ],
-     "completeness": "7/7",
-     "cooldown_scope": "session"
-    },
-    "forward_tracks": [
-     {
-      "track": "US_GEN16",
-      "closed": 10,
-      "wins": 7,
-      "win_rate": null,
-      "open": null,
-      "signals": 13,
-      "last_run_at": "2026-11-20T20:53:28"
-     },
-     {
-      "track": "US_WAVE",
-      "closed": 1,
-      "wins": 1,
-      "win_rate": null,
-      "open": null,
-      "signals": 1,
-      "last_run_at": "2026-11-20T20:53:28"
-     }
-    ],
-    "forward_closed": 11,
-    "status_fields": {
-     "tp_fp_censored": "not_measured: 분봉 규칙 라벨별 TP/FP/censored 미집계",
-     "calibration": "not_implemented",
-     "uplift_vs_baseline": "not_implemented",
-     "price_gain_error": "not_measured",
-     "latency": "not_measured"
-    }
-   }
-  }
- }
+ "research": {}
 }
