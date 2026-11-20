@@ -1,10 +1,10 @@
 {
  "schema": 1,
- "generated_at": "2026-11-20T18:45:00+09:00",
+ "generated_at": "2026-11-20T18:48:43+09:00",
  "note": "Public, de-identified collaboration snapshot. No credentials, personal data, or raw DB.",
  "totals": {
   "symbols": 5533,
-  "candles_1m": 10763899,
+  "candles_1m": 10763940,
   "surges_ge5": 654,
   "forward_closed": 322,
   "forward_wins": 144,
@@ -37,10 +37,10 @@
    "label": "미국주식",
    "db_ok": true,
    "db_source": "db_read",
-   "candles_1m": 4565091,
+   "candles_1m": 4565132,
    "symbols": 2076,
    "universe": 2077,
-   "last_candle": "2026-11-20T18:43:19",
+   "last_candle": "2026-11-20T18:48:26",
    "collector_last_run_at": "2026-11-20T18:43:19",
    "collector_errors": 0
   }
