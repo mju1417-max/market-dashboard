@@ -1,0 +1,143 @@
+{
+ "ok": true,
+ "n": 18,
+ "n_pass": 18,
+ "checks": [
+  {
+   "check": "init_bucket_has_3",
+   "ok": true,
+   "detail": "['005180-2026-11-18', '079940-2026-11-18', '206640-2026-11-18']"
+  },
+  {
+   "check": "init_excluded_from_forward",
+   "ok": true,
+   "detail": "[('005180-2026-11-18', 'initialization_replay', 'decision_after_fill'), ('206640-2026-11-18', 'initialization_replay', 'decision_after_fill'), ('079940-2026-11-18', 'initialization_replay', 'decision_after_fill')]"
+  },
+  {
+   "check": "init_reason_decision_after_fill",
+   "ok": true,
+   "detail": "['decision_after_fill', 'decision_after_fill', 'decision_after_fill']"
+  },
+  {
+   "check": "init_not_in_open_closed",
+   "ok": true,
+   "detail": "open=0 closed=0"
+  },
+  {
+   "check": "prospective_zero_now",
+   "ok": true,
+   "detail": "n_closed=0 wins=0 equity=1.0 total=0.0 precision=None"
+  },
+  {
+   "check": "prospective_rule",
+   "ok": true,
+   "detail": "{'precision': 'wins / prospective closed', 'equity': 'prospective 체결만의 자본곡선(종목당 10%) — 초기화·복구·레거시 제조', 'adoption_rule': '의사결정일 >= 2026-11-20 이고 의사결정 <= 체결가 시점(진입일 15:30)', 'ledger_version': 2, 'first_eligible_decision_at': '2026-11-20T00:00:00+09:00'}"
+  },
+  {
+   "check": "legacy_preserved",
+   "ok": true,
+   "detail": "equity=0.9974 total=-0.257 entries=3 n_closed=0"
+  },
+  {
+   "check": "ledger_version_before_after",
+   "ok": true,
+   "detail": "{'equity': 0.9974, 'total_return_pct': -0.257, 'entries': 3, 'n_closed': 0, 'wins': 0, 'sum_pnl_pct': 0.0, 'open_positions': 3} -> {'equity': 1.0, 'total_return_pct': 0.0, 'entries': 0, 'n_closed': 0, 'wins': 0, 'sum_pnl_pct': 0.0, 'open_positions': 0}"
+  },
+  {
+   "check": "buckets_counts",
+   "ok": true,
+   "detail": "{'prospective_forward': 0, 'initialization_replay': 3, 'recovery_backfill': 6, 'legacy_cumulative': 3}"
+  },
+  {
+   "check": "recovery_backfill_kept",
+   "ok": true,
+   "detail": "['279570-2026-11-19', '009450-2026-11-19', '034310-2026-11-19', '001800-2026-11-20', '001630-2026-11-20', '005300-2026-11-20']"
+  },
+  {
+   "check": "adoption_rule_unit",
+   "ok": true,
+   "detail": "[('2026-11-20T20:00:00+09:00', '2026-11-23', (True, 'ok')), ('2026-11-18T19:37:18+09:00', '2026-11-18', (False, 'decision_after_fill')), ('2026-11-19T10:00:00+09:00', '2026-11-19', (False, 'before_prospective_start')), ('2026-11-23T09:00:00+09:00', '2026-11-23', (True, 'ok')), ('2026-11-23T16:00:00+09:00', '2026-11-24', (True, 'ok'))]"
+  },
+  {
+   "check": "audit_covers_all_signals",
+   "ok": true,
+   "detail": "{'state': 'forward_trades_kr_s16.json', 'db': 'kr_s16_data.db', 'signals_audited': 304}"
+  },
+  {
+   "check": "audit_windows_reconstructed",
+   "ok": true,
+   "detail": "verdicts={'reconstructed': 304}"
+  },
+  {
+   "check": "audit_availability_exact_zero",
+   "ok": true,
+   "detail": "exact=0 assumed=1520 rows_with_faa=0 of 32241"
+  },
+  {
+   "check": "audit_1119_not_mixed",
+   "ok": true,
+   "detail": "{'n': 89, 'n_with_1119_supply': 89, 'n_with_1119_supply_but_decision_before_publication': 0, 'decisions_after_1119_1530': True}"
+  },
+  {
+   "check": "audit_same_day_unproven_flagged",
+   "ok": true,
+   "detail": "['000120-2026-11-20', '000320-2026-11-20', '000400-2026-11-20', '001540-2026-11-20']"
+  },
+  {
+   "check": "same_day_unproven_guard_in_code",
+   "ok": true,
+   "detail": "guard present"
+  },
+  {
+   "check": "no_deletion_of_legacy",
+   "ok": true,
+   "detail": "pre-split backup kept"
+  }
+ ],
+ "numbers": {
+  "prospective": {
+   "signals": 304,
+   "entries": 0,
+   "open": 0,
+   "closed": 0,
+   "wins": 0,
+   "losses": 0,
+   "precision": null,
+   "sum_pnl_pct": 0.0,
+   "avg_pnl_pct": null,
+   "equity": 1.0,
+   "total_return_pct": 0.0,
+   "mdd_pct": 0.0,
+   "denominator": {
+    "precision": "wins / prospective closed",
+    "equity": "prospective 체결만의 자본곡선(종목당 10%) — 초기화·복구·레거시 제조",
+    "adoption_rule": "의사결정일 >= 2026-11-20 이고 의사결정 <= 체결가 시점(진입일 15:30)",
+    "ledger_version": 2,
+    "first_eligible_decision_at": "2026-11-20T00:00:00+09:00"
+   }
+  },
+  "legacy": {
+   "captured_at": "2026-11-20T22:58:20+09:00",
+   "ledger_version_before": 1,
+   "equity": 0.9974,
+   "total_return_pct": -0.257,
+   "entries": 3,
+   "n_closed": 0,
+   "wins": 0,
+   "sum_pnl_pct": 0.0,
+   "open_positions": 3,
+   "note": "분리 이전 장부(초기 backdated 3건 포함) — 전진 성과 아님. 삭제하지 않고 참고로 보존."
+  },
+  "buckets": {
+   "prospective_forward": 0,
+   "initialization_replay": 3,
+   "recovery_backfill": 6,
+   "legacy_cumulative": 3
+  },
+  "audit_verdicts": {
+   "reconstructed": 304
+  },
+  "audit_day_1119": "11-19 수급 행의 공표 시각은 11-20 09:00(assumed)이다. 그 행을 쓴 11-19 신호의 실제 의사결정은 11-20 20:14 이므로 **11-19 15:30 결정에 섞이지 않았다**(decision_causal=true). 다만 그 체결가는 11-19 15:30 이므로 전진이 아니라 recovery_backfill 로 간다."
+ },
+ "at": "2026-11-20T23:07:15+09:00"
+}
