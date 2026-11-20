@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "generated_at": "2026-11-20T22:00:39+09:00",
+ "generated_at": "2026-11-20T22:00:53+09:00",
  "note": "Public, de-identified collaboration snapshot. No credentials, personal data, or raw DB.",
  "totals": {
   "symbols": 5534,
@@ -101,7 +101,7 @@
    "losses": 0,
    "win_rate": null,
    "sum_pnl_pct": 0.0,
-   "last_run_at": "2026-11-20T21:55:23"
+   "last_run_at": "2026-11-20T22:00:48"
   },
   "UP_ZVOL_GATE": {
    "label": "업비트 거래대금 Z 게이트",
@@ -158,7 +158,7 @@
     "at": 1795179612.4488895,
     "cached": true
    },
-   "generated_at": "2026-11-20T22:00:30+09:00"
+   "generated_at": "2026-11-20T22:00:52+09:00"
   },
   "kr": {
    "db_file": "kr_1m.db",
@@ -177,7 +177,7 @@
     "at": 1795179615.0330122,
     "cached": true
    },
-   "generated_at": "2026-11-20T22:00:30+09:00"
+   "generated_at": "2026-11-20T22:00:52+09:00"
   },
   "us": {
    "db_file": "us_1m.db",
@@ -192,9 +192,11 @@
     "first": "2026-11-09T23:30:00",
     "last": "2026-11-20T21:57:54",
     "mode": "ro",
-    "seconds": 8.06
+    "seconds": 0.0,
+    "at": 1795179639.289626,
+    "cached": true
    },
-   "generated_at": "2026-11-20T22:00:30+09:00"
+   "generated_at": "2026-11-20T22:00:52+09:00"
   }
  },
  "research": {
@@ -482,7 +484,7 @@
     "shadow_signals_historical": null
    }
   },
-  "_cache_age_s": 1097.4
+  "_cache_age_s": 1111.0
  },
  "research_source": "argument"
 }
