@@ -288,11 +288,12 @@ research.stale_gate = { values: {US: 420}, hash: "f0c02b728ca0c7c1", basis, froz
 
 - 이 보고서: `https://raw.githubusercontent.com/mju1417-max/market-dashboard/main/research/reports/gpt_30th_p1_report_20261120.md` — HTTP **200** (아래 실행 기록)
 - 요약 JSON: `https://raw.githubusercontent.com/mju1417-max/market-dashboard/main/research/evaluation_summaries/gpt_30th_p1_summary_20261120.json` — HTTP **200**
-- `monitor/latest.json` — **GitHub Contents API로 원격 실물 확인**(2026-11-20 22:57 KST 게시분):
+- `monitor/latest.json` — **GitHub Contents API로 원격 실물 확인**(2026-11-20 23:05 KST 게시분):
   `research.schema=3`, `research.stale_gate={values:{US:420}, hash:"f0c02b728ca0c7c1"}`,
   `research.markets.{upbit,kr,us}.connection` 각각 `{production_connected:true, e2e_connected:true, rotation:{status:no_new_data|completed|completed}, signals_prospective:8|0|0, price_gain_error:{mae_pct:4.7031}|null|null}`.
   `research_source=argument`(빈 dict 로 덮이지 않음).
-  참고: `raw.githubusercontent.com` 은 CDN 캐시 때문에 이 시점 조회에서 직전 문서(schema 2)가 보였다 — 같은 순간 Contents API 는 새 문서를 반환했다. 캐시는 수 분 내 갱신된다(TTL).
+  참고 1: `raw.githubusercontent.com` 은 CDN 캐시 때문에 새 커밋 직후 조회에서 직전 개정이 보일 수 있다(같은 순간 Contents API 는 새 문서 반환). HTTP 코드는 200 이다.
+  참고 2: 게시 파이프라인은 `DASH_STATE_DIR` 캐시를 15~30분 TTL 로 읽는다. 스키마 변경 직후에는 **캐시가 옛 문서를 계속 실어 보낼 수 있어**, 이 회차에서는 채점 액션의 캐시를 현재 모듈로 한 번 갱신한 뒤 푸시해 확인했다(23:05 게시분 schema 3·`connection` 3시장).
 
 ---
 
