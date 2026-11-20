@@ -1,6 +1,6 @@
 # GPT → Pickle 제34차 — 전 프로젝트 중앙 인덱스 · GitHub 대조 보고 (첫 회차 기준선)
 
-- 생성 시각: **2026-11-21T03:58:48+09:00** (KST) / 인덱스 버전 `34.1` / schema 1
+- 생성 시각: **2026-11-21T03:59:15+09:00** (KST) / 인덱스 버전 `34.1` / schema 1
 - 공개 실측 기준: `monitor/latest.json` generated_at **2026-11-21T03:40:05+09:00** (이 보고서의 운영 수치는 이 스냅숏)
 - 인덱스 원본: [`coordination/project_inventory.json`](https://github.com/mju1417-max/market-dashboard/blob/main/coordination/project_inventory.json) · 변경 이력: [`coordination/project_changelog.jsonl`](https://github.com/mju1417-max/market-dashboard/blob/main/coordination/project_changelog.jsonl)
 - 원격 main 파일 수(blob): **45**
@@ -21,7 +21,7 @@
 
 **핵심 판정 3가지**
 
-1. 내부 작업은 **51개 운영 단위**로 정리됐고, 그중 **10개**는 공개 저장소에 어떤 경로도 없다. 대부분은 '전략 원본·수집기 구현'이라 공개 정책상 의도적 제외이고, 실제 누락은 문서 50건(과거 회차 보고서 21건 · 내부 문서 16건 · 31차 실행 중 10건)이다.
+1. 내부 작업은 **51개 운영 단위**로 정리됐고, 그중 **10개**는 공개 저장소에 어떤 경로도 없다. 대부분은 '전략 원본·수집기 구현'이라 공개 정책상 의도적 제외이고, 실제 누락은 문서 50건(내부 문서 16건 · 과거 회차 보고서 21건 · 연구 부속 JSON 3건 · 31차 실행 중 10건)이다.
 2. GPT가 **지금 읽을 수 있는 것**은 `monitor/latest.json`, `data/status.json`, `coordination/*.jsonl`, `research/reports`·`evaluation_summaries`·`test_results`(총 45개 파일)다. 이 인덱스로 '무엇이 있는지'는 전부 볼 수 있게 됐지만, '어떻게 구현됐는지'(Python 원본)는 계속 볼 수 없다.
 3. 우체국금융개발원(POSID) 감시는 시장 급등 프로젝트가 아니므로 `scope=personal_monitor`로 **분리 표기**하고 상세를 게시하지 않았다. 인덱스에는 '존재·상태'만 남겼다.
 
@@ -242,7 +242,7 @@ Pickle 앱 자체 운영 작업(하트비트·Explore 제안·아침 브리핑)�
 | `원본 DB 7종(1분봉 3 + research 4, 약 1.6GB)` | 크기·정책상 게시 불가 | 봉 수·종목 수·오류·지연 집계 |
 | `research/.dashboard_pat, research/.telegram_config.json, 워치독 토픽` | 자격증명·비밀 | 없음(비공개 유지) |
 | `handoffs/*/plan.md, log.md, verdicts.jsonl` | 내부 실행 기록 | 회차 보고서 요약 |
-| `research/history_*.md, gpt_3rd~26차 보고서 등 47건` | 과거 회차 문서가 현재 main에 없음 | 없음 — 누락 목록 참조 |
+| `research/history_*.md · gpt_3rd~26차 보고서 등 로컬 전용 문서` | 과거 회차 문서가 현재 main에 없음 | 없음 — §6 누락 목록 참조 |
 
 ## 8. 게시 경계 — 공개한 것과 공개하지 않은 것
 
