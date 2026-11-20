@@ -9,7 +9,7 @@
 
 | 항목 | 상태 | 실측 증거 |
 |---|---|---|
-| P0-B WAL 일관 복제본 게시 | **완료** | `verify_wal_backup_20261120.py` 6/6 PASS, 운영 복제본 1,552,498행·`quick_check`/해시/바이트 정합 |
+| P0-B WAL 일관 복제본 게시 | **완료** | `verify_wal_backup_20261120.py` 6/6 PASS, 운영 복제본 1,556,035행(22:18 KST)·`quick_check`/해시/바이트 정합 |
 | P0-B 읽기 경로 전환 | **완료** | 채점기 heartbeat `db=replica`(실측), 대시보드 `read_source=replica`, `safe_ro` 바이트 복사 제거 |
 | P0-C 잠금 계측 | **완료** | BUSY(5) 1건에 대기 400/800/1200ms·재시도 2·WAL 53,592B·checkpoint 상태·보유자 pid 기록 확인 |
 | P0-C busy_skip / no_new_data 분리 | **완료** | busy_skip 1건(저널), no_new_data 11건(run_key 보유·new_rows 0), 회차 표에 섞이지 않음 |
@@ -54,7 +54,7 @@ GPT 지적(“db+-wal+-shm 순차 바이트 복사는 단일 시점 일관성을
 | `incremental_sync` | 증분 반영 + 손상 자가 복구 | 신규 30행 반영(총 130행), 종목 1개 손상 → 다음 회차가 그 종목만 전량 재복사해 복구 |
 | `live_upbit` | 운영 DB(1.55M행) 실게시 | 7.49초, `data_hash_equal`·`bytes_equal_pages`·`schema_sig_equal` 모두 true, 독자 경로 `upbit_1m.replica.db` |
 
-manifest 예 (운영, 21:45 KST):
+manifest 예 (운영, 22:18 KST):
 
 ```
 status=ok  watermark.rows=1,552,498  max_ts=2026-11-20T12:42:00(UTC)
