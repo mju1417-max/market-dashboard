@@ -1,0 +1,42 @@
+{
+ "applied": {
+  "upbit": {
+   "promoted": false,
+   "verdict": "no_rules",
+   "oos_n": 0,
+   "oos_ev": null,
+   "oos_pos_days": 0,
+   "oos_days": 0,
+   "reasons": []
+  },
+  "us": {
+   "promoted": false,
+   "verdict": "rejected_negative_oos",
+   "oos_n": 1445,
+   "oos_ev": -0.2854,
+   "oos_pos_days": 3,
+   "oos_days": 12,
+   "reasons": [
+    "oos_ev_-0.2854<=0"
+   ]
+  },
+  "kr": {
+   "promoted": false,
+   "verdict": "rejected_negative_oos",
+   "oos_n": 2714,
+   "oos_ev": -0.6001,
+   "oos_pos_days": 0,
+   "oos_days": 12,
+   "reasons": [
+    "oos_ev_-0.6001<=0"
+   ]
+  }
+ },
+ "any_promoted": false,
+ "dry": false,
+ "file": "evolved_rules_kr.json",
+ "before_sha": "2f8f6840d84e6292bd6c028ab997d9e24bcb4eacccc6314b831007f7e82adaf0",
+ "after_sha": "1d995c7a3880b736424ecba90fc5ba44e0ebfc984577e74922f85f2cb15b2854",
+ "backup": "evolved_rules_kr.json.bak_p31_pre_promotion",
+ "at": "2026-11-20T23:05:11+09:00"
+}
