@@ -272,6 +272,8 @@ KR_VCP: as_of 2026-11-20 · 신호 1 · 체결 1 · 청산 0 · 대기 1 · 보�
 - 19:45 연구 스냅숏 = `SELECT COUNT(*) FROM candles_1m` (PK 중복 제거된 실제 행)
 - 19:55 `monitor/latest.json` = `SELECT SUM(candles_saved) FROM fetch_log` (수집기가 "받아 저장했다"고 센 누적 카운터)
 
+`research/candle_count_reconcile_20261120.json` (20:48 KST 실측)
+
 | 시장 | COUNT(*) (bars) | SUM(candles_saved) | Δ | 19:45 발표와 일치 | 19:55 발표와 일치 |
 |---|---|---|---|---|---|
 | UP | 1,545,203 | 1,525,843 | **+19,360** | COUNT(*) (1,538,894) | SUM (1,523,169) |
