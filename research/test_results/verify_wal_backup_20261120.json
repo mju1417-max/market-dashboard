@@ -15,20 +15,20 @@
    "journal_mode": "delete"
   },
   "writer_during_backup": {
-   "writer_rows": 366,
+   "writer_rows": 373,
    "seconds": 0.23,
    "status": "ok",
    "replica": {
-    "rows": 502,
+    "rows": 503,
     "min_ts": "2026-11-20T00:00:00",
-    "max_ts": "2026-11-20T01:00:01"
+    "max_ts": "2026-11-20T01:00:02"
    },
    "manifest_watermark": {
     "table": "candles_1m",
-    "rows": 502,
+    "rows": 503,
     "min_ts": "2026-11-20T00:00:00",
-    "max_ts": "2026-11-20T01:00:01",
-    "data_hash": "df964d6890526c70",
+    "max_ts": "2026-11-20T01:00:02",
+    "data_hash": "5688196ec6bfcd77",
     "schema_sig": "0d38506968a4",
     "duplicate_rows": 0,
     "sym_col": "market"
@@ -101,7 +101,7 @@
   },
   "live_upbit": {
    "publish_status": "ok",
-   "seconds": 7.49,
+   "seconds": 7.24,
    "checks": {
     "level": "light",
     "quick_check": null,
@@ -114,19 +114,19 @@
    "defects": [],
    "watermark": {
     "table": "candles_1m",
-    "rows": 1552498,
+    "rows": 1554815,
     "min_ts": "2026-11-08T22:02:00",
-    "max_ts": "2026-11-20T12:42:00",
-    "data_hash": "d7341618bb8d8c83",
+    "max_ts": "2026-11-20T13:06:00",
+    "data_hash": "5a0516c87c569e87",
     "schema_sig": "8754fe8eb4e7",
     "duplicate_rows": 0,
     "sym_col": "market"
    },
-   "source_rows_now": 1552498,
-   "source_max_now": "2026-11-20T12:42:00",
+   "source_rows_now": 1554815,
+   "source_max_now": "2026-11-20T13:06:00",
    "reader_used": "upbit_1m.replica.db",
    "reader_reason": "ok",
-   "previous_manifest_at": "2026-11-20T21:44:41+09:00"
+   "previous_manifest_at": "2026-11-20T22:08:44+09:00"
   }
  }
 }
