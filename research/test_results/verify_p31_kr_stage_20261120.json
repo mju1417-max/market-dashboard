@@ -1,0 +1,117 @@
+{
+ "ok": true,
+ "n": 10,
+ "n_pass": 10,
+ "checks": [
+  {
+   "check": "stage_verify_17",
+   "ok": true,
+   "detail": "17/17 at 2026-11-20 22:19:47"
+  },
+  {
+   "check": "resume_after_kill",
+   "ok": true,
+   "detail": "[('resume_20%', '중단후 FEATURES_DONE → PUBLISHED, 불일치 0'), ('resume_50%', '중단후 SEARCH_DONE → PUBLISHED, 불일치 0'), ('resume_80%', '중단후 EVALUATED → PUBLISHED, 불일치 0')]"
+  },
+  {
+   "check": "duplicate_and_corrupt_guard",
+   "ok": true,
+   "detail": "[('duplicate_run_yields', 'rc=5 (5=busy_skip)'), ('incomplete_keeps_canonical', 'stage=PREPARED, 정본 해시 동일')]"
+  },
+  {
+   "check": "publish_crash_keeps_canonical",
+   "ok": true,
+   "detail": "crashed=OSError: simulated crash before replace unchanged=True leftovers=[]"
+  },
+  {
+   "check": "publish_atomic_success",
+   "ok": true,
+   "detail": "generation=29 sha=95d239fe20b0"
+  },
+  {
+   "check": "gen28_not_promoted",
+   "ok": true,
+   "detail": "oos_n=2714 ev=-0.6001 pos_days=0 verdict=rejected_negative_oos"
+  },
+  {
+   "check": "gen28_rules_unchanged",
+   "ok": true,
+   "detail": "backup=evolved_rules_kr.json.bak_p31_pre_promotion rules_equal=True"
+  },
+  {
+   "check": "promotion_gate_units",
+   "ok": true,
+   "detail": "{'positive': ['promoted', True], 'negative': ['rejected_negative_oos', False], 'no_pos_days': ['rejected_negative_oos', False], 'too_small': ['rejected_insufficient_oos', False], 'no_rules': ['no_rules', False]}"
+  },
+  {
+   "check": "top_level_promotion_gate",
+   "ok": true,
+   "detail": "{'upbit': {'promoted': False, 'verdict': 'no_rules', 'oos_n': 0, 'oos_ev': None, 'oos_pos_days': 0, 'oos_days': 0, 'reasons': []}, 'us': {'promoted': False, 'verdict': 'rejected_negative_oos', 'oos_n': 1445, 'oos_ev': -0.2854, 'oos_pos_days': 3, 'oos_days': 12, 'reasons': ['oos_ev_-0.2854<=0']}, 'kr': {'promoted': False, 'verdict': 'rejected_negative_oos', 'oos_n': 2714, 'oos_ev': -0.6001, 'oos_pos_days': 0, 'oos_days': 12, 'reasons': ['oos_ev_-0.6001<=0']}}"
+  },
+  {
+   "check": "checklist_written",
+   "ok": true,
+   "detail": "10 items"
+  }
+ ],
+ "gen28": {
+  "generation": 28,
+  "promotion": {
+   "promoted": false,
+   "verdict": "rejected_negative_oos",
+   "gate": "oos_ev>0 and oos_pos_days>=1 and oos_n>=30",
+   "oos_n": 2714,
+   "oos_ev": -0.6001,
+   "oos_pos_days": 0,
+   "oos_days": 12,
+   "reasons": [
+    "oos_ev_-0.6001<=0"
+   ],
+   "per_rule": [
+    {
+     "stage": 1,
+     "rank": 1,
+     "n": 473,
+     "ev": -0.6132,
+     "pos_days": 0,
+     "days": 3
+    },
+    {
+     "stage": 1,
+     "rank": 2,
+     "n": 1072,
+     "ev": -0.6114,
+     "pos_days": 0,
+     "days": 3
+    },
+    {
+     "stage": 1,
+     "rank": 3,
+     "n": 875,
+     "ev": -0.5745,
+     "pos_days": 0,
+     "days": 3
+    },
+    {
+     "stage": 1,
+     "rank": 4,
+     "n": 294,
+     "ev": -0.6136,
+     "pos_days": 0,
+     "days": 3
+    }
+   ],
+   "rule": "OOS 순손익(비용 차감)이 0 이하이거나 OOS 양수 거래일이 하나도 없으면 승격하지 않는다. 규칙 자체는 후보로 게시하되 promoted=false 로 소비자(전진검증·알림)가 쓰지 않게 한다.",
+   "at": "2026-11-20T23:05:11+09:00"
+  },
+  "file_sha": "1d995c7a3880b736424ecba90fc5ba44e0ebfc984577e74922f85f2cb15b2854"
+ },
+ "stage_verify_reference": {
+  "file": "verify_kr_surge_miner_stage_20261120.json",
+  "at": "2026-11-20 22:19:47",
+  "n": 17,
+  "n_pass": 17
+ },
+ "checklist": "kr_stage_20261123_checklist.json",
+ "at": "2026-11-20T23:09:20+09:00"
+}
