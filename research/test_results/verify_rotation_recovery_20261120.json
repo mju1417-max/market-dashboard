@@ -1,0 +1,38 @@
+{
+ "ok": true,
+ "cases": {
+  "overlap": {
+   "first": "no_new_data",
+   "second": "busy_skip"
+  },
+  "kill_mid_run": {
+   "killed": true,
+   "before": {
+    "panel": 106337,
+    "runs": 17,
+    "dup_run_ids": 0,
+    "running": 0,
+    "interrupted": 0,
+    "integrity": "ok",
+    "errors": 0
+   },
+   "after": {
+    "panel": 106337,
+    "runs": 17,
+    "dup_run_ids": 0,
+    "running": 0,
+    "interrupted": 0,
+    "integrity": "ok",
+    "errors": 0
+   }
+  },
+  "resume": {
+   "rc": 0,
+   "status": "no_new_data",
+   "runs": 18,
+   "running": 0,
+   "interrupted": 0,
+   "integrity": "ok"
+  }
+ }
+}
