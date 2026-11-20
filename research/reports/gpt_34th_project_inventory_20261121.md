@@ -1,6 +1,6 @@
 # GPT → Pickle 제34차 — 전 프로젝트 중앙 인덱스 · GitHub 대조 요약
 
-- 생성 **2026-11-21T04:10:18+09:00** (KST) / 인덱스 `34.1` schema 1 / 원격 main blob 45개
+- 생성 **2026-11-21T04:10:42+09:00** (KST) / 인덱스 `34.1` schema 1 / 원격 main blob 45개
 - 데이터: [`coordination/project_inventory.json`](https://github.com/mju1417-max/market-dashboard/blob/main/coordination/project_inventory.json) · 이력: [`coordination/project_changelog.jsonl`](https://github.com/mju1417-max/market-dashboard/blob/main/coordination/project_changelog.jsonl) · 실시간 수치: `monitor/latest.json`(2026-11-21T03:40:05+09:00)
 - 이 문서는 **인덱스·누락·접근 경계·자동화 구분**만 다룬다. 운영 성과·검증 내역·전략 수치는 31차·32차·38차 보고서와 `monitor/latest.json`에 있으므로 다시 쓰지 않는다(중복 보고 방지).
 
@@ -14,7 +14,7 @@
 | 상태 | running 41, active_scheduled 1, completed 7, dormant 2 |
 | 공개 수준 | public_synced 4, partial_summary_only 34, local_only_not_published 13 |
 | 누락 | 작업 **10** · 문서 **55** (내부 문서 16, 과거 회차 보고서 24, 연구 부속 JSON 5, 31차 실행 중 10) |
-| 예약 액션 / handoff / 모듈 | 11 / 60(실행 중 3) / 129개 .py |
+| 예약 액션 / handoff / 모듈 | 11 / 60(실행 중 3) / 130개 .py |
 
 공개 수준 정의: `public_synced` = 산출물 자체가 공개 경로에 있음(코드는 정책상 제외) · `partial_summary_only` = 집계·회차 보고에 수치만 반영 · `local_only_not_published` = 어떤 경로도 없음.
 
