@@ -1,6 +1,6 @@
 # GPT → Pickle 제34차 — 전 프로젝트 중앙 인덱스 · GitHub 대조 보고 (첫 회차 기준선)
 
-- 생성 시각: **2026-11-21T04:07:21+09:00** (KST) / 인덱스 버전 `34.1` / schema 1
+- 생성 시각: **2026-11-21T04:07:37+09:00** (KST) / 인덱스 버전 `34.1` / schema 1
 - 공개 실측 기준: `monitor/latest.json` generated_at **2026-11-21T03:40:05+09:00** (이 보고서의 운영 수치는 이 스냅숏)
 - 인덱스 원본: [`coordination/project_inventory.json`](https://github.com/mju1417-max/market-dashboard/blob/main/coordination/project_inventory.json) · 변경 이력: [`coordination/project_changelog.jsonl`](https://github.com/mju1417-max/market-dashboard/blob/main/coordination/project_changelog.jsonl)
 - 원격 main 파일 수(blob): **45**
@@ -13,7 +13,7 @@
 | 카테고리 분포 | collector 6, forward_tracker 7, auto_research 18, shadow 2, backtest_lab 2, infra_wal 2, monitor_dashboard 4, telegram 2, governance 8 | collector/forward_tracker/auto_research/shadow/backtest_lab/infra_wal/monitor_dashboard/telegram/governance |
 | 시장 분포 | UP 5, KR 5, US 4, COMMON 37 | UP·KR·US·COMMON |
 | 상태 분포 | running 41, active_scheduled 1, completed 7, dormant 2 | running/active_scheduled/completed/draft/dormant/blocked |
-| GitHub 공개 수준 | public_synced 3, partial_summary_only 35, local_only_not_published 13 | public_synced / partial_summary_only / local_only_not_published |
+| GitHub 공개 수준 | public_synced 4, partial_summary_only 34, local_only_not_published 13 | public_synced / partial_summary_only / local_only_not_published |
 | **누락 식별** | 작업 **10** · 문서 **51** | 문서 = internal_doc 16, round_report 21, research_artifact 4, in_flight_31st 10 |
 | 예약 액션 / handoff | 11 / 60(실행 중 3) | 5분·30분·일간·12시간 주기 |
 | research 모듈 | 128개(.py) | 카테고리 자동 분류는 §5 |
@@ -159,7 +159,7 @@
 | id | 이름 | 시장 | 상태 | 우선 | 공개 | 실측 |
 |---|---|---|---|---|---|---|
 | `engine.audit_runners` | 정합성 감사 러너 묶음 | COMMON | running | P1 | 요약만 | — |
-| `dash.project_inventory` | 전 프로젝트 중앙 인덱스 (34차) | COMMON | running | P1 | 요약만 | — |
+| `dash.project_inventory` | 전 프로젝트 중앙 인덱스 (34차) | COMMON | running | P1 | 공개 | — |
 | `gov.handoffs` | 작업 단위 실행 기록 (handoffs) | COMMON | running | P1 | 미게시 | — |
 | `gov.verification_harness` | 검증 하네스 (verify_*.py 33개) | COMMON | running | P1 | 요약만 | — |
 | `gov.reports` | 회차 보고서·요약 (GPT 협업 산출물) | COMMON | running | P0 | 요약만 | — |
@@ -317,8 +317,13 @@ timeout 20 python3 "$CHECK_DIR/../../research/project_inventory.py" --auto --qui
 
 ### 11-2. 실측한 훅 안전성
 
-- 정상(skip) 회차: 훅 포함 `check.sh` 흉내 실행에서 본 작업 출력과 종료코드(exit 1 quiet)가 **그대로 유지**됨.
-- 훅이 실패하는 경우(스크립트 없음·argparse 오류·`timeout` 124): 모두 `|| true` 로 넘어가 다음 줄이 실행되고 종료코드 불변.
+| 시험 | 조건 | 결과 |
+|---|---|---|
+| 정상(skip) | 지문 동일 | 본 작업 출력 유지 · `AFTER_HOOK` 실행 · **exit 1(quiet) 유지** · 훅 0.15~0.31초 |
+| 변경 감지 | 구조 변화 있음 | 전체 조사 후 게시 · 여전히 exit 1 · 약 9.6~10.3초(20초 timeout 안) |
+| 스크립트 없음 | 경로 오류 | `|| true` 로 통과 · exit 1 유지 · 29ms |
+| 인자 오류 | argparse exit 2 | `|| true` 로 통과 · exit 1 유지 · 96ms |
+| 강제 timeout | `timeout 1` 로 중단(124) | `|| true` 로 통과 · exit 1 유지 · 1.0초 |
 - 쓰기 불가 경로(예약 샌드박스 모사): `_write` 가 `--workdir` 로 폴백해 지문·로그를 `state/` 에 남긴다.
 - 비밀/PII 스캔에서 1건이라도 걸리면 게시하지 않고 로그만 남긴다(차단이 아니라 보류).
 
