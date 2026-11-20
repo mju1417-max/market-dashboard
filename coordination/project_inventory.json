@@ -2,7 +2,7 @@
  "schema": 1,
  "kind": "project_inventory",
  "inventory_version": "34.1",
- "generated_at": "2026-11-21T04:02:14+09:00",
+ "generated_at": "2026-11-21T04:02:58+09:00",
  "source_of_truth": {
   "live_status": "monitor/latest.json (5분 갱신) — 이 인덱스의 수치는 생성 시점 스냅숏",
   "live_monitor_generated_at": "2026-11-21T03:40:05+09:00",
@@ -1345,8 +1345,8 @@
      "path": "research/production_connected.py",
      "exists": true,
      "kind": "file",
-     "size_kb": 33.1,
-     "mtime": "2026-11-20T22:59:11+09:00"
+     "size_kb": 39.3,
+     "mtime": "2026-11-21T04:02:52+09:00"
     },
     {
      "path": "research/verify_production_connected_20261120.py",
@@ -1389,7 +1389,7 @@
    "live": null,
    "owner": null,
    "missing_sources": [],
-   "updated_at": "2026-11-20T22:59:11+09:00",
+   "updated_at": "2026-11-21T04:02:52+09:00",
    "scheduled_action": {
     "folder": "🔬-자가발전-패턴-연구",
     "schedule": [
@@ -2857,8 +2857,8 @@
      "path": "research/project_inventory.py",
      "exists": true,
      "kind": "file",
-     "size_kb": 98.2,
-     "mtime": "2026-11-21T04:02:13+09:00"
+     "size_kb": 98.5,
+     "mtime": "2026-11-21T04:02:58+09:00"
     }
    ],
    "published_paths": [
@@ -2883,7 +2883,7 @@
    ],
    "github_visibility": "public_synced",
    "visibility_note": "",
-   "latest_commit": "d9bc6ff",
+   "latest_commit": "605a9b5",
    "verification_status": "이 회차에서 생성·게시(raw 200·JSON 파싱·비밀 스캔 0건).",
    "commit_note": "자기 자신의 게시 커밋은 파일 안에 담을 수 없다(자기참조). 변경 이력은 project_changelog.jsonl의 커밋을 본다.",
    "known_issues": [
@@ -2893,7 +2893,7 @@
    "live": null,
    "owner": null,
    "missing_sources": [],
-   "updated_at": "2026-11-21T04:02:13+09:00"
+   "updated_at": "2026-11-21T04:02:58+09:00"
   },
   {
    "id": "tg.reporter",
@@ -3039,7 +3039,7 @@
    "live": null,
    "owner": null,
    "missing_sources": [],
-   "updated_at": "2026-11-21T04:02:14+09:00"
+   "updated_at": "2026-11-21T04:02:58+09:00"
   },
   {
    "id": "gov.verification_harness",
@@ -3210,7 +3210,7 @@
    "missing_sources": [
     "research/gpt_31st_p0_report_20261120.md"
    ],
-   "updated_at": "2026-11-21T04:02:14+09:00"
+   "updated_at": "2026-11-21T04:02:58+09:00"
   },
   {
    "id": "gov.heartbeat",
@@ -4061,13 +4061,13 @@
     "id": "📋-34차-전체-프로젝트-인덱스-github-공유-체계-구축",
     "state": "running",
     "created_at": "2026-11-20T18:54:58.370280Z",
-    "updated_at": "2026-11-20T19:02:13.927731Z"
+    "updated_at": "2026-11-20T19:02:58.061176Z"
    },
    {
     "id": "🛠️-31차-독립검증-p0-인과-분할-shadow-p1-4종",
     "state": "running",
     "created_at": "2026-11-20T18:47:15.452856Z",
-    "updated_at": "2026-11-20T19:02:00.670724Z"
+    "updated_at": "2026-11-20T19:02:52.819808Z"
    }
   ]
  },
@@ -4490,13 +4490,13 @@
    },
    {
     "file": "research/production_connected.py",
-    "kb": 33.1,
+    "kb": 39.3,
     "category": "연구 엔진",
     "doc": "research/production_connected.py — 30차 P1-E: **운영 스케줄에 실제로 연결된** 3시장 자기발전."
    },
    {
     "file": "research/project_inventory.py",
-    "kb": 98.2,
+    "kb": 98.5,
     "category": "게시·요약",
     "doc": "research/project_inventory.py — 전 프로젝트 중앙 인덱스 (GPT 제34차 지시 이행)."
    },
