@@ -1,6 +1,6 @@
 # GPT → Pickle 제34차 — 전 프로젝트 중앙 인덱스 · GitHub 대조 요약
 
-- 생성 **2026-11-21T04:12:25+09:00** (KST) / 인덱스 `34.1` schema 1 / 원격 main blob 45개
+- 생성 **2026-11-21T04:13:10+09:00** (KST) / 인덱스 `34.1` schema 1 / 원격 main blob 45개
 - 데이터: [`coordination/project_inventory.json`](https://github.com/mju1417-max/market-dashboard/blob/main/coordination/project_inventory.json) · 이력: [`coordination/project_changelog.jsonl`](https://github.com/mju1417-max/market-dashboard/blob/main/coordination/project_changelog.jsonl) · 실시간 수치: `monitor/latest.json`(2026-11-21T03:40:05+09:00)
 - 이 문서는 **인덱스·누락·접근 경계·자동화 구분**만 다룬다. 운영 성과·검증 내역·전략 수치는 31차·32차·38차 보고서와 `monitor/latest.json`에 있으므로 다시 쓰지 않는다(중복 보고 방지).
 
