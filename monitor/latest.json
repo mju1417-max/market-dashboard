@@ -1,14 +1,14 @@
 {
  "schema": 1,
- "generated_at": "2026-11-20T20:25:31+09:00",
+ "generated_at": "2026-11-20T20:28:40+09:00",
  "note": "Public, de-identified collaboration snapshot. No credentials, personal data, or raw DB.",
  "totals": {
   "symbols": 5533,
-  "candles_1m": 10779890,
+  "candles_1m": 10780340,
   "surges_ge5": 658,
   "forward_closed": 335,
   "forward_wins": 148,
-  "forward_signals": 600
+  "forward_signals": 602
  },
  "markets": {
   "upbit": {
@@ -37,11 +37,11 @@
    "label": "미국주식",
    "db_ok": true,
    "db_source": "db_read",
-   "candles_1m": 4576197,
+   "candles_1m": 4576647,
    "symbols": 2076,
    "universe": 2077,
-   "last_candle": "2026-11-20T20:23:21",
-   "collector_last_run_at": "2026-11-20T20:23:21",
+   "last_candle": "2026-11-20T20:27:58",
+   "collector_last_run_at": "2026-11-20T20:27:58",
    "collector_errors": 0
   }
  },
@@ -56,7 +56,7 @@
    "losses": 0,
    "win_rate": 100.0,
    "sum_pnl_pct": 4.895,
-   "last_run_at": "2026-11-20T20:23:53"
+   "last_run_at": "2026-11-20T20:28:30"
   },
   "US_GEN16": {
    "label": "미국주식 2세대 GEN16",
@@ -68,7 +68,7 @@
    "losses": 3,
    "win_rate": 70.0,
    "sum_pnl_pct": 16.064,
-   "last_run_at": "2026-11-20T20:23:53"
+   "last_run_at": "2026-11-20T20:28:30"
   },
   "KR_VCP": {
    "label": "한국주식 VCP 돌파",
@@ -104,19 +104,19 @@
    "losses": 12,
    "win_rate": 40.0,
    "sum_pnl_pct": -8.85,
-   "last_run_at": "2026-11-20T20:25:24"
+   "last_run_at": "2026-11-20T20:28:33"
   },
   "UPBIT_GEN3": {
    "label": "업비트 3세대 GEN3 (Shadow)",
    "market": "upbit",
-   "signals": 318,
+   "signals": 320,
    "entries": 307,
    "closed": 304,
    "wins": 132,
    "losses": 172,
    "win_rate": 43.4,
    "sum_pnl_pct": -62.11,
-   "last_run_at": "2026-11-20T20:25:28"
+   "last_run_at": "2026-11-20T20:28:36"
   },
   "UPBIT_GEN2": {
    "label": "업비트 2세대 GEN2",
@@ -128,7 +128,7 @@
    "losses": 0,
    "win_rate": null,
    "sum_pnl_pct": 0.0,
-   "last_run_at": "2026-11-20T20:25:26"
+   "last_run_at": "2026-11-20T20:28:35"
   }
  },
  "research": {}
