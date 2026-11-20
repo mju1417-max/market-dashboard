@@ -1,0 +1,162 @@
+{
+ "ok": true,
+ "cases": {
+  "exec_retry_busy": {
+   "raised": true,
+   "held_seconds": 4.46,
+   "error_row": {
+    "exc_type": "OperationalError",
+    "code": 5,
+    "message": "OperationalError: database is locked",
+    "wait_total_ms": 2400,
+    "wait_max_ms": 1200,
+    "attempts": 3,
+    "retries": 2
+   },
+   "detail_keys": [
+    "at",
+    "attempts",
+    "busy_timeout_ms",
+    "checkpoint",
+    "errors",
+    "note",
+    "phase",
+    "procs",
+    "retries",
+    "retry_budget_s",
+    "retry_cap",
+    "wait_ms_avg",
+    "wait_ms_max",
+    "wait_ms_total",
+    "waits_ms",
+    "wal"
+   ],
+   "detail_waits_ms": [
+    400,
+    800,
+    1200
+   ],
+   "detail_wal": {
+    "db": {
+     "bytes": 86036480,
+     "mtime": 1795179193
+    },
+    "-wal": {
+     "bytes": 53592,
+     "mtime": 1795179194
+    },
+    "-shm": {
+     "bytes": 32768,
+     "mtime": 1795179198
+    }
+   },
+   "detail_checkpoint": {
+    "busy": 0,
+    "log_pages": 13,
+    "checkpointed": 13
+   },
+   "detail_retry_cap": 3,
+   "busy_journal": {
+    "phase": "write",
+    "kind": "busy_exhausted",
+    "attempts": 3,
+    "retries": 2,
+    "wait_total": 2400,
+    "wait_max": 1200,
+    "wal": "{\"db\": {\"bytes\": 86036480, \"mtime\": 1795179193}, \"-wal\": {\"bytes\": 53592, \"mtime\": 1795179194}, \"-shm\": {\"bytes\": 32768, \"mtime\": 1795179198}}",
+    "checkpoint": "{\"busy\": 0, \"log_pages\": 13, \"checkpointed\": 13}",
+    "error_text": "OperationalError: database is locked"
+   }
+  },
+  "file_lock_busy_skip": {
+   "status": "busy_skip",
+   "output_lock_holder": {
+    "pid": 5,
+    "market": "UP",
+    "at": "2026-11-20 21:53:19",
+    "trigger": "test_holder"
+   },
+   "journal_phase": "file_lock",
+   "journal_kind": "busy_skip",
+   "journal_holder_pid": 5,
+   "note": "다른 회차가 원장을 쓰는 중(잠금 대기 대신 이번 회차 건너뜀)",
+   "ckpt_unchanged": true,
+   "panel_unchanged": true
+  },
+  "busy_skip_vs_no_new_data": {
+   "run1": [
+    "ingest_partial",
+    0
+   ],
+   "run2": [
+    "no_new_data",
+    594
+   ],
+   "runs_by_status": {
+    "error": 4,
+    "ingest_partial": 3,
+    "no_new_data": 11
+   },
+   "separation(status,count,null_run_key)": [
+    [
+     "error",
+     4,
+     4
+    ],
+    [
+     "ingest_partial",
+     3,
+     3
+    ],
+    [
+     "no_new_data",
+     11,
+     0
+    ]
+   ],
+   "busy_by_kind": {
+    "busy_exhausted": {
+     "count": 1,
+     "wait_ms_avg": 2400.0,
+     "wait_ms_max": 1200,
+     "retries_max": 2
+    },
+    "busy_skip": {
+     "count": 1,
+     "wait_ms_avg": 0,
+     "wait_ms_max": 0,
+     "retries_max": 0
+    }
+   },
+   "busy_errors": {
+    "count": 1,
+    "wait_ms_total": 2400,
+    "wait_ms_max": 1200,
+    "retries_total": 2
+   },
+   "busy_skip_followups": [
+    {
+     "busy_skip_at": "2026-11-20 21:53:21",
+     "next_status": "ingest_partial",
+     "next_started_at": "2026-11-20 21:53:29",
+     "next_run_key": null,
+     "next_new_rows": null
+    }
+   ],
+   "separation_note": "busy_skip 은 회차 표(rotation_runs)에 행을 만들지 않는다 — 잠금으로 시작도 못 했기 때문이다. 그래서 회차 표의 status 분포에는 no_new_data/completed/error 만 있고, busy_skip 은 rotation_busy 저널(kind=busy_skip)로만 집계된다. 이것이 두 사건의 통계적 분리다.no_new_data 행은 run_key 가 있고(0건 null) n_new_rows=0, busy_skip 은 run_key 자체가 없다."
+  },
+  "busy_skip_recovery": {
+   "panel_rows_deleted_for_test": 336,
+   "ckpt_before": 1795175220,
+   "ckpt_rolled_back_to": 1795173420,
+   "status": "no_new_data",
+   "new_rows": 336,
+   "matured": null,
+   "ckpt_after": [
+    1795175220,
+    106294
+   ],
+   "panel_rows": 106294
+  }
+ }
+}
