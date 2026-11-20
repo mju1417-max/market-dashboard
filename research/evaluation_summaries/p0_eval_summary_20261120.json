@@ -1,0 +1,130 @@
+{
+ "work_id": "27/P0",
+ "at": "2026-11-20T18:40:00+09:00",
+ "market": "UP / ALL",
+ "panel": {
+  "rows": 4653960,
+  "digest": "76980985d2ae0f74be1aa5aa114eabf04263500c5e32483b86c6de6ea9acd204",
+  "active_rows_after_prune": 866880,
+  "file_bytes_after_vacuum": 67125248,
+  "file_bytes_before": 403025920,
+  "shards": 11
+ },
+ "pruning": {
+  "rows_deleted": 3787080,
+  "days": 9,
+  "identical_panel": true
+ },
+ "parity": {
+  "panel_equal": true,
+  "analyses_equal": true
+ },
+ "budget": {
+  "A_selected": 100,
+  "B_selected": 102,
+  "budget_days": 11,
+  "cap": 110,
+  "max_per_decision_day": 10,
+  "per_day": [
+   {
+    "day": "2026-11-09",
+    "selected_by_decision_day": 10,
+    "selected_by_bar_day": 11
+   },
+   {
+    "day": "2026-11-10",
+    "selected_by_decision_day": 10,
+    "selected_by_bar_day": 11
+   },
+   {
+    "day": "2026-11-11",
+    "selected_by_decision_day": 10,
+    "selected_by_bar_day": 9
+   },
+   {
+    "day": "2026-11-12",
+    "selected_by_decision_day": 10,
+    "selected_by_bar_day": 9
+   },
+   {
+    "day": "2026-11-13",
+    "selected_by_decision_day": 10,
+    "selected_by_bar_day": 10
+   },
+   {
+    "day": "2026-11-14",
+    "selected_by_decision_day": 10,
+    "selected_by_bar_day": 10
+   },
+   {
+    "day": "2026-11-15",
+    "selected_by_decision_day": 10,
+    "selected_by_bar_day": 10
+   },
+   {
+    "day": "2026-11-16",
+    "selected_by_decision_day": 10,
+    "selected_by_bar_day": 12
+   },
+   {
+    "day": "2026-11-17",
+    "selected_by_decision_day": 10,
+    "selected_by_bar_day": 9
+   },
+   {
+    "day": "2026-11-18",
+    "selected_by_decision_day": 10,
+    "selected_by_bar_day": 11
+   },
+   {
+    "day": "2026-11-19",
+    "selected_by_decision_day": 2,
+    "selected_by_bar_day": 0
+   }
+  ]
+ },
+ "pnl": {
+  "items": [
+   {
+    "rule": "ACCEL",
+    "selected": 100,
+    "labelled": 88,
+    "censored": 12,
+    "sum_net_pct": -90.9177,
+    "mean_net_pct": -1.0332,
+    "mean_times_selected": -103.3156,
+    "agrees_with_track1": true
+   },
+   {
+    "rule": "ZVOL2.5",
+    "selected": 100,
+    "labelled": 86,
+    "censored": 14,
+    "sum_net_pct": -54.7363,
+    "mean_net_pct": -0.6365,
+    "mean_times_selected": -63.6468,
+    "agrees_with_track1": true
+   }
+  ]
+ },
+ "shadow": {
+  "first_received_exact_column": true,
+  "latency_source_column": true,
+  "measured_signals": 0,
+  "estimated_signals_demo": 26,
+  "live_lag_quantiles": {
+   "p10": 151,
+   "median": 216,
+   "p90": 306,
+   "n": 153
+  }
+ },
+ "ops": {
+  "snapshot_sec": 1.99,
+  "snapshot_bytes": 58781696,
+  "concurrent_ro_probes": 20,
+  "ro_failures": 0,
+  "exitcode_checks": 12,
+  "exitcode_pass": true
+ }
+}
