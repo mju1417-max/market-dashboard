@@ -1,0 +1,743 @@
+{
+ "version": "horizon_lab/1.0.0",
+ "market": "US",
+ "generated_at": "2026-11-20T22:32:31+09:00",
+ "universe": {
+  "hash": "b094c9ce8873eca8",
+  "cutoff_epoch": 1795208400,
+  "cutoff_kst": "2026-11-21T06:00:00+09:00",
+  "n": 150,
+  "method": "컷오프 이전 누적 거래대금(close×volume) 내림차순, 가격 하한 미만 제외, 컷오프 이후 봉·미래 상장/생존정보 미사용",
+  "source_id": "us_1m.db",
+  "db_identity": {
+   "file": "us_1m.db",
+   "size": 442900480,
+   "mtime": 1795181021
+  }
+ },
+ "horizons": {
+  "30": {
+   "horizon": 30,
+   "n_symbols": 150,
+   "rows_raw": 84023,
+   "rows_purged": 14735,
+   "purge_dropped": 69288,
+   "censored": 1147,
+   "events": 27,
+   "event_rate": 0.002,
+   "days": {
+    "n": 10,
+    "dev": [
+     "2026-11-10",
+     "2026-11-11",
+     "2026-11-12",
+     "2026-11-13"
+    ],
+    "val": [
+     "2026-11-16",
+     "2026-11-17"
+    ],
+    "hold": [
+     "2026-11-18",
+     "2026-11-19"
+    ]
+   },
+   "baselines": {
+    "ACCEL": {
+     "dev": {
+      "n": 18,
+      "n_lab": 18,
+      "tp": 2,
+      "fp": 16,
+      "precision": 0.1111,
+      "base_rate": 0.0038,
+      "lift": 29.556,
+      "p": 0.002077,
+      "net_mean": -0.4304,
+      "win": 0.4444,
+      "tp_rate": 0.0556,
+      "n_events": 25
+     },
+     "val": {
+      "n": 10,
+      "n_lab": 10,
+      "tp": 0,
+      "fp": 10,
+      "precision": 0.0,
+      "base_rate": 0.0005,
+      "lift": 0.0,
+      "p": 1.0,
+      "net_mean": -0.8278,
+      "win": 0.1,
+      "tp_rate": 0.0,
+      "n_events": 2
+     },
+     "hold": {
+      "n": 11,
+      "n_lab": 11,
+      "tp": 0,
+      "fp": 11,
+      "precision": 0.0,
+      "base_rate": 0.0,
+      "lift": null,
+      "p": null,
+      "net_mean": -0.3109,
+      "win": 0.2727,
+      "tp_rate": 0.0,
+      "n_events": 0
+     }
+    },
+    "ZVOL2.5": {
+     "dev": {
+      "n": 29,
+      "n_lab": 29,
+      "tp": 4,
+      "fp": 25,
+      "precision": 0.1379,
+      "base_rate": 0.0038,
+      "lift": 36.69,
+      "p": 4.401e-06,
+      "net_mean": 0.5228,
+      "win": 0.5172,
+      "tp_rate": 0.1034,
+      "n_events": 25
+     },
+     "val": {
+      "n": 12,
+      "n_lab": 12,
+      "tp": 0,
+      "fp": 12,
+      "precision": 0.0,
+      "base_rate": 0.0005,
+      "lift": 0.0,
+      "p": 1.0,
+      "net_mean": -0.4069,
+      "win": 0.25,
+      "tp_rate": 0.0,
+      "n_events": 2
+     },
+     "hold": {
+      "n": 15,
+      "n_lab": 15,
+      "tp": 0,
+      "fp": 15,
+      "precision": 0.0,
+      "base_rate": 0.0,
+      "lift": null,
+      "p": null,
+      "net_mean": -0.2369,
+      "win": 0.5333,
+      "tp_rate": 0.0,
+      "n_events": 0
+     }
+    }
+   },
+   "grid": {
+    "tested": 675,
+    "too_few": 311,
+    "passed_dev": 0,
+    "passed_pre_gate": 96,
+    "gate": {
+     "min_lab": 50,
+     "min_tp": 3,
+     "min_lift": 1.15,
+     "min_net": 0.0
+    },
+    "base_dev_rate": 0.0038,
+    "alpha": 7.407407407407407e-05,
+    "family": 675,
+    "passed_val": 0,
+    "passed_hold": 0,
+    "top": []
+   },
+   "new_families": {
+    "VCOMP_TVACCEL": {
+     "note": "변동성 압축(vcontract 하위25%) + 거래대금 가속(z_vol 또는 vol_ratio 상위25%)",
+     "alpha_family": 0.025,
+     "family_size": 2,
+     "dev": {
+      "n": 40,
+      "n_lab": 40,
+      "tp": 3,
+      "fp": 37,
+      "precision": 0.075,
+      "base_rate": 0.0038,
+      "lift": 19.95,
+      "p": 0.000473,
+      "net_mean": 0.3091,
+      "win": 0.425,
+      "tp_rate": 0.075,
+      "n_events": 25
+     },
+     "val": {
+      "n": 20,
+      "n_lab": 20,
+      "tp": 0,
+      "fp": 20,
+      "precision": 0.0,
+      "base_rate": 0.0005,
+      "lift": 0.0,
+      "p": 1.0,
+      "net_mean": -0.4826,
+      "win": 0.35,
+      "tp_rate": 0.0,
+      "n_events": 2
+     },
+     "hold": {
+      "n": 20,
+      "n_lab": 20,
+      "tp": 0,
+      "fp": 20,
+      "precision": 0.0,
+      "base_rate": 0.0,
+      "lift": null,
+      "p": null,
+      "net_mean": -0.0377,
+      "win": 0.35,
+      "tp_rate": 0.0,
+      "n_events": 0
+     },
+     "pass_dev": true,
+     "exploratory": true
+    },
+    "QUIET_RANGE": {
+     "note": "60분 횡보(|ret60| 중앙값 이하) + 변동성 압축 + 당일 레인지 상단",
+     "alpha_family": 0.025,
+     "family_size": 2,
+     "dev": {
+      "n": 40,
+      "n_lab": 40,
+      "tp": 0,
+      "fp": 40,
+      "precision": 0.0,
+      "base_rate": 0.0038,
+      "lift": 0.0,
+      "p": 1.0,
+      "net_mean": -0.1421,
+      "win": 0.425,
+      "tp_rate": 0.0,
+      "n_events": 25
+     },
+     "val": {
+      "n": 20,
+      "n_lab": 20,
+      "tp": 0,
+      "fp": 20,
+      "precision": 0.0,
+      "base_rate": 0.0005,
+      "lift": 0.0,
+      "p": 1.0,
+      "net_mean": -0.1624,
+      "win": 0.25,
+      "tp_rate": 0.0,
+      "n_events": 2
+     },
+     "hold": {
+      "n": 20,
+      "n_lab": 20,
+      "tp": 0,
+      "fp": 20,
+      "precision": 0.0,
+      "base_rate": 0.0,
+      "lift": null,
+      "p": null,
+      "net_mean": -0.157,
+      "win": 0.4,
+      "tp_rate": 0.0,
+      "n_events": 0
+     },
+     "pass_dev": false,
+     "exploratory": true
+    }
+   },
+   "grid_labels": {
+    "alpha": 7.407407407407407e-05,
+    "family": 675,
+    "note": "675가설 2~3조건 격자, DEV 문턱, Bonferroni α=0.05/675"
+   },
+   "runtime_s": 5.9
+  },
+  "60": {
+   "horizon": 60,
+   "n_symbols": 150,
+   "rows_raw": 84023,
+   "rows_purged": 7502,
+   "purge_dropped": 76521,
+   "censored": 1141,
+   "events": 42,
+   "event_rate": 0.0066,
+   "days": {
+    "n": 10,
+    "dev": [
+     "2026-11-10",
+     "2026-11-11",
+     "2026-11-12",
+     "2026-11-13"
+    ],
+    "val": [
+     "2026-11-16",
+     "2026-11-17"
+    ],
+    "hold": [
+     "2026-11-18",
+     "2026-11-19"
+    ]
+   },
+   "baselines": {
+    "ACCEL": {
+     "dev": {
+      "n": 11,
+      "n_lab": 11,
+      "tp": 4,
+      "fp": 7,
+      "precision": 0.3636,
+      "base_rate": 0.0126,
+      "lift": 28.923,
+      "p": 7.683e-06,
+      "net_mean": 0.3112,
+      "win": 0.5455,
+      "tp_rate": 0.1818,
+      "n_events": 39
+     },
+     "val": {
+      "n": 1,
+      "n_lab": 1,
+      "tp": 0,
+      "fp": 1,
+      "precision": 0.0,
+      "base_rate": 0.0017,
+      "lift": 0.0,
+      "p": 1.0,
+      "net_mean": -1.5766,
+      "win": 0.0,
+      "tp_rate": 0.0,
+      "n_events": 3
+     },
+     "hold": {
+      "n": 11,
+      "n_lab": 11,
+      "tp": 0,
+      "fp": 11,
+      "precision": 0.0,
+      "base_rate": 0.0,
+      "lift": null,
+      "p": null,
+      "net_mean": -0.9298,
+      "win": 0.2727,
+      "tp_rate": 0.0,
+      "n_events": 0
+     }
+    },
+    "ZVOL2.5": {
+     "dev": {
+      "n": 28,
+      "n_lab": 28,
+      "tp": 6,
+      "fp": 22,
+      "precision": 0.2143,
+      "base_rate": 0.0126,
+      "lift": 17.044,
+      "p": 1.173e-06,
+      "net_mean": 0.6477,
+      "win": 0.6071,
+      "tp_rate": 0.1429,
+      "n_events": 39
+     },
+     "val": {
+      "n": 8,
+      "n_lab": 8,
+      "tp": 0,
+      "fp": 8,
+      "precision": 0.0,
+      "base_rate": 0.0017,
+      "lift": 0.0,
+      "p": 1.0,
+      "net_mean": -1.2773,
+      "win": 0.25,
+      "tp_rate": 0.0,
+      "n_events": 3
+     },
+     "hold": {
+      "n": 14,
+      "n_lab": 14,
+      "tp": 0,
+      "fp": 14,
+      "precision": 0.0,
+      "base_rate": 0.0,
+      "lift": null,
+      "p": null,
+      "net_mean": -0.5137,
+      "win": 0.3571,
+      "tp_rate": 0.0,
+      "n_events": 0
+     }
+    }
+   },
+   "grid": {
+    "tested": 675,
+    "too_few": 384,
+    "passed_dev": 0,
+    "passed_pre_gate": 77,
+    "gate": {
+     "min_lab": 50,
+     "min_tp": 3,
+     "min_lift": 1.15,
+     "min_net": 0.0
+    },
+    "base_dev_rate": 0.0126,
+    "alpha": 7.407407407407407e-05,
+    "family": 675,
+    "passed_val": 0,
+    "passed_hold": 0,
+    "top": []
+   },
+   "new_families": {
+    "VCOMP_TVACCEL": {
+     "note": "변동성 압축(vcontract 하위25%) + 거래대금 가속(z_vol 또는 vol_ratio 상위25%)",
+     "alpha_family": 0.025,
+     "family_size": 2,
+     "dev": {
+      "n": 40,
+      "n_lab": 40,
+      "tp": 2,
+      "fp": 38,
+      "precision": 0.05,
+      "base_rate": 0.0126,
+      "lift": 3.977,
+      "p": 0.09012,
+      "net_mean": 0.3053,
+      "win": 0.45,
+      "tp_rate": 0.1,
+      "n_events": 39
+     },
+     "val": {
+      "n": 20,
+      "n_lab": 20,
+      "tp": 0,
+      "fp": 20,
+      "precision": 0.0,
+      "base_rate": 0.0017,
+      "lift": 0.0,
+      "p": 1.0,
+      "net_mean": -0.8545,
+      "win": 0.3,
+      "tp_rate": 0.0,
+      "n_events": 3
+     },
+     "hold": {
+      "n": 20,
+      "n_lab": 20,
+      "tp": 0,
+      "fp": 20,
+      "precision": 0.0,
+      "base_rate": 0.0,
+      "lift": null,
+      "p": null,
+      "net_mean": -0.0904,
+      "win": 0.45,
+      "tp_rate": 0.0,
+      "n_events": 0
+     },
+     "pass_dev": false,
+     "exploratory": true
+    },
+    "QUIET_RANGE": {
+     "note": "60분 횡보(|ret60| 중앙값 이하) + 변동성 압축 + 당일 레인지 상단",
+     "alpha_family": 0.025,
+     "family_size": 2,
+     "dev": {
+      "n": 40,
+      "n_lab": 40,
+      "tp": 0,
+      "fp": 40,
+      "precision": 0.0,
+      "base_rate": 0.0126,
+      "lift": 0.0,
+      "p": 1.0,
+      "net_mean": -0.0299,
+      "win": 0.5,
+      "tp_rate": 0.0,
+      "n_events": 39
+     },
+     "val": {
+      "n": 20,
+      "n_lab": 20,
+      "tp": 0,
+      "fp": 20,
+      "precision": 0.0,
+      "base_rate": 0.0017,
+      "lift": 0.0,
+      "p": 1.0,
+      "net_mean": -0.1247,
+      "win": 0.3,
+      "tp_rate": 0.0,
+      "n_events": 3
+     },
+     "hold": {
+      "n": 13,
+      "n_lab": 13,
+      "tp": 0,
+      "fp": 13,
+      "precision": 0.0,
+      "base_rate": 0.0,
+      "lift": null,
+      "p": null,
+      "net_mean": -0.1544,
+      "win": 0.3077,
+      "tp_rate": 0.0,
+      "n_events": 0
+     },
+     "pass_dev": false,
+     "exploratory": true
+    }
+   },
+   "grid_labels": {
+    "alpha": 7.407407407407407e-05,
+    "family": 675,
+    "note": "675가설 2~3조건 격자, DEV 문턱, Bonferroni α=0.05/675"
+   },
+   "runtime_s": 5.9
+  },
+  "120": {
+   "horizon": 120,
+   "n_symbols": 150,
+   "rows_raw": 84023,
+   "rows_purged": 4143,
+   "purge_dropped": 79880,
+   "censored": 1137,
+   "events": 53,
+   "event_rate": 0.0176,
+   "days": {
+    "n": 10,
+    "dev": [
+     "2026-11-10",
+     "2026-11-11",
+     "2026-11-12",
+     "2026-11-13"
+    ],
+    "val": [
+     "2026-11-16",
+     "2026-11-17"
+    ],
+    "hold": [
+     "2026-11-18",
+     "2026-11-19"
+    ]
+   },
+   "baselines": {
+    "ACCEL": {
+     "dev": {
+      "n": 11,
+      "n_lab": 11,
+      "tp": 4,
+      "fp": 7,
+      "precision": 0.3636,
+      "base_rate": 0.0329,
+      "lift": 11.062,
+      "p": 0.00032,
+      "net_mean": 0.4702,
+      "win": 0.6364,
+      "tp_rate": 0.1818,
+      "n_events": 50
+     },
+     "val": {
+      "n": 1,
+      "n_lab": 1,
+      "tp": 0,
+      "fp": 1,
+      "precision": 0.0,
+      "base_rate": 0.0034,
+      "lift": 0.0,
+      "p": 1.0,
+      "net_mean": -1.9891,
+      "win": 0.0,
+      "tp_rate": 0.0,
+      "n_events": 3
+     },
+     "hold": {
+      "n": 11,
+      "n_lab": 11,
+      "tp": 0,
+      "fp": 11,
+      "precision": 0.0,
+      "base_rate": 0.0,
+      "lift": null,
+      "p": null,
+      "net_mean": -1.185,
+      "win": 0.3636,
+      "tp_rate": 0.0,
+      "n_events": 0
+     }
+    },
+    "ZVOL2.5": {
+     "dev": {
+      "n": 28,
+      "n_lab": 28,
+      "tp": 7,
+      "fp": 21,
+      "precision": 0.25,
+      "base_rate": 0.0329,
+      "lift": 7.605,
+      "p": 2.669e-05,
+      "net_mean": 1.3381,
+      "win": 0.7143,
+      "tp_rate": 0.2143,
+      "n_events": 50
+     },
+     "val": {
+      "n": 8,
+      "n_lab": 8,
+      "tp": 0,
+      "fp": 8,
+      "precision": 0.0,
+      "base_rate": 0.0034,
+      "lift": 0.0,
+      "p": 1.0,
+      "net_mean": -1.2752,
+      "win": 0.25,
+      "tp_rate": 0.0,
+      "n_events": 3
+     },
+     "hold": {
+      "n": 14,
+      "n_lab": 14,
+      "tp": 0,
+      "fp": 14,
+      "precision": 0.0,
+      "base_rate": 0.0,
+      "lift": null,
+      "p": null,
+      "net_mean": -1.4401,
+      "win": 0.3571,
+      "tp_rate": 0.0,
+      "n_events": 0
+     }
+    }
+   },
+   "grid": {
+    "tested": 675,
+    "too_few": 455,
+    "passed_dev": 0,
+    "passed_pre_gate": 51,
+    "gate": {
+     "min_lab": 50,
+     "min_tp": 3,
+     "min_lift": 1.15,
+     "min_net": 0.0
+    },
+    "base_dev_rate": 0.0329,
+    "alpha": 7.407407407407407e-05,
+    "family": 675,
+    "passed_val": 0,
+    "passed_hold": 0,
+    "top": []
+   },
+   "new_families": {
+    "VCOMP_TVACCEL": {
+     "note": "변동성 압축(vcontract 하위25%) + 거래대금 가속(z_vol 또는 vol_ratio 상위25%)",
+     "alpha_family": 0.025,
+     "family_size": 2,
+     "dev": {
+      "n": 40,
+      "n_lab": 40,
+      "tp": 6,
+      "fp": 34,
+      "precision": 0.15,
+      "base_rate": 0.0329,
+      "lift": 4.563,
+      "p": 0.001852,
+      "net_mean": 0.781,
+      "win": 0.6,
+      "tp_rate": 0.2,
+      "n_events": 50
+     },
+     "val": {
+      "n": 20,
+      "n_lab": 20,
+      "tp": 0,
+      "fp": 20,
+      "precision": 0.0,
+      "base_rate": 0.0034,
+      "lift": 0.0,
+      "p": 1.0,
+      "net_mean": -0.7714,
+      "win": 0.35,
+      "tp_rate": 0.0,
+      "n_events": 3
+     },
+     "hold": {
+      "n": 13,
+      "n_lab": 13,
+      "tp": 0,
+      "fp": 13,
+      "precision": 0.0,
+      "base_rate": 0.0,
+      "lift": null,
+      "p": null,
+      "net_mean": -1.0327,
+      "win": 0.3077,
+      "tp_rate": 0.0,
+      "n_events": 0
+     },
+     "pass_dev": true,
+     "exploratory": true
+    },
+    "QUIET_RANGE": {
+     "note": "60분 횡보(|ret60| 중앙값 이하) + 변동성 압축 + 당일 레인지 상단",
+     "alpha_family": 0.025,
+     "family_size": 2,
+     "dev": {
+      "n": 32,
+      "n_lab": 32,
+      "tp": 0,
+      "fp": 32,
+      "precision": 0.0,
+      "base_rate": 0.0329,
+      "lift": 0.0,
+      "p": 1.0,
+      "net_mean": 0.053,
+      "win": 0.5938,
+      "tp_rate": 0.0,
+      "n_events": 50
+     },
+     "val": {
+      "n": 11,
+      "n_lab": 11,
+      "tp": 0,
+      "fp": 11,
+      "precision": 0.0,
+      "base_rate": 0.0034,
+      "lift": 0.0,
+      "p": 1.0,
+      "net_mean": -0.4139,
+      "win": 0.2727,
+      "tp_rate": 0.0,
+      "n_events": 3
+     },
+     "hold": {
+      "n": 13,
+      "n_lab": 13,
+      "tp": 0,
+      "fp": 13,
+      "precision": 0.0,
+      "base_rate": 0.0,
+      "lift": null,
+      "p": null,
+      "net_mean": -0.287,
+      "win": 0.1538,
+      "tp_rate": 0.0,
+      "n_events": 0
+     },
+     "pass_dev": false,
+     "exploratory": true
+    }
+   },
+   "grid_labels": {
+    "alpha": 7.407407407407407e-05,
+    "family": 675,
+    "note": "675가설 2~3조건 격자, DEV 문턱, Bonferroni α=0.05/675"
+   },
+   "runtime_s": 5.9
+  }
+ }
+}
