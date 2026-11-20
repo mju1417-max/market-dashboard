@@ -1,0 +1,5026 @@
+{
+ "schema": 1,
+ "kind": "project_inventory",
+ "inventory_version": "34.1",
+ "generated_at": "2026-11-21T03:58:29+09:00",
+ "source_of_truth": {
+  "live_status": "monitor/latest.json (5분 갱신) — 이 인덱스의 수치는 생성 시점 스냅숏",
+  "live_monitor_generated_at": "2026-11-21T03:40:05+09:00",
+  "remote_head_tree_files": 42,
+  "protocol_version": "budget-proto-v3-20261120"
+ },
+ "scope_note": "'작업' = 예약 액션·연구 엔진·전진 트랙·인프라·보고 체계의 운영 단위. 개별 .py 파일은 modules 목록으로 따로 분류한다. 우체국금융개발원 감시는 시장 급등 프로젝트가 아니므로 scope=personal_monitor 로 분리하고 상세를 게시하지 않는다.",
+ "counts": {
+  "items_total": 51,
+  "market_project_items": 47,
+  "personal_monitor_items": 1,
+  "pickle_runtime_items": 3,
+  "by_category": {
+   "collector": 6,
+   "forward_tracker": 7,
+   "auto_research": 18,
+   "shadow": 2,
+   "backtest_lab": 2,
+   "infra_wal": 2,
+   "monitor_dashboard": 4,
+   "telegram": 2,
+   "governance": 8
+  },
+  "by_market": {
+   "UP": 5,
+   "KR": 5,
+   "US": 4,
+   "COMMON": 37
+  },
+  "by_status": {
+   "running": 41,
+   "active_scheduled": 1,
+   "completed": 7,
+   "draft": 0,
+   "dormant": 2,
+   "blocked": 0
+  },
+  "by_visibility": {
+   "public_synced": 3,
+   "partial_summary_only": 35,
+   "local_only_not_published": 13
+  },
+  "missing_docs_total": 49,
+  "missing_docs_by_class": {
+   "internal_doc": 16,
+   "round_report": 21,
+   "research_artifact": 2,
+   "in_flight_31st": 10
+  },
+  "missing_items_total": 10,
+  "scheduled_actions_total": 11,
+  "handoffs_total": 59,
+  "handoffs_running": 2,
+  "research_modules_total": 126
+ },
+ "items": [
+  {
+   "id": "collector.upbit",
+   "name": "🪙 업비트 5분 수집기 + 모의투자 정산",
+   "category": "collector",
+   "market": "UP",
+   "status": "running",
+   "priority": "P0",
+   "purpose": "업비트 KRW 마켓 전체 1분봉 5분 수집·급등 직전 패턴 스냅숏·모의투자(종목당 가상 100만원, +5% 익절/-3% 손절/24h 만기) 정산. 30분 정기·+5% 속보·체결 알림은 파이썬 텔레그램 직송(AI 호출 0).",
+   "scope": "market_project",
+   "sources": [
+    {
+     "path": "scheduled-actions/📈-업비트-모의투자-분석/check.sh",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 35.4,
+     "mtime": "2026-11-21T00:30:56+09:00"
+    },
+    {
+     "path": "scheduled-actions/📈-업비트-모의투자-분석/analyze_1m.py",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 2.7,
+     "mtime": "2026-11-16T08:31:27+09:00"
+    },
+    {
+     "path": "scheduled-actions/📈-업비트-모의투자-분석/state/upbit_1m.db",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 242320.0,
+     "mtime": "2026-11-21T03:53:44+09:00"
+    },
+    {
+     "path": "scheduled-actions/📈-업비트-모의투자-분석/state/portfolio.json",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 9.6,
+     "mtime": "2026-11-21T03:53:44+09:00"
+    }
+   ],
+   "published_paths": [
+    {
+     "path": "data/status.json",
+     "on_remote": true,
+     "files_on_remote": null,
+     "size_kb": 17.4
+    },
+    {
+     "path": "monitor/latest.json",
+     "on_remote": true,
+     "files_on_remote": null,
+     "size_kb": 45.2
+    }
+   ],
+   "github_visibility": "partial_summary_only",
+   "visibility_note": "",
+   "latest_commit": "4e03d25",
+   "verification_status": "5분 가동 확인(공개 status.json). AI 호출 0의 quiet 회차가 정상.",
+   "commit_note": "",
+   "known_issues": [
+    "1분봉 DB 237MB — 원본 DB는 공개 저장소에 게시 불가(정책)"
+   ],
+   "next_step": "거래대금 5분 Z 게이트 등 신규 후보는 별도 Shadow 트랙에서만 검증(실전 승격 금지).",
+   "live": {
+    "candles_1m": 1591424,
+    "symbols": 302,
+    "universe": 302,
+    "last_candle": "2026-11-21T03:06:00",
+    "collector_last_run_at": "2026-11-21T03:38:00",
+    "collector_errors": 0
+   },
+   "owner": null,
+   "missing_sources": [],
+   "updated_at": "2026-11-21T03:53:44+09:00",
+   "scheduled_action": {
+    "folder": "📈-업비트-모의투자-분석",
+    "schedule": [
+     "interval 5m"
+    ],
+    "paused": false,
+    "last_started_run_at": "2026-11-20T18:57:45.210141Z",
+    "check_fail_count": 0,
+    "check_failure_generation": 8
+   }
+  },
+  {
+   "id": "collector.kr",
+   "name": "🇰🇷 한국주식 5분 수집기",
+   "category": "collector",
+   "market": "KR",
+   "status": "running",
+   "priority": "P0",
+   "purpose": "코스피·코스닥 3,200여 종목 1분봉 5분 순환 수집(야후 증분 + 네이버 실시간 170종목 보강), 급등 직전 패턴 스냅숏, 장 마감 후 KR_S16·KR_VCP 일봉 갱신.",
+   "scope": "market_project",
+   "sources": [
+    {
+     "path": "scheduled-actions/🇰🇷-한국주식-패턴-분석/check.sh",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 30.7,
+     "mtime": "2026-11-20T20:14:47+09:00"
+    },
+    {
+     "path": "scheduled-actions/🇰🇷-한국주식-패턴-분석/state/kr_1m.db",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 389016.0,
+     "mtime": "2026-11-20T15:46:16+09:00"
+    },
+    {
+     "path": "scheduled-actions/🇰🇷-한국주식-패턴-분석/state/kr_s16_data.db",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 16204.0,
+     "mtime": "2026-11-20T23:55:48+09:00"
+    },
+    {
+     "path": "scheduled-actions/🇰🇷-한국주식-패턴-분석/state/kr_vcp_data.db",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 43412.0,
+     "mtime": "2026-11-20T20:21:14+09:00"
+    }
+   ],
+   "published_paths": [
+    {
+     "path": "data/status.json",
+     "on_remote": true,
+     "files_on_remote": null,
+     "size_kb": 17.4
+    },
+    {
+     "path": "monitor/latest.json",
+     "on_remote": true,
+     "files_on_remote": null,
+     "size_kb": 45.2
+    }
+   ],
+   "github_visibility": "partial_summary_only",
+   "visibility_note": "",
+   "latest_commit": "4e03d25",
+   "verification_status": "장중 5분 가동·장외 즉시 종료. 마지막 봉은 직전 거래일 15:44 KST(장 마감).",
+   "commit_note": "",
+   "known_issues": [
+    "네이버 보강 170종목 외 종목은 야후 20분 지연",
+    "장외에는 새 봉이 없어 '지연'처럼 보임"
+   ],
+   "next_step": "수집 오류 1건(비활성 심볼) 정리, 유니버스 선정 데이터 기간 명시(31차 P0-1과 연결).",
+   "live": {
+    "candles_1m": 4688350,
+    "symbols": 3156,
+    "universe": 3205,
+    "last_candle": "2026-11-20T15:44:00",
+    "collector_last_run_at": "2026-11-20T15:45:40",
+    "collector_errors": 1
+   },
+   "owner": null,
+   "missing_sources": [],
+   "updated_at": "2026-11-20T23:55:48+09:00",
+   "scheduled_action": {
+    "folder": "🇰🇷-한국주식-패턴-분석",
+    "schedule": [
+     "interval 5m"
+    ],
+    "paused": false,
+    "last_started_run_at": "2026-11-20T18:55:09.170030Z",
+    "check_fail_count": 0,
+    "check_failure_generation": 1
+   }
+  },
+  {
+   "id": "collector.us",
+   "name": "🇺🇸 미국주식 5분 수집기",
+   "category": "collector",
+   "market": "US",
+   "status": "running",
+   "priority": "P0",
+   "purpose": "미국 전종목 감시 풀(기준 1,400 + 당일 활발 100)을 프리마켓~애프터마켓 5분마다 순환 수집. KST 06:00 이후 첫 보고만 AI 회차로 열어 일일 결산.",
+   "scope": "market_project",
+   "sources": [
+    {
+     "path": "scheduled-actions/🇺🇸-미국주식-패턴-분석/check.sh",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 30.6,
+     "mtime": "2026-11-19T07:15:38+09:00"
+    },
+    {
+     "path": "scheduled-actions/🇺🇸-미국주식-패턴-분석/state/us_1m.db",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 470904.0,
+     "mtime": "2026-11-21T03:58:30+09:00"
+    },
+    {
+     "path": "scheduled-actions/🇺🇸-미국주식-패턴-분석/state/us_universe.json",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 15.7,
+     "mtime": "2026-11-21T00:03:08+09:00"
+    }
+   ],
+   "published_paths": [
+    {
+     "path": "data/status.json",
+     "on_remote": true,
+     "files_on_remote": null,
+     "size_kb": 17.4
+    },
+    {
+     "path": "monitor/latest.json",
+     "on_remote": true,
+     "files_on_remote": null,
+     "size_kb": 45.2
+    }
+   ],
+   "github_visibility": "partial_summary_only",
+   "visibility_note": "",
+   "latest_commit": "4e03d25",
+   "verification_status": "5분 가동. 마지막 봉 2026-11-21 03:06 KST, 수집기 실행 03:38 KST.",
+   "commit_note": "",
+   "known_issues": [
+    "무료 API(야후) 한계로 전수 불가 — 감시 풀이 실제 시장의 일부",
+    "stale 420초 게이트로 늦은 관측 신호가 탈락"
+   ],
+   "next_step": "수집 지연 P50/P90 분포를 주기 보고(31차 P1-6), 2,500종목 확대는 사용량·한도 확인 후.",
+   "live": {
+    "candles_1m": 4936675,
+    "symbols": 2155,
+    "universe": 2156,
+    "last_candle": "2026-11-21T03:06:57",
+    "collector_last_run_at": "2026-11-21T03:38:00",
+    "collector_errors": 0
+   },
+   "owner": null,
+   "missing_sources": [],
+   "updated_at": "2026-11-21T03:58:30+09:00",
+   "scheduled_action": {
+    "folder": "🇺🇸-미국주식-패턴-분석",
+    "schedule": [
+     "interval 5m"
+    ],
+    "paused": false,
+    "last_started_run_at": "2026-11-20T18:57:45.641426Z",
+    "check_fail_count": 0,
+    "check_failure_generation": 3
+   }
+  },
+  {
+   "id": "collector.posid",
+   "name": "🏛️ 우체국금융개발원 이전 감시",
+   "category": "collector",
+   "market": "COMMON",
+   "status": "running",
+   "priority": "P3",
+   "purpose": "공공기관 이전·우체국금융개발원(POSID) 지방이전·사옥·2차 이전 관련 뉴스·공지를 5분마다 무과금 감시하고 새 소식만 텔레그램 속보로 보낸다.",
+   "scope": "personal_monitor",
+   "sources": [
+    {
+     "path": "scheduled-actions/🏛️-우체국금융개발원-이전-감시/check.sh",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 6.5,
+     "mtime": "2026-11-18T21:17:12+09:00"
+    },
+    {
+     "path": "scheduled-actions/🏛️-우체국금융개발원-이전-감시/state/seen.json",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 0.8,
+     "mtime": "2026-11-21T03:56:06+09:00"
+    }
+   ],
+   "published_paths": [],
+   "github_visibility": "local_only_not_published",
+   "visibility_note": "개인 관심사(비시장) 영역 — 프로젝트 범위 밖으로 명시하고 상세는 게시하지 않음",
+   "latest_commit": null,
+   "verification_status": "5분 가동 · 최근 46시간 신규 0건(정상, 사안 자체가 드묾).",
+   "commit_note": "",
+   "known_issues": [
+    "시장 급등 프로젝트와 데이터·전략을 공유하지 않는 **별도 개인 관심사 감시**다"
+   ],
+   "next_step": "시장 프로젝트 인덱스와 분리 유지. 상세·키워드·상태는 공개 저장소에 게시하지 않는다.",
+   "live": null,
+   "owner": null,
+   "missing_sources": [],
+   "updated_at": "2026-11-21T03:56:06+09:00",
+   "scheduled_action": {
+    "folder": "🏛️-우체국금융개발원-이전-감시",
+    "schedule": [
+     "interval 5m"
+    ],
+    "paused": false,
+    "last_started_run_at": "2026-11-20T18:55:28.238505Z",
+    "check_fail_count": 0,
+    "check_failure_generation": 0
+   }
+  },
+  {
+   "id": "collector.history_dump",
+   "name": "📚 과거 대용량 데이터 수집(연구 전용)",
+   "category": "collector",
+   "market": "COMMON",
+   "status": "completed",
+   "priority": "P2",
+   "purpose": "무료 API로 과거 30일 업비트 1분봉·한국/미국 3년 일봉·네이버 수급/공시를 별도 DB로 적재해 역추적·백테스트의 표본을 넓혔다.",
+   "scope": "market_project",
+   "sources": [
+    {
+     "path": "research/history_collect.py",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 18.2,
+     "mtime": "2026-11-18T19:14:50+09:00"
+    },
+    {
+     "path": "research/history_data.db",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 357332.0,
+     "mtime": "2026-11-18T19:33:31+09:00"
+    },
+    {
+     "path": "research/kr_alpha_collect.py",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 14.4,
+     "mtime": "2026-11-18T18:56:55+09:00"
+    },
+    {
+     "path": "research/kr_alpha.db",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 102112.0,
+     "mtime": "2026-11-18T19:37:51+09:00"
+    }
+   ],
+   "published_paths": [],
+   "github_visibility": "local_only_not_published",
+   "visibility_note": "연구용 원본 DB·수집 스크립트 — 원본 DB 게시 불가 정책. 봉/행 수 집계는 latest.json·status.json에 반영.",
+   "latest_commit": null,
+   "verification_status": "history_data.db 349MB(1분봉 122만 봉 + 일봉 171.5만 행), kr_alpha.db 100MB(2,590종목 일봉·수급·공시).",
+   "commit_note": "",
+   "known_issues": [
+    "수집 후 갱신 없음(일회성 스냅숏)",
+    "원본 DB라 게시 불가"
+   ],
+   "next_step": "정기 갱신 여부는 연구 수요가 생길 때 결정.",
+   "live": null,
+   "owner": null,
+   "missing_sources": [],
+   "updated_at": "2026-11-18T19:37:51+09:00"
+  },
+  {
+   "id": "collector.upbit_backfill",
+   "name": "업비트 결측 분해·증분 백필",
+   "category": "collector",
+   "market": "UP",
+   "status": "completed",
+   "priority": "P2",
+   "purpose": "1분봉 결측을 '거래 없음'과 '수집 누락'으로 분해하고 멱등 증분 백필로 복원한다.",
+   "scope": "market_project",
+   "sources": [
+    {
+     "path": "research/upbit_backfill.py",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 29.7,
+     "mtime": "2026-11-20T10:01:35+09:00"
+    },
+    {
+     "path": "research/upbit_continuity_stats.py",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 2.5,
+     "mtime": "2026-11-20T07:12:41+09:00"
+    },
+    {
+     "path": "research/upbit_coverage_audit_after_backfill_20261120.json",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 72.4,
+     "mtime": "2026-11-20T07:12:42+09:00"
+    }
+   ],
+   "published_paths": [],
+   "github_visibility": "local_only_not_published",
+   "visibility_note": "수리 스크립트·커버리지 감사 JSON이 단독 게시된 적 없음(18차 보고서는 로컬 전용).",
+   "latest_commit": null,
+   "verification_status": "백필 후 커버리지 감사 JSON 존재(55종목 7,617분 복원 실측).",
+   "commit_note": "",
+   "known_issues": [
+    "거래 간헐 종목은 원천 캔들이 없어 '연속 122봉' 연구에서 제외(sparse 경로로 분리)"
+   ],
+   "next_step": "신규 상장·거래 폭증 종목만 주기 백필.",
+   "live": null,
+   "owner": null,
+   "missing_sources": [],
+   "updated_at": "2026-11-20T10:01:35+09:00"
+  },
+  {
+   "id": "track.UPBIT_GEN2",
+   "name": "업비트 2세대 GEN2 (낙폭 되돌림·120분 고정청산)",
+   "category": "forward_tracker",
+   "market": "UP",
+   "status": "active_scheduled",
+   "priority": "P2",
+   "purpose": "시장폭 붕괴 뒤 낙폭 되돌림 매수, 120분 고정 청산. 신호가 드물어 표본 대기 중.",
+   "scope": "market_project",
+   "sources": [
+    {
+     "path": "research/upbit_gen2_candidate.py",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 6.2,
+     "mtime": "2026-11-18T10:52:33+09:00"
+    },
+    {
+     "path": "research/upbit_gen2_refine.py",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 9.1,
+     "mtime": "2026-11-18T10:52:08+09:00"
+    },
+    {
+     "path": "scheduled-actions/📊-업비트-전진검증-채점/state/forward_trades_gen2.json",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 17.9,
+     "mtime": "2026-11-21T03:54:56+09:00"
+    }
+   ],
+   "published_paths": [
+    {
+     "path": "monitor/latest.json",
+     "on_remote": true,
+     "files_on_remote": null,
+     "size_kb": 45.2
+    }
+   ],
+   "github_visibility": "partial_summary_only",
+   "visibility_note": "",
+   "latest_commit": "5a5ac0b",
+   "verification_status": "5분 채점 가동. 누적 신호 0건(첫 신호 대기).",
+   "commit_note": "",
+   "known_issues": [
+    "표본 0 → 성과 판단 불가(기다림이 정답, 조기 결론 금지)"
+   ],
+   "next_step": "첫 신호 발생 시 체결지연·청산 결과 기록.",
+   "live": {
+    "signals": 0,
+    "entries": 0,
+    "closed": 0,
+    "wins": 0,
+    "losses": 0,
+    "win_rate": null,
+    "sum_pnl_pct": 0.0,
+    "last_run_at": "2026-11-21T03:39:59"
+   },
+   "owner": null,
+   "missing_sources": [],
+   "updated_at": "2026-11-21T03:54:56+09:00",
+   "scheduled_action": {
+    "folder": "📊-업비트-전진검증-채점",
+    "schedule": [
+     "interval 5m"
+    ],
+    "paused": false,
+    "last_started_run_at": "2026-11-20T18:54:40.310354Z",
+    "check_fail_count": 0,
+    "check_failure_generation": 7
+   }
+  },
+  {
+   "id": "track.UPBIT_GEN3",
+   "name": "업비트 3세대 GEN3 (저점권 낙폭 매수, 알림 Off Shadow)",
+   "category": "forward_tracker",
+   "market": "UP",
+   "status": "running",
+   "priority": "P2",
+   "purpose": "3세대 5대 기법 탐색에서 살아남은 저점권 낙폭 매수 계열. 장부는 계속 기록하되 알림은 끈다.",
+   "scope": "market_project",
+   "sources": [
+    {
+     "path": "research/forward_tracker.py",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 168.2,
+     "mtime": "2026-11-20T22:48:27+09:00"
+    },
+    {
+     "path": "research/verify_gen3.py",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 14.2,
+     "mtime": "2026-11-18T17:13:26+09:00"
+    },
+    {
+     "path": "scheduled-actions/📊-업비트-전진검증-채점/state/forward_trades_gen3.json",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 825.1,
+     "mtime": "2026-11-21T03:54:58+09:00"
+    }
+   ],
+   "published_paths": [
+    {
+     "path": "monitor/latest.json",
+     "on_remote": true,
+     "files_on_remote": null,
+     "size_kb": 45.2
+    }
+   ],
+   "github_visibility": "partial_summary_only",
+   "visibility_note": "",
+   "latest_commit": "5a5ac0b",
+   "verification_status": "5분 채점 가동·장부 기록 중. 알림 Off(Shadow).",
+   "commit_note": "",
+   "known_issues": [
+    "누적 손익이 크게 마이너스 — 비용(왕복 0.41% 수준) 대비 우위 미확인"
+   ],
+   "next_step": "표본 15~20건 이상에서 비용 차감 후 재판정, 실전 승격 금지 유지.",
+   "live": {
+    "signals": 405,
+    "entries": 386,
+    "closed": 386,
+    "wins": 164,
+    "losses": 222,
+    "win_rate": 42.5,
+    "sum_pnl_pct": -112.308,
+    "last_run_at": "2026-11-21T03:40:01"
+   },
+   "owner": null,
+   "missing_sources": [],
+   "updated_at": "2026-11-21T03:54:58+09:00",
+   "scheduled_action": {
+    "folder": "📊-업비트-전진검증-채점",
+    "schedule": [
+     "interval 5m"
+    ],
+    "paused": false,
+    "last_started_run_at": "2026-11-20T18:54:40.310354Z",
+    "check_fail_count": 0,
+    "check_failure_generation": 7
+   }
+  },
+  {
+   "id": "track.UP_ZVOL_GATE",
+   "name": "업비트 거래대금 Z 게이트 (Shadow)",
+   "category": "forward_tracker",
+   "market": "UP",
+   "status": "running",
+   "priority": "P2",
+   "purpose": "거래대금 5분 Z≥2.5 & 5분 +1% & 60분 거래대금≥10억, 하루 10건 FIFO, +5%/-3%/60분. 24차에서 고친 v2 특징 정의를 쓰는 Shadow 트랙.",
+   "scope": "market_project",
+   "sources": [
+    {
+     "path": "research/forward_tracker.py",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 168.2,
+     "mtime": "2026-11-20T22:48:27+09:00"
+    },
+    {
+     "path": "research/zvol_wave_parity.py",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 8.6,
+     "mtime": "2026-11-19T07:11:20+09:00"
+    },
+    {
+     "path": "scheduled-actions/📊-업비트-전진검증-채점/state/forward_trades_zvol.json",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 62.8,
+     "mtime": "2026-11-21T03:54:54+09:00"
+    }
+   ],
+   "published_paths": [
+    {
+     "path": "monitor/latest.json",
+     "on_remote": true,
+     "files_on_remote": null,
+     "size_kb": 45.2
+    }
+   ],
+   "github_visibility": "partial_summary_only",
+   "visibility_note": "",
+   "latest_commit": "5a5ac0b",
+   "verification_status": "5분 채점 가동, v1↔v2 파리티 검증 스크립트로 라이브=연구 규칙 일치 확인.",
+   "commit_note": "",
+   "known_issues": [
+    "최근 표본 기준 승률·손익이 마이너스 — 게이트 문턱 민감도 확인 필요"
+   ],
+   "next_step": "문턱 민감도·보유시간 대안을 같은 사건·같은 비용으로 비교(31차 P1-4와 연결).",
+   "live": {
+    "signals": 23,
+    "entries": 23,
+    "closed": 22,
+    "wins": 8,
+    "losses": 14,
+    "win_rate": 36.4,
+    "sum_pnl_pct": -12.295,
+    "last_run_at": "2026-11-21T03:39:55"
+   },
+   "owner": null,
+   "missing_sources": [],
+   "updated_at": "2026-11-21T03:54:54+09:00",
+   "scheduled_action": {
+    "folder": "📊-업비트-전진검증-채점",
+    "schedule": [
+     "interval 5m"
+    ],
+    "paused": false,
+    "last_started_run_at": "2026-11-20T18:54:40.310354Z",
+    "check_fail_count": 0,
+    "check_failure_generation": 7
+   }
+  },
+  {
+   "id": "track.US_GEN16",
+   "name": "미국 2세대 GEN16 (역추세 주도주)",
+   "category": "forward_tracker",
+   "market": "US",
+   "status": "running",
+   "priority": "P1",
+   "purpose": "2세대 폭등 역추적에서 나온 첫 플러스 OOS 규칙. 시장이 눌릴 때 혼자 살아남는 역추세 주도주 계열.",
+   "scope": "market_project",
+   "sources": [
+    {
+     "path": "research/forward_tracker.py",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 168.2,
+     "mtime": "2026-11-20T22:48:27+09:00"
+    },
+    {
+     "path": "research/verify_gen16_us.py",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 6.0,
+     "mtime": "2026-11-17T21:24:06+09:00"
+    },
+    {
+     "path": "research/surge_miner_gen16_report.md",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 16.9,
+     "mtime": "2026-11-17T21:47:25+09:00"
+    },
+    {
+     "path": "scheduled-actions/🇺🇸-미국주식-패턴-분석/state/forward_trades_gen16.json",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 192.3,
+     "mtime": "2026-11-21T03:53:41+09:00"
+    }
+   ],
+   "published_paths": [
+    {
+     "path": "monitor/latest.json",
+     "on_remote": true,
+     "files_on_remote": null,
+     "size_kb": 45.2
+    },
+    {
+     "path": "research/reports/gpt_30th_p1_report_20261120.md",
+     "on_remote": true,
+     "files_on_remote": null,
+     "size_kb": 30.2
+    }
+   ],
+   "github_visibility": "partial_summary_only",
+   "visibility_note": "",
+   "latest_commit": "5a5ac0b",
+   "verification_status": "5분 채점 가동. stale 420초 게이트 유지.",
+   "commit_note": "",
+   "known_issues": [
+    "IS 우위가 전진 표본에서 재현되지 않음(승률 30%대·누적 마이너스)"
+   ],
+   "next_step": "표본 축적 후 비용·체결지연 분해, 실전 승격 금지 유지.",
+   "live": {
+    "signals": 26,
+    "entries": 23,
+    "closed": 23,
+    "wins": 7,
+    "losses": 16,
+    "win_rate": 30.4,
+    "sum_pnl_pct": -16.968,
+    "last_run_at": "2026-11-21T03:38:37"
+   },
+   "owner": null,
+   "missing_sources": [],
+   "updated_at": "2026-11-21T03:53:41+09:00",
+   "scheduled_action": {
+    "folder": "🇺🇸-미국주식-패턴-분석",
+    "schedule": [
+     "interval 5m"
+    ],
+    "paused": false,
+    "last_started_run_at": "2026-11-20T18:57:45.641426Z",
+    "check_fail_count": 0,
+    "check_failure_generation": 3
+   }
+  },
+  {
+   "id": "track.US_WAVE_RANK",
+   "name": "미국 ACCEL×파형 랭크 (WAVE)",
+   "category": "forward_tracker",
+   "market": "US",
+   "status": "running",
+   "priority": "P2",
+   "purpose": "거래대금 가속×과거 파형 유사도로 순위를 매기는 규칙. 템플릿은 동결해 라이브가 그대로 쓴다.",
+   "scope": "market_project",
+   "sources": [
+    {
+     "path": "research/forward_tracker.py",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 168.2,
+     "mtime": "2026-11-20T22:48:27+09:00"
+    },
+    {
+     "path": "research/build_wave_template_us.py",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 9.8,
+     "mtime": "2026-11-19T08:34:58+09:00"
+    },
+    {
+     "path": "research/wave_template_us_v2.npz",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 4.0,
+     "mtime": "2026-11-19T08:35:16+09:00"
+    },
+    {
+     "path": "research/zvol_wave_parity.py",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 8.6,
+     "mtime": "2026-11-19T07:11:20+09:00"
+    }
+   ],
+   "published_paths": [
+    {
+     "path": "monitor/latest.json",
+     "on_remote": true,
+     "files_on_remote": null,
+     "size_kb": 45.2
+    },
+    {
+     "path": "research/reports/gpt_30th_p1_report_20261120.md",
+     "on_remote": true,
+     "files_on_remote": null,
+     "size_kb": 30.2
+    }
+   ],
+   "github_visibility": "partial_summary_only",
+   "visibility_note": "",
+   "latest_commit": "5a5ac0b",
+   "verification_status": "파리티 검증(라이브 평가기 == 연구 규칙) 통과.",
+   "commit_note": "",
+   "known_issues": [
+    "표본 2건 — 판단 불가",
+    "v1 데이터 오염 이력 → v2 패널·템플릿만 사용"
+   ],
+   "next_step": "표본 15건까지 추적.",
+   "live": {
+    "signals": 2,
+    "entries": 2,
+    "closed": 2,
+    "wins": 1,
+    "losses": 1,
+    "win_rate": 50.0,
+    "sum_pnl_pct": 3.887,
+    "last_run_at": "2026-11-21T03:38:33"
+   },
+   "owner": null,
+   "missing_sources": [],
+   "updated_at": "2026-11-20T22:48:27+09:00",
+   "scheduled_action": {
+    "folder": "🇺🇸-미국주식-패턴-분석",
+    "schedule": [
+     "interval 5m"
+    ],
+    "paused": false,
+    "last_started_run_at": "2026-11-20T18:57:45.641426Z",
+    "check_fail_count": 0,
+    "check_failure_generation": 3
+   }
+  },
+  {
+   "id": "track.KR_S16",
+   "name": "한국 S16 (20일선 위 눌림 + 외인 수급 20일 스윙)",
+   "category": "forward_tracker",
+   "market": "KR",
+   "status": "running",
+   "priority": "P1",
+   "purpose": "한국장 수급·재료 해법에서 살아남은 유일한 계열 — 당일 추격이 아니라 20일선 위 눌림목 + 외인 순매수 스윙.",
+   "scope": "market_project",
+   "sources": [
+    {
+     "path": "research/forward_tracker_kr_s16.py",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 80.0,
+     "mtime": "2026-11-20T23:00:11+09:00"
+    },
+    {
+     "path": "research/kr_alpha_analysis.py",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 22.6,
+     "mtime": "2026-11-18T19:22:03+09:00"
+    },
+    {
+     "path": "scheduled-actions/🇰🇷-한국주식-패턴-분석/state/forward_trades_kr_s16.json",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 147.8,
+     "mtime": "2026-11-20T23:55:48+09:00"
+    }
+   ],
+   "published_paths": [
+    {
+     "path": "monitor/latest.json",
+     "on_remote": true,
+     "files_on_remote": null,
+     "size_kb": 45.2
+    },
+    {
+     "path": "research/test_results/kr_s16_supply_audit_20261120.json",
+     "on_remote": true,
+     "files_on_remote": null,
+     "size_kb": 499.5
+    }
+   ],
+   "github_visibility": "partial_summary_only",
+   "visibility_note": "",
+   "latest_commit": "5a5ac0b",
+   "verification_status": "일봉 1회 갱신 가동. 소급 체결을 prospective/재생/복구/legacy 버킷으로 분리(ledger v2).",
+   "commit_note": "",
+   "known_issues": [
+    "전진(prospective) 표본 0 — 후보 300여 건은 소급·재생 버킷",
+    "수급 데이터가 익일 확정 → 당일 인과성 제약"
+   ],
+   "next_step": "prospective 버킷만으로 성과 보고(31차 P0-3·P0-4 결과 반영).",
+   "live": {
+    "signals": 304,
+    "entries": 0,
+    "closed": 0,
+    "wins": 0,
+    "losses": 0,
+    "win_rate": null,
+    "sum_pnl_pct": 0.0,
+    "last_run_at": "2026-11-20T23:55:48"
+   },
+   "owner": null,
+   "missing_sources": [],
+   "updated_at": "2026-11-20T23:55:48+09:00",
+   "scheduled_action": {
+    "folder": "🇰🇷-한국주식-패턴-분석",
+    "schedule": [
+     "interval 5m"
+    ],
+    "paused": false,
+    "last_started_run_at": "2026-11-20T18:55:09.170030Z",
+    "check_fail_count": 0,
+    "check_failure_generation": 1
+   }
+  },
+  {
+   "id": "track.KR_VCP",
+   "name": "한국 VCP (Minervini 변동성 축소 돌파)",
+   "category": "forward_tracker",
+   "market": "KR",
+   "status": "running",
+   "priority": "P2",
+   "purpose": "변동성 축소(VCP) 후 거래량 돌파를 일봉 스윙으로 검증한다.",
+   "scope": "market_project",
+   "sources": [
+    {
+     "path": "research/forward_tracker_kr_vcp.py",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 47.9,
+     "mtime": "2026-11-20T20:20:16+09:00"
+    },
+    {
+     "path": "research/vcp_watch.py",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 3.0,
+     "mtime": "2026-11-18T19:36:13+09:00"
+    },
+    {
+     "path": "scheduled-actions/🇰🇷-한국주식-패턴-분석/state/forward_trades_kr_vcp.json",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 4.2,
+     "mtime": "2026-11-20T23:55:48+09:00"
+    }
+   ],
+   "published_paths": [
+    {
+     "path": "monitor/latest.json",
+     "on_remote": true,
+     "files_on_remote": null,
+     "size_kb": 45.2
+    }
+   ],
+   "github_visibility": "partial_summary_only",
+   "visibility_note": "",
+   "latest_commit": "5a5ac0b",
+   "verification_status": "장 마감 후 1회 갱신(새 일봉 없으면 네트워크 0회 no-op).",
+   "commit_note": "",
+   "known_issues": [
+    "신호 2건·보유 1건 — 표본 부족",
+    "일봉 확정 시각(15:46) 이후에만 진입 가능"
+   ],
+   "next_step": "청산 1건 나올 때까지 추적.",
+   "live": {
+    "signals": 2,
+    "entries": 1,
+    "closed": 0,
+    "wins": 0,
+    "losses": 0,
+    "win_rate": null,
+    "sum_pnl_pct": 0.0,
+    "last_run_at": "2026-11-20T20:21:08"
+   },
+   "owner": null,
+   "missing_sources": [],
+   "updated_at": "2026-11-20T23:55:48+09:00",
+   "scheduled_action": {
+    "folder": "🇰🇷-한국주식-패턴-분석",
+    "schedule": [
+     "interval 5m"
+    ],
+    "paused": false,
+    "last_started_run_at": "2026-11-20T18:55:09.170030Z",
+    "check_fail_count": 0,
+    "check_failure_generation": 1
+   }
+  },
+  {
+   "id": "engine.surge_miner",
+   "name": "폭등 역추적 규칙 탐색 엔진 (2세대)",
+   "category": "auto_research",
+   "market": "COMMON",
+   "status": "running",
+   "priority": "P0",
+   "purpose": "실제 +5% 이상 폭등을 먼저 끄집어내고, 그 직전 조건을 역추적해 규칙 후보를 만들고 IS/OOS로 평가한다. 3시장 공용.",
+   "scope": "market_project",
+   "sources": [
+    {
+     "path": "research/surge_miner.py",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 73.9,
+     "mtime": "2026-11-20T21:47:19+09:00"
+    },
+    {
+     "path": "research/surge_miner_gen16_report.md",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 16.9,
+     "mtime": "2026-11-17T21:47:25+09:00"
+    },
+    {
+     "path": "research/upbit_kr_gen2_report.md",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 14.0,
+     "mtime": "2026-11-18T10:58:58+09:00"
+    }
+   ],
+   "published_paths": [
+    {
+     "path": "research/reports/gpt_30th_p0a_kr_report_20261120.md",
+     "on_remote": true,
+     "files_on_remote": null,
+     "size_kb": 22.0
+    }
+   ],
+   "github_visibility": "partial_summary_only",
+   "visibility_note": "",
+   "latest_commit": "216db14",
+   "verification_status": "미국 GEN16 규칙(n=60, 승률 63.3%, +0.60%, PF 2.15) 독립 재계산 일치.",
+   "commit_note": "",
+   "known_issues": [
+    "IS에서만 플러스인 규칙이 다수",
+    "한국 초단타는 왕복 비용 0.41%를 못 이김"
+   ],
+   "next_step": "세대 탐색은 daily_rerun·generation_rotation이 자동으로 이어받는다.",
+   "live": null,
+   "owner": null,
+   "missing_sources": [],
+   "updated_at": "2026-11-20T21:47:19+09:00"
+  },
+  {
+   "id": "engine.surge_stage",
+   "name": "폭등공식 단계 실행기 (state machine)",
+   "category": "auto_research",
+   "market": "COMMON",
+   "status": "running",
+   "priority": "P0",
+   "purpose": "183초 일괄 분석을 60초 회차 여러 번으로 쪼개 PENDING→…→PUBLISHED를 완주한다. 체크포인트·원자적 정본 교체.",
+   "scope": "market_project",
+   "sources": [
+    {
+     "path": "research/surge_stage.py",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 95.9,
+     "mtime": "2026-11-20T23:09:15+09:00"
+    },
+    {
+     "path": "research/verify_kr_surge_miner_stage.py",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 16.7,
+     "mtime": "2026-11-20T22:16:25+09:00"
+    },
+    {
+     "path": "research/kr_daily_step.py",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 12.9,
+     "mtime": "2026-11-20T21:59:08+09:00"
+    }
+   ],
+   "published_paths": [
+    {
+     "path": "research/reports/gpt_30th_p0a_kr_report_20261120.md",
+     "on_remote": true,
+     "files_on_remote": null,
+     "size_kb": 22.0
+    },
+    {
+     "path": "research/test_results/verify_p31_kr_stage_20261120.json",
+     "on_remote": true,
+     "files_on_remote": null,
+     "size_kb": 3.4
+    }
+   ],
+   "github_visibility": "partial_summary_only",
+   "visibility_note": "",
+   "latest_commit": "216db14",
+   "verification_status": "17/17 재개 검증(20/50/80% SIGKILL) · 게시 중 강제 실패 주입 시 정본 불변.",
+   "commit_note": "",
+   "known_issues": [
+    "회차당 예산이 작아 완주에 여러 회차 필요(정상 동작)"
+   ],
+   "next_step": "실패 주입 회귀 테스트를 신규 단계에도 적용.",
+   "live": null,
+   "owner": null,
+   "missing_sources": [],
+   "updated_at": "2026-11-20T23:09:15+09:00"
+  },
+  {
+   "id": "engine.strategy_lab",
+   "name": "3세대 5대 기법 랩 (전수 백테스트 + OOS)",
+   "category": "auto_research",
+   "market": "COMMON",
+   "status": "running",
+   "priority": "P0",
+   "purpose": "ORB·VWAP 돌파·상대강도·스퀴즈·모멘텀 지속 등 기법 패밀리를 조합 전수로 돌리고 시간분할 OOS로 거른다.",
+   "scope": "market_project",
+   "sources": [
+    {
+     "path": "research/strategy_lab.py",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 60.9,
+     "mtime": "2026-11-20T22:05:24+09:00"
+    },
+    {
+     "path": "research/strategy_lab_UP.json",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 2943.8,
+     "mtime": "2026-11-20T09:07:01+09:00"
+    },
+    {
+     "path": "research/strategy_lab_KR.json",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 2367.2,
+     "mtime": "2026-11-20T22:05:20+09:00"
+    },
+    {
+     "path": "research/strategy_lab_US.json",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 2432.3,
+     "mtime": "2026-11-20T20:37:37+09:00"
+    },
+    {
+     "path": "research/strategy_lab_gen3_report.md",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 13.0,
+     "mtime": "2026-11-18T17:20:27+09:00"
+    },
+    {
+     "path": "research/lab_protocol.py",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 1.9,
+     "mtime": "2026-11-20T22:04:58+09:00"
+    },
+    {
+     "path": "research/sync_strategy_lab_canonical.py",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 11.1,
+     "mtime": "2026-11-20T22:05:14+09:00"
+    },
+    {
+     "path": "research/verify_kr_surge_miner_stage.py",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 16.7,
+     "mtime": "2026-11-20T22:16:25+09:00"
+    }
+   ],
+   "published_paths": [
+    {
+     "path": "research/reports/gpt_30th_p0a_kr_report_20261120.md",
+     "on_remote": true,
+     "files_on_remote": null,
+     "size_kb": 22.0
+    }
+   ],
+   "github_visibility": "partial_summary_only",
+   "visibility_note": "",
+   "latest_commit": "216db14",
+   "verification_status": "KR 8/8 세션 청크 완주 후 정본 동기화(31차 P0 이전 30차 P0-A).",
+   "commit_note": "",
+   "known_issues": [
+    "3,661조합 탐색에서 OOS 전멸 사례 다수",
+    "US 실행 136~187초 — 300초 상한 근접"
+   ],
+   "next_step": "US는 시장·세션 분할 실행으로 상한 여유 확보.",
+   "live": null,
+   "owner": null,
+   "missing_sources": [],
+   "updated_at": "2026-11-20T22:16:25+09:00"
+  },
+  {
+   "id": "engine.global_strategies_lab",
+   "name": "세계 유명 투자기법 전수 대입 (6대)",
+   "category": "auto_research",
+   "market": "COMMON",
+   "status": "completed",
+   "priority": "P1",
+   "purpose": "래리 윌리엄스·일목균형표·듀얼 모멘텀·볼린저·엘더 임펄스·외인/기관 쌍끌이를 3시장에 대입하고 독립 재계산으로 검증.",
+   "scope": "market_project",
+   "sources": [
+    {
+     "path": "research/global_strategies_lab.py",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 56.6,
+     "mtime": "2026-11-18T20:41:48+09:00"
+    },
+    {
+     "path": "research/global_strategies_verify.py",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 26.2,
+     "mtime": "2026-11-18T20:26:19+09:00"
+    },
+    {
+     "path": "research/global_strategies_report.md",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 31.2,
+     "mtime": "2026-11-18T20:46:23+09:00"
+    },
+    {
+     "path": "research/global_strategies_results.json",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 112.8,
+     "mtime": "2026-11-18T20:44:22+09:00"
+    }
+   ],
+   "published_paths": [],
+   "github_visibility": "local_only_not_published",
+   "visibility_note": "성적표 보고서 global_strategies_report.md(31KB)가 로컬 전용 — 게시하면 이 누락이 닫힌다.",
+   "latest_commit": null,
+   "verification_status": "성적표 독립 재계산 검증 스크립트 통과.",
+   "commit_note": "",
+   "known_issues": [
+    "IS만 플러스인 기법 다수 — 비용 차감 후 우위 미확인"
+   ],
+   "next_step": "살아남은 기법만 다음 세대 후보로.",
+   "live": null,
+   "owner": null,
+   "missing_sources": [],
+   "updated_at": "2026-11-18T20:46:23+09:00"
+  },
+  {
+   "id": "engine.auto_researcher",
+   "name": "자가발전 자동 패턴 발견·반증 엔진",
+   "category": "auto_research",
+   "market": "COMMON",
+   "status": "running",
+   "priority": "P0",
+   "purpose": "가설 생성 → DEV 평가 → VAL → HOLD → 동결 → Shadow 등록을 자동 순환한다. 실패 원인을 다음 가설로 되먹인다.",
+   "scope": "market_project",
+   "sources": [
+    {
+     "path": "research/auto_researcher.py",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 97.9,
+     "mtime": "2026-11-20T22:33:28+09:00"
+    },
+    {
+     "path": "research/verify_auto_researcher.py",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 33.1,
+     "mtime": "2026-11-20T18:29:07+09:00"
+    },
+    {
+     "path": "research/auto_researcher_report_20261119.md",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 2.2,
+     "mtime": "2026-11-19T08:01:50+09:00"
+    },
+    {
+     "path": "research/ar_failure_analysis.py",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 14.0,
+     "mtime": "2026-11-19T08:48:49+09:00"
+    }
+   ],
+   "published_paths": [
+    {
+     "path": "research/reports/gpt_30th_p1_report_20261120.md",
+     "on_remote": true,
+     "files_on_remote": null,
+     "size_kb": 30.2
+    },
+    {
+     "path": "monitor/latest.json",
+     "on_remote": true,
+     "files_on_remote": null,
+     "size_kb": 45.2
+    }
+   ],
+   "github_visibility": "partial_summary_only",
+   "visibility_note": "",
+   "latest_commit": "9f0ceac",
+   "verification_status": "30분 액션으로 가동 중(무과금). 학습 순환 감사(dev_learning_loop_audit) 존재.",
+   "commit_note": "",
+   "known_issues": [
+    "후보 다수 생성에도 유효 신규 전략 0 — 다중검정 부담",
+    "DEV 동결 시 같은 행 반복 위험"
+   ],
+   "next_step": "다중검정 family 정의·사후 선택 절차 명시(31차 P1-7).",
+   "live": null,
+   "owner": null,
+   "missing_sources": [],
+   "updated_at": "2026-11-20T22:33:28+09:00"
+  },
+  {
+   "id": "engine.production_connected",
+   "name": "운영 연결 자가발전 (KR→US 30분 순환)",
+   "category": "auto_research",
+   "market": "COMMON",
+   "status": "running",
+   "priority": "P0",
+   "purpose": "연구 엔진을 실제 운영 스케줄에 붙여 30분마다 한 시장 한 단계씩 진행한다. 라이브 전략 파라미터는 건드리지 않는다.",
+   "scope": "market_project",
+   "sources": [
+    {
+     "path": "research/production_connected.py",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 33.1,
+     "mtime": "2026-11-20T22:59:11+09:00"
+    },
+    {
+     "path": "research/verify_production_connected_20261120.py",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 10.9,
+     "mtime": "2026-11-20T22:50:28+09:00"
+    },
+    {
+     "path": "scheduled-actions/🔬-자가발전-패턴-연구/check.sh",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 6.8,
+     "mtime": "2026-11-20T22:47:00+09:00"
+    }
+   ],
+   "published_paths": [
+    {
+     "path": "research/reports/gpt_30th_p1_report_20261120.md",
+     "on_remote": true,
+     "files_on_remote": null,
+     "size_kb": 30.2
+    },
+    {
+     "path": "research/evaluation_summaries/gpt_30th_p1_summary_20261120.json",
+     "on_remote": true,
+     "files_on_remote": null,
+     "size_kb": 67.5
+    }
+   ],
+   "github_visibility": "partial_summary_only",
+   "visibility_note": "",
+   "latest_commit": "9f0ceac",
+   "verification_status": "30분 액션 check.sh 단계 0으로 가동 · e2e 격리 검증 통과.",
+   "commit_note": "",
+   "known_issues": [
+    "stage 회차 예산 11초 — 한 단계가 여러 회차에 걸침"
+   ],
+   "next_step": "Shadow 6개 시각 필드(bar_close_at~event_at) 기록 보강(31차 P0-3 진행 중).",
+   "live": null,
+   "owner": null,
+   "missing_sources": [],
+   "updated_at": "2026-11-20T22:59:11+09:00",
+   "scheduled_action": {
+    "folder": "🔬-자가발전-패턴-연구",
+    "schedule": [
+     "interval 30m"
+    ],
+    "paused": false,
+    "last_started_run_at": "2026-11-20T18:28:50.655704Z",
+    "check_fail_count": 0,
+    "check_failure_generation": 1
+   }
+  },
+  {
+   "id": "engine.daily_rerun",
+   "name": "일일 재탐색 러너 (폭등공식+랩+요약)",
+   "category": "auto_research",
+   "market": "COMMON",
+   "status": "running",
+   "priority": "P1",
+   "purpose": "일일 결산에 재탐색을 자동 연결한다. 2026-11-20부터는 한국장 전용 무과금 액션이 회차당 한 단계씩 대신 돈다.",
+   "scope": "market_project",
+   "sources": [
+    {
+     "path": "research/daily_rerun.py",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 29.5,
+     "mtime": "2026-11-20T20:41:44+09:00"
+    },
+    {
+     "path": "research/kr_daily_step.py",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 12.9,
+     "mtime": "2026-11-20T21:59:08+09:00"
+    },
+    {
+     "path": "research/DAILY_RERUN.md",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 7.6,
+     "mtime": "2026-11-18T18:59:11+09:00"
+    },
+    {
+     "path": "scheduled-actions/🇰🇷-한국장-일간-재탐색/check.sh",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 3.1,
+     "mtime": "2026-11-20T22:20:07+09:00"
+    }
+   ],
+   "published_paths": [
+    {
+     "path": "research/reports/gpt_29th_p0_report_20261120.md",
+     "on_remote": true,
+     "files_on_remote": null,
+     "size_kb": 30.9
+    },
+    {
+     "path": "research/reports/three_market_status_20261120.md",
+     "on_remote": true,
+     "files_on_remote": null,
+     "size_kb": 22.3
+    }
+   ],
+   "github_visibility": "partial_summary_only",
+   "visibility_note": "",
+   "latest_commit": "32ecc33",
+   "verification_status": "한국장 액션 5분 가동(평일 16:05~19:30 KST 창) · 단계별 progress.json 기록.",
+   "commit_note": "",
+   "known_issues": [
+    "AI 보고가 없는 날은 예전엔 통째로 비었음 → 액션 분리로 해결"
+   ],
+   "next_step": "미국·업비트도 같은 무과금 단계 실행기로 옮길지 검토.",
+   "live": null,
+   "owner": null,
+   "missing_sources": [],
+   "updated_at": "2026-11-20T22:20:07+09:00",
+   "scheduled_action": {
+    "folder": "🇰🇷-한국장-일간-재탐색",
+    "schedule": [
+     "interval 5m"
+    ],
+    "paused": false,
+    "last_started_run_at": "2026-11-20T18:54:14.963349Z",
+    "check_fail_count": 0,
+    "check_failure_generation": 0
+   }
+  },
+  {
+   "id": "engine.horizon_lab",
+   "name": "지평 랩 H=30/60/120 (3시장)",
+   "category": "auto_research",
+   "market": "COMMON",
+   "status": "running",
+   "priority": "P0",
+   "purpose": "동결 유니버스·인과적 분할에서 지평별 후보를 평가한다. 31차 P0에서 cutoff·pre-DEV 동결 유니버스로 재구축 중.",
+   "scope": "market_project",
+   "sources": [
+    {
+     "path": "research/horizon_lab.py",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 30.6,
+     "mtime": "2026-11-21T03:52:23+09:00"
+    },
+    {
+     "path": "research/verify_horizon_lab_20261120.py",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 4.4,
+     "mtime": "2026-11-20T22:50:53+09:00"
+    },
+    {
+     "path": "research/reports/horizon_UP_20261120.json",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 26.3,
+     "mtime": "2026-11-20T22:32:29+09:00"
+    },
+    {
+     "path": "research/reports/horizon_KR_20261120.json",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 17.7,
+     "mtime": "2026-11-20T22:31:44+09:00"
+    },
+    {
+     "path": "research/reports/horizon_US_20261120.json",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 14.3,
+     "mtime": "2026-11-20T22:32:49+09:00"
+    }
+   ],
+   "published_paths": [
+    {
+     "path": "research/reports/horizon_UP_20261120.json",
+     "on_remote": true,
+     "files_on_remote": null,
+     "size_kb": 26.3
+    },
+    {
+     "path": "research/reports/horizon_KR_20261120.json",
+     "on_remote": true,
+     "files_on_remote": null,
+     "size_kb": 17.7
+    },
+    {
+     "path": "research/reports/horizon_US_20261120.json",
+     "on_remote": true,
+     "files_on_remote": null,
+     "size_kb": 14.3
+    }
+   ],
+   "github_visibility": "partial_summary_only",
+   "visibility_note": "",
+   "latest_commit": "16d7e54",
+   "verification_status": "30차 P1-F 검증 스크립트 통과. 단 31차 P0-1에서 US cutoff 미래 표기·선택편향 지적 → 재검증 진행 중.",
+   "commit_note": "",
+   "known_issues": [
+    "DEV/VAL/HOLD 분할 날짜가 보고서와 JSON에서 불일치(31차 P0-2)",
+    "passed_val=0 인데 passed_hold=3 사례"
+   ],
+   "next_step": "31차 P0-1·P0-2 수정·재검증 결과를 다음 회차 보고서로 게시.",
+   "live": null,
+   "owner": "handoffs/🛠️-31차-독립검증-p0-인과-분할-shadow-p1-4종",
+   "missing_sources": [],
+   "updated_at": "2026-11-21T03:52:23+09:00"
+  },
+  {
+   "id": "engine.research_universe",
+   "name": "연구 유니버스 (컷오프 고정 150종목)",
+   "category": "auto_research",
+   "market": "COMMON",
+   "status": "running",
+   "priority": "P0",
+   "purpose": "각 시장에서 컷오프 시점에 고정되는 150종목 유니버스를 만들고 해시로 동결한다. 사후 종목 변경을 막는 장치.",
+   "scope": "market_project",
+   "sources": [
+    {
+     "path": "research/research_universe.py",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 16.6,
+     "mtime": "2026-11-21T03:52:37+09:00"
+    },
+    {
+     "path": "research/p0_universe_causality_20261121.py",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 11.5,
+     "mtime": "2026-11-21T03:55:37+09:00"
+    },
+    {
+     "path": "research/reports/universe_UP_150_20261120.json",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 19.0,
+     "mtime": "2026-11-20T22:25:20+09:00"
+    },
+    {
+     "path": "research/reports/universe_predev_UP_150_20261121.json",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 19.2,
+     "mtime": "2026-11-21T03:55:55+09:00"
+    }
+   ],
+   "published_paths": [
+    {
+     "path": "research/reports/gpt_30th_p1_report_20261120.md",
+     "on_remote": true,
+     "files_on_remote": null,
+     "size_kb": 30.2
+    }
+   ],
+   "github_visibility": "partial_summary_only",
+   "visibility_note": "",
+   "latest_commit": "9f0ceac",
+   "verification_status": "pre-DEV 동결 유니버스 3시장 산출(31차 P0-1 실측).",
+   "commit_note": "",
+   "known_issues": [
+    "과거 DEV 시작 이후 거래대금으로 종목을 고른 선택편향 여부 검증 중"
+   ],
+   "next_step": "pre-DEV 동결 유니버스로 H=30/60/120 재평가 후 기존 수치와 차이 보고.",
+   "live": null,
+   "owner": "handoffs/🛠️-31차-독립검증-p0-인과-분할-shadow-p1-4종",
+   "missing_sources": [],
+   "updated_at": "2026-11-21T03:55:55+09:00"
+  },
+  {
+   "id": "engine.sparse_grid",
+   "name": "저유동성 시간격자 연구 (sparse grid/shards)",
+   "category": "auto_research",
+   "market": "COMMON",
+   "status": "running",
+   "priority": "P2",
+   "purpose": "거래가 간헐적인 종목도 연구 대상에 넣기 위한 무거래 시간격자 경로. 시간 단위 샤딩·아카이브 계층 포함.",
+   "scope": "market_project",
+   "sources": [
+    {
+     "path": "research/sparse_grid.py",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 48.3,
+     "mtime": "2026-11-20T16:31:03+09:00"
+    },
+    {
+     "path": "research/sparse_shards.py",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 36.5,
+     "mtime": "2026-11-20T16:12:36+09:00"
+    },
+    {
+     "path": "research/sparse_grid.db",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 65552.0,
+     "mtime": "2026-11-20T17:52:35+09:00"
+    },
+    {
+     "path": "research/sparse_shards",
+     "exists": true,
+     "kind": "dir",
+     "files": 34
+    },
+    {
+     "path": "research/verify_sparse_grid.py",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 42.7,
+     "mtime": "2026-11-20T16:31:03+09:00"
+    }
+   ],
+   "published_paths": [
+    {
+     "path": "research/reports/three_market_status_20261120.md",
+     "on_remote": true,
+     "files_on_remote": null,
+     "size_kb": 22.3
+    }
+   ],
+   "github_visibility": "partial_summary_only",
+   "visibility_note": "",
+   "latest_commit": "7c7afc7",
+   "verification_status": "sparse v1↔v2 재평가·샤딩 검증 스크립트 통과.",
+   "commit_note": "",
+   "known_issues": [
+    "정밀도 분모 정의 오류 이력(@market)",
+    "sparse가 실제 신호 품질을 악화시킨다는 불리한 결과도 확인됨"
+   ],
+   "next_step": "샤드 아카이브 용량 관리(386MB) 정책 유지.",
+   "live": null,
+   "owner": null,
+   "missing_sources": [],
+   "updated_at": "2026-11-20T17:52:35+09:00"
+  },
+  {
+   "id": "engine.common_ledger",
+   "name": "신호·사건 공통 원장",
+   "category": "auto_research",
+   "market": "COMMON",
+   "status": "running",
+   "priority": "P1",
+   "purpose": "신호(signal_id)와 사건(event) 두 모집단을 분리해 동일 시각·동일 체결로 비교할 수 있게 한다.",
+   "scope": "market_project",
+   "sources": [
+    {
+     "path": "research/common_ledger.py",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 77.8,
+     "mtime": "2026-11-20T15:56:48+09:00"
+    },
+    {
+     "path": "research/common_events_dev_20261120.json",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 24.2,
+     "mtime": "2026-11-20T14:01:30+09:00"
+    },
+    {
+     "path": "research/common_ledger_populations_dev_20261120.json",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 14.8,
+     "mtime": "2026-11-20T13:07:34+09:00"
+    }
+   ],
+   "published_paths": [
+    {
+     "path": "research/evaluation_summaries/p1_three_market_e2e_20261120.json",
+     "on_remote": true,
+     "files_on_remote": null,
+     "size_kb": 13.3
+    }
+   ],
+   "github_visibility": "partial_summary_only",
+   "visibility_note": "",
+   "latest_commit": "3311a5a",
+   "verification_status": "22차 P0-2 구현·모집단 분리 검증 완료.",
+   "commit_note": "",
+   "known_issues": [
+    "전진·Shadow·후보를 합산하면 분모가 섞임 → 분리 표기가 계속 필요"
+   ],
+   "next_step": "신규 트랙 추가 시 모집단 등록을 강제.",
+   "live": null,
+   "owner": null,
+   "missing_sources": [],
+   "updated_at": "2026-11-20T15:56:48+09:00"
+  },
+  {
+   "id": "engine.market_common",
+   "name": "3시장 공통 인터페이스·어댑터",
+   "category": "auto_research",
+   "market": "COMMON",
+   "status": "running",
+   "priority": "P1",
+   "purpose": "UP·KR·US를 같은 인터페이스로 다루는 공통 계층과 시장별 어댑터. 표준 지표 산출도 여기에 붙는다.",
+   "scope": "market_project",
+   "sources": [
+    {
+     "path": "research/market_common.py",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 41.8,
+     "mtime": "2026-11-20T20:22:17+09:00"
+    },
+    {
+     "path": "research/market_adapters.py",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 15.9,
+     "mtime": "2026-11-20T20:22:17+09:00"
+    },
+    {
+     "path": "research/p1_standard_metrics_20261120.py",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 29.3,
+     "mtime": "2026-11-20T20:30:23+09:00"
+    },
+    {
+     "path": "research/verify_three_market_e2e.py",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 14.7,
+     "mtime": "2026-11-20T20:24:53+09:00"
+    }
+   ],
+   "published_paths": [
+    {
+     "path": "research/reports/gpt_29th_p1_report_20261120.md",
+     "on_remote": true,
+     "files_on_remote": null,
+     "size_kb": 24.5
+    },
+    {
+     "path": "research/evaluation_summaries/gpt_29th_p1_summary_20261120.json",
+     "on_remote": true,
+     "files_on_remote": null,
+     "size_kb": 31.7
+    }
+   ],
+   "github_visibility": "partial_summary_only",
+   "visibility_note": "",
+   "latest_commit": "53f8878",
+   "verification_status": "격리 e2e 검증 통과(3시장 동일 계약).",
+   "commit_note": "",
+   "known_issues": [
+    "시장별 특화 특징량과 공통 특징량의 비교 실험은 아직 미완(32차 과제 5)"
+   ],
+   "next_step": "공통 vs 특화 특징량 비교 실험 설계.",
+   "live": null,
+   "owner": null,
+   "missing_sources": [],
+   "updated_at": "2026-11-20T20:30:23+09:00"
+  },
+  {
+   "id": "engine.failure_hypothesis",
+   "name": "실패 원장 기반 가설 생성 + 선행 가속 실험",
+   "category": "auto_research",
+   "market": "COMMON",
+   "status": "completed",
+   "priority": "P2",
+   "purpose": "실패한 가설의 원인을 분해해 다음 세대 가설을 자동 생성하고, 거래대금 선행 가속 같은 신규 특징을 최초 실험한다.",
+   "scope": "market_project",
+   "sources": [
+    {
+     "path": "research/failure_hypothesis.py",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 37.9,
+     "mtime": "2026-11-20T17:39:10+09:00"
+    },
+    {
+     "path": "research/leading_accel.py",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 35.8,
+     "mtime": "2026-11-20T17:39:15+09:00"
+    },
+    {
+     "path": "research/ar_failure_analysis.py",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 14.0,
+     "mtime": "2026-11-19T08:48:49+09:00"
+    }
+   ],
+   "published_paths": [
+    {
+     "path": "research/reports/three_market_status_20261120.md",
+     "on_remote": true,
+     "files_on_remote": null,
+     "size_kb": 22.3
+    }
+   ],
+   "github_visibility": "partial_summary_only",
+   "visibility_note": "",
+   "latest_commit": "7c7afc7",
+   "verification_status": "25차 4·5순위 구현·검증 완료(실패 가설 272건 분해).",
+   "commit_note": "",
+   "known_issues": [
+    "생성된 가설의 유효성은 아직 0 — 생성과 검증을 분리해 봐야 함"
+   ],
+   "next_step": "생성 가설 → DEV 평가 자동 연결 확인.",
+   "live": null,
+   "owner": null,
+   "missing_sources": [],
+   "updated_at": "2026-11-20T17:39:15+09:00"
+  },
+  {
+   "id": "engine.generation_rotation",
+   "name": "자동 세대교체 스케줄",
+   "category": "auto_research",
+   "market": "COMMON",
+   "status": "running",
+   "priority": "P1",
+   "purpose": "세대(규칙 후보)를 자동으로 교체·보존하고 회전 상태를 남긴다. 과거 정본은 아카이브로 보존.",
+   "scope": "market_project",
+   "sources": [
+    {
+     "path": "research/generation_rotation.py",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 54.2,
+     "mtime": "2026-11-20T23:08:38+09:00"
+    },
+    {
+     "path": "research/generation_rotation_status_20261120.py",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 6.7,
+     "mtime": "2026-11-20T12:39:44+09:00"
+    },
+    {
+     "path": "research/verify_p31_rotation_20261120.py",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 7.4,
+     "mtime": "2026-11-20T23:07:41+09:00"
+    }
+   ],
+   "published_paths": [
+    {
+     "path": "research/test_results/verify_p31_rotation_20261120.json",
+     "on_remote": true,
+     "files_on_remote": null,
+     "size_kb": 3.3
+    }
+   ],
+   "github_visibility": "partial_summary_only",
+   "visibility_note": "",
+   "latest_commit": "523f35a",
+   "verification_status": "7단계 상태 표기 · 회전·잠금 계측 검증 통과.",
+   "commit_note": "",
+   "known_issues": [
+    "회전 중 원장 잠금으로 busy_skip 발생 이력(계측으로 분리됨)"
+   ],
+   "next_step": "busy_skip 비율을 주기 보고에 포함.",
+   "live": null,
+   "owner": null,
+   "missing_sources": [],
+   "updated_at": "2026-11-20T23:08:38+09:00"
+  },
+  {
+   "id": "engine.online_evaluator",
+   "name": "표준 온라인 평가기",
+   "category": "auto_research",
+   "market": "COMMON",
+   "status": "running",
+   "priority": "P1",
+   "purpose": "실시간 신호를 표준 규약(budget-proto-v3)으로 채점하는 단일 평가기. 라이브와 연구가 같은 규칙을 쓰게 한다.",
+   "scope": "market_project",
+   "sources": [
+    {
+     "path": "research/online_evaluator.py",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 47.2,
+     "mtime": "2026-11-20T07:12:18+09:00"
+    },
+    {
+     "path": "research/online_evaluator_report_20261119.md",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 14.2,
+     "mtime": "2026-11-19T06:54:27+09:00"
+    },
+    {
+     "path": "research/freeze_eval_protocol_20261120.py",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 5.5,
+     "mtime": "2026-11-20T16:24:55+09:00"
+    },
+    {
+     "path": "research/eval_protocol_frozen_20261120.json",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 8.8,
+     "mtime": "2026-11-20T16:34:02+09:00"
+    },
+    {
+     "path": "research/verify_online_ledger.py",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 4.2,
+     "mtime": "2026-11-19T06:52:49+09:00"
+    }
+   ],
+   "published_paths": [],
+   "github_visibility": "local_only_not_published",
+   "visibility_note": "구현 보고서 online_evaluator_report_20261119.md가 로컬 전용 — 평가 규약(budget-proto-v3)은 요약 JSON에만 노출.",
+   "latest_commit": null,
+   "verification_status": "평가 규약 동결(budget-proto-v3-20261120) 후 파리티 검증 통과.",
+   "commit_note": "",
+   "known_issues": [
+    "규약 변경 시 과거 수치와 직접 비교 불가 → 버전 표기 필수"
+   ],
+   "next_step": "프로토콜 버전을 모든 공개 요약에 강제 표기.",
+   "live": null,
+   "owner": null,
+   "missing_sources": [],
+   "updated_at": "2026-11-20T16:34:02+09:00"
+  },
+  {
+   "id": "engine.knowledge_ledger",
+   "name": "지식 원장",
+   "category": "auto_research",
+   "market": "COMMON",
+   "status": "running",
+   "priority": "P2",
+   "purpose": "시도한 가설과 결과를 SQLite에 누적해 같은 연구를 반복하지 않게 한다(내용 해시 기반 중복 차단).",
+   "scope": "market_project",
+   "sources": [
+    {
+     "path": "research/knowledge_ledger.py",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 27.7,
+     "mtime": "2026-11-19T08:30:23+09:00"
+    },
+    {
+     "path": "research/knowledge.db",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 7544.0,
+     "mtime": "2026-11-20T17:39:57+09:00"
+    }
+   ],
+   "published_paths": [
+    {
+     "path": "research/reports/gpt_30th_p0b_infra_report_20261120.md",
+     "on_remote": true,
+     "files_on_remote": null,
+     "size_kb": 18.5
+    }
+   ],
+   "github_visibility": "partial_summary_only",
+   "visibility_note": "",
+   "latest_commit": "984c29a",
+   "verification_status": "4순위 구현 완료 · 액션 state/knowledge.db로 운영 중.",
+   "commit_note": "",
+   "known_issues": [
+    "지식 DB가 여러 state에 분산(수집 액션·채점 액션·연구 액션) — 통합 조회 필요"
+   ],
+   "next_step": "분산 지식 DB의 읽기 전용 통합 뷰 검토.",
+   "live": null,
+   "owner": null,
+   "missing_sources": [],
+   "updated_at": "2026-11-20T17:39:57+09:00"
+  },
+  {
+   "id": "engine.kr_alpha",
+   "name": "한국 수급·재료 분석 세트",
+   "category": "auto_research",
+   "market": "KR",
+   "status": "completed",
+   "priority": "P1",
+   "purpose": "네이버 수급·공시·일봉으로 한국장 급등 해법을 탐색(전략 스캔·포트폴리오 시뮬·독립 교차검증).",
+   "scope": "market_project",
+   "sources": [
+    {
+     "path": "research/kr_alpha_collect.py",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 14.4,
+     "mtime": "2026-11-18T18:56:55+09:00"
+    },
+    {
+     "path": "research/kr_alpha_analysis.py",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 22.6,
+     "mtime": "2026-11-18T19:22:03+09:00"
+    },
+    {
+     "path": "research/kr_alpha_strategies.py",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 21.7,
+     "mtime": "2026-11-18T19:19:52+09:00"
+    },
+    {
+     "path": "research/kr_alpha_portfolio.py",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 7.3,
+     "mtime": "2026-11-18T19:23:10+09:00"
+    },
+    {
+     "path": "research/kr_alpha_verify.py",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 9.1,
+     "mtime": "2026-11-18T19:25:43+09:00"
+    },
+    {
+     "path": "research/kr_alpha_report.md",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 12.9,
+     "mtime": "2026-11-18T19:26:59+09:00"
+    }
+   ],
+   "published_paths": [],
+   "github_visibility": "local_only_not_published",
+   "visibility_note": "분석 보고서 kr_alpha_report.md(12KB)가 로컬 전용 — 결론(20일선 눌림+외인)은 KR_S16 트랙으로 집계에 반영.",
+   "latest_commit": null,
+   "verification_status": "독립 교차검증까지 수행 — 20일선 위 눌림+외인 순매수만 살아남음.",
+   "commit_note": "",
+   "known_issues": [
+    "생존편향 한계 병기",
+    "수급 확정 시점 제약(익일)"
+   ],
+   "next_step": "KR_S16 prospective 표본으로 실전성 판정.",
+   "live": null,
+   "owner": null,
+   "missing_sources": [],
+   "updated_at": "2026-11-18T19:26:59+09:00"
+  },
+  {
+   "id": "engine.wave",
+   "name": "파형 유사도 랭크 (WAVE v1/v2)",
+   "category": "auto_research",
+   "market": "US",
+   "status": "completed",
+   "priority": "P2",
+   "purpose": "과거 상승 파형과의 유사도(Z 정규화)로 순위를 매긴다. v1 데이터 오염을 찾아 v2 패널로 재구축.",
+   "scope": "market_project",
+   "sources": [
+    {
+     "path": "research/wave_template_us.py",
+     "exists": false
+    },
+    {
+     "path": "research/wave_v1_v2_compare.py",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 11.2,
+     "mtime": "2026-11-19T08:42:30+09:00"
+    },
+    {
+     "path": "research/wave_v1_v2_common.py",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 7.8,
+     "mtime": "2026-11-19T10:05:11+09:00"
+    },
+    {
+     "path": "research/zvol_wave_parity.py",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 8.6,
+     "mtime": "2026-11-19T07:11:20+09:00"
+    }
+   ],
+   "published_paths": [],
+   "github_visibility": "local_only_not_published",
+   "visibility_note": "WAVE v1/v2 비교 문서가 로컬 전용 — 라이브 트랙 US_WAVE_RANK 성적만 monitor/latest.json에 노출.",
+   "latest_commit": null,
+   "verification_status": "공통 818,756행 고정 재비교 · 라이브=연구 파리티 검증.",
+   "commit_note": "",
+   "known_issues": [
+    "v1 오염 이력 — v1 산출물은 판단에 쓰지 않음"
+   ],
+   "next_step": "US_WAVE_RANK 전진 표본 축적.",
+   "live": null,
+   "owner": null,
+   "missing_sources": [
+    "research/wave_template_us.py"
+   ],
+   "updated_at": "2026-11-19T10:05:11+09:00"
+  },
+  {
+   "id": "engine.history_lab",
+   "name": "과거 일봉·1분봉 랩 (2년/30일)",
+   "category": "backtest_lab",
+   "market": "COMMON",
+   "status": "completed",
+   "priority": "P2",
+   "purpose": "과거 DB에서 '폭등 직전 공식'을 실제 매매 규칙으로 검증하고 오버나이트 규칙까지 독립 재계산한다.",
+   "scope": "market_project",
+   "sources": [
+    {
+     "path": "research/history_miner.py",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 19.9,
+     "mtime": "2026-11-18T19:12:13+09:00"
+    },
+    {
+     "path": "research/history_daily_lab.py",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 20.9,
+     "mtime": "2026-11-18T19:36:35+09:00"
+    },
+    {
+     "path": "research/history_daily_surge.py",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 12.8,
+     "mtime": "2026-11-18T19:24:09+09:00"
+    },
+    {
+     "path": "research/history_verify_ovn.py",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 6.8,
+     "mtime": "2026-11-18T19:35:10+09:00"
+    },
+    {
+     "path": "research/history_report.md",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 20.9,
+     "mtime": "2026-11-18T19:38:17+09:00"
+    }
+   ],
+   "published_paths": [],
+   "github_visibility": "local_only_not_published",
+   "visibility_note": "과거 랩 보고서 history_report.md(20KB)가 로컬 전용 — 과거 DB 자체도 게시 불가.",
+   "latest_commit": null,
+   "verification_status": "오버나이트 규칙 독립 재계산 검증 존재.",
+   "commit_note": "",
+   "known_issues": [
+    "과거 스냅숏 고정 — 최근 데이터 미반영"
+   ],
+   "next_step": "필요 시 분기별 갱신.",
+   "live": null,
+   "owner": null,
+   "missing_sources": [],
+   "updated_at": "2026-11-18T19:38:17+09:00"
+  },
+  {
+   "id": "engine.backtest_strategies",
+   "name": "1분봉 다전략 백테스터",
+   "category": "backtest_lab",
+   "market": "COMMON",
+   "status": "dormant",
+   "priority": "P3",
+   "purpose": "업비트·한국·미국 1분봉 공통 백테스터. 지금은 strategy_lab·surge_miner가 주력이고 이 모듈은 보조.",
+   "scope": "market_project",
+   "sources": [
+    {
+     "path": "research/backtest_strategies.py",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 12.1,
+     "mtime": "2026-11-17T20:20:28+09:00"
+    }
+   ],
+   "published_paths": [
+    {
+     "path": "research/reports/three_market_status_20261120.md",
+     "on_remote": true,
+     "files_on_remote": null,
+     "size_kb": 22.3
+    }
+   ],
+   "github_visibility": "partial_summary_only",
+   "visibility_note": "",
+   "latest_commit": "7c7afc7",
+   "verification_status": "초기 검증용. 최근 회차 사용 기록 없음.",
+   "commit_note": "",
+   "known_issues": [
+    "전략 랩과 기능 중복"
+   ],
+   "next_step": "통합 또는 폐기 판단.",
+   "live": null,
+   "owner": null,
+   "missing_sources": [],
+   "updated_at": "2026-11-17T20:20:28+09:00"
+  },
+  {
+   "id": "engine.audit_runners",
+   "name": "정합성 감사 러너 묶음",
+   "category": "governance",
+   "market": "COMMON",
+   "status": "running",
+   "priority": "P1",
+   "purpose": "예산·공통 사건·429 계측·봉 수 대조·체결지연·수집 중복 등 GPT 지적 항목을 실측으로 규명하는 1회성 러너 묶음.",
+   "scope": "market_project",
+   "sources": [
+    {
+     "path": "research/p0_23_audit.py",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 9.1,
+     "mtime": "2026-11-20T13:59:29+09:00"
+    },
+    {
+     "path": "research/collector_audit_20261120.py",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 9.4,
+     "mtime": "2026-11-20T12:18:57+09:00"
+    },
+    {
+     "path": "research/collector_dedup_audit_20261120.py",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 7.1,
+     "mtime": "2026-11-20T13:30:04+09:00"
+    },
+    {
+     "path": "research/budget_gen23_audit_20261120.py",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 8.5,
+     "mtime": "2026-11-20T15:09:35+09:00"
+    },
+    {
+     "path": "research/causal_fifo_isolation_20261120.py",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 25.4,
+     "mtime": "2026-11-20T15:53:54+09:00"
+    },
+    {
+     "path": "research/order_parity_20261120.py",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 9.9,
+     "mtime": "2026-11-20T15:08:37+09:00"
+    },
+    {
+     "path": "research/fill_delay_analysis.py",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 7.7,
+     "mtime": "2026-11-20T07:05:28+09:00"
+    },
+    {
+     "path": "research/ledger_reconcile_20261120.py",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 7.6,
+     "mtime": "2026-11-20T12:12:27+09:00"
+    },
+    {
+     "path": "research/precision_denominator_audit_20261120.py",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 16.8,
+     "mtime": "2026-11-20T15:49:16+09:00"
+    },
+    {
+     "path": "research/signal_timing_metrics.py",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 11.2,
+     "mtime": "2026-11-20T22:48:56+09:00"
+    }
+   ],
+   "published_paths": [
+    {
+     "path": "research/test_results/verify_results_20261120.json",
+     "on_remote": true,
+     "files_on_remote": null,
+     "size_kb": 1.0
+    }
+   ],
+   "github_visibility": "partial_summary_only",
+   "visibility_note": "",
+   "latest_commit": "8a97e1d",
+   "verification_status": "회차별 감사 JSON 산출(예: 예산 혼용·FIFO 격리·429 계측).",
+   "commit_note": "",
+   "known_issues": [
+    "회차 전용 스크립트가 계속 늘어남 — 재사용 도구로 승격할 것"
+   ],
+   "next_step": "반복 사용되는 감사만 research/tools/로 승격.",
+   "live": null,
+   "owner": null,
+   "missing_sources": [],
+   "updated_at": "2026-11-20T22:48:56+09:00"
+  },
+  {
+   "id": "shadow.shadow_engine",
+   "name": "Shadow 자동 연결 엔진 (프리레그(사전 등록))",
+   "category": "shadow",
+   "market": "COMMON",
+   "status": "running",
+   "priority": "P1",
+   "purpose": "후보 동결 직후 미래 신호를 사전 등록(프리레그)하고, 60분 +5% 라벨로 정밀도·검열을 채점한다. 전진검증과 분모를 합산하지 않는다.",
+   "scope": "market_project",
+   "sources": [
+    {
+     "path": "research/shadow_engine.py",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 35.9,
+     "mtime": "2026-11-20T22:49:03+09:00"
+    },
+    {
+     "path": "research/verify_shadow_and_evolution.py",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 22.1,
+     "mtime": "2026-11-20T18:45:03+09:00"
+    }
+   ],
+   "published_paths": [
+    {
+     "path": "monitor/latest.json",
+     "on_remote": true,
+     "files_on_remote": null,
+     "size_kb": 45.2
+    },
+    {
+     "path": "research/reports/gpt_31st_p0_report_20261120.md",
+     "on_remote": true,
+     "files_on_remote": null,
+     "size_kb": 21.7
+    }
+   ],
+   "github_visibility": "partial_summary_only",
+   "visibility_note": "",
+   "latest_commit": "5a5ac0b",
+   "verification_status": "monitor/latest.json schema 3의 research_shadow_* 필드로 공개 중(전진과 분리).",
+   "commit_note": "",
+   "known_issues": [
+    "사전포착 TP가 아직 소수(누적 35건 등록·TP 2)",
+    "catch-up(늦은 관측) 신호를 prospective에서 분리해야 함"
+   ],
+   "next_step": "6개 시각 필드 기록 후 late_observation 원장 분리(31차 P0-3).",
+   "live": null,
+   "owner": null,
+   "missing_sources": [],
+   "updated_at": "2026-11-20T22:49:03+09:00"
+  },
+  {
+   "id": "shadow.kr_causality",
+   "name": "KR 전진 인과성 감사 (S16·VCP)",
+   "category": "shadow",
+   "market": "KR",
+   "status": "running",
+   "priority": "P1",
+   "purpose": "KR_S16·KR_VCP의 소급 체결이 '그 시점에 알 수 있었는가'를 signal_id 단위로 감사하고 버킷으로 분리한다.",
+   "scope": "market_project",
+   "sources": [
+    {
+     "path": "research/kr_forward_causality_audit.py",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 10.1,
+     "mtime": "2026-11-20T22:07:10+09:00"
+    },
+    {
+     "path": "research/kr_s16_supply_audit_20261120.py",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 12.9,
+     "mtime": "2026-11-20T23:00:14+09:00"
+    },
+    {
+     "path": "research/reports/kr_forward_causality_20261120.json",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 10.8,
+     "mtime": "2026-11-20T22:07:16+09:00"
+    }
+   ],
+   "published_paths": [
+    {
+     "path": "research/test_results/kr_s16_supply_audit_20261120.json",
+     "on_remote": true,
+     "files_on_remote": null,
+     "size_kb": 499.5
+    }
+   ],
+   "github_visibility": "partial_summary_only",
+   "visibility_note": "",
+   "latest_commit": "b38a869",
+   "verification_status": "수급 감사 JSON 511KB 공개 · 버킷(prospective/재생/복구/legacy) 분리 완료.",
+   "commit_note": "",
+   "known_issues": [
+    "당일 수급 58건의 인과성 문제(32차 과제 3) 남음"
+   ],
+   "next_step": "대체 특징량(익일 확정 수급) 탐색.",
+   "live": null,
+   "owner": null,
+   "missing_sources": [],
+   "updated_at": "2026-11-20T23:00:14+09:00"
+  },
+  {
+   "id": "infra.wal_replica",
+   "name": "WAL 일관 복제본·안전 읽기",
+   "category": "infra_wal",
+   "market": "COMMON",
+   "status": "running",
+   "priority": "P0",
+   "purpose": "활성 WAL DB를 잠그지 않고 읽는 안전 경로(safe_ro)와 일관 복제본 게시(wal_replica)를 제공한다. 운영 5분 파이프라인을 멈추지 않기 위한 장치.",
+   "scope": "market_project",
+   "sources": [
+    {
+     "path": "research/wal_replica.py",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 55.0,
+     "mtime": "2026-11-20T23:34:32+09:00"
+    },
+    {
+     "path": "research/safe_ro.py",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 7.9,
+     "mtime": "2026-11-20T21:39:23+09:00"
+    },
+    {
+     "path": "research/verify_wal_backup_20261120.py",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 17.5,
+     "mtime": "2026-11-20T23:03:03+09:00"
+    },
+    {
+     "path": "research/verify_up_wal_safe_20261120.py",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 5.7,
+     "mtime": "2026-11-20T21:55:45+09:00"
+    }
+   ],
+   "published_paths": [
+    {
+     "path": "research/test_results/verify_wal_backup_20261120.json",
+     "on_remote": true,
+     "files_on_remote": null,
+     "size_kb": 3.8
+    },
+    {
+     "path": "research/test_results/verify_up_wal_safe_20261120.json",
+     "on_remote": true,
+     "files_on_remote": null,
+     "size_kb": 0.8
+    }
+   ],
+   "github_visibility": "partial_summary_only",
+   "visibility_note": "",
+   "latest_commit": "cc27e0d",
+   "verification_status": "백업·안전읽기 검증 통과 · 30차 P0-B 원자성 수리.",
+   "commit_note": "",
+   "known_issues": [
+    "cutoff_gate=unknown 상태는 신선도 미확인 → prospective 평가 제외 규칙 필요(32차 요청 4)"
+   ],
+   "next_step": "unknown 게이트 신호의 안전 처리 규칙을 코드로 강제.",
+   "live": null,
+   "owner": null,
+   "missing_sources": [],
+   "updated_at": "2026-11-20T23:34:32+09:00"
+  },
+  {
+   "id": "infra.pipeline_watchdog",
+   "name": "🛡️ 파이프라인 정지 감시 (외부 워치독)",
+   "category": "monitor_dashboard",
+   "market": "COMMON",
+   "status": "running",
+   "priority": "P1",
+   "purpose": "공개 status.json의 generated_at이 30분 이상 멈추면 폰으로 직접 경보한다. AI·유료 API 없이 동작.",
+   "scope": "market_project",
+   "sources": [
+    {
+     "path": "scheduled-actions/🛡️-파이프라인-정지-감시/check.sh",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 5.8,
+     "mtime": "2026-11-18T20:24:30+09:00"
+    },
+    {
+     "path": "research/watchdog_workflow.yml",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 5.8,
+     "mtime": "2026-11-18T20:22:29+09:00"
+    },
+    {
+     "path": "research/watchdog_telegram_workflow.yml",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 2.7,
+     "mtime": "2026-11-18T20:29:05+09:00"
+    }
+   ],
+   "published_paths": [
+    {
+     "path": ".github/workflows/watchdog.yml",
+     "on_remote": true,
+     "files_on_remote": null,
+     "size_kb": 2.7
+    }
+   ],
+   "github_visibility": "partial_summary_only",
+   "visibility_note": "감시 정의(비밀 포함)는 미게시. 외부 워크플로만 공개.",
+   "latest_commit": "ea61b10",
+   "verification_status": "5분 가동 · 최근 실패 0. 경보 채널은 공개 저장소에 게시하지 않는다.",
+   "commit_note": "",
+   "known_issues": [
+    "경보 채널(토픽/토큰)은 비밀 — action.md·check.sh 게시 불가"
+   ],
+   "next_step": "경보 이력도 비식별로 요약해 게시할지 검토.",
+   "live": null,
+   "owner": null,
+   "missing_sources": [],
+   "updated_at": "2026-11-18T20:29:05+09:00",
+   "scheduled_action": {
+    "folder": "🛡️-파이프라인-정지-감시",
+    "schedule": [
+     "interval 5m"
+    ],
+    "paused": false,
+    "last_started_run_at": null,
+    "check_fail_count": 0,
+    "check_failure_generation": 0
+   }
+  },
+  {
+   "id": "infra.dbs",
+   "name": "운영·연구 원본 DB (약 1.6GB)",
+   "category": "infra_wal",
+   "market": "COMMON",
+   "status": "running",
+   "priority": "P0",
+   "purpose": "1분봉 3종(업비트·한국·미국)과 연구 DB(history·kr_alpha·sparse_grid·knowledge). 모든 수치의 원천.",
+   "scope": "market_project",
+   "sources": [
+    {
+     "path": "scheduled-actions/📈-업비트-모의투자-분석/state/upbit_1m.db",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 242320.0,
+     "mtime": "2026-11-21T03:53:44+09:00"
+    },
+    {
+     "path": "scheduled-actions/🇰🇷-한국주식-패턴-분석/state/kr_1m.db",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 389016.0,
+     "mtime": "2026-11-20T15:46:16+09:00"
+    },
+    {
+     "path": "scheduled-actions/🇺🇸-미국주식-패턴-분석/state/us_1m.db",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 471092.0,
+     "mtime": "2026-11-21T03:58:35+09:00"
+    },
+    {
+     "path": "research/history_data.db",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 357332.0,
+     "mtime": "2026-11-18T19:33:31+09:00"
+    },
+    {
+     "path": "research/kr_alpha.db",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 102112.0,
+     "mtime": "2026-11-18T19:37:51+09:00"
+    },
+    {
+     "path": "research/sparse_grid.db",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 65552.0,
+     "mtime": "2026-11-20T17:52:35+09:00"
+    },
+    {
+     "path": "research/knowledge.db",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 7544.0,
+     "mtime": "2026-11-20T17:39:57+09:00"
+    }
+   ],
+   "published_paths": [],
+   "github_visibility": "local_only_not_published",
+   "visibility_note": "원본 DB는 게시 불가. 공개되는 것은 집계(status.json·latest.json)뿐.",
+   "latest_commit": null,
+   "verification_status": "monitor/latest.json의 봉 수·종목 수가 이 DB에서 산출된다.",
+   "commit_note": "",
+   "known_issues": [
+    "원본 DB는 공개 저장소에 게시 불가(크기·정책) — GPT는 집계 수치만 볼 수 있다"
+   ],
+   "next_step": "DB 무결성(봉/종목/오류/지연)은 06:00 검수팩으로 계속 공개.",
+   "live": null,
+   "owner": null,
+   "missing_sources": [],
+   "updated_at": "2026-11-21T03:58:35+09:00"
+  },
+  {
+   "id": "dash.export_status",
+   "name": "공개 대시보드 스냅숏 내보내기",
+   "category": "monitor_dashboard",
+   "market": "COMMON",
+   "status": "running",
+   "priority": "P0",
+   "purpose": "3시장 수집 현황·전진 트랙 성적·최근 급등을 data/status.json으로 만든다(5분 주기, 페이지가 60초마다 다시 읽음).",
+   "scope": "market_project",
+   "sources": [
+    {
+     "path": "research/export_dashboard_json.py",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 26.7,
+     "mtime": "2026-11-21T03:12:23+09:00"
+    },
+    {
+     "path": "research/push_dashboard_api.py",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 5.0,
+     "mtime": "2026-11-21T00:47:19+09:00"
+    }
+   ],
+   "published_paths": [
+    {
+     "path": "data/status.json",
+     "on_remote": true,
+     "files_on_remote": null,
+     "size_kb": 17.4
+    },
+    {
+     "path": "index.html",
+     "on_remote": true,
+     "files_on_remote": null,
+     "size_kb": 19.6
+    }
+   ],
+   "github_visibility": "public_synced",
+   "visibility_note": "",
+   "latest_commit": "4e03d25",
+   "verification_status": "5분 자동 커밋 가동 · 페이지 정상 표시.",
+   "commit_note": "",
+   "known_issues": [
+    "커밋이 5분마다 쌓여 히스토리 비대"
+   ],
+   "next_step": "커밋 메시지·주기 유지, 필요 시 squash 정책.",
+   "live": null,
+   "owner": null,
+   "missing_sources": [],
+   "updated_at": "2026-11-21T03:12:23+09:00"
+  },
+  {
+   "id": "dash.monitor_research",
+   "name": "monitor/latest.json 연구 3시장 문서 (schema 3)",
+   "category": "monitor_dashboard",
+   "market": "COMMON",
+   "status": "running",
+   "priority": "P0",
+   "purpose": "전진검증과 연구 Shadow를 분리한 공개 요약. GPT·사용자가 보는 단일 화면.",
+   "scope": "market_project",
+   "sources": [
+    {
+     "path": "research/monitor_research_20261120.py",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 40.6,
+     "mtime": "2026-11-20T23:06:49+09:00"
+    },
+    {
+     "path": "research/build_three_market_summary_20261120.py",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 17.1,
+     "mtime": "2026-11-20T19:45:26+09:00"
+    }
+   ],
+   "published_paths": [
+    {
+     "path": "monitor/latest.json",
+     "on_remote": true,
+     "files_on_remote": null,
+     "size_kb": 45.2
+    }
+   ],
+   "github_visibility": "public_synced",
+   "visibility_note": "",
+   "latest_commit": "5a5ac0b",
+   "verification_status": "schema 3 · research_schema=3 · protocol budget-proto-v3-20261120 로 게시 확인.",
+   "commit_note": "",
+   "known_issues": [
+    "전진/Shadow 합계가 트랙 표와 몇 건 차이(스냅숏 시점 차) — 일치 상태값 추가 요청(32차 요청 3)"
+   ],
+   "next_step": "forward_research_consistent를 시점차 허용 여부와 분리한 상태값으로 세분.",
+   "live": null,
+   "owner": null,
+   "missing_sources": [],
+   "updated_at": "2026-11-20T23:06:49+09:00"
+  },
+  {
+   "id": "dash.collab_ledger",
+   "name": "GitHub 협업 원장 게시 도구",
+   "category": "monitor_dashboard",
+   "market": "COMMON",
+   "status": "running",
+   "priority": "P0",
+   "purpose": "monitor/·coordination/·research/ 파일을 Contents API로 게시한다(변경 없으면 커밋 생략, 409 재시도).",
+   "scope": "market_project",
+   "sources": [
+    {
+     "path": "research/collab_ledger.py",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 17.6,
+     "mtime": "2026-11-20T23:25:33+09:00"
+    },
+    {
+     "path": "research/build_collab_ledger_20261120.py",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 10.9,
+     "mtime": "2026-11-20T20:51:43+09:00"
+    },
+    {
+     "path": "research/collab/README.md",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 1.4,
+     "mtime": "2026-11-20T18:33:26+09:00"
+    }
+   ],
+   "published_paths": [
+    {
+     "path": "monitor/events.jsonl",
+     "on_remote": true,
+     "files_on_remote": null,
+     "size_kb": 7.5
+    },
+    {
+     "path": "monitor/telegram_reports.jsonl",
+     "on_remote": true,
+     "files_on_remote": null,
+     "size_kb": 5.4
+    },
+    {
+     "path": "coordination/gpt_to_pickle.jsonl",
+     "on_remote": true,
+     "files_on_remote": null,
+     "size_kb": 10.9
+    },
+    {
+     "path": "coordination/pickle_to_gpt.jsonl",
+     "on_remote": true,
+     "files_on_remote": null,
+     "size_kb": 10.7
+    },
+    {
+     "path": "coordination/review_history.jsonl",
+     "on_remote": true,
+     "files_on_remote": null,
+     "size_kb": 0.6
+    }
+   ],
+   "github_visibility": "public_synced",
+   "visibility_note": "",
+   "latest_commit": "80d2f8c",
+   "verification_status": "5분 가동 · 게시 경로·중복 방지 동작 확인.",
+   "commit_note": "",
+   "known_issues": [
+    "409 재시도는 sha만 갱신하고 내용 병합은 하지 않음 — 병렬 append 시 덮어쓰기 위험"
+   ],
+   "next_step": "append-only 파일은 원격 내용을 읽어 병합 후 게시하도록 보강(별도 작업).",
+   "live": null,
+   "owner": null,
+   "missing_sources": [],
+   "updated_at": "2026-11-20T23:25:33+09:00"
+  },
+  {
+   "id": "dash.project_inventory",
+   "name": "전 프로젝트 중앙 인덱스 (34차)",
+   "category": "governance",
+   "market": "COMMON",
+   "status": "running",
+   "priority": "P1",
+   "purpose": "이 문서를 만든 도구. 예약 액션·연구 엔진·트랙·인프라·보고 체계를 한 인덱스로 모으고, 원격 GitHub와 대조해 누락·접근 경계를 남긴다. 변경 시 project_changelog.jsonl에 append.",
+   "scope": "market_project",
+   "sources": [
+    {
+     "path": "research/project_inventory.py",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 94.1,
+     "mtime": "2026-11-21T03:58:20+09:00"
+    }
+   ],
+   "published_paths": [
+    {
+     "path": "coordination/project_inventory.json",
+     "on_remote": false,
+     "files_on_remote": null,
+     "size_kb": null
+    },
+    {
+     "path": "coordination/project_changelog.jsonl",
+     "on_remote": false,
+     "files_on_remote": null,
+     "size_kb": null
+    },
+    {
+     "path": "research/reports/gpt_34th_project_inventory_20261121.md",
+     "on_remote": false,
+     "files_on_remote": null,
+     "size_kb": null
+    }
+   ],
+   "github_visibility": "partial_summary_only",
+   "visibility_note": "",
+   "latest_commit": null,
+   "verification_status": "이 회차에서 생성·게시(raw 200·JSON 파싱·비밀 스캔 0건).",
+   "commit_note": "자기 자신의 게시 커밋은 파일 안에 담을 수 없다(자기참조). 변경 이력은 project_changelog.jsonl의 커밋을 본다.",
+   "known_issues": [
+    "인덱스의 수치는 생성 시점 스냅숏 — 5분 실시간 값은 monitor/latest.json을 봐야 한다"
+   ],
+   "next_step": "변경이 생길 때마다 `--publish` 재실행(회차 보고 시 함께).",
+   "live": null,
+   "owner": null,
+   "missing_sources": [],
+   "updated_at": "2026-11-21T03:58:20+09:00"
+  },
+  {
+   "id": "tg.reporter",
+   "name": "텔레그램 직송 리포터 (사용량 0원 보고)",
+   "category": "telegram",
+   "market": "COMMON",
+   "status": "running",
+   "priority": "P0",
+   "purpose": "check.sh에서 AI를 깨우지 않고 폰으로 정기·속보·아침·검수팩을 직접 보낸다. 중복 발송은 내용 서명으로 차단.",
+   "scope": "market_project",
+   "sources": [
+    {
+     "path": "research/telegram_reporter.py",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 80.2,
+     "mtime": "2026-11-19T07:26:28+09:00"
+    },
+    {
+     "path": "scheduled-actions/📈-업비트-모의투자-분석/check.sh",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 35.4,
+     "mtime": "2026-11-21T00:30:56+09:00"
+    }
+   ],
+   "published_paths": [
+    {
+     "path": "monitor/telegram_reports.jsonl",
+     "on_remote": true,
+     "files_on_remote": null,
+     "size_kb": 5.4
+    }
+   ],
+   "github_visibility": "partial_summary_only",
+   "visibility_note": "",
+   "latest_commit": "1987385",
+   "verification_status": "[정기]·[속보] 말머리 통일 · 06:00 검수팩·08:30 아침 브리핑 가동.",
+   "commit_note": "",
+   "known_issues": [
+    "자격증명(.telegram_config.json)은 절대 게시 불가",
+    "발송 실패 시에만 AI 회차로 폴백"
+   ],
+   "next_step": "발송 이력은 비식별(시각·유형·성공 여부)만 계속 게시.",
+   "live": null,
+   "owner": null,
+   "missing_sources": [],
+   "updated_at": "2026-11-21T00:30:56+09:00",
+   "scheduled_action": {
+    "folder": "📈-업비트-모의투자-분석",
+    "schedule": [
+     "interval 5m"
+    ],
+    "paused": false,
+    "last_started_run_at": "2026-11-20T18:57:45.210141Z",
+    "check_fail_count": 0,
+    "check_failure_generation": 8
+   }
+  },
+  {
+   "id": "tg.audit_pack",
+   "name": "일일 GPT 검수팩·아침 브리핑",
+   "category": "telegram",
+   "market": "COMMON",
+   "status": "running",
+   "priority": "P1",
+   "purpose": "06:00 검수팩(수집·DB 무결성·스크립트 SHA·8전략 규칙·전진성적·재탐색 OOS·급등 TOP3)과 08:30 아침 브리핑(간밤 미국장·한국 보유·업비트·세종/대전 날씨)을 하루 1회 발송.",
+   "scope": "market_project",
+   "sources": [
+    {
+     "path": "research/telegram_reporter.py",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 80.2,
+     "mtime": "2026-11-19T07:26:28+09:00"
+    },
+    {
+     "path": "monitor/telegram_reports.jsonl",
+     "exists": false
+    }
+   ],
+   "published_paths": [
+    {
+     "path": "monitor/telegram_reports.jsonl",
+     "on_remote": true,
+     "files_on_remote": null,
+     "size_kb": 5.4
+    }
+   ],
+   "github_visibility": "partial_summary_only",
+   "visibility_note": "",
+   "latest_commit": "1987385",
+   "verification_status": "중복 방지 state로 하루 1회 보장.",
+   "commit_note": "",
+   "known_issues": [
+    "검수팩이 2개 메시지(각 3,700자) — 전략 8개로 늘면 분할 필요"
+   ],
+   "next_step": "전략 수 증가 시 3분할.",
+   "live": null,
+   "owner": null,
+   "missing_sources": [
+    "monitor/telegram_reports.jsonl"
+   ],
+   "updated_at": "2026-11-19T07:26:28+09:00",
+   "scheduled_action": {
+    "folder": "📈-업비트-모의투자-분석",
+    "schedule": [
+     "interval 5m"
+    ],
+    "paused": false,
+    "last_started_run_at": "2026-11-20T18:57:45.210141Z",
+    "check_fail_count": 0,
+    "check_failure_generation": 8
+   }
+  },
+  {
+   "id": "gov.handoffs",
+   "name": "작업 단위 실행 기록 (handoffs)",
+   "category": "governance",
+   "market": "COMMON",
+   "status": "running",
+   "priority": "P1",
+   "purpose": "모든 개발·검증 작업은 handoff 폴더에 계획(plan.md)·진행(log.md)·완료 검증(verdicts.jsonl)을 남긴다. 이 기록이 인덱스의 '누가 무엇을 언제 했는가' 근거다.",
+   "scope": "market_project",
+   "sources": [
+    {
+     "path": "handoffs",
+     "exists": true,
+     "kind": "dir",
+     "files": 197
+    }
+   ],
+   "published_paths": [],
+   "github_visibility": "local_only_not_published",
+   "visibility_note": "내부 실행 기록(plan/log/verdicts) — 공개 대상 아님(정책). 작업 결과 요약은 회차 보고서로만 공개.",
+   "latest_commit": null,
+   "verification_status": "handoff 60건(완료 58·실행 중 2) 확인.",
+   "commit_note": "",
+   "known_issues": [
+    "완료된 handoff의 plan/log는 공개 저장소에 게시되지 않음(내부 실행 기록)"
+   ],
+   "next_step": "공개용 요약은 회차 보고서로만 남긴다.",
+   "live": null,
+   "owner": null,
+   "missing_sources": [],
+   "updated_at": "2026-11-21T03:58:29+09:00"
+  },
+  {
+   "id": "gov.verification_harness",
+   "name": "검증 하네스 (verify_*.py 33개)",
+   "category": "governance",
+   "market": "COMMON",
+   "status": "running",
+   "priority": "P1",
+   "purpose": "모든 회차의 주장을 코드로 재검증하는 스크립트 묶음. 결과 JSON은 research/test_results/에 남는다.",
+   "scope": "market_project",
+   "sources": [
+    {
+     "path": "research/verify_p31_kr_stage_20261120.py",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 9.0,
+     "mtime": "2026-11-20T23:09:18+09:00"
+    },
+    {
+     "path": "research/verify_p31_monitor_schema_20261120.py",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 8.3,
+     "mtime": "2026-11-20T23:06:52+09:00"
+    },
+    {
+     "path": "research/verify_p31_kr_s16_split_20261120.py",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 7.9,
+     "mtime": "2026-11-20T23:07:13+09:00"
+    },
+    {
+     "path": "research/verify_p31_rotation_20261120.py",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 7.4,
+     "mtime": "2026-11-20T23:07:41+09:00"
+    },
+    {
+     "path": "research/verify_horizon_lab_20261120.py",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 4.4,
+     "mtime": "2026-11-20T22:50:53+09:00"
+    },
+    {
+     "path": "research/verify_stale_gate_20261120.py",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 6.7,
+     "mtime": "2026-11-20T22:49:42+09:00"
+    },
+    {
+     "path": "research/verify_production_connected_20261120.py",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 10.9,
+     "mtime": "2026-11-20T22:50:28+09:00"
+    },
+    {
+     "path": "research/verify_three_market_e2e.py",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 14.7,
+     "mtime": "2026-11-20T20:24:53+09:00"
+    },
+    {
+     "path": "research/verify_429_counter_20261120.py",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 4.5,
+     "mtime": "2026-11-20T14:09:56+09:00"
+    },
+    {
+     "path": "research/test_results",
+     "exists": true,
+     "kind": "dir",
+     "files": 2
+    }
+   ],
+   "published_paths": [
+    {
+     "path": "research/test_results",
+     "on_remote": true,
+     "files_on_remote": 12,
+     "size_kb": null
+    }
+   ],
+   "github_visibility": "partial_summary_only",
+   "visibility_note": "",
+   "latest_commit": "e40a165",
+   "verification_status": "31차 P0 검증 4종 + 30차 검증 결과가 공개됨.",
+   "commit_note": "",
+   "known_issues": [
+    "검증 스크립트도 소스라 게시 불가 — 결과 JSON만 공개"
+   ],
+   "next_step": "신규 항목마다 verify + 결과 JSON 게시를 규칙으로.",
+   "live": null,
+   "owner": null,
+   "missing_sources": [],
+   "updated_at": "2026-11-20T23:09:18+09:00"
+  },
+  {
+   "id": "gov.reports",
+   "name": "회차 보고서·요약 (GPT 협업 산출물)",
+   "category": "governance",
+   "market": "COMMON",
+   "status": "running",
+   "priority": "P0",
+   "purpose": "GPT 지적에 대한 회차 보고서와 집계 요약. 공개 저장소 research/reports·evaluation_summaries·test_results.",
+   "scope": "market_project",
+   "sources": [
+    {
+     "path": "research/reports",
+     "exists": true,
+     "kind": "dir",
+     "files": 29
+    },
+    {
+     "path": "research/evaluation_summaries",
+     "exists": true,
+     "kind": "dir",
+     "files": 5
+    },
+    {
+     "path": "research/test_results",
+     "exists": true,
+     "kind": "dir",
+     "files": 2
+    },
+    {
+     "path": "research/gpt_31st_p0_report_20261120.md",
+     "exists": false
+    }
+   ],
+   "published_paths": [
+    {
+     "path": "research/reports",
+     "on_remote": true,
+     "files_on_remote": 11,
+     "size_kb": null
+    },
+    {
+     "path": "research/evaluation_summaries",
+     "on_remote": true,
+     "files_on_remote": 6,
+     "size_kb": null
+    },
+    {
+     "path": "research/test_results",
+     "on_remote": true,
+     "files_on_remote": 12,
+     "size_kb": null
+    }
+   ],
+   "github_visibility": "partial_summary_only",
+   "visibility_note": "",
+   "latest_commit": "fcd2585",
+   "verification_status": "27·29·30·31차 보고서가 공개되어 GPT가 직접 열람.",
+   "commit_note": "",
+   "known_issues": [
+    "1~26차 보고서는 로컬에만 있음(누락 목록 A)"
+   ],
+   "next_step": "과거 보고서 게시 여부는 사용자 결정 필요(공개 범위 확대).",
+   "live": null,
+   "owner": null,
+   "missing_sources": [
+    "research/gpt_31st_p0_report_20261120.md"
+   ],
+   "updated_at": "2026-11-21T03:58:29+09:00"
+  },
+  {
+   "id": "gov.heartbeat",
+   "name": "하트비트 (12시간 점검)",
+   "category": "governance",
+   "market": "COMMON",
+   "status": "running",
+   "priority": "P3",
+   "purpose": "연결된 소스와 24시간 일정을 12시간마다 훑어 선제적으로 처리할 일을 찾는다(Pickle 실행 계층).",
+   "scope": "pickle_runtime",
+   "sources": [
+    {
+     "path": "scheduled-actions/heartbeat/action.md",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 3.6,
+     "mtime": "2026-11-20T12:02:31+09:00"
+    }
+   ],
+   "published_paths": [],
+   "github_visibility": "local_only_not_published",
+   "visibility_note": "",
+   "latest_commit": null,
+   "verification_status": "12시간 주기 등록·최근 실행 성공(간격 12h 고정).",
+   "commit_note": "",
+   "known_issues": [
+    "연결 소스가 GitHub뿐이라 실제 점검 대상이 적음"
+   ],
+   "next_step": "소스 연결 확대는 사용자 결정.",
+   "live": null,
+   "owner": null,
+   "missing_sources": [],
+   "updated_at": "2026-11-20T12:02:31+09:00",
+   "scheduled_action": {
+    "folder": "heartbeat",
+    "schedule": [
+     "interval 12h"
+    ],
+    "paused": false,
+    "last_started_run_at": "2026-11-20T11:36:48.032922Z",
+    "check_fail_count": 0,
+    "check_failure_generation": 0
+   }
+  },
+  {
+   "id": "gov.explore_offer_review",
+   "name": "Explore 제안 갱신 (일 1회)",
+   "category": "governance",
+   "market": "COMMON",
+   "status": "running",
+   "priority": "P3",
+   "purpose": "매일 03:26 제안 카드 집합을 사용자 상황에 맞게 갱신·순위화한다(결과는 카드로만).",
+   "scope": "pickle_runtime",
+   "sources": [
+    {
+     "path": "scheduled-actions/explore-offer-review/action.md",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 1.1,
+     "mtime": "2026-11-16T02:35:09+09:00"
+    }
+   ],
+   "published_paths": [],
+   "github_visibility": "local_only_not_published",
+   "visibility_note": "",
+   "latest_commit": null,
+   "verification_status": "일 1회 실행 성공.",
+   "commit_note": "",
+   "known_issues": [
+    "사용자가 제안 카드에 반응하지 않는 편 — 알림 없이 조용히 갱신"
+   ],
+   "next_step": "현행 유지.",
+   "live": null,
+   "owner": null,
+   "missing_sources": [],
+   "updated_at": "2026-11-16T02:35:09+09:00",
+   "scheduled_action": {
+    "folder": "explore-offer-review",
+    "schedule": [
+     "daily 03:26"
+    ],
+    "paused": false,
+    "last_started_run_at": "2026-11-20T18:26:00Z",
+    "check_fail_count": 0,
+    "check_failure_generation": 0
+   }
+  },
+  {
+   "id": "gov.my_day_preparation",
+   "name": "아침 브리핑 (일시정지)",
+   "category": "governance",
+   "market": "COMMON",
+   "status": "dormant",
+   "priority": "P3",
+   "purpose": "07:19 아침 브리핑 액션. 현재 paused 상태로 등록만 남아 있다(브리핑은 텔레그램 08:30이 담당).",
+   "scope": "pickle_runtime",
+   "sources": [
+    {
+     "path": "scheduled-actions/my-day-preparation/action.md",
+     "exists": true,
+     "kind": "file",
+     "size_kb": 6.0,
+     "mtime": "2026-11-20T12:02:31+09:00"
+    }
+   ],
+   "published_paths": [],
+   "github_visibility": "local_only_not_published",
+   "visibility_note": "",
+   "latest_commit": null,
+   "verification_status": "paused: true 확인.",
+   "commit_note": "",
+   "known_issues": [
+    "텔레그램 아침 브리핑과 기능 중복"
+   ],
+   "next_step": "삭제 또는 재설계 판단.",
+   "live": null,
+   "owner": null,
+   "missing_sources": [],
+   "updated_at": "2026-11-20T12:02:31+09:00",
+   "scheduled_action": {
+    "folder": "my-day-preparation",
+    "schedule": [
+     "daily 07:19"
+    ],
+    "paused": true,
+    "last_started_run_at": "2026-11-15T22:19:00Z",
+    "check_fail_count": 0,
+    "check_failure_generation": 0
+   }
+  }
+ ],
+ "access_matrix": {
+  "policy": "공개 저장소(mju1417-max/market-dashboard)만 쓴다. 비밀키·토큰·chat id·개인정보·절대경로·원본 대용량 DB·민감한 전략 원본 코드는 게시하지 않는다(27차 Ⅲ장 research/collab/README.md).",
+  "gpt_can_read": [
+   {
+    "path": "monitor/latest.json",
+    "what": "3시장 전진검증·연구 Shadow·세대 상태 요약(schema 3)",
+    "refresh": "5분",
+    "note": "전진과 Shadow를 분리한 단일 화면"
+   },
+   {
+    "path": "data/status.json",
+    "what": "수집 현황·트랙 성적·최근 급등",
+    "refresh": "5분",
+    "note": "대시보드가 60초마다 다시 읽는 파일"
+   },
+   {
+    "path": "monitor/events.jsonl",
+    "what": "구현·수리·검증·세대교체 사건(append-only)"
+   },
+   {
+    "path": "monitor/telegram_reports.jsonl",
+    "what": "발송 이력의 비식별 기록(시각·유형·성공 여부)"
+   },
+   {
+    "path": "coordination/gpt_to_pickle.jsonl",
+    "what": "GPT 의견 접수·처리 상태"
+   },
+   {
+    "path": "coordination/pickle_to_gpt.jsonl",
+    "what": "Pickle의 답변·검토 요청"
+   },
+   {
+    "path": "coordination/review_history.jsonl",
+    "what": "회차 게시 이력"
+   },
+   {
+    "path": "coordination/project_inventory.json",
+    "what": "이 인덱스(작업·누락·접근 경계)"
+   },
+   {
+    "path": "coordination/project_changelog.jsonl",
+    "what": "인덱스 변경 이력(append-only)"
+   },
+   {
+    "path": "research/reports/",
+    "what": "회차 보고서(27·29·30·31차, 3시장 현황, horizon JSON)"
+   },
+   {
+    "path": "research/evaluation_summaries/",
+    "what": "집계 요약 JSON"
+   },
+   {
+    "path": "research/test_results/",
+    "what": "검증 결과 JSON"
+   },
+   {
+    "path": "index.html, README.md, .github/workflows/watchdog.yml",
+    "what": "공개 대시보드 페이지·설명·외부 워치독"
+   }
+  ],
+  "gpt_cannot_read": [
+   {
+    "path": "research/*.py (연구 엔진·전략 원본)",
+    "why": "전략 임계값·특징 계산 구현 — 공개 정책상 미게시",
+    "alternative": "보고서·요약 JSON의 수치와 분자·분모"
+   },
+   {
+    "path": "scheduled-actions/*/check.sh, action.md",
+    "why": "수집기 구현·경보 채널·개인 관심사 정의",
+    "alternative": "monitor/latest.json 수집 현황, data/status.json"
+   },
+   {
+    "path": "원본 DB 7종(1분봉 3 + research 4, 약 1.6GB)",
+    "why": "크기·정책상 게시 불가",
+    "alternative": "봉 수·종목 수·오류·지연 집계"
+   },
+   {
+    "path": "research/.dashboard_pat, research/.telegram_config.json, 워치독 토픽",
+    "why": "자격증명·비밀",
+    "alternative": "없음(비공개 유지)"
+   },
+   {
+    "path": "handoffs/*/plan.md, log.md, verdicts.jsonl",
+    "why": "내부 실행 기록",
+    "alternative": "회차 보고서 요약"
+   },
+   {
+    "path": "research/history_*.md, gpt_3rd~26차 보고서 등 47건",
+    "why": "과거 회차 문서가 현재 main에 없음",
+    "alternative": "없음 — 누락 목록 참조"
+   }
+  ],
+  "personal_boundary": [
+   {
+    "subject": "우체국금융개발원 이전 감시",
+    "decision": "프로젝트 범위 밖(개인 관심사)으로 명시",
+    "published": "없음 — 상세·키워드·상태 모두 비게시"
+   },
+   {
+    "subject": "사용자 신원(이름·전화번호·주소·이메일)",
+    "decision": "게시 금지",
+    "published": "없음"
+   },
+   {
+    "subject": "원본 DB·절대경로",
+    "decision": "게시 금지",
+    "published": "없음(집계 수치만)"
+   }
+  ]
+ },
+ "missing_from_github": {
+  "note": "이번 대조로 드러난, GPT가 지금 읽을 수 없는 작업·문서.",
+  "items": [
+   {
+    "id": "collector.posid",
+    "name": "🏛️ 우체국금융개발원 이전 감시",
+    "reason": "개인 관심사(비시장) 영역 — 프로젝트 범위 밖으로 명시하고 상세는 게시하지 않음",
+    "category": "collector",
+    "market": "COMMON",
+    "scope": "personal_monitor"
+   },
+   {
+    "id": "collector.history_dump",
+    "name": "📚 과거 대용량 데이터 수집(연구 전용)",
+    "reason": "연구용 원본 DB·수집 스크립트 — 원본 DB 게시 불가 정책. 봉/행 수 집계는 latest.json·status.json에 반영.",
+    "category": "collector",
+    "market": "COMMON",
+    "scope": "market_project"
+   },
+   {
+    "id": "collector.upbit_backfill",
+    "name": "업비트 결측 분해·증분 백필",
+    "reason": "수리 스크립트·커버리지 감사 JSON이 단독 게시된 적 없음(18차 보고서는 로컬 전용).",
+    "category": "collector",
+    "market": "UP",
+    "scope": "market_project"
+   },
+   {
+    "id": "engine.global_strategies_lab",
+    "name": "세계 유명 투자기법 전수 대입 (6대)",
+    "reason": "성적표 보고서 global_strategies_report.md(31KB)가 로컬 전용 — 게시하면 이 누락이 닫힌다.",
+    "category": "auto_research",
+    "market": "COMMON",
+    "scope": "market_project"
+   },
+   {
+    "id": "engine.online_evaluator",
+    "name": "표준 온라인 평가기",
+    "reason": "구현 보고서 online_evaluator_report_20261119.md가 로컬 전용 — 평가 규약(budget-proto-v3)은 요약 JSON에만 노출.",
+    "category": "auto_research",
+    "market": "COMMON",
+    "scope": "market_project"
+   },
+   {
+    "id": "engine.kr_alpha",
+    "name": "한국 수급·재료 분석 세트",
+    "reason": "분석 보고서 kr_alpha_report.md(12KB)가 로컬 전용 — 결론(20일선 눌림+외인)은 KR_S16 트랙으로 집계에 반영.",
+    "category": "auto_research",
+    "market": "KR",
+    "scope": "market_project"
+   },
+   {
+    "id": "engine.wave",
+    "name": "파형 유사도 랭크 (WAVE v1/v2)",
+    "reason": "WAVE v1/v2 비교 문서가 로컬 전용 — 라이브 트랙 US_WAVE_RANK 성적만 monitor/latest.json에 노출.",
+    "category": "auto_research",
+    "market": "US",
+    "scope": "market_project"
+   },
+   {
+    "id": "engine.history_lab",
+    "name": "과거 일봉·1분봉 랩 (2년/30일)",
+    "reason": "과거 랩 보고서 history_report.md(20KB)가 로컬 전용 — 과거 DB 자체도 게시 불가.",
+    "category": "backtest_lab",
+    "market": "COMMON",
+    "scope": "market_project"
+   },
+   {
+    "id": "infra.dbs",
+    "name": "운영·연구 원본 DB (약 1.6GB)",
+    "reason": "원본 DB는 게시 불가. 공개되는 것은 집계(status.json·latest.json)뿐.",
+    "category": "infra_wal",
+    "market": "COMMON",
+    "scope": "market_project"
+   },
+   {
+    "id": "gov.handoffs",
+    "name": "작업 단위 실행 기록 (handoffs)",
+    "reason": "내부 실행 기록(plan/log/verdicts) — 공개 대상 아님(정책). 작업 결과 요약은 회차 보고서로만 공개.",
+    "category": "governance",
+    "market": "COMMON",
+    "scope": "market_project"
+   }
+  ],
+  "documents": [
+   {
+    "path": "research/DAILY_RERUN.md",
+    "size_kb": 7.6,
+    "mtime": "2026-11-18T18:59:11+09:00",
+    "classification": "internal_doc",
+    "note": "내부 계획·분석 문서 — 공개 대상 아님(정책)"
+   },
+   {
+    "path": "research/auto_researcher_report_20261119.md",
+    "size_kb": 2.2,
+    "mtime": "2026-11-19T08:01:50+09:00",
+    "classification": "internal_doc",
+    "note": "내부 계획·분석 문서 — 공개 대상 아님(정책)"
+   },
+   {
+    "path": "research/global_strategies_report.md",
+    "size_kb": 31.2,
+    "mtime": "2026-11-18T20:46:23+09:00",
+    "classification": "internal_doc",
+    "note": "내부 계획·분석 문서 — 공개 대상 아님(정책)"
+   },
+   {
+    "path": "research/global_strategies_revalidation_20261118.md",
+    "size_kb": 33.3,
+    "mtime": "2026-11-18T21:33:51+09:00",
+    "classification": "round_report",
+    "note": "과거 회차 보고서 — 그 회차에는 게시되었으나 현재 main 경로에 없음(경로 이동·미게시)"
+   },
+   {
+    "path": "research/gpt_10th_response_20261119.md",
+    "size_kb": 7.8,
+    "mtime": "2026-11-19T06:51:19+09:00",
+    "classification": "round_report",
+    "note": "과거 회차 보고서 — 그 회차에는 게시되었으나 현재 main 경로에 없음(경로 이동·미게시)"
+   },
+   {
+    "path": "research/gpt_11th_final_plan_20261119.md",
+    "size_kb": 7.4,
+    "mtime": "2026-11-19T06:56:25+09:00",
+    "classification": "round_report",
+    "note": "과거 회차 보고서 — 그 회차에는 게시되었으나 현재 main 경로에 없음(경로 이동·미게시)"
+   },
+   {
+    "path": "research/gpt_14th_evidence_report_20261119.md",
+    "size_kb": 28.9,
+    "mtime": "2026-11-19T08:57:48+09:00",
+    "classification": "round_report",
+    "note": "과거 회차 보고서 — 그 회차에는 게시되었으나 현재 main 경로에 없음(경로 이동·미게시)"
+   },
+   {
+    "path": "research/gpt_16th_evidence_report_20261119.md",
+    "size_kb": 22.6,
+    "mtime": "2026-11-19T10:18:36+09:00",
+    "classification": "round_report",
+    "note": "과거 회차 보고서 — 그 회차에는 게시되었으나 현재 main 경로에 없음(경로 이동·미게시)"
+   },
+   {
+    "path": "research/gpt_18th_evidence_report_20261120.md",
+    "size_kb": 25.2,
+    "mtime": "2026-11-20T07:14:11+09:00",
+    "classification": "round_report",
+    "note": "과거 회차 보고서 — 그 회차에는 게시되었으나 현재 main 경로에 없음(경로 이동·미게시)"
+   },
+   {
+    "path": "research/gpt_21st_stage1_report_20261120.md",
+    "size_kb": 22.8,
+    "mtime": "2026-11-20T12:41:56+09:00",
+    "classification": "round_report",
+    "note": "과거 회차 보고서 — 그 회차에는 게시되었으나 현재 main 경로에 없음(경로 이동·미게시)"
+   },
+   {
+    "path": "research/gpt_22nd_p0_report_20261120.md",
+    "size_kb": 23.7,
+    "mtime": "2026-11-20T13:32:18+09:00",
+    "classification": "round_report",
+    "note": "과거 회차 보고서 — 그 회차에는 게시되었으나 현재 main 경로에 없음(경로 이동·미게시)"
+   },
+   {
+    "path": "research/gpt_23rd_p0_report_20261120.md",
+    "size_kb": 29.5,
+    "mtime": "2026-11-20T14:24:28+09:00",
+    "classification": "round_report",
+    "note": "과거 회차 보고서 — 그 회차에는 게시되었으나 현재 main 경로에 없음(경로 이동·미게시)"
+   },
+   {
+    "path": "research/gpt_24th_stage1_report_20261120.md",
+    "size_kb": 21.9,
+    "mtime": "2026-11-20T15:34:33+09:00",
+    "classification": "round_report",
+    "note": "과거 회차 보고서 — 그 회차에는 게시되었으나 현재 main 경로에 없음(경로 이동·미게시)"
+   },
+   {
+    "path": "research/gpt_25th_evolution_report_20261120.md",
+    "size_kb": 21.1,
+    "mtime": "2026-11-20T17:00:47+09:00",
+    "classification": "round_report",
+    "note": "과거 회차 보고서 — 그 회차에는 게시되었으나 현재 main 경로에 없음(경로 이동·미게시)"
+   },
+   {
+    "path": "research/gpt_25th_infra_report_20261120.md",
+    "size_kb": 26.8,
+    "mtime": "2026-11-20T16:26:33+09:00",
+    "classification": "round_report",
+    "note": "과거 회차 보고서 — 그 회차에는 게시되었으나 현재 main 경로에 없음(경로 이동·미게시)"
+   },
+   {
+    "path": "research/gpt_3rd_revalidation_20261118.md",
+    "size_kb": 28.2,
+    "mtime": "2026-11-18T21:33:50+09:00",
+    "classification": "round_report",
+    "note": "과거 회차 보고서 — 그 회차에는 게시되었으나 현재 main 경로에 없음(경로 이동·미게시)"
+   },
+   {
+    "path": "research/gpt_5th_revalidation_20261118.md",
+    "size_kb": 30.4,
+    "mtime": "2026-11-18T22:48:52+09:00",
+    "classification": "round_report",
+    "note": "과거 회차 보고서 — 그 회차에는 게시되었으나 현재 main 경로에 없음(경로 이동·미게시)"
+   },
+   {
+    "path": "research/gpt_6th_revalidation_20261118.md",
+    "size_kb": 24.8,
+    "mtime": "2026-11-18T23:09:52+09:00",
+    "classification": "round_report",
+    "note": "과거 회차 보고서 — 그 회차에는 게시되었으나 현재 main 경로에 없음(경로 이동·미게시)"
+   },
+   {
+    "path": "research/gpt_7th_revalidation_20261119.md",
+    "size_kb": 14.7,
+    "mtime": "2026-11-19T05:44:52+09:00",
+    "classification": "round_report",
+    "note": "과거 회차 보고서 — 그 회차에는 게시되었으나 현재 main 경로에 없음(경로 이동·미게시)"
+   },
+   {
+    "path": "research/gpt_9th_technical_debate_20261119.md",
+    "size_kb": 55.0,
+    "mtime": "2026-11-19T06:37:29+09:00",
+    "classification": "round_report",
+    "note": "과거 회차 보고서 — 그 회차에는 게시되었으나 현재 main 경로에 없음(경로 이동·미게시)"
+   },
+   {
+    "path": "research/gpt_audit_rebuttal_20261118.md",
+    "size_kb": 6.1,
+    "mtime": "2026-11-18T19:58:09+09:00",
+    "classification": "round_report",
+    "note": "과거 회차 보고서 — 그 회차에는 게시되었으나 현재 main 경로에 없음(경로 이동·미게시)"
+   },
+   {
+    "path": "research/gpt_debate_final_20261118.md",
+    "size_kb": 33.2,
+    "mtime": "2026-11-18T21:33:25+09:00",
+    "classification": "round_report",
+    "note": "과거 회차 보고서 — 그 회차에는 게시되었으나 현재 main 경로에 없음(경로 이동·미게시)"
+   },
+   {
+    "path": "research/history_report.md",
+    "size_kb": 20.9,
+    "mtime": "2026-11-18T19:38:17+09:00",
+    "classification": "internal_doc",
+    "note": "내부 계획·분석 문서 — 공개 대상 아님(정책)"
+   },
+   {
+    "path": "research/integrated_benchmark_20261118.md",
+    "size_kb": 26.2,
+    "mtime": "2026-11-18T22:18:22+09:00",
+    "classification": "internal_doc",
+    "note": "내부 계획·분석 문서 — 공개 대상 아님(정책)"
+   },
+   {
+    "path": "research/kr_alpha_report.md",
+    "size_kb": 12.9,
+    "mtime": "2026-11-18T19:26:59+09:00",
+    "classification": "internal_doc",
+    "note": "내부 계획·분석 문서 — 공개 대상 아님(정책)"
+   },
+   {
+    "path": "research/ledger_report_20261119.md",
+    "size_kb": 2.8,
+    "mtime": "2026-11-20T07:03:09+09:00",
+    "classification": "internal_doc",
+    "note": "내부 계획·분석 문서 — 공개 대상 아님(정책)"
+   },
+   {
+    "path": "research/online_evaluator_report_20261119.md",
+    "size_kb": 14.2,
+    "mtime": "2026-11-19T06:54:27+09:00",
+    "classification": "internal_doc",
+    "note": "내부 계획·분석 문서 — 공개 대상 아님(정책)"
+   },
+   {
+    "path": "research/operational_verification_20261118.md",
+    "size_kb": 32.4,
+    "mtime": "2026-11-18T20:12:52+09:00",
+    "classification": "internal_doc",
+    "note": "내부 계획·분석 문서 — 공개 대상 아님(정책)"
+   },
+   {
+    "path": "research/pattern_discovery_20261119.md",
+    "size_kb": 29.1,
+    "mtime": "2026-11-19T05:57:56+09:00",
+    "classification": "internal_doc",
+    "note": "내부 계획·분석 문서 — 공개 대상 아님(정책)"
+   },
+   {
+    "path": "research/pickle_to_gpt_20th_report_20261120.md",
+    "size_kb": 6.0,
+    "mtime": "2026-11-20T11:44:20+09:00",
+    "classification": "round_report",
+    "note": "과거 회차 보고서 — 그 회차에는 게시되었으나 현재 main 경로에 없음(경로 이동·미게시)"
+   },
+   {
+    "path": "research/reliability_improvement_plan_20261118.md",
+    "size_kb": 56.4,
+    "mtime": "2026-11-18T20:31:34+09:00",
+    "classification": "internal_doc",
+    "note": "내부 계획·분석 문서 — 공개 대상 아님(정책)"
+   },
+   {
+    "path": "research/reports/horizon_predev_KR_20261121.json",
+    "size_kb": 19.1,
+    "mtime": "2026-11-21T03:58:26+09:00",
+    "classification": "research_artifact",
+    "note": "연구 중간 산출물(유니버스·시점 계측 등) — 요약 JSON에 흡수되어 단독 게시 안 됨"
+   },
+   {
+    "path": "research/reports/horizon_predev_UP_20261121.json",
+    "size_kb": 28.6,
+    "mtime": "2026-11-21T03:58:09+09:00",
+    "classification": "research_artifact",
+    "note": "연구 중간 산출물(유니버스·시점 계측 등) — 요약 JSON에 흡수되어 단독 게시 안 됨"
+   },
+   {
+    "path": "research/reports/kr_forward_causality_20261120.json",
+    "size_kb": 10.8,
+    "mtime": "2026-11-20T22:07:16+09:00",
+    "classification": "in_flight_31st",
+    "note": "31차 독립검증(실행 중) 산출물 — 그 작업이 자기 회차 보고서와 함께 게시 예정"
+   },
+   {
+    "path": "research/reports/p0_universe_causality_20261121.json",
+    "size_kb": 9.6,
+    "mtime": "2026-11-21T03:57:22+09:00",
+    "classification": "in_flight_31st",
+    "note": "31차 독립검증(실행 중) 산출물 — 그 작업이 자기 회차 보고서와 함께 게시 예정"
+   },
+   {
+    "path": "research/reports/strategy_lab_KR_sync_ledger_20261120.json",
+    "size_kb": 4.5,
+    "mtime": "2026-11-20T22:05:20+09:00",
+    "classification": "in_flight_31st",
+    "note": "31차 독립검증(실행 중) 산출물 — 그 작업이 자기 회차 보고서와 함께 게시 예정"
+   },
+   {
+    "path": "research/reports/timing_metrics_20261120.json",
+    "size_kb": 149.2,
+    "mtime": "2026-11-20T22:49:08+09:00",
+    "classification": "in_flight_31st",
+    "note": "31차 독립검증(실행 중) 산출물 — 그 작업이 자기 회차 보고서와 함께 게시 예정"
+   },
+   {
+    "path": "research/reports/universe_KR_150_20261120.json",
+    "size_kb": 18.9,
+    "mtime": "2026-11-20T22:24:56+09:00",
+    "classification": "in_flight_31st",
+    "note": "31차 독립검증(실행 중) 산출물 — 그 작업이 자기 회차 보고서와 함께 게시 예정"
+   },
+   {
+    "path": "research/reports/universe_UP_150_20261120.json",
+    "size_kb": 19.0,
+    "mtime": "2026-11-20T22:25:20+09:00",
+    "classification": "in_flight_31st",
+    "note": "31차 독립검증(실행 중) 산출물 — 그 작업이 자기 회차 보고서와 함께 게시 예정"
+   },
+   {
+    "path": "research/reports/universe_US_150_20261120.json",
+    "size_kb": 17.6,
+    "mtime": "2026-11-20T22:25:04+09:00",
+    "classification": "in_flight_31st",
+    "note": "31차 독립검증(실행 중) 산출물 — 그 작업이 자기 회차 보고서와 함께 게시 예정"
+   },
+   {
+    "path": "research/reports/universe_predev_KR_150_20261121.json",
+    "size_kb": 19.2,
+    "mtime": "2026-11-21T03:56:09+09:00",
+    "classification": "in_flight_31st",
+    "note": "31차 독립검증(실행 중) 산출물 — 그 작업이 자기 회차 보고서와 함께 게시 예정"
+   },
+   {
+    "path": "research/reports/universe_predev_UP_150_20261121.json",
+    "size_kb": 19.2,
+    "mtime": "2026-11-21T03:55:55+09:00",
+    "classification": "in_flight_31st",
+    "note": "31차 독립검증(실행 중) 산출물 — 그 작업이 자기 회차 보고서와 함께 게시 예정"
+   },
+   {
+    "path": "research/reports/universe_predev_US_150_20261121.json",
+    "size_kb": 18.0,
+    "mtime": "2026-11-21T03:57:21+09:00",
+    "classification": "in_flight_31st",
+    "note": "31차 독립검증(실행 중) 산출물 — 그 작업이 자기 회차 보고서와 함께 게시 예정"
+   },
+   {
+    "path": "research/step2_results_20261118.md",
+    "size_kb": 9.4,
+    "mtime": "2026-11-18T21:12:10+09:00",
+    "classification": "internal_doc",
+    "note": "내부 계획·분석 문서 — 공개 대상 아님(정책)"
+   },
+   {
+    "path": "research/strategy_lab_gen3_report.md",
+    "size_kb": 13.0,
+    "mtime": "2026-11-18T17:20:27+09:00",
+    "classification": "internal_doc",
+    "note": "내부 계획·분석 문서 — 공개 대상 아님(정책)"
+   },
+   {
+    "path": "research/surge_miner_gen16_report.md",
+    "size_kb": 16.9,
+    "mtime": "2026-11-17T21:47:25+09:00",
+    "classification": "internal_doc",
+    "note": "내부 계획·분석 문서 — 공개 대상 아님(정책)"
+   },
+   {
+    "path": "research/technical_audit_20261118.md",
+    "size_kb": 51.6,
+    "mtime": "2026-11-18T19:49:25+09:00",
+    "classification": "round_report",
+    "note": "과거 회차 보고서 — 그 회차에는 게시되었으나 현재 main 경로에 없음(경로 이동·미게시)"
+   },
+   {
+    "path": "research/third_stage_report_20261119.md",
+    "size_kb": 11.0,
+    "mtime": "2026-11-19T07:26:17+09:00",
+    "classification": "internal_doc",
+    "note": "내부 계획·분석 문서 — 공개 대상 아님(정책)"
+   },
+   {
+    "path": "research/upbit_kr_gen2_report.md",
+    "size_kb": 14.0,
+    "mtime": "2026-11-18T10:58:58+09:00",
+    "classification": "internal_doc",
+    "note": "내부 계획·분석 문서 — 공개 대상 아님(정책)"
+   }
+  ]
+ },
+ "scheduled_actions": [
+  {
+   "id": "explore-offer-review",
+   "title": "Explore offer review",
+   "schedule": [
+    "daily 03:26"
+   ],
+   "paused": false,
+   "check_sh": false,
+   "check_sh_kb": null,
+   "next_run_at": "2026-11-21T18:26:00Z",
+   "last_started_run_at": "2026-11-20T18:26:00Z",
+   "check_fail_count": 0,
+   "check_failure_generation": 0
+  },
+  {
+   "id": "heartbeat",
+   "title": "Heartbeat",
+   "schedule": [
+    "interval 12h"
+   ],
+   "paused": false,
+   "check_sh": false,
+   "check_sh_kb": null,
+   "next_run_at": "2026-11-20T23:36:48.032922Z",
+   "last_started_run_at": "2026-11-20T11:36:48.032922Z",
+   "check_fail_count": 0,
+   "check_failure_generation": 0
+  },
+  {
+   "id": "my-day-preparation",
+   "title": "☀️ 아침 브리핑",
+   "schedule": [
+    "daily 07:19"
+   ],
+   "paused": true,
+   "check_sh": false,
+   "check_sh_kb": null,
+   "next_run_at": null,
+   "last_started_run_at": "2026-11-15T22:19:00Z",
+   "check_fail_count": 0,
+   "check_failure_generation": 0
+  },
+  {
+   "id": "🇰🇷-한국장-일간-재탐색",
+   "title": "🇰🇷 한국장 일간 재탐색",
+   "schedule": [
+    "interval 5m"
+   ],
+   "paused": false,
+   "check_sh": true,
+   "check_sh_kb": 3.1,
+   "next_run_at": "2026-11-20T18:59:14.963349Z",
+   "last_started_run_at": "2026-11-20T18:54:14.963349Z",
+   "check_fail_count": 0,
+   "check_failure_generation": 0
+  },
+  {
+   "id": "🇰🇷-한국주식-패턴-분석",
+   "title": "🇰🇷 한국주식 패턴 분석",
+   "schedule": [
+    "interval 5m"
+   ],
+   "paused": false,
+   "check_sh": true,
+   "check_sh_kb": 30.7,
+   "next_run_at": "2026-11-20T19:00:09.170030Z",
+   "last_started_run_at": "2026-11-20T18:55:09.170030Z",
+   "check_fail_count": 0,
+   "check_failure_generation": 1
+  },
+  {
+   "id": "🇺🇸-미국주식-패턴-분석",
+   "title": "🇺🇸 미국주식 패턴 분석",
+   "schedule": [
+    "interval 5m"
+   ],
+   "paused": false,
+   "check_sh": true,
+   "check_sh_kb": 30.6,
+   "next_run_at": "2026-11-20T18:57:45.641426Z",
+   "last_started_run_at": "2026-11-20T18:57:45.641426Z",
+   "check_fail_count": 0,
+   "check_failure_generation": 3
+  },
+  {
+   "id": "🏛️-우체국금융개발원-이전-감시",
+   "title": "🏛️ 우체국금융개발원 이전 감시",
+   "schedule": [
+    "interval 5m"
+   ],
+   "paused": false,
+   "check_sh": true,
+   "check_sh_kb": 6.5,
+   "next_run_at": "2026-11-20T19:00:28.238505Z",
+   "last_started_run_at": "2026-11-20T18:55:28.238505Z",
+   "check_fail_count": 0,
+   "check_failure_generation": 0
+  },
+  {
+   "id": "📈-업비트-모의투자-분석",
+   "title": "📈 업비트 모의투자 분석",
+   "schedule": [
+    "interval 5m"
+   ],
+   "paused": false,
+   "check_sh": true,
+   "check_sh_kb": 35.4,
+   "next_run_at": "2026-11-20T18:57:45.210141Z",
+   "last_started_run_at": "2026-11-20T18:57:45.210141Z",
+   "check_fail_count": 0,
+   "check_failure_generation": 8
+  },
+  {
+   "id": "📊-업비트-전진검증-채점",
+   "title": "📊 업비트 전진검증 채점",
+   "schedule": [
+    "interval 5m"
+   ],
+   "paused": false,
+   "check_sh": true,
+   "check_sh_kb": 6.2,
+   "next_run_at": "2026-11-20T18:59:40.310354Z",
+   "last_started_run_at": "2026-11-20T18:54:40.310354Z",
+   "check_fail_count": 0,
+   "check_failure_generation": 7
+  },
+  {
+   "id": "🔬-자가발전-패턴-연구",
+   "title": "🔬 자가발전 패턴 연구",
+   "schedule": [
+    "interval 30m"
+   ],
+   "paused": false,
+   "check_sh": true,
+   "check_sh_kb": 6.8,
+   "next_run_at": "2026-11-20T18:58:50.655704Z",
+   "last_started_run_at": "2026-11-20T18:28:50.655704Z",
+   "check_fail_count": 0,
+   "check_failure_generation": 1
+  },
+  {
+   "id": "🛡️-파이프라인-정지-감시",
+   "title": "🛡️ 파이프라인 정지 감시",
+   "schedule": [
+    "interval 5m"
+   ],
+   "paused": false,
+   "check_sh": true,
+   "check_sh_kb": 5.8,
+   "next_run_at": null,
+   "last_started_run_at": null,
+   "check_fail_count": 0,
+   "check_failure_generation": 0
+  }
+ ],
+ "handoffs": {
+  "total": 59,
+  "done": 57,
+  "running": 2,
+  "recent": [
+   {
+    "id": "📋-34차-전체-프로젝트-인덱스-github-공유-체계-구축",
+    "state": "running",
+    "created_at": "2026-11-20T18:54:58.370280Z",
+    "updated_at": "2026-11-20T18:58:29.334303Z"
+   },
+   {
+    "id": "🛠️-31차-독립검증-p0-인과-분할-shadow-p1-4종",
+    "state": "running",
+    "created_at": "2026-11-20T18:47:15.452856Z",
+    "updated_at": "2026-11-20T18:58:27.940387Z"
+   }
+  ]
+ },
+ "modules": {
+  "total": 126,
+  "items": [
+   {
+    "file": "research/ar_failure_analysis.py",
+    "kb": 14.0,
+    "category": "연구 엔진",
+    "doc": "P0-3 — 자동 탐색 272개 후보 '통과 0개'의 원인 분해 (읽기 전용)."
+   },
+   {
+    "file": "research/audit_hot_movers_fix.py",
+    "kb": 6.3,
+    "category": "규약·파리티",
+    "doc": "GPS 13차 P1-6 — 업비트 `trade_price` 컬럼 오용(`hot_movers`)의 영향 범위 실측."
+   },
+   {
+    "file": "research/auto_researcher.py",
+    "kb": 97.9,
+    "category": "연구 엔진",
+    "doc": "research/auto_researcher.py — 자가발전 자동 패턴 발견·반증 엔진 (4순위)"
+   },
+   {
+    "file": "research/backtest_strategies.py",
+    "kb": 12.1,
+    "category": "백테스트·감사",
+    "doc": "Multi-strategy 1-minute candle backtester across Upbit, KR stocks, and US stocks."
+   },
+   {
+    "file": "research/budget_gen23_audit_20261120.py",
+    "kb": 8.5,
+    "category": "백테스트·감사",
+    "doc": "research/budget_gen23_audit_20261120.py — 24차 P0-2: `UPBIT_GEN2`·`UPBIT_GEN3` 예산 실태."
+   },
+   {
+    "file": "research/build_collab_ledger_20261120.py",
+    "kb": 10.9,
+    "category": "게시·요약",
+    "doc": "27차 Ⅲ장 — GitHub 협업 원장의 로컬 원본(JSONL) 생성."
+   },
+   {
+    "file": "research/build_p1_summary_20261120.py",
+    "kb": 10.6,
+    "category": "게시·요약",
+    "doc": "research/build_p1_summary_20261120.py — 29차 P1 구조화 요약 생성"
+   },
+   {
+    "file": "research/build_p1_summary_30th.py",
+    "kb": 8.2,
+    "category": "게시·요약",
+    "doc": "research/build_p1_summary_30th.py — 30차 P1 비식별 JSON 요약 생성."
+   },
+   {
+    "file": "research/build_p31_summary_20261120.py",
+    "kb": 4.6,
+    "category": "게시·요약",
+    "doc": "research/build_p31_summary_20261120.py — 제31차 P0 검증 결과를 비식별 JSON 요약으로 묶는다."
+   },
+   {
+    "file": "research/build_three_market_summary_20261120.py",
+    "kb": 17.1,
+    "category": "게시·요약",
+    "doc": "3시장(UP·KR·US) 현황 요약 JSON 생성 — 2026-11-20."
+   },
+   {
+    "file": "research/build_wave_template_us.py",
+    "kb": 9.8,
+    "category": "게시·요약",
+    "doc": "US_WAVE_RANK 동결 템플릿 생성 — `ACCEL×WAVE` 규칙을 라이브 트랙이 쓸 수 있게 고정."
+   },
+   {
+    "file": "research/causal_fifo_isolation_20261120.py",
+    "kb": 25.4,
+    "category": "백테스트·감사",
+    "doc": "research/causal_fifo_isolation_20261120.py — 25차 P0-2: 연구용 FIFO vs 실행 가능 Causal FIFO 격리 검증."
+   },
+   {
+    "file": "research/collab_ledger.py",
+    "kb": 17.6,
+    "category": "인프라·게시",
+    "doc": "GitHub 협업 원장(monitor/·coordination/·research/) 게시 도구 — 27차 Ⅲ장."
+   },
+   {
+    "file": "research/collector_audit_20261120.py",
+    "kb": 9.4,
+    "category": "수집",
+    "doc": "research/collector_audit_20261120.py — 21차 §8-A/B/C 운영 수치 감사(실측)."
+   },
+   {
+    "file": "research/collector_dedup_audit_20261120.py",
+    "kb": 7.1,
+    "category": "수집",
+    "doc": "research/collector_dedup_audit_20261120.py — 22차 P0-4 수집 중복 조회 제거 실측·시뮬."
+   },
+   {
+    "file": "research/common_ledger.py",
+    "kb": 77.8,
+    "category": "연구 엔진",
+    "doc": "research/common_ledger.py — 22차 P0-2 **신호·사건 공통 원장**."
+   },
+   {
+    "file": "research/coverage_audit_upbit.py",
+    "kb": 10.9,
+    "category": "백테스트·감사",
+    "doc": "research/coverage_audit_upbit.py — P0-2 전체 마켓(302) → DEV 24종목 커버리지 원장(읽기 전용)."
+   },
+   {
+    "file": "research/daily_rerun.py",
+    "kb": 29.5,
+    "category": "연구 엔진",
+    "doc": "daily_rerun.py — 일일 결산용 재탐색 러너 (폭등공식 + 5대기법)"
+   },
+   {
+    "file": "research/dev_learning_loop_audit.py",
+    "kb": 10.0,
+    "category": "백테스트·감사",
+    "doc": "research/dev_learning_loop_audit.py — auto_researcher 학습 순환 실측(18차 P0-4 → 19차 갱신)."
+   },
+   {
+    "file": "research/dev_repanel_experiment.py",
+    "kb": 4.9,
+    "category": "백테스트·감사",
+    "doc": "research/.bk18/repanel_dev.py — (실험) 백필된 1분봉이 자동연구 DEV 패널에 도달하는가."
+   },
+   {
+    "file": "research/export_dashboard_json.py",
+    "kb": 26.7,
+    "category": "인프라·게시",
+    "doc": "Public dashboard snapshot exporter."
+   },
+   {
+    "file": "research/failure_hypothesis.py",
+    "kb": 37.9,
+    "category": "연구 엔진",
+    "doc": "research/failure_hypothesis.py — 25차 4순위: **실패 원장 기반 자동 가설 생성**."
+   },
+   {
+    "file": "research/fill_delay_analysis.py",
+    "kb": 7.7,
+    "category": "백테스트·감사",
+    "doc": "research/fill_delay_analysis.py — 모의체결 지연이 정밀도·손익에 미치는 영향(18차 P0-3)."
+   },
+   {
+    "file": "research/forward_tracker.py",
+    "kb": 168.2,
+    "category": "전진·Shadow",
+    "doc": "Forward paper-trading tracker (전진 모의검증)."
+   },
+   {
+    "file": "research/forward_tracker_kr_s16.py",
+    "kb": 80.0,
+    "category": "전진·Shadow",
+    "doc": "KR_S16 전진검증(모의) — 한국장 수급 눌림목 20거래일 스윙 트랙."
+   },
+   {
+    "file": "research/forward_tracker_kr_vcp.py",
+    "kb": 47.9,
+    "category": "전진·Shadow",
+    "doc": "KR_VCP 전진검증(모의) — 한국장 Minervini VCP 일봉 스윙 트랙."
+   },
+   {
+    "file": "research/freeze_eval_protocol_20261120.py",
+    "kb": 5.5,
+    "category": "규약·파리티",
+    "doc": "research/freeze_eval_protocol_20261120.py — 25차: 평가 규약 최종 동결(budget-proto-v3)."
+   },
+   {
+    "file": "research/gen3_forward_parity.py",
+    "kb": 7.7,
+    "category": "규약·파리티",
+    "doc": "gen3_forward_parity.py — UPBIT_GEN3 구현이 랩/독립검증과 같은 신호를 내는지 대조"
+   },
+   {
+    "file": "research/generation_rotation.py",
+    "kb": 54.2,
+    "category": "연구 엔진",
+    "doc": "research/generation_rotation.py — 25차 3순위-A: **자동 세대교체 스케줄 연결**."
+   },
+   {
+    "file": "research/generation_rotation_status_20261120.py",
+    "kb": 6.7,
+    "category": "연구 엔진",
+    "doc": "research/generation_rotation_status_20261120.py — 21차 §2-3 자동 세대교체 7단계 상태(정직 표기)."
+   },
+   {
+    "file": "research/global_strategies_lab.py",
+    "kb": 56.6,
+    "category": "연구 엔진",
+    "doc": "global_strategies_lab.py — 세계 유명 투자기법 2차 전수 대입 (6대 기법)"
+   },
+   {
+    "file": "research/global_strategies_verify.py",
+    "kb": 26.2,
+    "category": "연구 엔진",
+    "doc": "global_strategies_verify.py — 6대 기법 성적표 **독립 재계산** 검증"
+   },
+   {
+    "file": "research/history_collect.py",
+    "kb": 18.2,
+    "category": "수집",
+    "doc": "history_collect.py — 과거 대용량 데이터 수집기 (연구 전용, 무료 API)"
+   },
+   {
+    "file": "research/history_daily_lab.py",
+    "kb": 20.9,
+    "category": "연구 엔진",
+    "doc": "history_daily_lab.py — 과거 2년 일봉(research/history_data.db)에서"
+   },
+   {
+    "file": "research/history_daily_surge.py",
+    "kb": 12.8,
+    "category": "연구 엔진",
+    "doc": "history_daily_surge.py — 일봉 2년 데이터에서 '폭등(+10%) 직전 공식'을 실제 매매 규칙으로 검증"
+   },
+   {
+    "file": "research/history_miner.py",
+    "kb": 19.9,
+    "category": "연구 엔진",
+    "doc": "history_miner.py — 과거 30일 업비트 1분봉(research/history_data.db) '폭등 직전 반복 공식' 역추적"
+   },
+   {
+    "file": "research/history_verify_ovn.py",
+    "kb": 6.8,
+    "category": "연구 엔진",
+    "doc": "history_verify_ovn.py — '종가 매수 → 다음날 시가 매도'(오버나이트) 규칙 독립 재계산 검증"
+   },
+   {
+    "file": "research/horizon_lab.py",
+    "kb": 30.6,
+    "category": "연구 엔진",
+    "doc": "research/horizon_lab.py — 30차 P1-F: 3시장 × H=30/60/120 독립 연구."
+   },
+   {
+    "file": "research/knowledge_ledger.py",
+    "kb": 27.7,
+    "category": "연구 엔진",
+    "doc": "지식 원장 — research/knowledge_ledger.py (+ research/knowledge.db, SQLite WAL)"
+   },
+   {
+    "file": "research/kr_alpha_analysis.py",
+    "kb": 22.6,
+    "category": "연구 엔진",
+    "doc": "한국장 수급·재료 기반 급등 해법 분석 엔진."
+   },
+   {
+    "file": "research/kr_alpha_collect.py",
+    "kb": 14.4,
+    "category": "수집",
+    "doc": "한국장 수급·공시·일봉 수집기 (무료 네이버 소스, python stdlib만 사용)."
+   },
+   {
+    "file": "research/kr_alpha_portfolio.py",
+    "kb": 7.3,
+    "category": "연구 엔진",
+    "doc": "최종 후보 규칙의 포트폴리오 시뮬레이션 — 실제로 돈이 되는지 확인."
+   },
+   {
+    "file": "research/kr_alpha_strategies.py",
+    "kb": 21.7,
+    "category": "연구 엔진",
+    "doc": "한국장 실전 기법 성적표 — 수급·재료·일봉 조합 스캔."
+   },
+   {
+    "file": "research/kr_alpha_verify.py",
+    "kb": 9.1,
+    "category": "연구 엔진",
+    "doc": "독립 교차검증 — 한국장 수급·재료 규칙의 초과수익이 '진짜 알파'인지 '유니버스 효과'인지 가른다."
+   },
+   {
+    "file": "research/kr_daily_step.py",
+    "kb": 12.9,
+    "category": "연구 엔진",
+    "doc": "research/kr_daily_step.py — 한국장 일간 재탐색을 **회차당 한 단계**씩 실행하는 러너."
+   },
+   {
+    "file": "research/kr_forward_causality_audit.py",
+    "kb": 10.1,
+    "category": "백테스트·감사",
+    "doc": "research/kr_forward_causality_audit.py — KR_S16·KR_VCP 소급 체결의 인과성 감사·분리."
+   },
+   {
+    "file": "research/kr_gen28_promotion_gate_20261120.py",
+    "kb": 3.3,
+    "category": "규약·파리티",
+    "doc": "research/kr_gen28_promotion_gate_20261120.py — gen 28 에 승격 게이트 메타데이터를 붙인다 (제31차 P0-7)."
+   },
+   {
+    "file": "research/kr_gen2_probe.py",
+    "kb": 19.0,
+    "category": "규약·파리티",
+    "doc": "kr_gen2_probe.py — 한국주식 2세대 전략 탐색: 왕복 0.41%(수수료+거래세)를 이기는 구조 찾기"
+   },
+   {
+    "file": "research/kr_s16_supply_audit_20261120.py",
+    "kb": 12.9,
+    "category": "감사·규명",
+    "doc": "research/kr_s16_supply_audit_20261120.py — KR_S16 수급 인과성 개별 signal_id 감사 (제31차 P0-4)."
+   },
+   {
+    "file": "research/krx_calendar.py",
+    "kb": 3.7,
+    "category": "규약·파리티",
+    "doc": "research/krx_calendar.py — 한국거래소(KRX) 영업일 캘린더 (P0-1·P0-2 공용)."
+   },
+   {
+    "file": "research/lab_protocol.py",
+    "kb": 1.9,
+    "category": "규약·파리티",
+    "doc": "research/lab_protocol.py — strategy_lab 집계 규약(protocol) 정의."
+   },
+   {
+    "file": "research/leading_accel.py",
+    "kb": 35.8,
+    "category": "연구 엔진",
+    "doc": "research/leading_accel.py — 25차 5순위: **거래대금 선행 가속** 최초 실험."
+   },
+   {
+    "file": "research/ledger_reconcile_20261120.py",
+    "kb": 7.6,
+    "category": "백테스트·감사",
+    "doc": "research/ledger_reconcile_20261120.py — 21차 §2-1: DB 봉 증가량 16,356봉 대조(실측)."
+   },
+   {
+    "file": "research/ledger_report.py",
+    "kb": 18.0,
+    "category": "게시·요약",
+    "doc": "research/ledger_report.py — 통합 원장 리포터(읽기 전용, P1-2)."
+   },
+   {
+    "file": "research/market_adapters.py",
+    "kb": 15.9,
+    "category": "연구 엔진",
+    "doc": "research/market_adapters.py — UP·KR·US 시장 어댑터 (GPT 29차 P1-3/P1-4)"
+   },
+   {
+    "file": "research/market_common.py",
+    "kb": 41.8,
+    "category": "연구 엔진",
+    "doc": "research/market_common.py — 3시장(UP·KR·US) 자가발전 공통 인터페이스 (GPT 29차 P1-3)"
+   },
+   {
+    "file": "research/monitor_research_20261120.py",
+    "kb": 40.6,
+    "category": "인프라·게시",
+    "doc": "research/monitor_research_20261120.py — monitor/latest.json 의 `research` 3시장 문서 (schema 3)."
+   },
+   {
+    "file": "research/notify_three_market_20261120.py",
+    "kb": 2.0,
+    "category": "게시·요약",
+    "doc": "3시장 패키지 게시 통지 1건 발송 — 텔레그램 [변경적용]."
+   },
+   {
+    "file": "research/online_evaluator.py",
+    "kb": 47.2,
+    "category": "연구 엔진",
+    "doc": "표준 온라인 평가기 v1 — research/online_evaluator.py"
+   },
+   {
+    "file": "research/order_parity_20261120.py",
+    "kb": 9.9,
+    "category": "백테스트·감사",
+    "doc": "research/order_parity_20261120.py — 24차 P0-3: 연구 FIFO vs 라이브 선택 순서 실측 비교."
+   },
+   {
+    "file": "research/p0_23_audit.py",
+    "kb": 9.1,
+    "category": "감사·규명",
+    "doc": "research/p0_23_audit.py — GPT 제23차 1~2순위(예산 정합·공통 사건 비교·429 계측) 실측 러너."
+   },
+   {
+    "file": "research/p0_universe_causality_20261121.py",
+    "kb": 11.5,
+    "category": "감사·규명",
+    "doc": "research/p0_universe_causality_20261121.py — 31차 P0-1: 유니버스 인과성 실측·pre-DEV 동결 재구축."
+   },
+   {
+    "file": "research/p0b_prune_verified.py",
+    "kb": 2.5,
+    "category": "감사·규명",
+    "doc": "27차 P0-B: 검증된 샤드만 활성 표에서 프루닝한다(재빌드 없음)."
+   },
+   {
+    "file": "research/p0c_budget_audit_20261120.py",
+    "kb": 5.2,
+    "category": "감사·규명",
+    "doc": "27차 P0-C — Causal FIFO 예산 `102건` 해명(실측 감사)."
+   },
+   {
+    "file": "research/p0d_net_audit_20261120.py",
+    "kb": 5.8,
+    "category": "감사·규명",
+    "doc": "27차 P0-D — 두 보고의 순손익 합계 차이 해명(−90.92%p vs −103.3%p)."
+   },
+   {
+    "file": "research/p0f_exitcode_verify_20261120.py",
+    "kb": 3.4,
+    "category": "검증",
+    "doc": "27차 P0-F(2) — `check.sh` 종료 코드 규약(0=AI, 1=quiet, 2=error) 실제 검증."
+   },
+   {
+    "file": "research/p0f_snapshot_probe_20261120.py",
+    "kb": 3.6,
+    "category": "검증",
+    "doc": "27차 P0-F — 수정된 운영 DB 스냅숏 생성기의 실제 소요 시간·잠금 영향 측정(1회)."
+   },
+   {
+    "file": "research/p1_standard_metrics_20261120.py",
+    "kb": 29.3,
+    "category": "감사·규명",
+    "doc": "research/p1_standard_metrics_20261120.py — GPT 29차 P1-1/P1-2 표준 지표 실측"
+   },
+   {
+    "file": "research/precision_denominator_audit_20261120.py",
+    "kb": 16.8,
+    "category": "백테스트·감사",
+    "doc": "research/precision_denominator_audit_20261120.py — 25차 P0-1: sparse @market 정밀도 분모 정합 감사."
+   },
+   {
+    "file": "research/production_connected.py",
+    "kb": 33.1,
+    "category": "연구 엔진",
+    "doc": "research/production_connected.py — 30차 P1-E: **운영 스케줄에 실제로 연결된** 3시장 자기발전."
+   },
+   {
+    "file": "research/project_inventory.py",
+    "kb": 94.1,
+    "category": "게시·요약",
+    "doc": "research/project_inventory.py — 전 프로젝트 중앙 인덱스 (GPT 제34차 지시 이행)."
+   },
+   {
+    "file": "research/publish_p0_7_20261120.py",
+    "kb": 10.7,
+    "category": "게시·요약",
+    "doc": "research/publish_p0_7_20261120.py — 29차 트랙A 게시(P0-7 포함)."
+   },
+   {
+    "file": "research/publish_p31_20261120.py",
+    "kb": 12.1,
+    "category": "게시·요약",
+    "doc": "research/publish_p31_20261120.py — 제31차 P0 보고서·요약·검증·monitor/latest.json 게시 (31차 4절)."
+   },
+   {
+    "file": "research/publish_three_market_20261120.py",
+    "kb": 5.5,
+    "category": "게시·요약",
+    "doc": "3시장 현황 패키지 GitHub 게시 — 2026-11-20."
+   },
+   {
+    "file": "research/push_dashboard_api.py",
+    "kb": 5.0,
+    "category": "인프라·게시",
+    "doc": "Zero-credit 5-minute dashboard publisher via GitHub Contents REST API."
+   },
+   {
+    "file": "research/recompute_binom_p.py",
+    "kb": 8.1,
+    "category": "백테스트·감사",
+    "doc": "research/recompute_binom_p.py — P0-1 이항검정 p값 재산출(읽기 전용)."
+   },
+   {
+    "file": "research/reconcile_candle_counts_20261120.py",
+    "kb": 6.3,
+    "category": "백테스트·감사",
+    "doc": "research/reconcile_candle_counts_20261120.py — P0-7: '24,480봉' 차이 재현·규명."
+   },
+   {
+    "file": "research/research_universe.py",
+    "kb": 16.6,
+    "category": "연구 엔진",
+    "doc": "research/research_universe.py — 30차 P1-F: **컷오프 시점에 고정되는 150종목 연구 유니버스**."
+   },
+   {
+    "file": "research/rotation_lock_probe_20261120.py",
+    "kb": 5.8,
+    "category": "백테스트·감사",
+    "doc": "research/rotation_lock_probe_20261120.py — P0-3 원인 실측(가정 금지)."
+   },
+   {
+    "file": "research/safe_ro.py",
+    "kb": 7.9,
+    "category": "인프라·게시",
+    "doc": "research/safe_ro.py — 활성 WAL DB 를 **검증된 방식으로만** 읽는 도우미 (P0-4, 30차 P0-B 개정)."
+   },
+   {
+    "file": "research/shadow_engine.py",
+    "kb": 35.9,
+    "category": "전진·Shadow",
+    "doc": "research/shadow_engine.py — 25차 3순위-B: **Shadow 자동 연결** 엔진."
+   },
+   {
+    "file": "research/signal_timing_metrics.py",
+    "kb": 11.2,
+    "category": "백테스트·감사",
+    "doc": "research/signal_timing_metrics.py — 30차 P1-B/P1-C: **사전포착 vs 늦은 관측 vs 사건 미도달** 분리."
+   },
+   {
+    "file": "research/sparse_grid.py",
+    "kb": 48.3,
+    "category": "연구 엔진",
+    "doc": "research/sparse_grid.py — 저유동성 종목용 무거래 시간격자(sparse grid) 연구 경로."
+   },
+   {
+    "file": "research/sparse_shards.py",
+    "kb": 36.5,
+    "category": "연구 엔진",
+    "doc": "research/sparse_shards.py — 25차 P0-3: sparse_grid 시간 단위 샤딩 / 아카이브 계층."
+   },
+   {
+    "file": "research/sparse_v2_eval_20261120.py",
+    "kb": 6.3,
+    "category": "연구 엔진",
+    "doc": "research/sparse_v2_eval_20261120.py — 24차 P0-1 v1↔v2 재평가(실측)."
+   },
+   {
+    "file": "research/strategy_lab.py",
+    "kb": 60.9,
+    "category": "연구 엔진",
+    "doc": "strategy_lab.py — 3세대 전략 탐색: 5대 기법 패밀리 전수 백테스트 + 시간분할(OOS) 검증"
+   },
+   {
+    "file": "research/surge_miner.py",
+    "kb": 73.9,
+    "category": "연구 엔진",
+    "doc": "surge_miner.py — 2세대: 실제 급등 역추적 + 자가발전 규칙 탐색 엔진 (업비트 / 한국주식 / 미국주식)"
+   },
+   {
+    "file": "research/surge_stage.py",
+    "kb": 95.9,
+    "category": "연구 엔진",
+    "doc": "research/surge_stage.py — surge_miner 단계 실행기(state machine + 체크포인트 + 분할 재개)."
+   },
+   {
+    "file": "research/sync_strategy_lab_canonical.py",
+    "kb": 11.1,
+    "category": "연구 엔진",
+    "doc": "research/sync_strategy_lab_canonical.py — 랩 KR 청크 → `research/strategy_lab_KR.json` 정본 동기화."
+   },
+   {
+    "file": "research/telegram_reporter.py",
+    "kb": 80.2,
+    "category": "인프라·게시",
+    "doc": "텔레그램 직송 리포터 — check.sh(5분 파이썬)에서 AI를 깨우지 않고 폰으로 직접 보고한다."
+   },
+   {
+    "file": "research/three_market_measure_20261120.py",
+    "kb": 2.4,
+    "category": "게시·요약",
+    "doc": "3시장(UP/KR/US) 실측 수집 — 2026-11-20 보고서용. 읽기 전용."
+   },
+   {
+    "file": "research/upbit_backfill.py",
+    "kb": 29.7,
+    "category": "수집",
+    "doc": "research/upbit_backfill.py — 업비트 1분봉 **결측 분해 + 증분 백필**(멱등·무과금)."
+   },
+   {
+    "file": "research/upbit_continuity_stats.py",
+    "kb": 2.5,
+    "category": "규약·파리티",
+    "doc": ""
+   },
+   {
+    "file": "research/upbit_gen2_candidate.py",
+    "kb": 6.2,
+    "category": "규약·파리티",
+    "doc": "upbit_gen2_candidate.py — 업비트 2세대 추천안(UPBIT_GEN2) 후보 확정용 채점"
+   },
+   {
+    "file": "research/upbit_gen2_probe.py",
+    "kb": 15.2,
+    "category": "규약·파리티",
+    "doc": "upbit_gen2_probe.py — 업비트 2세대 후보 독립 검증 + 추가 가설 탐색 (읽기 전용)"
+   },
+   {
+    "file": "research/upbit_gen2_refine.py",
+    "kb": 9.1,
+    "category": "규약·파리티",
+    "doc": "upbit_gen2_refine.py — 업비트 2세대 후보 정교화: 시장폭 붕괴 눌림매수 계열의 문턱·보유·비용 민감도"
+   },
+   {
+    "file": "research/upbit_liquid_subset.py",
+    "kb": 1.9,
+    "category": "규약·파리티",
+    "doc": ""
+   },
+   {
+    "file": "research/upbit_priority_probe.py",
+    "kb": 1.0,
+    "category": "규약·파리티",
+    "doc": ""
+   },
+   {
+    "file": "research/vcp_watch.py",
+    "kb": 3.0,
+    "category": "전진·Shadow",
+    "doc": "vcp_watch.py — VCP(Minervini 변동성 축소 패턴) 당일 신호 목록"
+   },
+   {
+    "file": "research/verify_18th.py",
+    "kb": 8.8,
+    "category": "검증",
+    "doc": "research/verify_18th.py — 18차 작업(백필·사전포착·체결지연·학습순환) 자체 검증."
+   },
+   {
+    "file": "research/verify_429_counter_20261120.py",
+    "kb": 4.5,
+    "category": "검증",
+    "doc": "research/verify_429_counter_20261120.py — 23차 P1 수집기 HTTP 상태코드 계수기 검증."
+   },
+   {
+    "file": "research/verify_auto_researcher.py",
+    "kb": 33.1,
+    "category": "검증",
+    "doc": "research/verify_auto_researcher.py — 4순위 완료 검증기 (GPT 12차 §4·§7 실측 증거)"
+   },
+   {
+    "file": "research/verify_gen16_us.py",
+    "kb": 6.0,
+    "category": "검증",
+    "doc": "gen16 검증용: US 1단 규칙의 Test 성적을 엔진 코드와 무관하게 원본 DB에서 직접 재계산한다."
+   },
+   {
+    "file": "research/verify_gen3.py",
+    "kb": 14.2,
+    "category": "검증",
+    "doc": "verify_gen3.py — 3세대 후보 규칙 독립 교차검증"
+   },
+   {
+    "file": "research/verify_horizon_lab_20261120.py",
+    "kb": 4.4,
+    "category": "검증",
+    "doc": "research/verify_horizon_lab_20261120.py — 30차 P1-F 검증."
+   },
+   {
+    "file": "research/verify_kr_recovery_20261120.py",
+    "kb": 10.9,
+    "category": "검증",
+    "doc": "research/verify_kr_recovery_20261120.py — P0-1·P0-2 수리 검증(네트워크 없음)."
+   },
+   {
+    "file": "research/verify_kr_surge_miner_stage.py",
+    "kb": 16.7,
+    "category": "검증",
+    "doc": "research/verify_kr_surge_miner_stage.py — `surge_miner --stage` 검증 5종."
+   },
+   {
+    "file": "research/verify_online_ledger.py",
+    "kb": 4.2,
+    "category": "검증",
+    "doc": "통합 완료 검증 — 표준 온라인 평가기 + 지식 원장 (9차 우선순위 ②)"
+   },
+   {
+    "file": "research/verify_p0b_panel_parity.py",
+    "kb": 6.8,
+    "category": "검증",
+    "doc": "27차 P0-B 검증 — 트랙1 통합 리더(open_panel) vs 활성 표 직접 읽기(구 방식)의 1:1 동등성."
+   },
+   {
+    "file": "research/verify_p31_kr_s16_split_20261120.py",
+    "kb": 7.9,
+    "category": "검증",
+    "doc": "research/verify_p31_kr_s16_split_20261120.py — 제31차 P0-3·P0-4 검증."
+   },
+   {
+    "file": "research/verify_p31_kr_stage_20261120.py",
+    "kb": 9.0,
+    "category": "검증",
+    "doc": "research/verify_p31_kr_stage_20261120.py — 제31차 P0-7 검증."
+   },
+   {
+    "file": "research/verify_p31_monitor_schema_20261120.py",
+    "kb": 8.3,
+    "category": "검증",
+    "doc": "research/verify_p31_monitor_schema_20261120.py — 제31차 P0-1·P0-2 검증."
+   },
+   {
+    "file": "research/verify_p31_rotation_20261120.py",
+    "kb": 7.4,
+    "category": "검증",
+    "doc": "research/verify_p31_rotation_20261120.py — 제31차 P0-6 검증."
+   },
+   {
+    "file": "research/verify_production_connected_20261120.py",
+    "kb": 10.9,
+    "category": "검증",
+    "doc": "research/verify_production_connected_20261120.py — 30차 P1-E 검증."
+   },
+   {
+    "file": "research/verify_rotation_busy_metrics_20261120.py",
+    "kb": 12.3,
+    "category": "검증",
+    "doc": "research/verify_rotation_busy_metrics_20261120.py — 30차 P0-C 검증: 원장 잠금 계측."
+   },
+   {
+    "file": "research/verify_rotation_recovery_20261120.py",
+    "kb": 4.5,
+    "category": "검증",
+    "doc": "research/verify_rotation_recovery_20261120.py — P0-3 회복·중복 실행 안정성 검증."
+   },
+   {
+    "file": "research/verify_shadow_and_evolution.py",
+    "kb": 22.1,
+    "category": "검증",
+    "doc": "research/verify_shadow_and_evolution.py — 25차 신규 모듈 통합 검증기."
+   },
+   {
+    "file": "research/verify_sparse_grid.py",
+    "kb": 42.7,
+    "category": "검증",
+    "doc": "research/verify_sparse_grid.py — sparse_grid 연구 경로 단위 검증(21차 §3-2·3-3·3-4)."
+   },
+   {
+    "file": "research/verify_stale_gate_20261120.py",
+    "kb": 6.7,
+    "category": "검증",
+    "doc": "research/verify_stale_gate_20261120.py — 30차 P1-C 검증 (staleness 게이트)."
+   },
+   {
+    "file": "research/verify_three_market_e2e.py",
+    "kb": 14.7,
+    "category": "검증",
+    "doc": "research/verify_three_market_e2e.py — 3시장 자가발전 공통 인터페이스 격리 e2e 검증 (P1-4)"
+   },
+   {
+    "file": "research/verify_up_wal_safe_20261120.py",
+    "kb": 5.7,
+    "category": "검증",
+    "doc": "research/verify_up_wal_safe_20261120.py — P0-4 검증: 활성 WAL DB 안전 읽기."
+   },
+   {
+    "file": "research/verify_wal_backup_20261120.py",
+    "kb": 17.5,
+    "category": "검증",
+    "doc": "research/verify_wal_backup_20261120.py — 30차 P0-B 검증: WAL **일관 복제본** 게시."
+   },
+   {
+    "file": "research/wal_replica.py",
+    "kb": 55.0,
+    "category": "인프라·게시",
+    "doc": "research/wal_replica.py — WAL DB 의 **일관된 온라인 백업 복제본** 게시·선택 (30차 P0-B)."
+   },
+   {
+    "file": "research/wave_v1_v2_common.py",
+    "kb": 7.8,
+    "category": "연구 엔진",
+    "doc": "research/wave_v1_v2_common.py — WAVE v1 vs v2, **공통 818,756행에 고정**한 재비교(P1-1)."
+   },
+   {
+    "file": "research/wave_v1_v2_compare.py",
+    "kb": 11.2,
+    "category": "연구 엔진",
+    "doc": "P0-2 — 오염 WAVE 데이터(v1) vs 수리 패널·템플릿(v2) 비교 (읽기 전용)."
+   },
+   {
+    "file": "research/zvol_wave_parity.py",
+    "kb": 8.6,
+    "category": "연구 엔진",
+    "doc": "UP_ZVOL_GATE · US_WAVE_RANK 파리티 검증 — 라이브 평가기 == 연구 규칙."
+   }
+  ]
+ },
+ "live_snapshot": {
+  "generated_at": "2026-11-21T03:40:05+09:00",
+  "totals": {
+   "symbols": 5613,
+   "candles_1m": 11216449,
+   "surges_ge5": 676,
+   "forward_signals_observed": 762,
+   "forward_closed": 430,
+   "forward_wins": 180,
+   "research_shadow_signals_prospective": 35,
+   "research_shadow_tp": 2,
+   "research_shadow_fp": 27,
+   "forward_research_consistent": true,
+   "protocol_version": "budget-proto-v3-20261120"
+  },
+  "markets": {
+   "upbit": {
+    "label": "업비트 (KRW)",
+    "candles_1m": 1591424,
+    "symbols": 302,
+    "universe": 302,
+    "last_candle": "2026-11-21T03:06:00",
+    "collector_last_run_at": "2026-11-21T03:38:00",
+    "collector_errors": 0,
+    "forward_signals_observed": 428,
+    "forward_closed": 405,
+    "forward_wins": 171,
+    "forward_win_rate": 42.2,
+    "forward_sum_pnl_pct": -125.153,
+    "research_shadow_signals_prospective": 8,
+    "shadow_tp": 0,
+    "shadow_fp": 4,
+    "research_generation_id": "UP-G003",
+    "research_status": "rotation:running"
+   },
+   "kr": {
+    "label": "한국주식 (KOSPI·KOSDAQ)",
+    "candles_1m": 4688350,
+    "symbols": 3156,
+    "universe": 3205,
+    "last_candle": "2026-11-20T15:44:00",
+    "collector_last_run_at": "2026-11-20T15:45:40",
+    "collector_errors": 1,
+    "forward_signals_observed": 306,
+    "forward_closed": 0,
+    "forward_wins": 0,
+    "forward_win_rate": null,
+    "forward_sum_pnl_pct": 0.0,
+    "research_shadow_signals_prospective": 0,
+    "shadow_tp": 0,
+    "shadow_fp": 0,
+    "research_generation_id": "lab_KR_20261120_3f1a339d",
+    "research_status": "daily_track_active"
+   },
+   "us": {
+    "label": "미국주식",
+    "candles_1m": 4936675,
+    "symbols": 2155,
+    "universe": 2156,
+    "last_candle": "2026-11-21T03:06:57",
+    "collector_last_run_at": "2026-11-21T03:38:00",
+    "collector_errors": 0,
+    "forward_signals_observed": 28,
+    "forward_closed": 25,
+    "forward_wins": 8,
+    "forward_win_rate": 32.0,
+    "forward_sum_pnl_pct": -13.082,
+    "research_shadow_signals_prospective": 27,
+    "shadow_tp": 2,
+    "shadow_fp": 23,
+    "research_generation_id": "lab_US_20261119_11d1253a",
+    "research_status": "lab_complete"
+   }
+  },
+  "tracks": {
+   "US_WAVE_RANK": {
+    "label": "미국 ACCEL×파형 랭크",
+    "market": "us",
+    "signals": 2,
+    "entries": 2,
+    "closed": 2,
+    "wins": 1,
+    "losses": 1,
+    "win_rate": 50.0,
+    "sum_pnl_pct": 3.887,
+    "last_run_at": "2026-11-21T03:38:33",
+    "buckets": null,
+    "ledger_version": null
+   },
+   "US_GEN16": {
+    "label": "미국주식 2세대 GEN16",
+    "market": "us",
+    "signals": 26,
+    "entries": 23,
+    "closed": 23,
+    "wins": 7,
+    "losses": 16,
+    "win_rate": 30.4,
+    "sum_pnl_pct": -16.968,
+    "last_run_at": "2026-11-21T03:38:37",
+    "buckets": null,
+    "ledger_version": null
+   },
+   "KR_VCP": {
+    "label": "한국주식 VCP 돌파",
+    "market": "kr",
+    "signals": 2,
+    "entries": 1,
+    "closed": 0,
+    "wins": 0,
+    "losses": 0,
+    "win_rate": null,
+    "sum_pnl_pct": 0.0,
+    "last_run_at": "2026-11-20T20:21:08",
+    "buckets": null,
+    "ledger_version": null
+   },
+   "KR_S16": {
+    "label": "한국주식 S16 20일 스윙",
+    "market": "kr",
+    "signals": 304,
+    "entries": 0,
+    "closed": 0,
+    "wins": 0,
+    "losses": 0,
+    "win_rate": null,
+    "sum_pnl_pct": 0.0,
+    "last_run_at": "2026-11-20T23:55:48",
+    "buckets": {
+     "prospective_forward": 0,
+     "initialization_replay": 3,
+     "recovery_backfill": 6,
+     "legacy_cumulative": 3
+    },
+    "ledger_version": 2
+   },
+   "UP_ZVOL_GATE": {
+    "label": "업비트 거래대금 Z 게이트",
+    "market": "upbit",
+    "signals": 23,
+    "entries": 23,
+    "closed": 22,
+    "wins": 8,
+    "losses": 14,
+    "win_rate": 36.4,
+    "sum_pnl_pct": -12.295,
+    "last_run_at": "2026-11-21T03:39:55",
+    "buckets": null,
+    "ledger_version": null
+   },
+   "UPBIT_GEN3": {
+    "label": "업비트 3세대 GEN3 (Shadow)",
+    "market": "upbit",
+    "signals": 405,
+    "entries": 386,
+    "closed": 386,
+    "wins": 164,
+    "losses": 222,
+    "win_rate": 42.5,
+    "sum_pnl_pct": -112.308,
+    "last_run_at": "2026-11-21T03:40:01",
+    "buckets": null,
+    "ledger_version": null
+   },
+   "UPBIT_GEN2": {
+    "label": "업비트 2세대 GEN2",
+    "market": "upbit",
+    "signals": 0,
+    "entries": 0,
+    "closed": 0,
+    "wins": 0,
+    "losses": 0,
+    "win_rate": null,
+    "sum_pnl_pct": 0.0,
+    "last_run_at": "2026-11-21T03:39:59",
+    "buckets": null,
+    "ledger_version": null
+   }
+  }
+ },
+ "integrity": {
+  "findings": [
+   {
+    "kind": "missing_source",
+    "item": "engine.wave",
+    "paths": [
+     "research/wave_template_us.py"
+    ]
+   },
+   {
+    "kind": "missing_source",
+    "item": "tg.audit_pack",
+    "paths": [
+     "monitor/telegram_reports.jsonl"
+    ]
+   },
+   {
+    "kind": "missing_source",
+    "item": "gov.reports",
+    "paths": [
+     "research/gpt_31st_p0_report_20261120.md"
+    ]
+   }
+  ]
+ }
+}
