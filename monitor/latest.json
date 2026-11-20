@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "generated_at": "2026-11-20T21:00:09+09:00",
+ "generated_at": "2026-11-20T21:00:19+09:00",
  "note": "Public, de-identified collaboration snapshot. No credentials, personal data, or raw DB.",
  "totals": {
   "symbols": 5534,
@@ -8,7 +8,7 @@
   "surges_ge5": 659,
   "forward_closed": 335,
   "forward_wins": 148,
-  "forward_signals": 675
+  "forward_signals": 681
  },
  "markets": {
   "upbit": {
@@ -113,19 +113,19 @@
    "losses": 12,
    "win_rate": 40.0,
    "sum_pnl_pct": -8.85,
-   "last_run_at": "2026-11-20T20:59:54"
+   "last_run_at": "2026-11-20T21:00:11"
   },
   "UPBIT_GEN3": {
    "label": "업비트 3세대 GEN3 (Shadow)",
    "market": "upbit",
-   "signals": 335,
+   "signals": 341,
    "entries": 312,
    "closed": 304,
    "wins": 132,
    "losses": 172,
    "win_rate": 43.4,
    "sum_pnl_pct": -62.11,
-   "last_run_at": "2026-11-20T20:59:57"
+   "last_run_at": "2026-11-20T21:00:15"
   },
   "UPBIT_GEN2": {
    "label": "업비트 2세대 GEN2",
@@ -137,7 +137,7 @@
    "losses": 0,
    "win_rate": null,
    "sum_pnl_pct": 0.0,
-   "last_run_at": "2026-11-20T20:59:55"
+   "last_run_at": "2026-11-20T21:00:13"
   }
  },
  "candle_count_audit": {
@@ -154,9 +154,11 @@
     "first": "2026-11-09T07:02:00",
     "last": "2026-11-20T20:57:00",
     "mode": "ro",
-    "seconds": 1.9
+    "seconds": 0.0,
+    "at": 1795176001.9892416,
+    "cached": true
    },
-   "generated_at": "2026-11-20T21:00:00+09:00"
+   "generated_at": "2026-11-20T21:00:17+09:00"
   },
   "kr": {
    "db_file": "kr_1m.db",
@@ -171,9 +173,11 @@
     "first": "2026-11-10T09:00:00",
     "last": "2026-11-20T15:44:00",
     "mode": "ro",
-    "seconds": 2.72
+    "seconds": 0.0,
+    "at": 1795176004.7337973,
+    "cached": true
    },
-   "generated_at": "2026-11-20T21:00:02+09:00"
+   "generated_at": "2026-11-20T21:00:17+09:00"
   },
   "us": {
    "db_file": "us_1m.db",
@@ -188,9 +192,11 @@
     "first": "2026-11-09T23:30:00",
     "last": "2026-11-20T20:57:43",
     "mode": "ro",
-    "seconds": 2.15
+    "seconds": 0.0,
+    "at": 1795176006.9322248,
+    "cached": true
    },
-   "generated_at": "2026-11-20T21:00:04+09:00"
+   "generated_at": "2026-11-20T21:00:17+09:00"
   }
  },
  "research": {}
