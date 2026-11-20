@@ -2,7 +2,7 @@
  "schema": 1,
  "kind": "project_inventory",
  "inventory_version": "34.1",
- "generated_at": "2026-11-21T04:13:50+09:00",
+ "generated_at": "2026-11-21T04:14:55+09:00",
  "source_of_truth": {
   "live_status": "monitor/latest.json (5분 갱신) — 이 인덱스의 수치는 생성 시점 스냅숏",
   "live_monitor_generated_at": "2026-11-21T03:40:05+09:00",
@@ -49,14 +49,14 @@
   "ai_free_items": 46,
   "ai_required_items": 5,
   "by_visibility": {
-   "public_synced": 4,
-   "partial_summary_only": 34,
+   "public_synced": 3,
+   "partial_summary_only": 35,
    "local_only_not_published": 13
   },
-  "missing_docs_total": 57,
+  "missing_docs_total": 58,
   "missing_docs_by_class": {
    "internal_doc": 16,
-   "round_report": 25,
+   "round_report": 26,
    "research_artifact": 6,
    "in_flight_31st": 10
   },
@@ -100,15 +100,15 @@
      "path": "scheduled-actions/📈-업비트-모의투자-분석/state/upbit_1m.db",
      "exists": true,
      "kind": "file",
-     "size_kb": 242760.0,
-     "mtime": "2026-11-21T04:08:45+09:00"
+     "size_kb": 242924.0,
+     "mtime": "2026-11-21T04:13:59+09:00"
     },
     {
      "path": "scheduled-actions/📈-업비트-모의투자-분석/state/portfolio.json",
      "exists": true,
      "kind": "file",
      "size_kb": 9.6,
-     "mtime": "2026-11-21T04:08:45+09:00"
+     "mtime": "2026-11-21T04:13:59+09:00"
     }
    ],
    "published_paths": [
@@ -144,7 +144,7 @@
    },
    "owner": null,
    "missing_sources": [],
-   "updated_at": "2026-11-21T04:08:45+09:00",
+   "updated_at": "2026-11-21T04:13:59+09:00",
    "scheduled_action": {
     "folder": "📈-업비트-모의투자-분석",
     "schedule": [
@@ -770,8 +770,8 @@
      "path": "scheduled-actions/🇺🇸-미국주식-패턴-분석/state/forward_trades_gen16.json",
      "exists": true,
      "kind": "file",
-     "size_kb": 193.1,
-     "mtime": "2026-11-21T04:08:43+09:00"
+     "size_kb": 193.6,
+     "mtime": "2026-11-21T04:13:55+09:00"
     }
    ],
    "published_paths": [
@@ -809,7 +809,7 @@
    },
    "owner": null,
    "missing_sources": [],
-   "updated_at": "2026-11-21T04:08:43+09:00",
+   "updated_at": "2026-11-21T04:13:55+09:00",
    "scheduled_action": {
     "folder": "🇺🇸-미국주식-패턴-분석",
     "schedule": [
@@ -1581,7 +1581,7 @@
      "interval 5m"
     ],
     "paused": false,
-    "last_started_run_at": "2026-11-20T19:09:14.963349Z",
+    "last_started_run_at": "2026-11-20T19:14:14.963349Z",
     "check_fail_count": 0,
     "check_failure_generation": 0
    }
@@ -2807,8 +2807,8 @@
      "path": "scheduled-actions/📈-업비트-모의투자-분석/state/upbit_1m.db",
      "exists": true,
      "kind": "file",
-     "size_kb": 242760.0,
-     "mtime": "2026-11-21T04:08:45+09:00"
+     "size_kb": 242924.0,
+     "mtime": "2026-11-21T04:13:59+09:00"
     },
     {
      "path": "scheduled-actions/🇰🇷-한국주식-패턴-분석/state/kr_1m.db",
@@ -2866,7 +2866,7 @@
    "live": null,
    "owner": null,
    "missing_sources": [],
-   "updated_at": "2026-11-21T04:13:50+09:00"
+   "updated_at": "2026-11-21T04:13:59+09:00"
   },
   {
    "id": "dash.export_status",
@@ -3089,13 +3089,13 @@
      "path": "coordination/project_inventory.json",
      "on_remote": true,
      "files_on_remote": null,
-     "size_kb": 164.4
+     "size_kb": 164.7
     },
     {
      "path": "coordination/project_changelog.jsonl",
      "on_remote": true,
      "files_on_remote": null,
-     "size_kb": 10.2
+     "size_kb": 6.3
     },
     {
      "path": "research/reports/gpt_34th_project_inventory_20261121.md",
@@ -3104,7 +3104,7 @@
      "size_kb": 10.9
     }
    ],
-   "github_visibility": "public_synced",
+   "github_visibility": "partial_summary_only",
    "visibility_note": "",
    "latest_commit": "d07c7c2",
    "verification_status": "이 회차에서 생성·게시(raw 200·JSON 파싱·비밀 스캔 0건).",
@@ -3277,7 +3277,7 @@
    "live": null,
    "owner": null,
    "missing_sources": [],
-   "updated_at": "2026-11-21T04:13:50+09:00"
+   "updated_at": "2026-11-21T04:14:55+09:00"
   },
   {
    "id": "gov.verification_harness",
@@ -3411,7 +3411,7 @@
      "path": "research/evaluation_summaries",
      "exists": true,
      "kind": "dir",
-     "files": 8
+     "files": 9
     },
     {
      "path": "research/test_results",
@@ -3458,7 +3458,7 @@
    "missing_sources": [
     "research/gpt_31st_p0_report_20261120.md"
    ],
-   "updated_at": "2026-11-21T04:13:50+09:00"
+   "updated_at": "2026-11-21T04:14:55+09:00"
   },
   {
    "id": "gov.heartbeat",
@@ -3836,6 +3836,13 @@
     "note": "과거 회차 보고서 — 그 회차에는 게시되었으나 현재 main 경로에 없음(경로 이동·미게시)"
    },
    {
+    "path": "research/evaluation_summaries/gpt_38th_baseline_audit_20261121.json",
+    "size_kb": 28.0,
+    "mtime": "2026-11-21T04:14:42+09:00",
+    "classification": "round_report",
+    "note": "과거 회차 보고서 — 그 회차에는 게시되었으나 현재 main 경로에 없음(경로 이동·미게시)"
+   },
+   {
     "path": "research/global_strategies_report.md",
     "size_kb": 31.2,
     "mtime": "2026-11-18T20:46:23+09:00",
@@ -4040,8 +4047,8 @@
    },
    {
     "path": "research/reports/gpt_38th_baseline_audit_20261121.md",
-    "size_kb": 41.8,
-    "mtime": "2026-11-21T04:13:42+09:00",
+    "size_kb": 42.0,
+    "mtime": "2026-11-21T04:14:55+09:00",
     "classification": "round_report",
     "note": "과거 회차 보고서 — 그 회차에는 게시되었으나 현재 main 경로에 없음(경로 이동·미게시)"
    },
@@ -4253,8 +4260,8 @@
    "paused": false,
    "check_sh": true,
    "check_sh_kb": 3.1,
-   "next_run_at": "2026-11-20T19:14:14.963349Z",
-   "last_started_run_at": "2026-11-20T19:09:14.963349Z",
+   "next_run_at": "2026-11-20T19:19:14.963349Z",
+   "last_started_run_at": "2026-11-20T19:14:14.963349Z",
    "check_fail_count": 0,
    "check_failure_generation": 0
   },
@@ -4281,7 +4288,7 @@
    "paused": false,
    "check_sh": true,
    "check_sh_kb": 32.2,
-   "next_run_at": "2026-11-20T19:12:45.641426Z",
+   "next_run_at": "2026-11-20T19:17:45.641426Z",
    "last_started_run_at": "2026-11-20T19:12:45.641426Z",
    "check_fail_count": 0,
    "check_failure_generation": 3
@@ -4309,7 +4316,7 @@
    "paused": false,
    "check_sh": true,
    "check_sh_kb": 37.4,
-   "next_run_at": "2026-11-20T19:12:45.210141Z",
+   "next_run_at": "2026-11-20T19:17:45.210141Z",
    "last_started_run_at": "2026-11-20T19:12:45.210141Z",
    "check_fail_count": 0,
    "check_failure_generation": 8
@@ -4366,19 +4373,19 @@
     "id": "📋-34차-전체-프로젝트-인덱스-github-공유-체계-구축",
     "state": "running",
     "created_at": "2026-11-20T18:54:58.370280Z",
-    "updated_at": "2026-11-20T19:13:50.752629Z"
+    "updated_at": "2026-11-20T19:14:56.127367Z"
    },
    {
     "id": "🔎-38차-실태감사-12항목-활용률-실패원장-level1-3",
     "state": "running",
     "created_at": "2026-11-20T19:04:23.528163Z",
-    "updated_at": "2026-11-20T19:13:42.329446Z"
+    "updated_at": "2026-11-20T19:14:55.113765Z"
    },
    {
     "id": "🛠️-31차-독립검증-p0-인과-분할-shadow-p1-4종",
     "state": "running",
     "created_at": "2026-11-20T18:47:15.452856Z",
-    "updated_at": "2026-11-20T19:13:46.997901Z"
+    "updated_at": "2026-11-20T19:14:53.609049Z"
    }
   ]
  },
@@ -5372,12 +5379,12 @@
    }
   ]
  },
- "state_fingerprint": "9e299748ab5fa0c5",
+ "state_fingerprint": "72260607e272f325",
  "fingerprint_sections": {
   "registry": "9ff507ae78c32c88",
   "actions": "d85715c85b49c0ce",
   "modules": "4f136a1b43071ac7",
-  "docs": "64897d5b1dc1aaee",
+  "docs": "a296ea94ecffbb10",
   "handoffs": "d1c178e47543dc65",
   "sources_present": "81c751453d0938fc"
  }
