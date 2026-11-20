@@ -1,10 +1,10 @@
 {
  "schema": 1,
- "generated_at": "2026-11-20T19:10:15+09:00",
+ "generated_at": "2026-11-20T19:15:21+09:00",
  "note": "Public, de-identified collaboration snapshot. No credentials, personal data, or raw DB.",
  "totals": {
   "symbols": 5533,
-  "candles_1m": 10768758,
+  "candles_1m": 10769452,
   "surges_ge5": 655,
   "forward_closed": 326,
   "forward_wins": 146,
@@ -15,11 +15,11 @@
    "label": "업비트 (KRW)",
    "db_ok": true,
    "db_source": "collector_stats",
-   "candles_1m": 1521043,
+   "candles_1m": 1521261,
    "symbols": 302,
    "universe": 302,
-   "last_candle": "2026-11-20T19:07:00",
-   "collector_last_run_at": "2026-11-20T19:08:18",
+   "last_candle": "2026-11-20T19:12:00",
+   "collector_last_run_at": "2026-11-20T19:13:19",
    "collector_errors": 0
   },
   "kr": {
@@ -37,11 +37,11 @@
    "label": "미국주식",
    "db_ok": true,
    "db_source": "db_read",
-   "candles_1m": 4568734,
+   "candles_1m": 4569210,
    "symbols": 2076,
    "universe": 2077,
-   "last_candle": "2026-11-20T19:08:19",
-   "collector_last_run_at": "2026-11-20T19:08:19",
+   "last_candle": "2026-11-20T19:13:19",
+   "collector_last_run_at": "2026-11-20T19:13:19",
    "collector_errors": 0
   }
  },
@@ -56,7 +56,7 @@
    "losses": 0,
    "win_rate": 100.0,
    "sum_pnl_pct": 4.895,
-   "last_run_at": "2026-11-20T19:08:51"
+   "last_run_at": "2026-11-20T19:13:52"
   },
   "US_GEN16": {
    "label": "미국주식 2세대 GEN16",
@@ -68,7 +68,7 @@
    "losses": 3,
    "win_rate": 70.0,
    "sum_pnl_pct": 16.064,
-   "last_run_at": "2026-11-20T19:08:51"
+   "last_run_at": "2026-11-20T19:13:52"
   },
   "KR_VCP": {
    "label": "한국주식 VCP 돌파",
@@ -104,7 +104,7 @@
    "losses": 12,
    "win_rate": 40.0,
    "sum_pnl_pct": -8.85,
-   "last_run_at": "2026-11-20T19:10:13"
+   "last_run_at": "2026-11-20T19:15:19"
   },
   "UPBIT_GEN3": {
    "label": "업비트 3세대 GEN3 (Shadow)",
@@ -128,7 +128,7 @@
    "losses": 0,
    "win_rate": null,
    "sum_pnl_pct": 0.0,
-   "last_run_at": "2026-11-20T19:10:13"
+   "last_run_at": "2026-11-20T19:15:19"
   }
  },
  "research": {}
