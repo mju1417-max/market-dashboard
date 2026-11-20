@@ -1,0 +1,53 @@
+{
+ "at": "2026-11-20T18:40:00+09:00",
+ "results": [
+  {
+   "script": "verify_sparse_grid.py",
+   "pass_": 65,
+   "total": 65,
+   "status": "PASS",
+   "note": "프루닝·VACUUM 후"
+  },
+  {
+   "script": "verify_18th.py",
+   "pass_": 21,
+   "total": 21,
+   "status": "PASS"
+  },
+  {
+   "script": "verify_429_counter_20261120.py",
+   "pass_": 13,
+   "total": 13,
+   "status": "PASS"
+  },
+  {
+   "script": "p0f_exitcode_verify_20261120.py",
+   "pass_": 12,
+   "total": 12,
+   "status": "PASS"
+  },
+  {
+   "script": "verify_p0b_panel_parity.py",
+   "pass_": true,
+   "status": "PASS",
+   "note": "프루닝 전 both·후 integrated, diff=None"
+  },
+  {
+   "script": "p0c_budget_audit_20261120.py",
+   "pass_": true,
+   "status": "PASS"
+  },
+  {
+   "script": "p0d_net_audit_20261120.py",
+   "pass_": true,
+   "status": "PASS",
+   "note": "agrees_with_track1=true"
+  },
+  {
+   "script": "p0f_snapshot_probe_20261120.py",
+   "pass_": true,
+   "status": "PASS",
+   "note": "1.99s, 0/20 실패"
+  }
+ ]
+}
