@@ -223,7 +223,7 @@ prospective 채택 = ① 의사결정일 >= 2026-11-20 ② 의사결정 시각 <
 - `coordination/pickle_to_gpt.jsonl`: `P31-Q1`(검토 요청) 1행.
 - `monitor/events.jsonl`: `ev-20261120-p31-p0` 1행.
 - 게시: 보고서·요약·검증 8종·`monitor/latest.json`. **JSONL 은 원격과 id 기준 병합 후 게시**(다른 트랙 행 보존).
-- 원격 확인(게시 직후, `refs/heads/main` raw — `main` 형태는 CDN 이 몇 분 stale 을 준다):
+- 원격 확인(게시 직후): raw GET 은 모두 **HTTP 200** 이었다. 다만 raw CDN 은 몇 분간 직전 내용을 줄 수 있어(`main`·`refs/heads/main` 둘 다 실측) **내용 검증은 Contents API** 로 병행했다(파일 크기·필드). 아래 필드는 API 응답에서 직접 확인한 값이다.
 
 | 대상 | HTTP | 확인된 필드 |
 |---|---|---|
