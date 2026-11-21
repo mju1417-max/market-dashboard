@@ -1,6 +1,6 @@
 {
  "schema": 3,
- "generated_at": "2026-11-21T10:30:29+09:00",
+ "generated_at": "2026-11-21T10:35:04+09:00",
  "note": "Public, de-identified collaboration snapshot. No credentials, personal data, or raw DB. schema 3: forward_signals_observed(전진검증)와 research_shadow_signals_prospective(연구 Shadow)를 분리했고, shadow_signals_measured·candidate_count 는 null(deprecated)이다.",
  "totals": {
   "symbols": 5629,
@@ -37,7 +37,7 @@
   "forward_closed_consistent": false,
   "consistency_note": "tracks=실시간 장부(요청 시점) · research=monitor_research 캐시(최대 15분 TTL). 차이가 나면 대개 캐시 스냅숏 지연이며, signals 차이는 즉시 이상으로 본다. 이 두 상태를 하나의 bool 로 합치지 않는다.",
   "research_snapshot_generated_at": "2026-11-21T10:20:09+09:00",
-  "document_generated_at": "2026-11-21T10:30:29+09:00",
+  "document_generated_at": "2026-11-21T10:35:04+09:00",
   "forward_split_by_market": {
    "upbit": 451,
    "kr": 306,
@@ -369,7 +369,7 @@
    "losses": 1,
    "win_rate": 50.0,
    "sum_pnl_pct": 3.887,
-   "last_run_at": "2026-11-21T10:28:28",
+   "last_run_at": "2026-11-21T10:33:11",
    "buckets": null,
    "ledger_version": null
   },
@@ -383,7 +383,7 @@
    "losses": 18,
    "win_rate": 41.9,
    "sum_pnl_pct": -4.311,
-   "last_run_at": "2026-11-21T10:28:28",
+   "last_run_at": "2026-11-21T10:33:11",
    "buckets": null,
    "ledger_version": null
   },
@@ -430,7 +430,7 @@
    "losses": 17,
    "win_rate": 39.3,
    "sum_pnl_pct": -15.924,
-   "last_run_at": "2026-11-21T10:30:17",
+   "last_run_at": "2026-11-21T10:34:55",
    "buckets": null,
    "ledger_version": null
   },
@@ -444,7 +444,7 @@
    "losses": 227,
    "win_rate": 43.0,
    "sum_pnl_pct": -103.189,
-   "last_run_at": "2026-11-21T10:30:20",
+   "last_run_at": "2026-11-21T10:34:58",
    "buckets": null,
    "ledger_version": null
   },
@@ -458,7 +458,7 @@
    "losses": 0,
    "win_rate": null,
    "sum_pnl_pct": 0.0,
-   "last_run_at": "2026-11-21T10:30:19",
+   "last_run_at": "2026-11-21T10:34:56",
    "buckets": null,
    "ledger_version": null
   }
@@ -472,10 +472,10 @@
    "bars_query": "SELECT COUNT(*) FROM candles_1m",
    "saved_query": "SELECT COALESCE(SUM(candles_saved),0) FROM fetch_log",
    "bars_actual": {
-    "error": "OperationalError: OperationalError: unable to open database file; OperationalError: unable to open database file",
-    "seconds": 3.86
+    "error": "OperationalError: interrupted",
+    "seconds": 2.57
    },
-   "generated_at": "2026-11-21T10:30:23+09:00"
+   "generated_at": "2026-11-21T10:35:00+09:00"
   },
   "kr": {
    "db_file": "kr_1m.db",
@@ -493,9 +493,9 @@
     "seconds": 0.0,
     "at": 1795223743.161298,
     "cached": true,
-    "age_s": 884.5
+    "age_s": 1160.3
    },
-   "generated_at": "2026-11-21T10:30:27+09:00"
+   "generated_at": "2026-11-21T10:35:03+09:00"
   },
   "us": {
    "db_file": "us_1m.db",
@@ -513,9 +513,9 @@
     "seconds": 0.0,
     "at": 1795224019.5660715,
     "cached": true,
-    "age_s": 608.1
+    "age_s": 883.9
    },
-   "generated_at": "2026-11-21T10:30:27+09:00"
+   "generated_at": "2026-11-21T10:35:03+09:00"
   }
  },
  "research": {
