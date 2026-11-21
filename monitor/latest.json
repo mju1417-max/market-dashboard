@@ -1,10 +1,10 @@
 {
  "schema": 3,
- "generated_at": "2026-11-22T04:05:29+09:00",
+ "generated_at": "2026-11-22T04:11:46+09:00",
  "note": "Public, de-identified collaboration snapshot. No credentials, personal data, or raw DB. schema 3: forward_signals_observed(전진검증)와 research_shadow_signals_prospective(연구 Shadow)를 분리했고, shadow_signals_measured·candidate_count 는 null(deprecated)이다.",
  "totals": {
-  "symbols": 5628,
-  "candles_1m": 11615146,
+  "symbols": 5629,
+  "candles_1m": 11624515,
   "surges_ge5": 683,
   "forward_closed": 512,
   "forward_wins": 224,
@@ -33,7 +33,7 @@
   "forward_closed_consistent": false,
   "consistency_note": "tracks=실시간 장부(요청 시점) · research=monitor_research 캐시(최대 15분 TTL). 차이가 나면 대개 캐시 스냅숏 지연이며, signals 차이는 즉시 이상으로 본다. 이 두 상태를 하나의 bool 로 합치지 않는다.",
   "research_snapshot_generated_at": "2026-11-22T03:45:02+09:00",
-  "document_generated_at": "2026-11-22T04:05:29+09:00",
+  "document_generated_at": "2026-11-22T04:11:46+09:00",
   "forward_split_by_market": {
    "upbit": 509,
    "kr": 306,
@@ -192,15 +192,15 @@
    "label": "한국주식 (KOSPI·KOSDAQ)",
    "db_ok": true,
    "db_source": "db_read",
-   "candles_1m": 4678981,
-   "symbols": 3155,
+   "candles_1m": 4688350,
+   "symbols": 3156,
    "universe": 3205,
-   "last_candle": "2026-11-20T15:45:40",
+   "last_candle": "2026-11-20T15:44:00",
    "collector_last_run_at": "2026-11-20T15:45:40",
    "collector_errors": 1,
-   "candles_1m_query": "SUM(fetch_log.candles_saved)",
+   "candles_1m_query": "COUNT(*)",
    "candles_1m_saved": 4678981,
-   "candle_count_delta": null,
+   "candle_count_delta": 9369,
    "schema_version": 3,
    "protocol_version": "budget-proto-v3-20261120",
    "protocol_hash": "d05c99d2376792b7",
@@ -478,7 +478,7 @@
    "losses": 1,
    "win_rate": 50.0,
    "sum_pnl_pct": 3.887,
-   "last_run_at": "2026-11-22T04:03:22",
+   "last_run_at": "2026-11-22T04:08:30",
    "buckets": null,
    "ledger_version": null
   },
@@ -492,7 +492,7 @@
    "losses": 18,
    "win_rate": 41.9,
    "sum_pnl_pct": -4.311,
-   "last_run_at": "2026-11-22T04:03:22",
+   "last_run_at": "2026-11-22T04:08:31",
    "buckets": null,
    "ledger_version": null
   },
@@ -539,7 +539,7 @@
    "losses": 20,
    "win_rate": 37.5,
    "sum_pnl_pct": -18.556,
-   "last_run_at": "2026-11-22T04:05:15",
+   "last_run_at": "2026-11-22T04:11:34",
    "buckets": null,
    "ledger_version": null
   },
@@ -553,7 +553,7 @@
    "losses": 254,
    "win_rate": 43.8,
    "sum_pnl_pct": -107.544,
-   "last_run_at": "2026-11-22T04:05:20",
+   "last_run_at": "2026-11-22T04:11:38",
    "buckets": null,
    "ledger_version": null
   },
@@ -567,7 +567,7 @@
    "losses": 0,
    "win_rate": null,
    "sum_pnl_pct": 0.0,
-   "last_run_at": "2026-11-22T04:05:18",
+   "last_run_at": "2026-11-22T04:11:36",
    "buckets": null,
    "ledger_version": null
   }
@@ -584,7 +584,7 @@
     "error": "OperationalError: interrupted",
     "seconds": 2.53
    },
-   "generated_at": "2026-11-22T04:05:22+09:00"
+   "generated_at": "2026-11-22T04:11:40+09:00"
   },
   "kr": {
    "db_file": "kr_1m.db",
@@ -594,10 +594,14 @@
    "bars_query": "SELECT COUNT(*) FROM candles_1m",
    "saved_query": "SELECT COALESCE(SUM(candles_saved),0) FROM fetch_log",
    "bars_actual": {
-    "error": "OperationalError: interrupted",
-    "seconds": 2.53
+    "bars": 4688350,
+    "sym_bars": 3156,
+    "first": "2026-11-10T09:00:00",
+    "last": "2026-11-20T15:44:00",
+    "mode": "ro",
+    "seconds": 2.33
    },
-   "generated_at": "2026-11-22T04:05:25+09:00"
+   "generated_at": "2026-11-22T04:11:42+09:00"
   },
   "us": {
    "db_file": "us_1m.db",
@@ -615,9 +619,9 @@
     "seconds": 0.0,
     "at": 1795286715.5490632,
     "cached": true,
-    "age_s": 1212.3
+    "age_s": 1589.7
    },
-   "generated_at": "2026-11-22T04:05:27+09:00"
+   "generated_at": "2026-11-22T04:11:45+09:00"
   }
  },
  "research": {
