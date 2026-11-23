@@ -1,11 +1,11 @@
 {
  "schema": 3,
- "generated_at": "2026-11-24T04:00:52+09:00",
+ "generated_at": "2026-11-24T04:05:26+09:00",
  "note": "Public, de-identified collaboration snapshot. No credentials, personal data, or raw DB. schema 3: forward_signals_observed(전진검증)와 research_shadow_signals_prospective(연구 Shadow)를 분리했고, shadow_signals_measured·candidate_count 는 null(deprecated)이다.",
  "totals": {
-  "symbols": 5670,
-  "candles_1m": 12085913,
-  "surges_ge5": 729,
+  "symbols": 5672,
+  "candles_1m": 12105687,
+  "surges_ge5": 730,
   "forward_closed": 648,
   "forward_wins": 310,
   "forward_signals": 1039,
@@ -33,7 +33,7 @@
   "forward_closed_consistent": false,
   "consistency_note": "tracks=실시간 장부(요청 시점) · research=monitor_research 캐시(최대 15분 TTL). 차이가 나면 대개 캐시 스냅숏 지연이며, signals 차이는 즉시 이상으로 본다. 이 두 상태를 하나의 bool 로 합치지 않는다.",
   "research_snapshot_generated_at": "2026-11-23T23:50:03+09:00",
-  "document_generated_at": "2026-11-24T04:00:52+09:00",
+  "document_generated_at": "2026-11-24T04:05:26+09:00",
   "forward_split_by_market": {
    "upbit": 669,
    "kr": 334,
@@ -49,15 +49,15 @@
   "upbit": {
    "label": "업비트 (KRW)",
    "db_ok": true,
-   "db_source": "db_read",
-   "candles_1m": 1876982,
+   "db_source": "collector_stats",
+   "candles_1m": 1881615,
    "symbols": 302,
    "universe": 302,
-   "last_candle": "2026-11-24T00:52:00",
-   "collector_last_run_at": "2026-11-24T00:53:43",
+   "last_candle": "2026-11-24T04:02:00",
+   "collector_last_run_at": "2026-11-24T04:03:38",
    "collector_errors": 0,
    "candles_1m_query": "SUM(fetch_log.candles_saved)",
-   "candles_1m_saved": 1876982,
+   "candles_1m_saved": 1881615,
    "candle_count_delta": null,
    "schema_version": 3,
    "protocol_version": "budget-proto-v3-20261120",
@@ -198,15 +198,15 @@
    "label": "한국주식 (KOSPI·KOSDAQ)",
    "db_ok": true,
    "db_source": "db_read",
-   "candles_1m": 5295586,
-   "symbols": 3156,
+   "candles_1m": 5308529,
+   "symbols": 3157,
    "universe": 3206,
-   "last_candle": "2026-11-23T15:45:39",
+   "last_candle": "2026-11-23T15:44:00",
    "collector_last_run_at": "2026-11-23T15:45:39",
    "collector_errors": 1,
-   "candles_1m_query": "SUM(fetch_log.candles_saved)",
+   "candles_1m_query": "COUNT(*)",
    "candles_1m_saved": 5295586,
-   "candle_count_delta": null,
+   "candle_count_delta": 12943,
    "schema_version": 3,
    "protocol_version": "budget-proto-v3-20261120",
    "protocol_hash": "d05c99d2376792b7",
@@ -329,14 +329,14 @@
    "label": "미국주식",
    "db_ok": true,
    "db_source": "db_read",
-   "candles_1m": 4913345,
-   "symbols": 2212,
-   "universe": 2213,
-   "last_candle": "2026-11-24T00:53:43",
-   "collector_last_run_at": "2026-11-24T00:53:43",
-   "collector_errors": 0,
+   "candles_1m": 4915543,
+   "symbols": 2213,
+   "universe": 2214,
+   "last_candle": "2026-11-24T04:03:40",
+   "collector_last_run_at": "2026-11-24T04:03:40",
+   "collector_errors": 1,
    "candles_1m_query": "SUM(fetch_log.candles_saved)",
-   "candles_1m_saved": 4913345,
+   "candles_1m_saved": 4915543,
    "candle_count_delta": null,
    "schema_version": 3,
    "protocol_version": "budget-proto-v3-20261120",
@@ -581,16 +581,16 @@
  "candle_count_audit": {
   "upbit": {
    "db_file": "upbit_1m.db",
-   "db_size": 328884224,
-   "db_mtime": 1795449264,
+   "db_size": 331755520,
+   "db_mtime": 1795460676,
    "universe_def": "fetch_log rows (감시 종목 1행/종목)",
    "bars_query": "SELECT COUNT(*) FROM candles_1m",
    "saved_query": "SELECT COALESCE(SUM(candles_saved),0) FROM fetch_log",
    "bars_actual": {
-    "error": "OperationalError: interrupted",
-    "seconds": 2.56
+    "error": "OperationalError: OperationalError: unable to open database file; OperationalError: unable to open database file",
+    "seconds": 3.74
    },
-   "generated_at": "2026-11-24T04:00:42+09:00"
+   "generated_at": "2026-11-24T04:05:16+09:00"
   },
   "kr": {
    "db_file": "kr_1m.db",
@@ -600,23 +600,27 @@
    "bars_query": "SELECT COUNT(*) FROM candles_1m",
    "saved_query": "SELECT COALESCE(SUM(candles_saved),0) FROM fetch_log",
    "bars_actual": {
-    "error": "OperationalError: interrupted",
-    "seconds": 2.53
+    "bars": 5308529,
+    "sym_bars": 3157,
+    "first": "2026-11-10T09:00:00",
+    "last": "2026-11-23T15:44:00",
+    "mode": "ro",
+    "seconds": 1.99
    },
-   "generated_at": "2026-11-24T04:00:45+09:00"
+   "generated_at": "2026-11-24T04:05:20+09:00"
   },
   "us": {
    "db_file": "us_1m.db",
-   "db_size": 314642432,
-   "db_mtime": 1795449261,
+   "db_size": 316448768,
+   "db_mtime": 1795460669,
    "universe_def": "fetch_log rows (감시 종목 1행/종목)",
    "bars_query": "SELECT COUNT(*) FROM candles_1m",
    "saved_query": "SELECT COALESCE(SUM(candles_saved),0) FROM fetch_log",
    "bars_actual": {
     "error": "OperationalError: interrupted",
-    "seconds": 2.53
+    "seconds": 2.54
    },
-   "generated_at": "2026-11-24T04:00:48+09:00"
+   "generated_at": "2026-11-24T04:05:22+09:00"
   }
  },
  "research": {
