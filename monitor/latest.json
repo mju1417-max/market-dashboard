@@ -1,21 +1,21 @@
 {
  "schema": 3,
- "generated_at": "2026-11-23T22:30:44+09:00",
+ "generated_at": "2026-11-23T22:35:34+09:00",
  "note": "Public, de-identified collaboration snapshot. No credentials, personal data, or raw DB. schema 3: forward_signals_observed(전진검증)와 research_shadow_signals_prospective(연구 Shadow)를 분리했고, shadow_signals_measured·candidate_count 는 null(deprecated)이다.",
  "totals": {
   "symbols": 5631,
-  "candles_1m": 12433534,
+  "candles_1m": 12434608,
   "surges_ge5": 723,
   "forward_closed": 614,
-  "forward_wins": 269,
+  "forward_wins": 270,
   "forward_signals": 997,
   "totals_source": "monitor/latest.json:forward_tracks",
-  "forward_tracks_closed_sum": 621,
+  "forward_tracks_closed_sum": 622,
   "forward_totals_exact_match": false,
   "consistency_mode": "signal_mismatch",
-  "forward_tracks_signals_sum": 1026,
+  "forward_tracks_signals_sum": 1028,
   "forward_signals_observed": 997,
-  "forward_wins_from_tracks": 269,
+  "forward_wins_from_tracks": 270,
   "research_shadow_signals_prospective": 0,
   "research_shadow_available": true,
   "shadow_query_error_markets": [],
@@ -24,16 +24,16 @@
   "research_shadow_fp": 0,
   "research_shadow_censored": 0,
   "forward_research_delta": {
-   "signals": 29,
-   "closed": 7
+   "signals": 31,
+   "closed": 8
   },
-  "forward_signal_delta": 29,
-  "forward_closed_delta": 7,
+  "forward_signal_delta": 31,
+  "forward_closed_delta": 8,
   "forward_research_consistent": false,
   "forward_closed_consistent": false,
   "consistency_note": "tracks=실시간 장부(요청 시점) · research=monitor_research 캐시(최대 15분 TTL). 차이가 나면 대개 캐시 스냅숏 지연이며, signals 차이는 즉시 이상으로 본다. 이 두 상태를 하나의 bool 로 합치지 않는다.",
   "research_snapshot_generated_at": "2026-11-23T21:15:25+09:00",
-  "document_generated_at": "2026-11-23T22:30:44+09:00",
+  "document_generated_at": "2026-11-23T22:35:34+09:00",
   "forward_split_by_market": {
    "upbit": 627,
    "kr": 334,
@@ -50,14 +50,14 @@
    "label": "업비트 (KRW)",
    "db_ok": true,
    "db_source": "collector_stats",
-   "candles_1m": 1844730,
+   "candles_1m": 1845100,
    "symbols": 302,
    "universe": 302,
-   "last_candle": "2026-11-23T22:27:00",
-   "collector_last_run_at": "2026-11-23T22:28:20",
+   "last_candle": "2026-11-23T22:32:00",
+   "collector_last_run_at": "2026-11-23T22:33:35",
    "collector_errors": 0,
    "candles_1m_query": "SUM(fetch_log.candles_saved)",
-   "candles_1m_saved": 1844730,
+   "candles_1m_saved": 1845100,
    "candle_count_delta": null,
    "schema_version": 3,
    "protocol_version": "budget-proto-v3-20261120",
@@ -329,14 +329,14 @@
    "label": "미국주식",
    "db_ok": true,
    "db_source": "db_read",
-   "candles_1m": 5293218,
+   "candles_1m": 5293922,
    "symbols": 2173,
    "universe": 2174,
-   "last_candle": "2026-11-23T22:28:54",
-   "collector_last_run_at": "2026-11-23T22:28:54",
+   "last_candle": "2026-11-23T22:33:34",
+   "collector_last_run_at": "2026-11-23T22:33:34",
    "collector_errors": 0,
    "candles_1m_query": "SUM(fetch_log.candles_saved)",
-   "candles_1m_saved": 5293218,
+   "candles_1m_saved": 5293922,
    "candle_count_delta": null,
    "schema_version": 3,
    "protocol_version": "budget-proto-v3-20261120",
@@ -484,7 +484,7 @@
    "losses": 1,
    "win_rate": 50.0,
    "sum_pnl_pct": 3.887,
-   "last_run_at": "2026-11-23T22:29:33",
+   "last_run_at": "2026-11-23T22:34:13",
    "buckets": null,
    "ledger_version": null
   },
@@ -498,7 +498,7 @@
    "losses": 18,
    "win_rate": 41.9,
    "sum_pnl_pct": -4.311,
-   "last_run_at": "2026-11-23T22:29:33",
+   "last_run_at": "2026-11-23T22:34:13",
    "buckets": null,
    "ledger_version": null
   },
@@ -526,7 +526,7 @@
    "losses": 0,
    "win_rate": null,
    "sum_pnl_pct": 0.0,
-   "last_run_at": "2026-11-23T22:28:23",
+   "last_run_at": "2026-11-23T22:33:37",
    "buckets": {
     "prospective_forward": 3,
     "initialization_replay": 3,
@@ -545,21 +545,21 @@
    "losses": 31,
    "win_rate": 38.0,
    "sum_pnl_pct": -16.543,
-   "last_run_at": "2026-11-23T22:30:07",
+   "last_run_at": "2026-11-23T22:34:58",
    "buckets": null,
    "ledger_version": null
   },
   "UPBIT_GEN3": {
    "label": "업비트 3세대 GEN3 (Shadow)",
    "market": "upbit",
-   "signals": 606,
+   "signals": 608,
    "entries": 577,
-   "closed": 538,
-   "wins": 236,
+   "closed": 539,
+   "wins": 237,
    "losses": 302,
-   "win_rate": 43.9,
-   "sum_pnl_pct": -29.276,
-   "last_run_at": "2026-11-23T22:30:14",
+   "win_rate": 44.0,
+   "sum_pnl_pct": -28.848,
+   "last_run_at": "2026-11-23T22:35:04",
    "buckets": null,
    "ledger_version": null
   },
@@ -573,7 +573,7 @@
    "losses": 0,
    "win_rate": null,
    "sum_pnl_pct": 0.0,
-   "last_run_at": "2026-11-23T22:30:10",
+   "last_run_at": "2026-11-23T22:35:02",
    "buckets": null,
    "ledger_version": null
   }
@@ -581,8 +581,8 @@
  "candle_count_audit": {
   "upbit": {
    "db_file": "upbit_1m.db",
-   "db_size": 323850240,
-   "db_mtime": 1795440546,
+   "db_size": 324001792,
+   "db_mtime": 1795440861,
    "universe_def": "fetch_log rows (감시 종목 1행/종목)",
    "bars_query": "SELECT COUNT(*) FROM candles_1m",
    "saved_query": "SELECT COALESCE(SUM(candles_saved),0) FROM fetch_log",
@@ -590,7 +590,7 @@
     "error": "OperationalError: interrupted",
     "seconds": 2.54
    },
-   "generated_at": "2026-11-23T22:30:34+09:00"
+   "generated_at": "2026-11-23T22:35:24+09:00"
   },
   "kr": {
    "db_file": "kr_1m.db",
@@ -603,20 +603,20 @@
     "error": "OperationalError: interrupted",
     "seconds": 2.54
    },
-   "generated_at": "2026-11-23T22:30:37+09:00"
+   "generated_at": "2026-11-23T22:35:27+09:00"
   },
   "us": {
    "db_file": "us_1m.db",
-   "db_size": 527884288,
-   "db_mtime": 1795440572,
+   "db_size": 527994880,
+   "db_mtime": 1795440852,
    "universe_def": "fetch_log rows (감시 종목 1행/종목)",
    "bars_query": "SELECT COUNT(*) FROM candles_1m",
    "saved_query": "SELECT COALESCE(SUM(candles_saved),0) FROM fetch_log",
    "bars_actual": {
     "error": "OperationalError: interrupted",
-    "seconds": 2.57
+    "seconds": 2.53
    },
-   "generated_at": "2026-11-23T22:30:40+09:00"
+   "generated_at": "2026-11-23T22:35:29+09:00"
   }
  },
  "research": {
