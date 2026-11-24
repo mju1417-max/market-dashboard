@@ -1,24 +1,24 @@
 {
  "schema": 3,
- "generated_at": "2026-11-25T08:35:11+09:00",
+ "generated_at": "2026-11-25T08:40:16+09:00",
  "note": "Public, de-identified collaboration snapshot. No credentials, personal data, or raw DB. schema 3: forward_signals_observed(전진검증)와 research_shadow_signals_prospective(연구 Shadow)를 분리했고, shadow_signals_measured·candidate_count 는 null(deprecated)이다.",
  "totals": {
   "symbols": 5699,
-  "candles_1m": 6233116,
+  "candles_1m": 6233223,
   "surges_ge5": 792,
-  "forward_closed": 1161,
+  "forward_closed": 1164,
   "forward_wins": 519,
-  "forward_signals": 1619,
+  "forward_signals": 1622,
   "totals_source": "monitor/latest.json:forward_tracks",
   "candles_1m_scope": "live_retention",
   "candles_1m_note": "시장별 라이브 DB 보관량 합계. US 통합(라이브+아카이브)은 markets.us.history.unified_bars.",
   "us_unified_candles_1m": 6685774,
   "us_unified_computed_at": "2026-11-25T08:30:44",
   "forward_tracks_closed_sum": 1164,
-  "forward_totals_exact_match": false,
-  "consistency_mode": "signal_mismatch",
+  "forward_totals_exact_match": true,
+  "consistency_mode": "exact",
   "forward_tracks_signals_sum": 1622,
-  "forward_signals_observed": 1619,
+  "forward_signals_observed": 1622,
   "forward_wins_from_tracks": 519,
   "research_shadow_signals_prospective": 0,
   "research_shadow_available": true,
@@ -28,22 +28,22 @@
   "research_shadow_fp": 0,
   "research_shadow_censored": 0,
   "forward_research_delta": {
-   "signals": 3,
-   "closed": 3
+   "signals": 0,
+   "closed": 0
   },
-  "forward_signal_delta": 3,
-  "forward_closed_delta": 3,
-  "forward_research_consistent": false,
-  "forward_closed_consistent": false,
+  "forward_signal_delta": 0,
+  "forward_closed_delta": 0,
+  "forward_research_consistent": true,
+  "forward_closed_consistent": true,
   "consistency_note": "tracks=실시간 장부(요청 시점) · research=monitor_research 캐시(최대 15분 TTL). 차이가 나면 대개 캐시 스냅숏 지연이며, signals 차이는 즉시 이상으로 본다. 이 두 상태를 하나의 bool 로 합치지 않는다.",
-  "research_snapshot_generated_at": "2026-11-25T08:05:21+09:00",
-  "document_generated_at": "2026-11-25T08:35:11+09:00",
+  "research_snapshot_generated_at": "2026-11-25T08:39:58+09:00",
+  "document_generated_at": "2026-11-25T08:40:16+09:00",
   "forward_split_by_market": {
-   "upbit": 1211,
+   "upbit": 1214,
    "kr": 372,
    "us": 36
   },
-  "research_snapshot_at": "2026-11-25T08:05:21+09:00",
+  "research_snapshot_at": "2026-11-25T08:39:58+09:00",
   "research_schema": 3,
   "protocol_version": "budget-proto-v3-20261120",
   "forward_definition": "전진검증 장부(실시간 가상 체결) — 연구 Shadow 와 합산하지 않는다",
@@ -54,30 +54,30 @@
    "label": "업비트 (KRW)",
    "db_ok": true,
    "db_source": "collector_stats",
-   "candles_1m": 2139075,
+   "candles_1m": 2139182,
    "symbols": 302,
    "universe": 303,
-   "last_candle": "2026-11-25T08:32:00",
-   "collector_last_run_at": "2026-11-25T08:33:23",
+   "last_candle": "2026-11-25T08:37:00",
+   "collector_last_run_at": "2026-11-25T08:38:52",
    "collector_errors": 0,
    "candles_1m_query": "SUM(fetch_log.candles_saved)",
-   "candles_1m_saved": 2139075,
+   "candles_1m_saved": 2139182,
    "candle_count_delta": null,
    "schema_version": 3,
    "protocol_version": "budget-proto-v3-20261120",
    "protocol_hash": "d05c99d2376792b7",
-   "forward_signals_observed": 1211,
-   "forward_entries": 1139,
+   "forward_signals_observed": 1214,
+   "forward_entries": 1142,
    "forward_open": 11,
-   "forward_closed": 1128,
+   "forward_closed": 1131,
    "forward_wins": 505,
-   "forward_win_rate": 44.8,
-   "forward_sum_pnl_pct": 27.472,
+   "forward_win_rate": 44.7,
+   "forward_sum_pnl_pct": 24.972,
    "forward_denominator": {
     "definition": "실제로 돌린 전진검증 장부의 신호·체결·청산 (가상 체결, 실주문 아님)",
     "time_range": [
      "2026-11-19T07:42:00",
-     "2026-11-25T07:34:00"
+     "2026-11-25T08:27:00"
     ],
     "source_ledger": "forward_trades_*.json (track 별 전진검증 장부)",
     "tracks": [
@@ -136,21 +136,21 @@
     "frozen_count": "→ frozen_candidate_count"
    },
    "research_generation_id": "UP-G003",
-   "research_status": "rotation:budget_stop",
-   "research_updated_at": "2026-11-25T08:05:21+09:00",
+   "research_status": "rotation:no_new_data",
+   "research_updated_at": "2026-11-25T08:39:58+09:00",
    "connection": {
     "e2e_connected": true,
     "production_connected": true,
     "rotation": {
-     "status": "budget_stop",
-     "started_at": "2026-11-25 07:38:08",
-     "finished_at": "2026-11-25 07:38:53",
+     "status": "no_new_data",
+     "started_at": "2026-11-25 08:38:17",
+     "finished_at": "2026-11-25 08:38:35",
      "generation": 8,
      "tested": 0,
      "passed": 0
     },
     "prod_stages": {
-     "rotate": 11,
+     "rotate": 12,
      "shadow_evaluate": 4,
      "shadow_scan": 4,
      "shadow_settle": 5,
@@ -166,7 +166,7 @@
      "definition": "사건(+5%) 시각 − 판단/진입 시각. 음수=늦은 관측(전체 신호 기준)"
     },
     "execution_net": null,
-    "measured_at": "2026-11-25T08:05:33+09:00",
+    "measured_at": "2026-11-25T08:40:11+09:00",
     "note": "e2e_connected=29차 격리 e2e 계약 실증(별개) · production_connected=운영 30분 액션에서 rotation_runs 행과 prod_runs(Shadow 단계) 호출이 모두 있음",
     "signals_recorded": 75,
     "late_observation": 67,
@@ -284,7 +284,7 @@
    },
    "research_generation_id": "lab_KR_20261124_62a746fd",
    "research_status": "daily_track_active",
-   "research_updated_at": "2026-11-25T08:05:21+09:00",
+   "research_updated_at": "2026-11-25T08:39:58+09:00",
    "connection": {
     "e2e_connected": true,
     "production_connected": true,
@@ -309,7 +309,7 @@
     "price_gain_error": null,
     "latency": null,
     "execution_net": null,
-    "measured_at": "2026-11-25T08:05:33+09:00",
+    "measured_at": "2026-11-25T08:40:11+09:00",
     "note": "e2e_connected=29차 격리 e2e 계약 실증(별개) · production_connected=운영 30분 액션에서 rotation_runs 행과 prod_runs(Shadow 단계) 호출이 모두 있음",
     "signals_recorded": 0,
     "late_observation": 0,
@@ -337,11 +337,11 @@
    "symbols": 2286,
    "universe": 2327,
    "last_candle": "2026-11-25T08:27:00",
-   "collector_last_run_at": "2026-11-25T08:34:02",
+   "collector_last_run_at": "2026-11-25T08:39:00",
    "collector_errors": 0,
    "candles_1m_query": "COUNT(*)",
-   "candles_1m_saved": 2514206,
-   "candle_count_delta": -3932,
+   "candles_1m_saved": 2516571,
+   "candle_count_delta": -6297,
    "schema_version": 3,
    "protocol_version": "budget-proto-v3-20261120",
    "protocol_hash": "d05c99d2376792b7",
@@ -415,20 +415,20 @@
    },
    "research_generation_id": "lab_US_20261119_11d1253a",
    "research_status": "lab_complete",
-   "research_updated_at": "2026-11-25T08:05:21+09:00",
+   "research_updated_at": "2026-11-25T08:39:58+09:00",
    "connection": {
     "e2e_connected": true,
     "production_connected": true,
     "rotation": {
-     "status": "interrupted",
-     "started_at": "2026-11-25 07:38:06",
-     "finished_at": "2026-11-25 07:38:08",
-     "generation": null,
-     "tested": null,
-     "passed": null
+     "status": "ingest_partial",
+     "started_at": "2026-11-25 08:07:59",
+     "finished_at": "2026-11-25 08:08:10",
+     "generation": 2,
+     "tested": 0,
+     "passed": 0
     },
     "prod_stages": {
-     "rotate": 45,
+     "rotate": 46,
      "shadow_evaluate": 13,
      "shadow_scan": 13,
      "shadow_settle": 13,
@@ -444,7 +444,7 @@
      "definition": "사건(+5%) 시각 − 판단/진입 시각. 음수=늦은 관측(전체 신호 기준)"
     },
     "execution_net": null,
-    "measured_at": "2026-11-25T08:05:33+09:00",
+    "measured_at": "2026-11-25T08:40:11+09:00",
     "note": "e2e_connected=29차 격리 e2e 계약 실증(별개) · production_connected=운영 30분 액션에서 rotation_runs 행과 prod_runs(Shadow 단계) 호출이 모두 있음",
     "signals_recorded": 35,
     "late_observation": 35,
@@ -488,7 +488,7 @@
    "losses": 1,
    "win_rate": 50.0,
    "sum_pnl_pct": 3.887,
-   "last_run_at": "2026-11-25T08:34:41",
+   "last_run_at": "2026-11-25T08:39:39",
    "buckets": null,
    "ledger_version": null
   },
@@ -502,7 +502,7 @@
    "losses": 18,
    "win_rate": 41.9,
    "sum_pnl_pct": -4.311,
-   "last_run_at": "2026-11-25T08:34:41",
+   "last_run_at": "2026-11-25T08:39:39",
    "buckets": null,
    "ledger_version": null
   },
@@ -549,7 +549,7 @@
    "losses": 37,
    "win_rate": 37.3,
    "sum_pnl_pct": -17.931,
-   "last_run_at": "2026-11-25T08:34:58",
+   "last_run_at": "2026-11-25T08:39:50",
    "buckets": null,
    "ledger_version": null
   },
@@ -563,7 +563,7 @@
    "losses": 589,
    "win_rate": 45.1,
    "sum_pnl_pct": 42.903,
-   "last_run_at": "2026-11-25T08:35:04",
+   "last_run_at": "2026-11-25T08:39:56",
    "buckets": null,
    "ledger_version": null
   },
@@ -577,7 +577,7 @@
    "losses": 0,
    "win_rate": null,
    "sum_pnl_pct": 0.0,
-   "last_run_at": "2026-11-25T08:35:02",
+   "last_run_at": "2026-11-25T08:39:54",
    "buckets": null,
    "ledger_version": null
   }
@@ -585,16 +585,16 @@
  "candle_count_audit": {
   "upbit": {
    "db_file": "upbit_1m.db",
-   "db_size": 365019136,
-   "db_mtime": 1795563248,
+   "db_size": 365076480,
+   "db_mtime": 1795563557,
    "universe_def": "fetch_log rows (감시 종목 1행/종목)",
    "bars_query": "SELECT COUNT(*) FROM candles_1m",
    "saved_query": "SELECT COALESCE(SUM(candles_saved),0) FROM fetch_log",
    "bars_actual": {
     "error": "OperationalError: interrupted",
-    "seconds": 2.54
+    "seconds": 2.55
    },
-   "generated_at": "2026-11-25T08:35:07+09:00"
+   "generated_at": "2026-11-25T08:40:11+09:00"
   },
   "kr": {
    "db_file": "kr_1m.db",
@@ -610,16 +610,16 @@
     "last": "2026-11-24T15:42:00",
     "mode": "ro",
     "seconds": 0.0,
-    "at": 1795561537.2112298,
+    "at": 1795563416.1406822,
     "cached": true,
-    "age_s": 1773.0
+    "age_s": 198.1
    },
-   "generated_at": "2026-11-25T08:35:10+09:00"
+   "generated_at": "2026-11-25T08:40:14+09:00"
   },
   "us": {
    "db_file": "us_1m.db",
-   "db_size": 329842688,
-   "db_mtime": 1795563280,
+   "db_size": 330211328,
+   "db_mtime": 1795563578,
    "universe_def": "fetch_log rows (감시 종목 1행/종목)",
    "bars_query": "SELECT COUNT(*) FROM candles_1m",
    "saved_query": "SELECT COALESCE(SUM(candles_saved),0) FROM fetch_log",
@@ -632,40 +632,40 @@
     "seconds": 0.0,
     "at": 1795563044.5137262,
     "cached": true,
-    "age_s": 265.7
+    "age_s": 569.8
    },
-   "generated_at": "2026-11-25T08:35:10+09:00"
+   "generated_at": "2026-11-25T08:40:14+09:00"
   }
  },
  "research": {
-  "generated_at": "2026-11-25T08:05:21+09:00",
+  "generated_at": "2026-11-25T08:39:58+09:00",
   "schema": 3,
   "protocol_version": "budget-proto-v3-20261120",
   "protocol_hash": "d05c99d2376792b7",
   "note": "시장별 연구 상태(Ⅴ.2) — 전진검증과 연구 Shadow 를 분리한 schema 3. null 은 미측정·미구현이며 status_fields 에 사유가 있다. 0 은 실제 0. 절대경로·비밀·개인정보 없음.",
   "markets": {
    "upbit": {
-    "data_cutoff": "2026-11-25T08:02",
+    "data_cutoff": "2026-11-25T08:37",
     "last_complete_session": "2026-11-25",
-    "candle_count": 2137519,
+    "candle_count": 2139182,
     "universe": 302,
     "source_id": "upbit_1m.db",
     "collector_errors": 0,
     "generation_id": "UP-G003",
-    "research_status": "rotation:budget_stop",
+    "research_status": "rotation:no_new_data",
     "last_success": "2026-11-25 05:08:26",
     "last_error_type": "OperationalError",
     "last_error_at": "2026-11-21 10:08:25",
     "code_sha": "f617cb791826",
-    "last_collect_success": "2026-11-25T08:03:35.382777+09:00",
-    "last_ingest_success": "2026-11-25 06:38:30",
+    "last_collect_success": "2026-11-25T08:38:52.629524+09:00",
+    "last_ingest_success": "2026-11-25 08:38:35",
     "last_eval_success": "2026-11-25 05:08:27",
     "last_generation_rotation": "2026-11-25 05:08:26",
-    "last_partial_checkpoint": "2026-11-25 07:38:08",
+    "last_partial_checkpoint": "2026-11-25 08:38:14",
     "last_error": "2026-11-21 10:08:25",
     "last_error_recovery": "2026-11-21 10:38:39",
     "last_new_hypothesis_validation": null,
-    "no_new_data_rounds_not_counted": 130,
+    "no_new_data_rounds_not_counted": 131,
     "timestamp_semantics": {
      "last_success": "하위 호환 필드. 시장마다 뜻이 다르다(UP=마지막 새 세대 등록, KR=일간 트랙 마지막 실행, US=lab 데이터 컷오프). 새 코드는 아래 분리 필드를 쓴다.",
      "last_collect_success": "수집기가 자기 state/cursor 에 마지막 실행을 남긴 시각(운영 1분봉 수집 성공).",
@@ -680,29 +680,29 @@
     "last_success_meaning": "업비트 기준: 마지막 **새 세대 등록**(research_generations.created_at). 정규 회차가 no_new_data 로 정상 완료해도 새 세대가 없으면 전진하지 않는다.",
     "last_collect_success_meaning": "collector_cursor.last_run_at (collector_cursor.json)",
     "recovered": true,
-    "last_round": "2026-11-25 07:38:08",
+    "last_round": "2026-11-25 08:38:17",
     "source": "rotation_runs·rotation_errors·research_generations (mode=ro)",
     "read_mode": "snapshot_copy",
     "legacy_last_success": "2026-11-25 05:08:26",
     "schema_version": 3,
     "protocol_version": "budget-proto-v3-20261120",
     "protocol_hash": "d05c99d2376792b7",
-    "forward_signals_observed": 1211,
-    "forward_entries": 1139,
+    "forward_signals_observed": 1214,
+    "forward_entries": 1142,
     "forward_open": 11,
-    "forward_closed": 1128,
+    "forward_closed": 1131,
     "forward_wins": 505,
-    "forward_win_rate": 44.8,
-    "forward_sum_pnl_pct": 27.472,
+    "forward_win_rate": 44.7,
+    "forward_sum_pnl_pct": 24.972,
     "forward_tracks": [
      {
       "track": "UPBIT_GEN3",
-      "closed": 1069,
+      "closed": 1072,
       "wins": 483,
       "win_rate": null,
       "open": null,
-      "signals": 1151,
-      "last_run_at": "2026-11-25T08:05:18",
+      "signals": 1153,
+      "last_run_at": "2026-11-25T08:39:56",
       "ledger_version": null,
       "prospective": null
      },
@@ -712,8 +712,8 @@
       "wins": 22,
       "win_rate": null,
       "open": null,
-      "signals": 60,
-      "last_run_at": "2026-11-25T08:05:12",
+      "signals": 61,
+      "last_run_at": "2026-11-25T08:39:50",
       "ledger_version": null,
       "prospective": null
      },
@@ -724,7 +724,7 @@
       "win_rate": null,
       "open": null,
       "signals": 0,
-      "last_run_at": "2026-11-25T08:05:16",
+      "last_run_at": "2026-11-25T08:39:54",
       "ledger_version": null,
       "prospective": null
      }
@@ -733,7 +733,7 @@
      "definition": "실제로 돌린 전진검증 장부의 신호·체결·청산 (가상 체결, 실주문 아님)",
      "time_range": [
       "2026-11-19T07:42:00",
-      "2026-11-25T07:34:00"
+      "2026-11-25T08:27:00"
      ],
      "source_ledger": "forward_trades_*.json (track 별 전진검증 장부)",
      "tracks": [
@@ -743,7 +743,7 @@
      ],
      "note": "signals = 장부의 signals_detected, closed = n_closed. Shadow 와 합산하지 않는다."
     },
-    "forward_last_run_at": "2026-11-25T08:05:18",
+    "forward_last_run_at": "2026-11-25T08:39:56",
     "forward_errors": null,
     "research_shadow_registered": 2,
     "research_shadow_signals_prospective": 0,
@@ -779,9 +779,9 @@
     "shadow_median_price_gain_err_pct": null,
     "shadow_status": "registered_late_only",
     "shadow_query": {
-     "query_attempt_at": "2026-11-25T08:05:25+09:00",
+     "query_attempt_at": "2026-11-25T08:40:03+09:00",
      "query_status": "snapshot",
-     "last_good_at": "2026-11-25T08:05:25+09:00",
+     "last_good_at": "2026-11-25T08:40:02+09:00",
      "last_good_age_sec": 0.0,
      "error_code": 14,
      "error_name": "SQLITE_CANTOPEN",
@@ -789,18 +789,18 @@
      "data_age_sec": 0.0,
      "attempts": 4,
      "waited_ms": 4256,
-     "retry_wait_ms": 3066,
-     "snapshot_ms": 1187,
+     "retry_wait_ms": 3067,
+     "snapshot_ms": 1186,
      "read_mode": "snapshot_copy",
-     "snapshot_at": "2026-11-25T08:05:25+09:00",
-     "snapshot_gen": "gen_1795561524337",
-     "ledger_mtime_age_sec": 1587.9,
+     "snapshot_at": "2026-11-25T08:40:02+09:00",
+     "snapshot_gen": "gen_1795563601754",
+     "ledger_mtime_age_sec": 82.9,
      "definition": "query_attempt_at=이번 조회 시각 · last_good_at=이 시장의 마지막 **정상** 조회 시각 · data_age_sec=읽은 사본이 얼마나 느린 값인지(0=살아있는 원장 직접) · query_error 일 때 현재 지표는 null(미측정)이고 0이 아니다."
     },
     "shadow_last_good": null,
     "shadow_metrics_source": "live",
     "shadow_query_status": "snapshot",
-    "shadow_last_good_at": "2026-11-25T08:05:25+09:00",
+    "shadow_last_good_at": "2026-11-25T08:40:02+09:00",
     "shadow_data_age_sec": 0.0,
     "shadow_error_code": 14,
     "shadow_error_name": "SQLITE_CANTOPEN",
@@ -871,15 +871,15 @@
      "e2e_connected": true,
      "production_connected": true,
      "rotation": {
-      "status": "budget_stop",
-      "started_at": "2026-11-25 07:38:08",
-      "finished_at": "2026-11-25 07:38:53",
+      "status": "no_new_data",
+      "started_at": "2026-11-25 08:38:17",
+      "finished_at": "2026-11-25 08:38:35",
       "generation": 8,
       "tested": 0,
       "passed": 0
      },
      "prod_stages": {
-      "rotate": 11,
+      "rotate": 12,
       "shadow_evaluate": 4,
       "shadow_scan": 4,
       "shadow_settle": 5,
@@ -895,7 +895,7 @@
       "definition": "사건(+5%) 시각 − 판단/진입 시각. 음수=늦은 관측(전체 신호 기준)"
      },
      "execution_net": null,
-     "measured_at": "2026-11-25T08:05:33+09:00",
+     "measured_at": "2026-11-25T08:40:11+09:00",
      "note": "e2e_connected=29차 격리 e2e 계약 실증(별개) · production_connected=운영 30분 액션에서 rotation_runs 행과 prod_runs(Shadow 단계) 호출이 모두 있음",
      "signals_recorded": 75,
      "late_observation": 67,
@@ -926,9 +926,9 @@
      "all_signals_note": "전체 신호(늦은 관측 포함) 단순 평균 — 성과 지표로 쓰지 않는다",
      "read_mode": "snapshot_copy"
     },
-    "updated_at": "2026-11-25T08:05:21+09:00",
+    "updated_at": "2026-11-25T08:39:58+09:00",
     "generation": "UP-G003",
-    "status": "rotation:budget_stop",
+    "status": "rotation:no_new_data",
     "shadow_signals_historical": 0
    },
    "kr": {
@@ -1118,9 +1118,9 @@
     "shadow_median_price_gain_err_pct": null,
     "shadow_status": "registered_no_signal",
     "shadow_query": {
-     "query_attempt_at": "2026-11-25T08:05:32+09:00",
+     "query_attempt_at": "2026-11-25T08:40:10+09:00",
      "query_status": "snapshot",
-     "last_good_at": "2026-11-25T08:05:32+09:00",
+     "last_good_at": "2026-11-25T08:40:10+09:00",
      "last_good_age_sec": 0.0,
      "error_code": 14,
      "error_name": "SQLITE_CANTOPEN",
@@ -1128,18 +1128,18 @@
      "data_age_sec": 0.0,
      "attempts": 4,
      "waited_ms": 4256,
-     "retry_wait_ms": 3066,
-     "snapshot_ms": 1187,
+     "retry_wait_ms": 3067,
+     "snapshot_ms": 1186,
      "read_mode": "snapshot_copy",
-     "snapshot_at": "2026-11-25T08:05:25+09:00",
-     "snapshot_gen": "gen_1795561524337",
-     "ledger_mtime_age_sec": 1587.9,
+     "snapshot_at": "2026-11-25T08:40:02+09:00",
+     "snapshot_gen": "gen_1795563601754",
+     "ledger_mtime_age_sec": 82.9,
      "definition": "query_attempt_at=이번 조회 시각 · last_good_at=이 시장의 마지막 **정상** 조회 시각 · data_age_sec=읽은 사본이 얼마나 느린 값인지(0=살아있는 원장 직접) · query_error 일 때 현재 지표는 null(미측정)이고 0이 아니다."
     },
     "shadow_last_good": null,
     "shadow_metrics_source": "live",
     "shadow_query_status": "snapshot",
-    "shadow_last_good_at": "2026-11-25T08:05:32+09:00",
+    "shadow_last_good_at": "2026-11-25T08:40:10+09:00",
     "shadow_data_age_sec": 0.0,
     "shadow_error_code": 14,
     "shadow_error_name": "SQLITE_CANTOPEN",
@@ -1222,7 +1222,7 @@
      "price_gain_error": null,
      "latency": null,
      "execution_net": null,
-     "measured_at": "2026-11-25T08:05:33+09:00",
+     "measured_at": "2026-11-25T08:40:11+09:00",
      "note": "e2e_connected=29차 격리 e2e 계약 실증(별개) · production_connected=운영 30분 액션에서 rotation_runs 행과 prod_runs(Shadow 단계) 호출이 모두 있음",
      "signals_recorded": 0,
      "late_observation": 0,
@@ -1241,16 +1241,16 @@
      },
      "read_mode": "snapshot_copy"
     },
-    "updated_at": "2026-11-25T08:05:21+09:00",
+    "updated_at": "2026-11-25T08:39:58+09:00",
     "generation": "lab_KR_20261124_62a746fd",
     "status": "daily_track_active",
     "shadow_signals_historical": 0
    },
    "us": {
-    "data_cutoff": "2026-11-25T08:02+09:00",
+    "data_cutoff": "2026-11-25T08:38+09:00",
     "last_complete_session": "2026-11-19",
-    "candle_count": 2481432,
-    "universe": 2320,
+    "candle_count": 2516571,
+    "universe": 2327,
     "source_id": "us_1m.db",
     "collector_errors": 0,
     "generation_id": "lab_US_20261119_11d1253a",
@@ -1317,11 +1317,11 @@
      "completeness": "7/7",
      "cooldown_scope": "session"
     },
-    "last_collect_success": "2026-11-25T08:03:44.248638+09:00",
+    "last_collect_success": "2026-11-25T08:39:00.846756+09:00",
     "last_ingest_success": "2026-11-23 23:08:17",
     "last_eval_success": "2026-11-23 23:08:17",
     "last_generation_rotation": "2026-11-23 23:08:15",
-    "last_partial_checkpoint": "2026-11-25 06:08:12",
+    "last_partial_checkpoint": "2026-11-25 08:07:59",
     "last_error": null,
     "last_error_recovery": null,
     "last_new_hypothesis_validation": null,
@@ -1339,7 +1339,7 @@
     },
     "last_success_meaning": "미국 기준: lab 데이터 컷오프 날짜(실행 시각이 아니라 데이터 끝).",
     "last_collect_success_meaning": "collector_cursor.last_run_at (collector_cursor.json)",
-    "last_round": "2026-11-25 07:38:06",
+    "last_round": "2026-11-25 08:07:59",
     "source": "rotation_runs·rotation_errors·research_generations (mode=ro)",
     "read_mode": "snapshot_copy",
     "legacy_last_success": "2026-11-19",
@@ -1361,7 +1361,7 @@
       "win_rate": null,
       "open": null,
       "signals": 34,
-      "last_run_at": "2026-11-25T08:04:22",
+      "last_run_at": "2026-11-25T08:39:39",
       "ledger_version": null,
       "prospective": null
      },
@@ -1372,7 +1372,7 @@
       "win_rate": null,
       "open": null,
       "signals": 2,
-      "last_run_at": "2026-11-25T08:04:22",
+      "last_run_at": "2026-11-25T08:39:39",
       "ledger_version": null,
       "prospective": null
      }
@@ -1390,7 +1390,7 @@
      ],
      "note": "signals = 장부의 signals_detected, closed = n_closed. Shadow 와 합산하지 않는다."
     },
-    "forward_last_run_at": "2026-11-25T08:04:22",
+    "forward_last_run_at": "2026-11-25T08:39:39",
     "forward_errors": null,
     "research_shadow_registered": 1,
     "research_shadow_signals_prospective": 0,
@@ -1425,9 +1425,9 @@
     "shadow_median_price_gain_err_pct": null,
     "shadow_status": "registered_late_only",
     "shadow_query": {
-     "query_attempt_at": "2026-11-25T08:05:33+09:00",
+     "query_attempt_at": "2026-11-25T08:40:11+09:00",
      "query_status": "snapshot",
-     "last_good_at": "2026-11-25T08:05:33+09:00",
+     "last_good_at": "2026-11-25T08:40:11+09:00",
      "last_good_age_sec": 0.0,
      "error_code": 14,
      "error_name": "SQLITE_CANTOPEN",
@@ -1435,18 +1435,18 @@
      "data_age_sec": 0.0,
      "attempts": 4,
      "waited_ms": 4256,
-     "retry_wait_ms": 3066,
-     "snapshot_ms": 1187,
+     "retry_wait_ms": 3067,
+     "snapshot_ms": 1186,
      "read_mode": "snapshot_copy",
-     "snapshot_at": "2026-11-25T08:05:25+09:00",
-     "snapshot_gen": "gen_1795561524337",
-     "ledger_mtime_age_sec": 1587.9,
+     "snapshot_at": "2026-11-25T08:40:02+09:00",
+     "snapshot_gen": "gen_1795563601754",
+     "ledger_mtime_age_sec": 82.9,
      "definition": "query_attempt_at=이번 조회 시각 · last_good_at=이 시장의 마지막 **정상** 조회 시각 · data_age_sec=읽은 사본이 얼마나 느린 값인지(0=살아있는 원장 직접) · query_error 일 때 현재 지표는 null(미측정)이고 0이 아니다."
     },
     "shadow_last_good": null,
     "shadow_metrics_source": "live",
     "shadow_query_status": "snapshot",
-    "shadow_last_good_at": "2026-11-25T08:05:33+09:00",
+    "shadow_last_good_at": "2026-11-25T08:40:11+09:00",
     "shadow_data_age_sec": 0.0,
     "shadow_error_code": 14,
     "shadow_error_name": "SQLITE_CANTOPEN",
@@ -1509,15 +1509,15 @@
      "e2e_connected": true,
      "production_connected": true,
      "rotation": {
-      "status": "interrupted",
-      "started_at": "2026-11-25 07:38:06",
-      "finished_at": "2026-11-25 07:38:08",
-      "generation": null,
-      "tested": null,
-      "passed": null
+      "status": "ingest_partial",
+      "started_at": "2026-11-25 08:07:59",
+      "finished_at": "2026-11-25 08:08:10",
+      "generation": 2,
+      "tested": 0,
+      "passed": 0
      },
      "prod_stages": {
-      "rotate": 45,
+      "rotate": 46,
       "shadow_evaluate": 13,
       "shadow_scan": 13,
       "shadow_settle": 13,
@@ -1533,7 +1533,7 @@
       "definition": "사건(+5%) 시각 − 판단/진입 시각. 음수=늦은 관측(전체 신호 기준)"
      },
      "execution_net": null,
-     "measured_at": "2026-11-25T08:05:33+09:00",
+     "measured_at": "2026-11-25T08:40:11+09:00",
      "note": "e2e_connected=29차 격리 e2e 계약 실증(별개) · production_connected=운영 30분 액션에서 rotation_runs 행과 prod_runs(Shadow 단계) 호출이 모두 있음",
      "signals_recorded": 35,
      "late_observation": 35,
@@ -1564,7 +1564,7 @@
      "all_signals_note": "전체 신호(늦은 관측 포함) 단순 평균 — 성과 지표로 쓰지 않는다",
      "read_mode": "snapshot_copy"
     },
-    "updated_at": "2026-11-25T08:05:21+09:00",
+    "updated_at": "2026-11-25T08:39:58+09:00",
     "generation": "lab_US_20261119_11d1253a",
     "status": "lab_complete",
     "shadow_signals_historical": 0
@@ -1587,31 +1587,31 @@
    "mode": "snapshot_copy",
    "attempts": 4,
    "waited_ms": 4256,
-   "retry_wait_ms": 3066,
-   "snapshot_ms": 1187,
+   "retry_wait_ms": 3067,
+   "snapshot_ms": 1186,
    "query_status": "snapshot",
    "error_code": 14,
    "error_name": "SQLITE_CANTOPEN",
    "error_text": "OperationalError: unable to open database file",
    "data_age_sec": 0.0,
-   "snapshot_at": "2026-11-25T08:05:25+09:00",
-   "snapshot_gen": "gen_1795561524337",
-   "ledger_mtime_age_sec": 1587.9,
-   "query_attempt_at": "2026-11-25T08:05:33+09:00",
-   "last_good_at": "2026-11-25T08:05:33+09:00",
+   "snapshot_at": "2026-11-25T08:40:02+09:00",
+   "snapshot_gen": "gen_1795563601754",
+   "ledger_mtime_age_sec": 82.9,
+   "query_attempt_at": "2026-11-25T08:40:11+09:00",
+   "last_good_at": "2026-11-25T08:40:11+09:00",
    "target": "knowledge.db",
    "ok": true,
    "isolation": "이 블록은 원장 한 파일의 읽기 상태다. 시장별 상태는 markets.*.shadow_query 에 따로 있다(세 시장이 같은 파일을 읽으므로 실패도 함께 난다)."
   },
   "consistency": {
-   "forward_signals_sum": 1619,
-   "forward_closed_sum": 1161,
+   "forward_signals_sum": 1622,
+   "forward_closed_sum": 1164,
    "tracks_closed_by_market": {
-    "upbit": 1128,
+    "upbit": 1131,
     "kr": 0,
     "us": 33
    },
-   "tracks_closed_sum": 1161,
+   "tracks_closed_sum": 1164,
    "forward_closed_equals_tracks": true,
    "research_shadow_prospective_sum": 0,
    "shadow_query_error_markets": [],
@@ -1624,12 +1624,12 @@
    "ledger_read_ok": true,
    "ledger_read_status": "snapshot",
    "forward_by_market": {
-    "upbit": 1211,
+    "upbit": 1214,
     "kr": 372,
     "us": 36
    },
    "forward_closed_by_market": {
-    "upbit": 1128,
+    "upbit": 1131,
     "kr": 0,
     "us": 33
    },
@@ -1639,7 +1639,7 @@
     "us": 0
    },
    "tracks_signals_by_market": {
-    "upbit": 1211,
+    "upbit": 1214,
     "kr": 372,
     "us": 36
    },
@@ -1650,7 +1650,7 @@
    "protocol_version": "budget-proto-v3-20261120"
   },
   "cache_state": {
-   "written_at": "2026-11-25T08:05:21+09:00",
+   "written_at": "2026-11-25T08:39:58+09:00",
    "ledger_read_ok": true,
    "ledger_read_status": "snapshot",
    "ledger_data_age_sec": 0.0,
@@ -1668,14 +1668,14 @@
   }
  },
  "research_consistency": {
-  "forward_signals_sum": 1619,
-  "forward_closed_sum": 1161,
+  "forward_signals_sum": 1622,
+  "forward_closed_sum": 1164,
   "tracks_closed_by_market": {
-   "upbit": 1128,
+   "upbit": 1131,
    "kr": 0,
    "us": 33
   },
-  "tracks_closed_sum": 1161,
+  "tracks_closed_sum": 1164,
   "forward_closed_equals_tracks": true,
   "research_shadow_prospective_sum": 0,
   "shadow_query_error_markets": [],
@@ -1688,12 +1688,12 @@
   "ledger_read_ok": true,
   "ledger_read_status": "snapshot",
   "forward_by_market": {
-   "upbit": 1211,
+   "upbit": 1214,
    "kr": 372,
    "us": 36
   },
   "forward_closed_by_market": {
-   "upbit": 1128,
+   "upbit": 1131,
    "kr": 0,
    "us": 33
   },
@@ -1703,7 +1703,7 @@
    "us": 0
   },
   "tracks_signals_by_market": {
-   "upbit": 1211,
+   "upbit": 1214,
    "kr": 372,
    "us": 36
   },
@@ -1728,10 +1728,10 @@
  },
  "audit": {
   "schema_version": "audit/1.0-p85",
-  "published_at": "2026-11-25T08:35:11+09:00",
+  "published_at": "2026-11-25T08:40:16+09:00",
   "note": "공개 집계·상태·사유만 싣는다. 미발송 후보 종목명·가격, 전략 설정, 토큰·채팅 ID, 원장 원본은 내부 보존.",
   "build": {
-   "elapsed_ms": 53,
+   "elapsed_ms": 157,
    "budget_ms": 2500,
    "sections": {
     "usage_accounting": {
@@ -1753,8 +1753,8 @@
    "over_budget": false
   },
   "usage_accounting": {
-   "source_ts": "2026-11-25T08:35:11+09:00",
-   "published_at": "2026-11-25T08:35:11+09:00",
+   "source_ts": "2026-11-25T08:40:16+09:00",
+   "published_at": "2026-11-25T08:40:16+09:00",
    "ai_calls_per_normal_run": 0,
    "handoffs_per_normal_run": 0,
    "python_runs": 7,
@@ -1764,8 +1764,8 @@
    "note": "이 감사 블록은 추가 AI 호출·핸드오프·예약을 만들지 않는다(기존 5분 회차에 얹힘)."
   },
   "recommendation_judgement": {
-   "source_ts": "2026-11-25T08:30:22",
-   "published_at": "2026-11-25T08:35:11+09:00",
+   "source_ts": "2026-11-25T08:35:26",
+   "published_at": "2026-11-25T08:40:16+09:00",
    "live_enabled": false,
    "approved_versions": 0,
    "send_gate_markets": {
@@ -1776,38 +1776,44 @@
    "db_query": {
     "ok": true,
     "reason": null,
-    "db_mtime": "2026-11-25T08:30:31+09:00"
+    "db_mtime": "2026-11-25T08:35:42+09:00"
    },
    "last_round": {
-    "at": "2026-11-25T08:30:22",
+    "at": "2026-11-25T08:35:26",
     "trigger": "scheduled",
-    "candidates": 0,
-    "ready": 0,
+    "candidates": 1,
+    "ready": 1,
     "eligible": 0,
     "sent": 0
    },
    "markets": {
     "UP": {
-     "published_at": "2026-11-25T08:35:11+09:00",
-     "source_ts": "2026-11-25T08:30:22",
-     "evaluated_signals": 609,
+     "published_at": "2026-11-25T08:40:16+09:00",
+     "source_ts": "2026-11-25T08:35:26",
+     "evaluated_signals": 610,
      "evaluated_symbols": 119,
-     "candidates": 0,
-     "ready": 0,
+     "candidates": 1,
+     "ready": 1,
      "qualified": 0,
      "send_attempts": 0,
      "telegram_accepted": 0,
      "send_locked": true,
-     "category": "보낼 종목 없음",
-     "blocked_reasons": {},
-     "ledger_age_sec": 308,
-     "state": "no_candidates",
-     "state_reason": "보낼 종목 없음",
-     "note": "평가 609건·실시간 후보 0 · 자격 0 (발송 비활성: live=False·승인 0건·mode=live)"
+     "category": "발송 비활성·실패",
+     "blocked_reasons": {
+      "version_approved": 1,
+      "market_enabled": 1,
+      "cost_adjusted_ci_low": 1,
+      "baseline_improvement": 1,
+      "drawdown_ok": 1
+     },
+     "ledger_age_sec": "미확인",
+     "state": "send_locked",
+     "state_reason": "발송 비활성·실패",
+     "note": "실시간 후보 1·준비 1·자격 0 — 게이트 차단(version_approved,market_enabled,cost_adjusted_ci_low)"
     },
     "KR": {
-     "published_at": "2026-11-25T08:35:11+09:00",
-     "source_ts": "2026-11-25T08:30:22",
+     "published_at": "2026-11-25T08:40:16+09:00",
+     "source_ts": "2026-11-25T08:35:26",
      "evaluated_signals": 46,
      "evaluated_symbols": 53,
      "candidates": 0,
@@ -1818,14 +1824,14 @@
      "send_locked": true,
      "category": "보낼 종목 없음",
      "blocked_reasons": {},
-     "ledger_age_sec": 59478,
+     "ledger_age_sec": 59785,
      "state": "no_candidates",
      "state_reason": "보낼 종목 없음",
      "note": "평가 46건·실시간 후보 0 · 자격 0 (발송 비활성: live=False·승인 0건·mode=live)"
     },
     "US": {
-     "published_at": "2026-11-25T08:35:11+09:00",
-     "source_ts": "2026-11-25T08:30:22",
+     "published_at": "2026-11-25T08:40:16+09:00",
+     "source_ts": "2026-11-25T08:35:26",
      "evaluated_signals": 36,
      "evaluated_symbols": 0,
      "candidates": 0,
@@ -1836,7 +1842,7 @@
      "send_locked": true,
      "category": "보낼 종목 없음",
      "blocked_reasons": {},
-     "ledger_age_sec": 57,
+     "ledger_age_sec": 48,
      "state": "no_candidates",
      "state_reason": "보낼 종목 없음",
      "note": "평가 36건·실시간 후보 0 · 자격 0 (발송 비활성: live=False·승인 0건·mode=live)"
@@ -1854,19 +1860,19 @@
   },
   "collection": {
    "source_ts": {
-    "status_build": "2026-11-25T08:35:07+09:00",
+    "status_build": "2026-11-25T08:40:11+09:00",
     "gap_probe": "2026-11-25T07:40:53+09:00",
     "daily_review": "2026-11-25 04:00",
     "daily_review_file": "daily_review_20261125.json"
    },
-   "published_at": "2026-11-25T08:35:11+09:00",
+   "published_at": "2026-11-25T08:40:16+09:00",
    "note": "게시 회차가 돌았다고 3시장이 모두 분석된 것은 아니다. last_collection_run_at·last_confirmed_bar_at 은 **게시 시점** 값이고, gap_evidence 는 07:40:53 공백 조사, coverage_0400 은 04:00 창 기준이다. 백필 봉은 실제 수신시각이 남아 있고 소급 포착 실적으로 계상하지 않는다.",
    "markets": {
     "UP": {
-     "published_at": "2026-11-25T08:35:11+09:00",
-     "last_collection_run_at": "2026-11-25T08:33:23",
-     "last_confirmed_bar_at": "2026-11-25T08:32:00",
-     "candles_1m": 2139075,
+     "published_at": "2026-11-25T08:40:16+09:00",
+     "last_collection_run_at": "2026-11-25T08:38:52",
+     "last_confirmed_bar_at": "2026-11-25T08:37:00",
+     "candles_1m": 2139182,
      "db_ok": true,
      "session": {
       "session": "24시간 연속시장",
@@ -1895,15 +1901,36 @@
       "recv_lag_p50_sec": 324,
       "fetch_errors": 0
      },
-     "collector_heartbeat": {
-      "source_ts": "2026-11-25 08:34:17 KST",
-      "state": "tg-sent",
-      "elapsed": "54s"
+     "ledger_analysis": {
+      "last_scored_at": "2026-11-25T08:39:56",
+      "scored_age_sec": 20,
+      "tracks": {
+       "UPBIT_GEN3": {
+        "last_run_at": "2026-11-25T08:39:56",
+        "signals": 1153,
+        "closed": 1072
+       },
+       "UP_ZVOL_GATE": {
+        "last_run_at": "2026-11-25T08:39:50",
+        "signals": 61,
+        "closed": 59
+       },
+       "UPBIT_GEN2": {
+        "last_run_at": "2026-11-25T08:39:54",
+        "signals": 0,
+        "closed": 0
+       }
+      }
      },
-     "analysis_scope": "24시간 시장 — 게시 시점 수집·채점 진행"
+     "collector_heartbeat": {
+      "source_ts": "2026-11-25 08:39:21 KST",
+      "state": "quiet",
+      "elapsed": "29s"
+     },
+     "analysis_scope": "24시간 시장 — 게시 시점 수집·채점 진행(장부 채점 2026-11-25T08:39:56, 20초 전)"
     },
     "KR": {
-     "published_at": "2026-11-25T08:35:11+09:00",
+     "published_at": "2026-11-25T08:40:16+09:00",
      "last_collection_run_at": "2026-11-24T15:43:37",
      "last_confirmed_bar_at": "2026-11-24T15:42:00",
      "candles_1m": 1583767,
@@ -1911,7 +1938,7 @@
      "session": {
       "session": "preopen",
       "trading_day": true,
-      "source_ts": "2026-11-25T08:33:41+09:00"
+      "source_ts": "2026-11-25T08:39:07+09:00"
      },
      "gap_evidence": {
       "source_ts": "2026-11-25T07:40:53+09:00",
@@ -1936,16 +1963,32 @@
       "recv_lag_p50_sec": 5298,
       "fetch_errors": 5
      },
-     "collector_heartbeat": {
-      "source_ts": "2026-11-25 08:33:42 KST",
-      "state": "quiet",
-      "elapsed": "1s"
+     "ledger_analysis": {
+      "last_scored_at": "2026-11-24T22:03:45+09:00",
+      "scored_age_sec": 38191,
+      "tracks": {
+       "KR_S16": {
+        "last_run_at": "2026-11-24T22:03:45+09:00",
+        "signals": 370,
+        "closed": 0
+       },
+       "KR_VCP": {
+        "last_run_at": "2026-11-24T15:59:04+09:00",
+        "signals": 2,
+        "closed": 0
+       }
+      }
      },
-     "analysis_scope": "장전(preopen) — 마지막 수신 2026-11-24 15:43 이후 신규 봉 없음. 개장 후 첫 수신 전까지 04:00 창 분석이 최신"
+     "collector_heartbeat": {
+      "source_ts": "2026-11-25 08:39:07 KST",
+      "state": "quiet",
+      "elapsed": "0s"
+     },
+     "analysis_scope": "장전(preopen) — 마지막 수신 2026-11-24 15:43 이후 신규 봉 없음. 개장 후 첫 수신 전까지 04:00 창 분석이 최신(장부 채점 2026-11-24T22:03:45+09:00, 38191초 전)"
     },
     "US": {
-     "published_at": "2026-11-25T08:35:11+09:00",
-     "last_collection_run_at": "2026-11-25T08:34:02",
+     "published_at": "2026-11-25T08:40:16+09:00",
+     "last_collection_run_at": "2026-11-25T08:39:00",
      "last_confirmed_bar_at": "2026-11-25T08:27:00",
      "candles_1m": 2510274,
      "db_ok": true,
@@ -1954,7 +1997,7 @@
       "in_session": true,
       "reason_text": "에프터장",
       "date_et": "2026-11-24",
-      "source_ts": "2026-11-25T08:34:02.854029+09:00",
+      "source_ts": "2026-11-25T08:39:00.846756+09:00",
       "calendar_source": "calendar"
      },
      "gap_evidence": {
@@ -1980,18 +2023,34 @@
       "recv_lag_p50_sec": 4287,
       "fetch_errors": 0
      },
-     "collector_heartbeat": {
-      "source_ts": "2026-11-25 08:34:43 KST",
-      "state": "tg-sent",
-      "elapsed": "41s"
+     "ledger_analysis": {
+      "last_scored_at": "2026-11-25T08:39:39",
+      "scored_age_sec": 37,
+      "tracks": {
+       "US_GEN16": {
+        "last_run_at": "2026-11-25T08:39:39",
+        "signals": 34,
+        "closed": 31
+       },
+       "US_WAVE_RANK": {
+        "last_run_at": "2026-11-25T08:39:39",
+        "signals": 2,
+        "closed": 2
+       }
+      }
      },
-     "analysis_scope": "장외(after) — 수집·채점 진행"
+     "collector_heartbeat": {
+      "source_ts": "2026-11-25 08:39:42 KST",
+      "state": "quiet",
+      "elapsed": "42s"
+     },
+     "analysis_scope": "장외(after) — 수집·채점 진행(장부 채점 2026-11-25T08:39:39, 37초 전)"
     }
    }
   },
   "performance_0400": {
    "source_ts": "2026-11-25 04:00",
-   "published_at": "2026-11-25T08:35:11+09:00",
+   "published_at": "2026-11-25T08:40:16+09:00",
    "file": "daily_review_20261125.json",
    "cutoff_kst": "2026-11-25 04:00",
    "window": {
@@ -2083,7 +2142,7 @@
    "note": "04시 성과는 과거 재생/연구 Shadow/운영 모의매매/실전 추천 발송을 분모·기간별로 분리해 싣는다."
   },
   "precomputed": {
-   "published_at": "2026-11-25T08:35:11+09:00",
+   "published_at": "2026-11-25T08:40:16+09:00",
    "source_ts": {
     "track_c": "2026-11-25T07:22:06.742543+09:00",
     "track_d": "2026-11-25T07:50:58.330133+09:00",
@@ -2218,7 +2277,7 @@
    }
   },
   "pending_followup": {
-   "published_at": "2026-11-25T08:35:11+09:00",
+   "published_at": "2026-11-25T08:40:16+09:00",
    "items": [
     "급등 미포착 원인 5분류의 KR·US 분해(현재 UP 단일 표본) — 새 계산 필요",
     "예측 상승폭·도달시간·목표별 확률의 판단시점 저장값 축적 — 원장 필드 없음(미측정)",
