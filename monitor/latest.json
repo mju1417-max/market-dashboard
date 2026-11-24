@@ -1,21 +1,21 @@
 {
  "schema": 3,
- "generated_at": "2026-11-24T14:00:01+09:00",
+ "generated_at": "2026-11-24T14:05:26+09:00",
  "note": "Public, de-identified collaboration snapshot. No credentials, personal data, or raw DB. schema 3: forward_signals_observed(전진검증)와 research_shadow_signals_prospective(연구 Shadow)를 분리했고, shadow_signals_measured·candidate_count 는 null(deprecated)이다.",
  "totals": {
   "symbols": 5612,
-  "candles_1m": 8149079,
-  "surges_ge5": 758,
+  "candles_1m": 8149903,
+  "surges_ge5": 759,
   "forward_closed": 896,
-  "forward_wins": 402,
+  "forward_wins": 406,
   "forward_signals": 1366,
   "totals_source": "monitor/latest.json:forward_tracks",
-  "forward_tracks_closed_sum": 908,
+  "forward_tracks_closed_sum": 914,
   "forward_totals_exact_match": false,
   "consistency_mode": "signal_mismatch",
   "forward_tracks_signals_sum": 1367,
   "forward_signals_observed": 1366,
-  "forward_wins_from_tracks": 402,
+  "forward_wins_from_tracks": 406,
   "research_shadow_signals_prospective": 0,
   "research_shadow_available": true,
   "shadow_query_error_markets": [],
@@ -25,15 +25,15 @@
   "research_shadow_censored": 0,
   "forward_research_delta": {
    "signals": 1,
-   "closed": 12
+   "closed": 18
   },
   "forward_signal_delta": 1,
-  "forward_closed_delta": 12,
+  "forward_closed_delta": 18,
   "forward_research_consistent": false,
   "forward_closed_consistent": false,
   "consistency_note": "tracks=실시간 장부(요청 시점) · research=monitor_research 캐시(최대 15분 TTL). 차이가 나면 대개 캐시 스냅숏 지연이며, signals 차이는 즉시 이상으로 본다. 이 두 상태를 하나의 bool 로 합치지 않는다.",
   "research_snapshot_generated_at": "2026-11-24T13:50:15+09:00",
-  "document_generated_at": "2026-11-24T14:00:01+09:00",
+  "document_generated_at": "2026-11-24T14:05:26+09:00",
   "forward_split_by_market": {
    "upbit": 996,
    "kr": 334,
@@ -50,14 +50,14 @@
    "label": "업비트 (KRW)",
    "db_ok": true,
    "db_source": "collector_stats",
-   "candles_1m": 2059096,
+   "candles_1m": 2059920,
    "symbols": 302,
    "universe": 303,
-   "last_candle": "2026-11-24T13:57:00",
-   "collector_last_run_at": "2026-11-24T13:58:27",
+   "last_candle": "2026-11-24T14:02:00",
+   "collector_last_run_at": "2026-11-24T14:03:35",
    "collector_errors": 0,
    "candles_1m_query": "SUM(fetch_log.candles_saved)",
-   "candles_1m_saved": 2059096,
+   "candles_1m_saved": 2059920,
    "candle_count_delta": null,
    "schema_version": 3,
    "protocol_version": "budget-proto-v3-20261120",
@@ -202,11 +202,11 @@
    "symbols": 3110,
    "universe": 3209,
    "last_candle": "2026-11-24T13:43:00",
-   "collector_last_run_at": "2026-11-24T13:58:41",
+   "collector_last_run_at": "2026-11-24T14:03:47",
    "collector_errors": 0,
    "candles_1m_query": "COUNT(*)",
-   "candles_1m_saved": 2601133,
-   "candle_count_delta": -141851,
+   "candles_1m_saved": 2572959,
+   "candle_count_delta": -113677,
    "schema_version": 3,
    "protocol_version": "budget-proto-v3-20261120",
    "protocol_hash": "d05c99d2376792b7",
@@ -484,7 +484,7 @@
    "losses": 1,
    "win_rate": 50.0,
    "sum_pnl_pct": 3.887,
-   "last_run_at": "2026-11-24T13:59:10",
+   "last_run_at": "2026-11-24T14:03:36",
    "buckets": null,
    "ledger_version": null
   },
@@ -498,7 +498,7 @@
    "losses": 18,
    "win_rate": 41.9,
    "sum_pnl_pct": -4.311,
-   "last_run_at": "2026-11-24T13:59:10",
+   "last_run_at": "2026-11-24T14:03:37",
    "buckets": null,
    "ledger_version": null
   },
@@ -545,7 +545,7 @@
    "losses": 37,
    "win_rate": 37.3,
    "sum_pnl_pct": -17.931,
-   "last_run_at": "2026-11-24T13:59:49",
+   "last_run_at": "2026-11-24T14:05:13",
    "buckets": null,
    "ledger_version": null
   },
@@ -553,13 +553,13 @@
    "label": "업비트 3세대 GEN3 (Shadow)",
    "market": "upbit",
    "signals": 937,
-   "entries": 873,
-   "closed": 816,
-   "wins": 366,
-   "losses": 450,
-   "win_rate": 44.9,
-   "sum_pnl_pct": 34.721,
-   "last_run_at": "2026-11-24T13:59:54",
+   "entries": 874,
+   "closed": 822,
+   "wins": 370,
+   "losses": 452,
+   "win_rate": 45.0,
+   "sum_pnl_pct": 35.583,
+   "last_run_at": "2026-11-24T14:05:19",
    "buckets": null,
    "ledger_version": null
   },
@@ -573,7 +573,7 @@
    "losses": 0,
    "win_rate": null,
    "sum_pnl_pct": 0.0,
-   "last_run_at": "2026-11-24T13:59:52",
+   "last_run_at": "2026-11-24T14:05:17",
    "buckets": null,
    "ledger_version": null
   }
@@ -581,8 +581,8 @@
  "candle_count_audit": {
   "upbit": {
    "db_file": "upbit_1m.db",
-   "db_size": 344760320,
-   "db_mtime": 1795496339,
+   "db_size": 344854528,
+   "db_mtime": 1795496648,
    "universe_def": "fetch_log rows (감시 종목 1행/종목)",
    "bars_query": "SELECT COUNT(*) FROM candles_1m",
    "saved_query": "SELECT COALESCE(SUM(candles_saved),0) FROM fetch_log",
@@ -590,12 +590,12 @@
     "error": "OperationalError: interrupted",
     "seconds": 2.54
    },
-   "generated_at": "2026-11-24T13:59:57+09:00"
+   "generated_at": "2026-11-24T14:05:22+09:00"
   },
   "kr": {
    "db_file": "kr_1m.db",
-   "db_size": 296341504,
-   "db_mtime": 1795496341,
+   "db_size": 296951808,
+   "db_mtime": 1795496647,
    "universe_def": "fetch_log rows (감시 종목 1행/종목)",
    "bars_query": "SELECT COUNT(*) FROM candles_1m",
    "saved_query": "SELECT COALESCE(SUM(candles_saved),0) FROM fetch_log",
@@ -608,9 +608,9 @@
     "seconds": 0.01,
     "at": 1795495515.4480782,
     "cached": true,
-    "age_s": 884.7
+    "age_s": 1209.4
    },
-   "generated_at": "2026-11-24T14:00:00+09:00"
+   "generated_at": "2026-11-24T14:05:24+09:00"
   },
   "us": {
    "db_file": "us_1m.db",
@@ -625,12 +625,12 @@
     "first": "2026-11-17T00:00:00",
     "last": "2026-11-24T09:59:59",
     "mode": "ro",
-    "seconds": 0.01,
+    "seconds": 0.0,
     "at": 1795495827.0934572,
     "cached": true,
-    "age_s": 573.1
+    "age_s": 897.8
    },
-   "generated_at": "2026-11-24T14:00:00+09:00"
+   "generated_at": "2026-11-24T14:05:24+09:00"
   }
  },
  "research": {
