@@ -1,10 +1,10 @@
 {
  "schema": 3,
- "generated_at": "2026-11-25T08:30:46+09:00",
+ "generated_at": "2026-11-25T08:35:11+09:00",
  "note": "Public, de-identified collaboration snapshot. No credentials, personal data, or raw DB. schema 3: forward_signals_observed(전진검증)와 research_shadow_signals_prospective(연구 Shadow)를 분리했고, shadow_signals_measured·candidate_count 는 null(deprecated)이다.",
  "totals": {
   "symbols": 5699,
-  "candles_1m": 6232801,
+  "candles_1m": 6233116,
   "surges_ge5": 792,
   "forward_closed": 1161,
   "forward_wins": 519,
@@ -37,7 +37,7 @@
   "forward_closed_consistent": false,
   "consistency_note": "tracks=실시간 장부(요청 시점) · research=monitor_research 캐시(최대 15분 TTL). 차이가 나면 대개 캐시 스냅숏 지연이며, signals 차이는 즉시 이상으로 본다. 이 두 상태를 하나의 bool 로 합치지 않는다.",
   "research_snapshot_generated_at": "2026-11-25T08:05:21+09:00",
-  "document_generated_at": "2026-11-25T08:30:46+09:00",
+  "document_generated_at": "2026-11-25T08:35:11+09:00",
   "forward_split_by_market": {
    "upbit": 1211,
    "kr": 372,
@@ -54,14 +54,14 @@
    "label": "업비트 (KRW)",
    "db_ok": true,
    "db_source": "collector_stats",
-   "candles_1m": 2138760,
+   "candles_1m": 2139075,
    "symbols": 302,
    "universe": 303,
-   "last_candle": "2026-11-25T08:27:00",
-   "collector_last_run_at": "2026-11-25T08:28:39",
+   "last_candle": "2026-11-25T08:32:00",
+   "collector_last_run_at": "2026-11-25T08:33:23",
    "collector_errors": 0,
    "candles_1m_query": "SUM(fetch_log.candles_saved)",
-   "candles_1m_saved": 2138760,
+   "candles_1m_saved": 2139075,
    "candle_count_delta": null,
    "schema_version": 3,
    "protocol_version": "budget-proto-v3-20261120",
@@ -337,11 +337,11 @@
    "symbols": 2286,
    "universe": 2327,
    "last_candle": "2026-11-25T08:27:00",
-   "collector_last_run_at": "2026-11-25T08:28:47",
+   "collector_last_run_at": "2026-11-25T08:34:02",
    "collector_errors": 0,
    "candles_1m_query": "COUNT(*)",
-   "candles_1m_saved": 2510274,
-   "candle_count_delta": 0,
+   "candles_1m_saved": 2514206,
+   "candle_count_delta": -3932,
    "schema_version": 3,
    "protocol_version": "budget-proto-v3-20261120",
    "protocol_hash": "d05c99d2376792b7",
@@ -488,7 +488,7 @@
    "losses": 1,
    "win_rate": 50.0,
    "sum_pnl_pct": 3.887,
-   "last_run_at": "2026-11-25T08:29:26",
+   "last_run_at": "2026-11-25T08:34:41",
    "buckets": null,
    "ledger_version": null
   },
@@ -502,7 +502,7 @@
    "losses": 18,
    "win_rate": 41.9,
    "sum_pnl_pct": -4.311,
-   "last_run_at": "2026-11-25T08:29:26",
+   "last_run_at": "2026-11-25T08:34:41",
    "buckets": null,
    "ledger_version": null
   },
@@ -543,13 +543,13 @@
    "label": "업비트 거래대금 Z 게이트",
    "market": "upbit",
    "signals": 61,
-   "entries": 59,
+   "entries": 60,
    "closed": 59,
    "wins": 22,
    "losses": 37,
    "win_rate": 37.3,
    "sum_pnl_pct": -17.931,
-   "last_run_at": "2026-11-25T08:30:33",
+   "last_run_at": "2026-11-25T08:34:58",
    "buckets": null,
    "ledger_version": null
   },
@@ -557,13 +557,13 @@
    "label": "업비트 3세대 GEN3 (Shadow)",
    "market": "upbit",
    "signals": 1153,
-   "entries": 1081,
+   "entries": 1082,
    "closed": 1072,
    "wins": 483,
    "losses": 589,
    "win_rate": 45.1,
    "sum_pnl_pct": 42.903,
-   "last_run_at": "2026-11-25T08:30:38",
+   "last_run_at": "2026-11-25T08:35:04",
    "buckets": null,
    "ledger_version": null
   },
@@ -577,7 +577,7 @@
    "losses": 0,
    "win_rate": null,
    "sum_pnl_pct": 0.0,
-   "last_run_at": "2026-11-25T08:30:36",
+   "last_run_at": "2026-11-25T08:35:02",
    "buckets": null,
    "ledger_version": null
   }
@@ -585,8 +585,8 @@
  "candle_count_audit": {
   "upbit": {
    "db_file": "upbit_1m.db",
-   "db_size": 364855296,
-   "db_mtime": 1795562627,
+   "db_size": 365019136,
+   "db_mtime": 1795563248,
    "universe_def": "fetch_log rows (감시 종목 1행/종목)",
    "bars_query": "SELECT COUNT(*) FROM candles_1m",
    "saved_query": "SELECT COALESCE(SUM(candles_saved),0) FROM fetch_log",
@@ -594,7 +594,7 @@
     "error": "OperationalError: interrupted",
     "seconds": 2.54
    },
-   "generated_at": "2026-11-25T08:30:41+09:00"
+   "generated_at": "2026-11-25T08:35:07+09:00"
   },
   "kr": {
    "db_file": "kr_1m.db",
@@ -612,14 +612,14 @@
     "seconds": 0.0,
     "at": 1795561537.2112298,
     "cached": true,
-    "age_s": 1506.4
+    "age_s": 1773.0
    },
-   "generated_at": "2026-11-25T08:30:43+09:00"
+   "generated_at": "2026-11-25T08:35:10+09:00"
   },
   "us": {
    "db_file": "us_1m.db",
-   "db_size": 329244672,
-   "db_mtime": 1795562966,
+   "db_size": 329842688,
+   "db_mtime": 1795563280,
    "universe_def": "fetch_log rows (감시 종목 1행/종목)",
    "bars_query": "SELECT COUNT(*) FROM candles_1m",
    "saved_query": "SELECT COALESCE(SUM(candles_saved),0) FROM fetch_log",
@@ -629,9 +629,12 @@
     "first": "2026-11-17T00:07:31",
     "last": "2026-11-25T08:27:00",
     "mode": "ro",
-    "seconds": 0.85
+    "seconds": 0.0,
+    "at": 1795563044.5137262,
+    "cached": true,
+    "age_s": 265.7
    },
-   "generated_at": "2026-11-25T08:30:43+09:00"
+   "generated_at": "2026-11-25T08:35:10+09:00"
   }
  },
  "research": {
@@ -1722,6 +1725,509 @@
   "basis": "5분 수집 주기(300초) + 수집·계산 여유 120초. 이보다 오래된 봉은 '지금 진입 가능한 가격'이 아니다. 실측된 수집 지연(466~770초)은 이 한도를 넘으며, 그런 봉으로 만든 신호는 사전포착이 아니라 늦은 관측이다.",
   "frozen_at": "2026-11-20T22:30:00+09:00",
   "change_rule": "관측 중 변경 금지. 바꾸려면 새 전략 ID로 등록하고 미래 데이터로만 검증한다."
+ },
+ "audit": {
+  "schema_version": "audit/1.0-p85",
+  "published_at": "2026-11-25T08:35:11+09:00",
+  "note": "공개 집계·상태·사유만 싣는다. 미발송 후보 종목명·가격, 전략 설정, 토큰·채팅 ID, 원장 원본은 내부 보존.",
+  "build": {
+   "elapsed_ms": 53,
+   "budget_ms": 2500,
+   "sections": {
+    "usage_accounting": {
+     "status": "ok"
+    },
+    "recommendation_judgement": {
+     "status": "ok"
+    },
+    "collection": {
+     "status": "ok"
+    },
+    "performance_0400": {
+     "status": "ok"
+    },
+    "precomputed": {
+     "status": "ok"
+    }
+   },
+   "over_budget": false
+  },
+  "usage_accounting": {
+   "source_ts": "2026-11-25T08:35:11+09:00",
+   "published_at": "2026-11-25T08:35:11+09:00",
+   "ai_calls_per_normal_run": 0,
+   "handoffs_per_normal_run": 0,
+   "python_runs": 7,
+   "python_runs_source": "check.sh 정적 호출 수(전진 채점 루프 3회 포함) · 회차별 프로세스 계수 미수집",
+   "account_credit_deduction": "미확인(앱 화면 전용)",
+   "account_credit_reason": "Pickle 크레딧 차감은 앱 계정 화면에만 있어 Python 에서 읽을 수 없다",
+   "note": "이 감사 블록은 추가 AI 호출·핸드오프·예약을 만들지 않는다(기존 5분 회차에 얹힘)."
+  },
+  "recommendation_judgement": {
+   "source_ts": "2026-11-25T08:30:22",
+   "published_at": "2026-11-25T08:35:11+09:00",
+   "live_enabled": false,
+   "approved_versions": 0,
+   "send_gate_markets": {
+    "UP": false,
+    "KR": false,
+    "US": false
+   },
+   "db_query": {
+    "ok": true,
+    "reason": null,
+    "db_mtime": "2026-11-25T08:30:31+09:00"
+   },
+   "last_round": {
+    "at": "2026-11-25T08:30:22",
+    "trigger": "scheduled",
+    "candidates": 0,
+    "ready": 0,
+    "eligible": 0,
+    "sent": 0
+   },
+   "markets": {
+    "UP": {
+     "published_at": "2026-11-25T08:35:11+09:00",
+     "source_ts": "2026-11-25T08:30:22",
+     "evaluated_signals": 609,
+     "evaluated_symbols": 119,
+     "candidates": 0,
+     "ready": 0,
+     "qualified": 0,
+     "send_attempts": 0,
+     "telegram_accepted": 0,
+     "send_locked": true,
+     "category": "보낼 종목 없음",
+     "blocked_reasons": {},
+     "ledger_age_sec": 308,
+     "state": "no_candidates",
+     "state_reason": "보낼 종목 없음",
+     "note": "평가 609건·실시간 후보 0 · 자격 0 (발송 비활성: live=False·승인 0건·mode=live)"
+    },
+    "KR": {
+     "published_at": "2026-11-25T08:35:11+09:00",
+     "source_ts": "2026-11-25T08:30:22",
+     "evaluated_signals": 46,
+     "evaluated_symbols": 53,
+     "candidates": 0,
+     "ready": 0,
+     "qualified": 0,
+     "send_attempts": 0,
+     "telegram_accepted": 0,
+     "send_locked": true,
+     "category": "보낼 종목 없음",
+     "blocked_reasons": {},
+     "ledger_age_sec": 59478,
+     "state": "no_candidates",
+     "state_reason": "보낼 종목 없음",
+     "note": "평가 46건·실시간 후보 0 · 자격 0 (발송 비활성: live=False·승인 0건·mode=live)"
+    },
+    "US": {
+     "published_at": "2026-11-25T08:35:11+09:00",
+     "source_ts": "2026-11-25T08:30:22",
+     "evaluated_signals": 36,
+     "evaluated_symbols": 0,
+     "candidates": 0,
+     "ready": 0,
+     "qualified": 0,
+     "send_attempts": 0,
+     "telegram_accepted": 0,
+     "send_locked": true,
+     "category": "보낼 종목 없음",
+     "blocked_reasons": {},
+     "ledger_age_sec": 57,
+     "state": "no_candidates",
+     "state_reason": "보낼 종목 없음",
+     "note": "평가 36건·실시간 후보 0 · 자격 0 (발송 비활성: live=False·승인 0건·mode=live)"
+    }
+   },
+   "status_codes": [
+    "no_candidates",
+    "data_shortage_or_delay",
+    "partial_scan",
+    "below_threshold",
+    "send_locked",
+    "execution_unobserved"
+   ],
+   "note": "evaluated_signals=원장 신호 평가 수 · candidates=회차 후보 · qualified=발송자격 · send_attempts=발송 시도 · telegram_accepted=rec_live.db rec_event.message_id 기록. 전략별 임계값·미발송 종목명·가격은 공개하지 않는다."
+  },
+  "collection": {
+   "source_ts": {
+    "status_build": "2026-11-25T08:35:07+09:00",
+    "gap_probe": "2026-11-25T07:40:53+09:00",
+    "daily_review": "2026-11-25 04:00",
+    "daily_review_file": "daily_review_20261125.json"
+   },
+   "published_at": "2026-11-25T08:35:11+09:00",
+   "note": "게시 회차가 돌았다고 3시장이 모두 분석된 것은 아니다. last_collection_run_at·last_confirmed_bar_at 은 **게시 시점** 값이고, gap_evidence 는 07:40:53 공백 조사, coverage_0400 은 04:00 창 기준이다. 백필 봉은 실제 수신시각이 남아 있고 소급 포착 실적으로 계상하지 않는다.",
+   "markets": {
+    "UP": {
+     "published_at": "2026-11-25T08:35:11+09:00",
+     "last_collection_run_at": "2026-11-25T08:33:23",
+     "last_confirmed_bar_at": "2026-11-25T08:32:00",
+     "candles_1m": 2139075,
+     "db_ok": true,
+     "session": {
+      "session": "24시간 연속시장",
+      "source_ts": "정적(시장 정의)"
+     },
+     "gap_evidence": {
+      "source_ts": "2026-11-25T07:40:53+09:00",
+      "gap_window_kst": [
+       "11-24 22:00",
+       "11-25 04:00"
+      ],
+      "gap_start_kst": "11-24 22:03",
+      "gap_end_kst": "11-25 04:03",
+      "gap_minutes": 359,
+      "gap_minutes_with_any_bar": 0,
+      "first_after_outage_kst": "11-25 04:03",
+      "last_receipt_kst": "11-25 07:39",
+      "backfilled_bars_gt5m": 34982,
+      "interpretation": "수집 공백 359분 · 공백 구간 봉 0분 — 미복구"
+     },
+     "coverage_0400": {
+      "source_ts": "2026-11-25 04:00",
+      "last_received_kst": "2026-11-24 22:03",
+      "gap_total_minutes": 356,
+      "backfilled_bars": 12124,
+      "recv_lag_p50_sec": 324,
+      "fetch_errors": 0
+     },
+     "collector_heartbeat": {
+      "source_ts": "2026-11-25 08:34:17 KST",
+      "state": "tg-sent",
+      "elapsed": "54s"
+     },
+     "analysis_scope": "24시간 시장 — 게시 시점 수집·채점 진행"
+    },
+    "KR": {
+     "published_at": "2026-11-25T08:35:11+09:00",
+     "last_collection_run_at": "2026-11-24T15:43:37",
+     "last_confirmed_bar_at": "2026-11-24T15:42:00",
+     "candles_1m": 1583767,
+     "db_ok": true,
+     "session": {
+      "session": "preopen",
+      "trading_day": true,
+      "source_ts": "2026-11-25T08:33:41+09:00"
+     },
+     "gap_evidence": {
+      "source_ts": "2026-11-25T07:40:53+09:00",
+      "gap_window_kst": [
+       "11-24 22:00",
+       "11-25 04:00"
+      ],
+      "gap_start_kst": "11-24 15:43",
+      "gap_end_kst": null,
+      "gap_minutes": null,
+      "gap_minutes_with_any_bar": 0,
+      "first_after_outage_kst": null,
+      "last_receipt_kst": "11-24 15:43",
+      "backfilled_bars_gt5m": null,
+      "interpretation": "공백 아님 — 정상 장외(마감 후 수신 없음)"
+     },
+     "coverage_0400": {
+      "source_ts": "2026-11-25 04:00",
+      "last_received_kst": "2026-11-24 15:43",
+      "gap_total_minutes": 736,
+      "backfilled_bars": 106794,
+      "recv_lag_p50_sec": 5298,
+      "fetch_errors": 5
+     },
+     "collector_heartbeat": {
+      "source_ts": "2026-11-25 08:33:42 KST",
+      "state": "quiet",
+      "elapsed": "1s"
+     },
+     "analysis_scope": "장전(preopen) — 마지막 수신 2026-11-24 15:43 이후 신규 봉 없음. 개장 후 첫 수신 전까지 04:00 창 분석이 최신"
+    },
+    "US": {
+     "published_at": "2026-11-25T08:35:11+09:00",
+     "last_collection_run_at": "2026-11-25T08:34:02",
+     "last_confirmed_bar_at": "2026-11-25T08:27:00",
+     "candles_1m": 2510274,
+     "db_ok": true,
+     "session": {
+      "session": "after",
+      "in_session": true,
+      "reason_text": "에프터장",
+      "date_et": "2026-11-24",
+      "source_ts": "2026-11-25T08:34:02.854029+09:00",
+      "calendar_source": "calendar"
+     },
+     "gap_evidence": {
+      "source_ts": "2026-11-25T07:40:53+09:00",
+      "gap_window_kst": [
+       "11-24 22:00",
+       "11-25 04:00"
+      ],
+      "gap_start_kst": "11-24 22:04",
+      "gap_end_kst": "11-25 04:03",
+      "gap_minutes": 359,
+      "gap_minutes_with_any_bar": 359,
+      "first_after_outage_kst": "11-25 04:03",
+      "last_receipt_kst": "11-25 07:39",
+      "backfilled_bars_gt5m": 501745,
+      "interpretation": "수집 공백 359분 · 백필로 봉 존재(공백 구간 중 359분에 봉 있음)"
+     },
+     "coverage_0400": {
+      "source_ts": "2026-11-25 04:00",
+      "last_received_kst": "2026-11-24 22:04",
+      "gap_total_minutes": 817,
+      "backfilled_bars": 280331,
+      "recv_lag_p50_sec": 4287,
+      "fetch_errors": 0
+     },
+     "collector_heartbeat": {
+      "source_ts": "2026-11-25 08:34:43 KST",
+      "state": "tg-sent",
+      "elapsed": "41s"
+     },
+     "analysis_scope": "장외(after) — 수집·채점 진행"
+    }
+   }
+  },
+  "performance_0400": {
+   "source_ts": "2026-11-25 04:00",
+   "published_at": "2026-11-25T08:35:11+09:00",
+   "file": "daily_review_20261125.json",
+   "cutoff_kst": "2026-11-25 04:00",
+   "window": {
+    "from": "2026-11-24 04:00",
+    "to": "2026-11-25 04:00",
+    "hours": 24.0,
+    "rule": "청산 시각(exit_ts) 기준 [lo, hi) 반개구간"
+   },
+   "confirmed_by_cutoff": {
+    "UP": 390,
+    "KR": 0,
+    "US": 0,
+    "by_rule": {
+     "UPBIT_GEN3": 381,
+     "UP_ZVOL_GATE": 9
+    },
+    "by_rule_source_ts": "미확인",
+    "note": "컷오프 04:00 확정 인지(confirm_ts <= cutoff) 기준"
+   },
+   "after_cutoff": {
+    "UP": 42,
+    "confirm_unknown_portfolio": 5,
+    "late_settle_added": 4
+   },
+   "event_basis": {
+    "n": 432,
+    "sum_pnl_pct": -25.731,
+    "mean_pnl_pct": -0.0596,
+    "by_rule": {
+     "gen3_n": 423,
+     "gen3_mean_pct": -0.0576,
+     "zvol_n": 9,
+     "zvol_mean_pct": -0.1539
+    },
+    "label": "이벤트 시각 재구성(청산 시각 기준) — 04:00 확정 지표가 아니다"
+   },
+   "confirmed_metrics": {
+    "n": 390,
+    "sum_pnl_pct": -16.431,
+    "mean_pnl_pct": -0.0395,
+    "wins": 171,
+    "slot3_return_pct": -2.456,
+    "slot3_mdd_pct": 3.515,
+    "cost_basis": "왕복 비용 차감 후"
+   },
+   "telegram": {
+    "message_id": "825",
+    "http_status": 200,
+    "accepted_at": "2026-11-25T04:00:35+09:00",
+    "text_sha256_16": "64ca93955cdc4258",
+    "fingerprint_reproduced": true,
+    "terminal_received": "unmeasured",
+    "note": "서버 접수(API ok+message_id)까지가 확인 범위. 단말 수신·열람은 미측정."
+   },
+   "separation": {
+    "historical_replay": {
+     "p78_signals_in_window": 3177,
+     "p78_status_LATE_RECOVERY": 1934,
+     "note": "재생·후관측 신호는 실시간 포착 실적으로 계상하지 않는다"
+    },
+    "research_shadow": {
+     "exits_in_window": 25,
+     "exits_mean_net_after_cost": -0.8604
+    },
+    "mock_portfolio": {
+     "closed_in_window": 5,
+     "sum_pnl_window_pct": -17.01,
+     "mean_pnl_window_pct": -3.402,
+     "confirmed_by_cutoff": 0,
+     "confirm_unknown": 5,
+     "cumulative": {
+      "total_trades": 37,
+      "wins": 13,
+      "total_pnl_krw": -70522
+     },
+     "note": "가상 모의매매. 확정시각 미확인 건은 04:00 확정 성과에 넣지 않는다."
+    },
+    "live_recommendation_sent": {
+     "total": 0,
+     "reference_rec_ids": 10,
+     "reference_by_market": {
+      "UP": 7,
+      "KR": 3
+     },
+     "messages_server_accepted": 41,
+     "note": "참조 10건은 점검·모의 체결/청산 속보 경유. 실전 추천 발송은 0건."
+    }
+   },
+   "note": "04시 성과는 과거 재생/연구 Shadow/운영 모의매매/실전 추천 발송을 분모·기간별로 분리해 싣는다."
+  },
+  "precomputed": {
+   "published_at": "2026-11-25T08:35:11+09:00",
+   "source_ts": {
+    "track_c": "2026-11-25T07:22:06.742543+09:00",
+    "track_d": "2026-11-25T07:50:58.330133+09:00",
+    "track_e": "2026-11-25T07:49:08+09:00"
+   },
+   "surge_miss_attribution": {
+    "source_ts": "2026-11-25T07:50:24.278246+09:00",
+    "scope": "UP 단일 시장 · 레이어2 5일(사건 513건) 기준. 82일 전체 사건 6872건은 트랙D 본표.",
+    "classes": [
+     "탐지실패",
+     "수집중단",
+     "수신지연",
+     "발송지연",
+     "예산탈락",
+     "체결불가",
+     "포착"
+    ],
+    "arms": {
+     "A_gen3": {
+      "total": 513,
+      "counts": {
+       "탐지실패": 457,
+       "수집중단": 25,
+       "예산탈락": 23,
+       "발송지연": 6,
+       "체결불가": 1,
+       "수신지연": 1
+      }
+     },
+     "B_gen3_cusum": {
+      "total": 513,
+      "counts": {
+       "발송지연": 52,
+       "탐지실패": 368,
+       "예산탈락": 62,
+       "포착": 4,
+       "수집중단": 25,
+       "체결불가": 1,
+       "수신지연": 1
+      }
+     }
+    },
+    "caveat": "미포착 원인은 UP 단일 시장 표본이다. KR·US 분해는 미산출."
+   },
+   "forward_ab": {
+    "source_ts": "2026-11-25T07:50:58.330133+09:00",
+    "design": "GEN3 단독(A) vs GEN3+CUSUM 전조(B) — 동일 표본·동일 예산·동일 비용",
+    "arms": {
+     "A_gen3": {
+      "n_sent": 1230,
+      "n_fills": 1078,
+      "mean_net": -0.0447668161598735,
+      "ci_day_block": [
+       -0.236673276882232,
+       0.15228477678934796
+      ],
+      "portfolio_return_pct": -20.1173,
+      "realized_mdd_pct": 35.7869
+     },
+     "B_gen3_cusum": {
+      "n_sent": 1230,
+      "n_fills": 1126,
+      "mean_net": -0.3871618604712079,
+      "ci_day_block": [
+       -0.620672377302445,
+       -0.14961116757699128
+      ],
+      "portfolio_return_pct": -79.2774,
+      "realized_mdd_pct": 79.821
+     },
+     "D_cusum_only": {
+      "n_sent": 1230,
+      "n_fills": 1144,
+      "mean_net": -0.42436872696292727,
+      "ci_day_block": [
+       -0.6888202144396154,
+       -0.15886195129005581
+      ],
+      "portfolio_return_pct": -83.057,
+      "realized_mdd_pct": 84.3151
+     },
+     "B_add_gen3+cusum": {
+      "n_sent": 2460,
+      "n_fills": 2220,
+      "mean_net": -0.36811833681130846,
+      "ci_day_block": [
+       -0.53309878803736,
+       -0.19296319283259702
+      ],
+      "portfolio_return_pct": -94.5329,
+      "realized_mdd_pct": 95.27
+     }
+    },
+    "verdict": "비용 차감 후 두 팔 모두 음수 — 승격 없음"
+   },
+   "market_eligibility": {
+    "source_ts": "2026-11-25T07:22:06.742543+09:00",
+    "verdict": {
+     "UP": "실전 발송 불가",
+     "KR": "실전 발송 불가",
+     "US": "실전 발송 불가"
+    },
+    "note": "검증을 통과한 시장이 없어 실전 추천 발송 0건(설계대로 잠김)."
+   },
+   "failure_6class": {
+    "source_ts": "2026-11-25T07:49:08+09:00",
+    "counts": [
+     {
+      "class_code": "발송 지연",
+      "scope": "backfill",
+      "n": 1
+     },
+     {
+      "class_code": "수집 지연",
+      "scope": "backfill",
+      "n": 29
+     },
+     {
+      "class_code": "종목 선택",
+      "scope": "backfill",
+      "n": 42
+     },
+     {
+      "class_code": "진입 후 반전",
+      "scope": "backfill",
+      "n": 4
+     }
+    ],
+    "realtime_total": 0,
+    "backfill_total": 76,
+    "note": "백필은 재학습 입력으로만 쓰고 실시간 실적에 소급 계상하지 않는다."
+   }
+  },
+  "pending_followup": {
+   "published_at": "2026-11-25T08:35:11+09:00",
+   "items": [
+    "급등 미포착 원인 5분류의 KR·US 분해(현재 UP 단일 표본) — 새 계산 필요",
+    "예측 상승폭·도달시간·목표별 확률의 판단시점 저장값 축적 — 원장 필드 없음(미측정)",
+    "실전 추천 발송 자격 통과 시장 0 — 게이트 11조건 중 미충족 사유의 시장별 잔여 표본 수",
+    "계정 크레딧 차감 실측 — 앱 화면 전용이라 Python 에서 미확인",
+    "3시장 원장 대조: 매 회차 자동 비교는 신호/청산 합계만 — 거래 ID 단위 잔차는 별도 점검"
+   ],
+   "note": "이 회차에 새로 계산하지 않은 항목만 남긴다. 값이 이미 있으면 위 precomputed 에 실린다."
+  }
  },
  "research_source": "argument"
 }
