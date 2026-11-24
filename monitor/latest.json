@@ -1,10 +1,10 @@
 {
  "schema": 3,
- "generated_at": "2026-11-24T17:40:27+09:00",
+ "generated_at": "2026-11-24T17:44:57+09:00",
  "note": "Public, de-identified collaboration snapshot. No credentials, personal data, or raw DB. schema 3: forward_signals_observed(전진검증)와 research_shadow_signals_prospective(연구 Shadow)를 분리했고, shadow_signals_measured·candidate_count 는 null(deprecated)이다.",
  "totals": {
   "symbols": 5613,
-  "candles_1m": 6374496,
+  "candles_1m": 6374847,
   "surges_ge5": 779,
   "forward_closed": 978,
   "forward_wins": 462,
@@ -13,7 +13,7 @@
   "forward_tracks_closed_sum": 983,
   "forward_totals_exact_match": false,
   "consistency_mode": "signal_mismatch",
-  "forward_tracks_signals_sum": 1446,
+  "forward_tracks_signals_sum": 1447,
   "forward_signals_observed": 1441,
   "forward_wins_from_tracks": 462,
   "research_shadow_signals_prospective": 0,
@@ -24,16 +24,16 @@
   "research_shadow_fp": 0,
   "research_shadow_censored": 0,
   "forward_research_delta": {
-   "signals": 5,
+   "signals": 6,
    "closed": 5
   },
-  "forward_signal_delta": 5,
+  "forward_signal_delta": 6,
   "forward_closed_delta": 5,
   "forward_research_consistent": false,
   "forward_closed_consistent": false,
   "consistency_note": "tracks=실시간 장부(요청 시점) · research=monitor_research 캐시(최대 15분 TTL). 차이가 나면 대개 캐시 스냅숏 지연이며, signals 차이는 즉시 이상으로 본다. 이 두 상태를 하나의 bool 로 합치지 않는다.",
   "research_snapshot_generated_at": "2026-11-24T17:30:16+09:00",
-  "document_generated_at": "2026-11-24T17:40:27+09:00",
+  "document_generated_at": "2026-11-24T17:44:57+09:00",
   "forward_split_by_market": {
    "upbit": 1033,
    "kr": 372,
@@ -50,14 +50,14 @@
    "label": "업비트 (KRW)",
    "db_ok": true,
    "db_source": "collector_stats",
-   "candles_1m": 2073917,
+   "candles_1m": 2074268,
    "symbols": 302,
    "universe": 303,
-   "last_candle": "2026-11-24T17:37:00",
-   "collector_last_run_at": "2026-11-24T17:38:28",
+   "last_candle": "2026-11-24T17:42:00",
+   "collector_last_run_at": "2026-11-24T17:43:29",
    "collector_errors": 0,
    "candles_1m_query": "SUM(fetch_log.candles_saved)",
-   "candles_1m_saved": 2073917,
+   "candles_1m_saved": 2074268,
    "candle_count_delta": null,
    "schema_version": 3,
    "protocol_version": "budget-proto-v3-20261120",
@@ -484,7 +484,7 @@
    "losses": 1,
    "win_rate": 50.0,
    "sum_pnl_pct": 3.887,
-   "last_run_at": "2026-11-24T17:39:09",
+   "last_run_at": "2026-11-24T17:44:14",
    "buckets": null,
    "ledger_version": null
   },
@@ -498,7 +498,7 @@
    "losses": 18,
    "win_rate": 41.9,
    "sum_pnl_pct": -4.311,
-   "last_run_at": "2026-11-24T17:39:09",
+   "last_run_at": "2026-11-24T17:44:15",
    "buckets": null,
    "ledger_version": null
   },
@@ -526,7 +526,7 @@
    "losses": 0,
    "win_rate": null,
    "sum_pnl_pct": 0.0,
-   "last_run_at": "2026-11-24T17:38:42",
+   "last_run_at": "2026-11-24T17:43:43",
    "buckets": {
     "prospective_forward": 6,
     "initialization_replay": 3,
@@ -545,21 +545,21 @@
    "losses": 37,
    "win_rate": 37.3,
    "sum_pnl_pct": -17.931,
-   "last_run_at": "2026-11-24T17:40:15",
+   "last_run_at": "2026-11-24T17:44:45",
    "buckets": null,
    "ledger_version": null
   },
   "UPBIT_GEN3": {
    "label": "업비트 3세대 GEN3 (Shadow)",
    "market": "upbit",
-   "signals": 978,
-   "entries": 911,
+   "signals": 979,
+   "entries": 914,
    "closed": 891,
    "wins": 426,
    "losses": 465,
    "win_rate": 47.8,
    "sum_pnl_pct": 117.665,
-   "last_run_at": "2026-11-24T17:40:20",
+   "last_run_at": "2026-11-24T17:44:51",
    "buckets": null,
    "ledger_version": null
   },
@@ -573,7 +573,7 @@
    "losses": 0,
    "win_rate": null,
    "sum_pnl_pct": 0.0,
-   "last_run_at": "2026-11-24T17:40:19",
+   "last_run_at": "2026-11-24T17:44:49",
    "buckets": null,
    "ledger_version": null
   }
@@ -581,16 +581,16 @@
  "candle_count_audit": {
   "upbit": {
    "db_file": "upbit_1m.db",
-   "db_size": 349548544,
-   "db_mtime": 1795509532,
+   "db_size": 349655040,
+   "db_mtime": 1795509833,
    "universe_def": "fetch_log rows (감시 종목 1행/종목)",
    "bars_query": "SELECT COUNT(*) FROM candles_1m",
    "saved_query": "SELECT COALESCE(SUM(candles_saved),0) FROM fetch_log",
    "bars_actual": {
     "error": "OperationalError: interrupted",
-    "seconds": 2.54
+    "seconds": 2.53
    },
-   "generated_at": "2026-11-24T17:40:23+09:00"
+   "generated_at": "2026-11-24T17:44:53+09:00"
   },
   "kr": {
    "db_file": "kr_1m.db",
@@ -608,9 +608,9 @@
     "seconds": 0.0,
     "at": 1795509026.356551,
     "cached": true,
-    "age_s": 599.6
+    "age_s": 869.6
    },
-   "generated_at": "2026-11-24T17:40:25+09:00"
+   "generated_at": "2026-11-24T17:44:55+09:00"
   },
   "us": {
    "db_file": "us_1m.db",
@@ -628,9 +628,9 @@
     "seconds": 0.0,
     "at": 1795508426.3120158,
     "cached": true,
-    "age_s": 1199.7
+    "age_s": 1469.6
    },
-   "generated_at": "2026-11-24T17:40:26+09:00"
+   "generated_at": "2026-11-24T17:44:55+09:00"
   }
  },
  "research": {
