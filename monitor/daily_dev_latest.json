@@ -1,56 +1,134 @@
 {
  "schema": 2,
  "kind": "daily_dev_latest_public",
- "task_id": "DDEV-20261127-02",
- "generated_at": "2026-11-27T08:22:33+09:00",
+ "task_id": "DDEV-20261127-03",
+ "generated_at": "2026-11-27T08:54:40+09:00",
  "market": "UP",
- "objective": "UP 관찰목록 재평가 vs 기존 후보 즉시 알림 — 같은 20건/일 예산·같은 비용·같은 청산",
+ "objective": "같은 5분 회차에 실제로 도착한 '기존 EARLY_CAPTURE_R1 후보'와 '관찰목록 재평가 트리거'를 같은 점수로 경쟁시켜 하루 20건을 배분하면, 기존 단독(A)이나 관찰목록 단독(B)보다 고유 급등을 더 잡고 비용 차감 손익도 나은가?",
  "labels": {
-  "replay": "과거 재생(사후 표본) — 11-21~26 수신 원장 재구성, 승격 근거 아님",
-  "forward_shadow": "신규 Shadow 성숙 성과 — 판단 시점 기록 후 200분 뒤 채점",
-  "correction": "DDEV-20261127-01 정정(무작위 Recall@20·FIFO CI 문구)"
+  "replay": "혼합 팔 6일 진단(과거 재생) — 승격 근거 아님. A_POSTHOC=A_SEQ, B_POSTHOC=C_GAPRS 매핑",
+  "forward_shadow": "신규 Shadow 성숙 성과 — 판단 시점 기록 후 채점",
+  "correction": "DDEV-02 관찰목록 재평가(next_action N1) 이행"
  },
  "work": {
-  "work_id": "DDEV-20261127-02",
+  "work_id": "DDEV-20261127-03",
   "date_kst": "2026-11-27",
   "market": "UP",
-  "goal": "UP 초기 눌림 후보를 내부 관찰목록에 남겨 5분 회차마다 재평가하는 방식과 기존 후보 즉시 알림 방식을 같은 예산·비용에서 비교",
-  "started_kst": "2026-11-27T08:08:17",
-  "finished_kst": "2026-11-27T08:10:04+09:00",
-  "evaluated_n": 724,
-  "evaluated_detail": "고유 급등 724건 · timely 후보 1942건 · 관찰목록 항목 12235건 · 재평가 트리거 1373건 · 팔 7개",
+  "goal": "같은 5분 회차에 실제로 도착한 '기존 EARLY_CAPTURE_R1 후보'와 '관찰목록 재평가 트리거'를 같은 점수로 경쟁시켜 하루 20건을 배분하면, 기존 단독(A)이나 관찰목록 단독(B)보다 고유 급등을 더 잡고 비용 차감 손익도 나은가?",
+  "started_kst": "2026-11-27T08:46:36",
+  "finished_kst": "2026-11-27T08:54:40+09:00",
+  "evaluated_n": 3315,
+  "evaluated_detail": "고유 급등 724건 · 기존 후보 1942건(timely) · 관찰목록 트리거 1373건 · 혼합 회차 964개 · 팔 5개",
   "comparators": [
-   "A_POSTHOC(기존·사후상위20)",
-   "A_SEQ(기존·실시간순차)",
-   "B_POSTHOC(관찰목록·사후상위20)",
-   "B_SEQ(관찰목록·실시간순차)",
-   "B_POSTHOC_TTL180",
-   "B_TIMELY_POSTHOC",
-   "B_TIMELY_SEQ"
+   "A_SEQ(기존·순차)",
+   "B_SEQ(관찰목록·순차)",
+   "C_GAPRS(혼합·갭+상대강도)",
+   "C_LGBM(혼합·동결 LightGBM)",
+   "C_R1(혼합·기존점수 통제)"
   ],
-  "verdict": "HOLD_WATCH_REEVAL: 사전 고정 게이트 4개 중 3개 미달(테스트 Recall@20 B 3.26% < A 4.23%, 짝지은 포착 차이 CI 하한 -2.67). 다만 관찰목록 재평가는 (1) 탐지 상한을 92→119사건(+27)으로 넓히고 (2) 60분 이전 후보만 있던 340사건 중 42건을 닿게 해 6건을 새로 포착했고 (3) 체결당 손익이 +0.36%(A -0.35%)였다. 예산 20건/일이 병목이라 실전·Shadow 연결은 보류.",
-  "blocked_reason": "사전 게이트 미달 — (1) TEST Recall@20 B<A (2) 짝지은 포착 차이 CI 하한<0 (3) SEQ Recall B<A. 예산 20건/일로는 재평가 트리거 1,373건(229/일)을 쓸 수 없다.",
-  "next_task": "N1 후보: 관찰목록 트리거 119사건(상한)에 기존 순위(갭+상대강도·LightGBM)를 적용해 '예산 20건'에서 기존 후보와 경쟁시키는 혼합 팔 — 이번엔 트리거 점수=15분 수익률(무작위 기대 10.4건 대비 15건)로 순위 부가가치가 낮았다. N2: 만료·재평가 조건을 20분 회차로 좁힌 재평가(현재 5분 고정).",
+  "verdict": "DIAGNOSTIC_ONLY_NO_ADOPT: 6일 진단에서 혼합 팔은 포착과 손익을 동시에 이기지 못했다 — C_GAPRS 는 포착 18(2.49%)로 최고지만 손익 -0.50%(A -0.70%), C_LGBM 은 손익 +0.63%(PF 1.67)지만 포착 6(0.83%)이고 기존 포착 15건을 밀어냈다. 혼합의 사용하지 못한 슬롯은 31~46/120 으로 예산 20건보다 score 문턱이 병목이다. 규칙은 사전 고정(research/.p94_mix/spec.json 08:46:36, 평가 산출물 08:52 이후)했고 판정은 2026-11-27 09:00 KST 이후 전진 3일·60건에서만 한다.",
+  "blocked_reason": "혼합 팔은 진단에서 포착-손익 트레이드오프를 보였다. 채택 보류 이유: (1) 포착 최고 팔(C_GAPRS)의 손익이 A와 같고 (2) 손익 최고 팔(C_LGBM)이 포착을 15건 밀어냈고 (3) 6일은 진단 전용이기 때문.",
+  "next_task": "N1 전진 평가 실행 경로 — `research/p94_mix_forward.py --due` → `--build --tag fwd` → `p94_mix_build.py --tag fwd` → `p94_mix_eval.py --tag fwd`(frozen_thresholds.json 고정 문턱). N2 점수 2단 슬롯 분할(포착형 GAP_RS 12 + 모멘텀형 LGBM 8) 실험. N3 관찰목록 트리거 점수를 상대강도 대신 '직전 60분 대비 위치·거래대금 가속'으로 교체.",
+  "not_run": [
+   "실전 승격·live_enabled 변경·자동주문(별도 판단)",
+   "KR·US 혼합 팔(이번 작업은 UP 단일)",
+   "전진 구간 평가(2026-11-27 09:00 KST 이후 데이터가 쌓인 뒤)"
+  ],
   "evidence_paths": [
-   "research/reports/gpt_92nd_ddev02_reeval_20261127.md",
-   "research/evaluation_summaries/gpt_92nd_ddev02_reeval_20261127.json",
-   "research/.p93_watch/spec.json",
-   "research/.p93_watch/eval.json",
-   "research/.p93_watch/random_fix.json",
-   "research/.p93_watch/build_meta.json"
-  ],
-  "prereg_id": "DDEV-20261127-02-PREREG-v1"
+   "research/reports/gpt_92nd_p91_shadow_and_ddev03_20261127.md",
+   "research/evaluation_summaries/gpt_92nd_p91_shadow_and_ddev03_20261127.json",
+   "research/.p94_mix/spec.json",
+   "research/.p94_mix/eval_diag.json",
+   "research/.p94_mix/build_meta_diag.json",
+   "research/.p94_mix/frozen_thresholds.json",
+   "research/p94_mix_forward.py"
+  ]
  },
- "replay": {
-  "label": "과거 재생(사후 표본) — 11-21~26 수신 원장으로 재구성",
+ "mixed": {
   "window": [
    "2026-11-21",
    "2026-11-27"
   ],
-  "dev": [
+  "events": 724,
+  "arms": {
+   "A_SEQ": {
+    "alerts": 86,
+    "captures": 17,
+    "recall_pct": 2.35,
+    "mean_pnl_pct": -0.7015,
+    "ci95": [
+     -1.7172,
+     0.2862
+    ],
+    "unused_slots": 34,
+    "false_alarms": 68,
+    "new_capture_vs_A": null,
+    "displaced_A_capture": null
+   },
+   "B_SEQ": {
+    "alerts": 90,
+    "captures": 14,
+    "recall_pct": 1.93,
+    "mean_pnl_pct": 0.0653,
+    "ci95": [
+     -1.3473,
+     1.5459
+    ],
+    "unused_slots": 30,
+    "false_alarms": 76,
+    "new_capture_vs_A": null,
+    "displaced_A_capture": null
+   },
+   "C_GAPRS": {
+    "alerts": 89,
+    "captures": 18,
+    "recall_pct": 2.49,
+    "mean_pnl_pct": -0.4977,
+    "ci95": [
+     -1.6487,
+     0.7432
+    ],
+    "unused_slots": 31,
+    "false_alarms": 69,
+    "new_capture_vs_A": 4,
+    "displaced_A_capture": 3
+   },
+   "C_LGBM": {
+    "alerts": 77,
+    "captures": 6,
+    "recall_pct": 0.83,
+    "mean_pnl_pct": 0.6298,
+    "ci95": [
+     -0.2919,
+     1.7981
+    ],
+    "unused_slots": 43,
+    "false_alarms": 71,
+    "new_capture_vs_A": 4,
+    "displaced_A_capture": 15
+   },
+   "C_R1": {
+    "alerts": 74,
+    "captures": 12,
+    "recall_pct": 1.66,
+    "mean_pnl_pct": 0.3214,
+    "ci95": [
+     -1.1736,
+     1.8178
+    ],
+    "unused_slots": 46,
+    "false_alarms": 61,
+    "new_capture_vs_A": 2,
+    "displaced_A_capture": 7
+   }
+  },
+  "note": "6일(11-21~26) 진단 전용 — 이 표에서 팔을 고르지 않는다. 관찰목록 트리거는 이미 상승이 시작된 상태라 '갭+상대강도'와 구조적으로 반대다(GAP_RS 승자의 9%만 관찰목록). 판정은 규칙을 고정한 뒤인 2026-11-27 09:00 KST 이후 전진 3일·60건에서만 한다."
+ },
+ "replay": {
+  "kind": "mixed_arm_diagnostic",
+  "window": [
    "2026-11-21",
-   "2026-11-22",
-   "2026-11-23"
+   "2026-11-27"
   ],
   "test": [
    "2026-11-24",
@@ -60,361 +138,85 @@
   "events": 724,
   "arms": {
    "A_POSTHOC": {
-    "alerts": 120,
-    "alerts_per_day": 20.0,
-    "captured": 22,
-    "recall_pct": 3.04,
-    "mean_pnl_pct": -0.3514,
-    "ci95": [
-     -1.1744,
-     0.5262
-    ],
-    "false_alarms": 97,
-    "false_alarm_mean_pnl_pct": -0.8433,
-    "new_capture_339": 0,
-    "buckets": {
-     "pre_onset": 20,
-     "onset_0_5min": 2,
-     "post_5min": 0,
-     "share_pct": {
-      "pre_onset": 90.9,
-      "onset_0_5min": 9.1,
-      "post_5min": 0.0
-     }
-    }
-   },
-   "A_SEQ": {
-    "alerts": 86,
-    "alerts_per_day": 14.33,
-    "captured": 17,
     "recall_pct": 2.35,
+    "captured": 17,
     "mean_pnl_pct": -0.7015,
-    "ci95": [
-     -1.7187,
-     0.2571
-    ],
-    "false_alarms": 68,
-    "false_alarm_mean_pnl_pct": -0.9183,
-    "new_capture_339": 0,
-    "buckets": {
-     "pre_onset": 15,
-     "onset_0_5min": 2,
-     "post_5min": 0,
-     "share_pct": {
-      "pre_onset": 88.2,
-      "onset_0_5min": 11.8,
-      "post_5min": 0.0
-     }
-    }
+    "label": "A_SEQ(기존 순차)"
    },
    "B_POSTHOC": {
-    "alerts": 120,
-    "alerts_per_day": 20.0,
-    "captured": 15,
-    "recall_pct": 2.07,
-    "mean_pnl_pct": 0.3588,
-    "ci95": [
-     -0.7051,
-     1.5435
-    ],
-    "false_alarms": 105,
-    "false_alarm_mean_pnl_pct": 0.0199,
-    "new_capture_339": 6,
-    "buckets": {
-     "pre_onset": 14,
-     "onset_0_5min": 1,
-     "post_5min": 0,
-     "share_pct": {
-      "pre_onset": 93.3,
-      "onset_0_5min": 6.7,
-      "post_5min": 0.0
-     }
-    }
-   },
-   "B_SEQ": {
-    "alerts": 90,
-    "alerts_per_day": 15.0,
-    "captured": 14,
-    "recall_pct": 1.93,
-    "mean_pnl_pct": 0.0653,
-    "ci95": [
-     -1.3611,
-     1.6404
-    ],
-    "false_alarms": 76,
-    "false_alarm_mean_pnl_pct": -0.6168,
-    "new_capture_339": 2,
-    "buckets": {
-     "pre_onset": 14,
-     "onset_0_5min": 0,
-     "post_5min": 0,
-     "share_pct": {
-      "pre_onset": 100.0,
-      "onset_0_5min": 0.0,
-      "post_5min": 0.0
-     }
-    }
-   },
-   "B_POSTHOC_TTL180": {
-    "alerts": 120,
-    "alerts_per_day": 20.0,
-    "captured": 17,
-    "recall_pct": 2.35,
-    "mean_pnl_pct": 0.3862,
-    "ci95": [
-     -0.7455,
-     1.553
-    ],
-    "false_alarms": 103,
-    "false_alarm_mean_pnl_pct": 0.0179,
-    "new_capture_339": 7,
-    "buckets": {
-     "pre_onset": 16,
-     "onset_0_5min": 1,
-     "post_5min": 0,
-     "share_pct": {
-      "pre_onset": 94.1,
-      "onset_0_5min": 5.9,
-      "post_5min": 0.0
-     }
-    }
-   },
-   "B_TIMELY_POSTHOC": {
-    "alerts": 120,
-    "alerts_per_day": 20.0,
-    "captured": 13,
-    "recall_pct": 1.8,
-    "mean_pnl_pct": -0.07,
-    "ci95": [
-     -0.9468,
-     0.9128
-    ],
-    "false_alarms": 107,
-    "false_alarm_mean_pnl_pct": -0.5369,
+    "recall_pct": 2.49,
+    "captured": 18,
+    "mean_pnl_pct": -0.4977,
     "new_capture_339": 4,
-    "buckets": {
-     "pre_onset": 13,
-     "onset_0_5min": 0,
-     "post_5min": 0,
-     "share_pct": {
-      "pre_onset": 100.0,
-      "onset_0_5min": 0.0,
-      "post_5min": 0.0
-     }
-    }
-   },
-   "B_TIMELY_SEQ": {
-    "alerts": 92,
-    "alerts_per_day": 15.33,
-    "captured": 12,
-    "recall_pct": 1.66,
-    "mean_pnl_pct": 0.3328,
-    "ci95": [
-     -0.9741,
-     1.6361
-    ],
-    "false_alarms": 80,
-    "false_alarm_mean_pnl_pct": -0.323,
-    "new_capture_339": 3,
-    "buckets": {
-     "pre_onset": 12,
-     "onset_0_5min": 0,
-     "post_5min": 0,
-     "share_pct": {
-      "pre_onset": 100.0,
-      "onset_0_5min": 0.0,
-      "post_5min": 0.0
-     }
-    }
-   }
-  },
-  "ceiling": {
-   "A_timely_candidates": 92,
-   "B_ttl480_triggers": 119,
-   "B_ttl180_triggers": 103,
-   "events": 724,
-   "A_ceiling_pct": 12.71,
-   "B_ceiling_pct": 16.44,
-   "ceiling_gain_events": 27,
-   "of339_reachable": {
-    "A": 2,
-    "B": 42,
-    "B_ttl180": 30,
-    "total": 340
-   }
-  },
-  "random_expectation": {
-   "A": {
-    "pool": 1942,
-    "ceiling": 92,
-    "alerts": 120,
-    "expected_captures": 5.68
-   },
-   "B": {
-    "pool": 1373,
-    "ceiling": 119,
-    "alerts": 120,
-    "expected_captures": 10.4
-   },
-   "note": "트리거/후보를 무작위로 같은 예산만큼 골랐을 때의 기대 포착 수(초기하 근사). 선택 규칙의 부가가치를 보는 기준."
-  },
-  "overlap": {
-   "both": 2,
-   "A_only": 20,
-   "B_only": 13,
-   "A_only_reachable_by_B": 14,
-   "A_only_never_triggered_by_B": 6
-  },
-  "test_only": {
-   "A_POSTHOC": {
-    "recall_pct": 4.23,
-    "captured": 13,
-    "mean_pnl_pct": 0.4453
-   },
-   "A_SEQ": {
-    "recall_pct": 3.26,
-    "captured": 10,
-    "mean_pnl_pct": 1.1096
-   },
-   "B_POSTHOC": {
-    "recall_pct": 3.26,
-    "captured": 10,
-    "mean_pnl_pct": 1.0007
-   },
-   "B_SEQ": {
-    "recall_pct": 2.61,
-    "captured": 8,
-    "mean_pnl_pct": 1.1165
-   },
-   "B_POSTHOC_TTL180": {
-    "recall_pct": 3.91,
-    "captured": 12,
-    "mean_pnl_pct": 1.2127
-   },
-   "B_TIMELY_POSTHOC": {
-    "recall_pct": 3.26,
-    "captured": 10,
-    "mean_pnl_pct": 0.2365
-   },
-   "B_TIMELY_SEQ": {
-    "recall_pct": 2.93,
-    "captured": 9,
-    "mean_pnl_pct": 1.5278
-   }
-  },
-  "paired_daily": {
-   "B_POSTHOC_minus_A_POSTHOC": {
-    "mean_diff": -1.167,
-    "ci95": [
-     -2.667,
-     0.333
-    ],
-    "days_positive": 1,
-    "days_negative": 4,
-    "sum_pnl_diff_mean": 13.79
-   },
-   "B_SEQ_minus_A_SEQ": {
-    "mean_diff": -0.5,
-    "ci95": [
-     -1.667,
-     0.333
-    ],
-    "days_positive": 1,
-    "days_negative": 2,
-    "sum_pnl_diff_mean": 11.01
-   },
-   "B_TIMELY_POSTHOC_minus_A_POSTHOC": {
-    "mean_diff": -1.5,
-    "ci95": [
-     -3.0,
-     0.0
-    ],
-    "days_positive": 1,
-    "days_negative": 4,
-    "sum_pnl_diff_mean": 5.68
+    "label": "C_GAPRS(혼합·회차 경쟁)"
    }
   },
   "gate": {
-   "checks": {
-    "test_recall_B_posthoc_gt_A_posthoc": {
-     "b": 3.26,
-     "a": 4.23,
-     "pass": false
-    },
-    "test_recall_B_seq_ge_A_seq": {
-     "b": 2.61,
-     "a": 3.26,
-     "pass": false
-    },
-    "paired_capture_diff_ci_lower_ge_0": {
-     "ci95": [
-      -2.667,
-      0.333
-     ],
-     "pass": false
-    },
-    "false_alarm_pnl_B_ge_A": {
-     "b": 0.4738,
-     "a": -0.0231,
-     "pass": true
-    }
-   },
-   "all_pass": false,
-   "decision": "HOLD",
-   "rule": "TEST 3일에서 B_POSTHOC Recall@20 > A_POSTHOC Recall@20 이고, B_SEQ Recall@20 >= A_SEQ Recall@20 이고, 일별 짝지은 포착 건수 차이(B-A)의 95% CI 하한 >= 0 이고, 추가 오탐 알림의 평균 손익 >= A 알림 평균 손익이면 → 기존 비거래 Shadow 5분 회차에 '관찰목록 재평가'를 관찰 전용으로 연결한다."
-  }
+   "decision": "DIAGNOSTIC_ONLY",
+   "rule": "전진 구간에서 (1) C_GAPRS 또는 C_LGBM 의 고유 급등 포착 수 >= A_SEQ 포착 수, (2) 체결당 평균 손익 95% CI 하한 > 0, (3) 일별 짝지은 손익 차이(C-A) 평균 >= 0 — 세 조건을 모두 채우면 혼합 팔을 관측 전용 Shadow 로 연결한다."
+  },
+  "note": "audit 스키마 호환용 — A_POSTHOC=A_SEQ, B_POSTHOC=C_GAPRS(혼합)로 매핑했다(kind 로 명시)."
  },
  "forward_shadow": {
-  "label": "신규 Shadow 성숙 성과 — 판단 시점 기록 표본(사후 재생과 별개)",
-  "n_rows": 138,
+  "available": true,
+  "n_rows": 292,
   "n_settled": 0,
   "first_seen_at": "2026-11-27T07:32:10+09:00",
-  "last_seen_at": "2026-11-27T08:18:31+09:00",
+  "last_seen_at": "2026-11-27T08:53:18+09:00",
   "matured_pnl": {
    "n": 0,
    "mean_pnl_pct": null
   },
-  "matured_exp_error_pct": {
-   "n": 0,
-   "median": null,
-   "median_abs": null
-  },
-  "note": "성숙 0건 — 5분 회차 표본이 200분 뒤 `--settle` 로 채점된다. 이 작업의 판정은 사후 재생으로만 했고, 전진 성과로 승격을 주장하지 않는다."
+  "note": "성숙 0건 — 판단 시점에 기록한 전진 표본은 진입 후 200분 채점에서만 성숙한다. DDEV-03 의 혼합 팔 전진 평가는 별도로 2026-11-27 09:00 KST 이후 구간을 쓴다"
  },
  "correction": {
-  "random_recall20_pct": {
-   "n_runs": 200,
-   "mean": 1.242,
-   "median": 1.24,
-   "p2_5": 0.686,
-   "p97_5": 1.93,
-   "min": 0.55,
-   "max": 2.35
-  },
-  "fifo_ci": {
-   "files_value": {
-    "n": 120,
-    "mean_pct": -0.686,
-    "ci95": [
-     -1.1824,
-     -0.2188
-    ]
-   },
-   "recomputed": {
-    "n": 120,
-    "mean_pct": -0.686,
-    "ci95": [
-     -1.1824,
-     -0.2188
-    ],
-    "includes_zero": false
-   },
-   "match": true
-  }
+  "upstream": "DDEV-20261127-02 는 관찰목록 재평가를 HOLD 하고 '혼합 팔'을 다음 작업으로 남겼다",
+  "this_work": "그 혼합 팔을 진단하고 전진 평가 경로를 고정했다"
  },
  "queue": {
-  "available": true,
-  "status": "done"
+  "task_id": "DDEV-20261127-03",
+  "verdict_status": "done",
+  "steps": {
+   "plan": "ok",
+   "build": "ok",
+   "features": "ok",
+   "arms": "ok",
+   "metrics": "ok",
+   "decompose": "ok",
+   "publish": "ok"
+  },
+  "retests": [
+   {
+    "retest_id": "RT-03-0f31b1ff",
+    "hypothesis_id": "P91_KR_REBOUND_POPULATION_CAUSE_1",
+    "status": "waiting"
+   },
+   {
+    "retest_id": "RT-03-341d0d24",
+    "hypothesis_id": "P91_KR_REBOUND_EXIT_MISMATCH_CAUSE_2",
+    "status": "waiting"
+   },
+   {
+    "retest_id": "RT-03-19b9ac3f",
+    "hypothesis_id": "P91_US_REBOUND_SESSION_CAUSE_1",
+    "status": "waiting"
+   },
+   {
+    "retest_id": "RT-03-2482baa3",
+    "hypothesis_id": "P91_US_REBOUND_SAMPLE_CAUSE_2",
+    "status": "waiting"
+   },
+   {
+    "retest_id": "RT-03-a73059dc",
+    "hypothesis_id": "H-UP-MIX-COMPETE",
+    "status": "waiting"
+   },
+   {
+    "retest_id": "RT-03-0b991a25",
+    "hypothesis_id": "H-UP-MIX-LGBM-TAIL",
+    "status": "waiting"
+   }
+  ]
  },
- "note": "공개 요약 — 종목·가격·전략 임계값 제외. 전체 문서는 비공개 연구 저장소."
+ "note": "과거 6일은 **진단용**, 판정은 사전 고정 규칙 이후(2026-11-27 09:00 KST~) 신규 전진에서만. 실전·발송·동결 전략 무변경(live_enabled=false)."
 }
