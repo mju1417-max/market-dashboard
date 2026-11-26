@@ -2,7 +2,7 @@
  "schema": 2,
  "kind": "daily_dev_latest_public",
  "task_id": "DDEV-20261127-02",
- "generated_at": "2026-11-27T08:11:01+09:00",
+ "generated_at": "2026-11-27T08:18:22+09:00",
  "market": "UP",
  "objective": "UP 관찰목록 재평가 vs 기존 후보 즉시 알림 — 같은 20건/일 예산·같은 비용·같은 청산",
  "labels": {
@@ -366,10 +366,10 @@
  },
  "forward_shadow": {
   "label": "신규 Shadow 성숙 성과 — 판단 시점 기록 표본(사후 재생과 별개)",
-  "n_rows": 93,
+  "n_rows": 116,
   "n_settled": 0,
   "first_seen_at": "2026-11-27T07:32:10+09:00",
-  "last_seen_at": "2026-11-27T08:08:30+09:00",
+  "last_seen_at": "2026-11-27T08:13:23+09:00",
   "matured_pnl": {
    "n": 0,
    "mean_pnl_pct": null
