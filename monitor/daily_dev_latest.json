@@ -2,7 +2,7 @@
  "schema": 1,
  "kind": "daily_dev_latest_public",
  "task_id": "DDEV-20261127-01",
- "generated_at": "2026-11-27T07:36:28+09:00",
+ "generated_at": "2026-11-27T07:38:01+09:00",
  "market": "UP",
  "objective": "제때 관측한 후보의 순위 검증 — 기존 순서(FIFO)·갭 단독·갭+상대강도·기존 점수·동결 LightGBM·무작위를 같은 후보·시간창·알림 예산에서 비교",
  "data": {
