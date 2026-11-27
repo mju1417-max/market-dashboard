@@ -1,9 +1,9 @@
 {
  "kind": "kr_scan_recovery_summary",
  "schema": 1,
- "generated_at": "2026-11-27T09:17:15+09:00",
+ "generated_at": "2026-11-27T09:28:26+09:00",
  "market": "KR",
- "issue": "2026-11-24 13:43 check.sh TIME_BUDGET_SEC 36→20 으로 회차당 방문 15~18종목 → 11-26 봉 보유 1,400/3,210(43.6%). 순환 미방문 1,758종목(54.8%)이 원인(요청 실패 3건=0.09%).",
+ "issue": "2026-11-24 13:43 check.sh TIME_BUDGET_SEC 36→20 → 회차당 방문 15~18종목 → 11-26 봉 보유 1,400/3,210(43.6%). 순환 미방문 1,758종목(54.8%)이 원인(요청 실패 3건=0.09%).",
  "changed": {
   "file": "scheduled-actions/🇰🇷-한국주식-패턴-분석/check.sh",
   "TIME_BUDGET_SEC": {
@@ -13,8 +13,7 @@
   },
   "HARD_STOP_SEC": 50.0,
   "policy": "종목별 마지막 방문 원장(state/scan_ledger.json) + LRU 미처리 우선 순환 + 3초 부분 저장 + pending_priority 이월",
-  "applied_at": "2026-11-27 07:55 KST",
-  "action_md_updated": "2026-11-27 07:55 KST"
+  "applied_at": "2026-11-27 07:55 KST"
  },
  "basis": {
   "same_snapshot_ab": {
@@ -51,13 +50,14 @@
    },
    "visited_set_nesting": "20s ⊂ 36s ⊂ 42s (30 ⊂ 54 ⊂ 72)"
   },
-  "why_42": "회차 소요 42.5~43.0초 = 60초 상한의 72%, 최악 1건 지연 포함 56.5초. 36초는 하루 순환 1.0회로 여유 0(3,141/81회차=38.8 필요)이라 회차 하나만 흔들려도 붕괴."
+  "why_42": "회차 소요 42.5~43.0초 = 60초 상한의 72%, 최악 1건 지연 포함 56.5초. 36초는 하루 순환 1.0회로 여유 0(3,141/81=38.8 필요)."
  },
  "live_2026_11_27": {
   "rounds": [
    {
     "at": "09:04:52",
     "elapsed_s": 43,
+    "state": "tg-sent",
     "visited": 107,
     "priority": 24,
     "rotation": 83,
@@ -74,6 +74,7 @@
    {
     "at": "09:09:44",
     "elapsed_s": 42,
+    "state": "quiet",
     "visited": 94,
     "priority": 13,
     "rotation": 81,
@@ -90,6 +91,7 @@
    {
     "at": "09:14:44",
     "elapsed_s": 43,
+    "state": "quiet",
     "visited": 95,
     "priority": 9,
     "rotation": 87,
@@ -102,15 +104,60 @@
      "target": 3142,
      "pct": 9.3
     }
+   },
+   {
+    "at": "09:19:44",
+    "elapsed_s": 43,
+    "state": "quiet",
+    "visited": 24,
+    "priority": 3,
+    "rotation": 22,
+    "errors": 1,
+    "yahoo_429": 0,
+    "naver_symbols": 142,
+    "naver_seconds": 5.46,
+    "coverage": {
+     "completed": 313,
+     "target": 3139,
+     "pct": 10.0
+    },
+    "note": "이 회차만 순환 22종목 — 같은 예산·같은 코드, 야후 응답이 느려진 구간(429 0)"
+   },
+   {
+    "at": "09:25:05",
+    "elapsed_s": 43,
+    "state": "quiet",
+    "visited": 98,
+    "priority": 7,
+    "rotation": 94,
+    "errors": 2,
+    "yahoo_429": 0,
+    "naver_symbols": 142,
+    "naver_seconds": 5.39,
+    "t_universe_s": 6.14,
+    "t_after_naver_s": 11.6,
+    "coverage": {
+     "completed": 409,
+     "target": 3139,
+     "pct": 13.0
+    }
    }
   ],
-  "projection": "순환 81~87종목/회차 → 3,142종목 완주 약 37회차(3시간 남짓) → 15:45 컷 3,100+ 기대(11-26은 1,400)"
+  "projection": "순환 22~94종목/회차(09:25 94) · 3,139종목 완주 약 33회차(2.8시간) → 15:45 컷 3,000+ 기대(11-26은 1,400). 편차 원인을 숫자로 남기려 t_universe_s·t_after_naver_s 를 추가",
+  "measure_note": "완료=봉 보유 기준(window_probe). 수집기 원장(방문)은 별도 필드 completed_ledger — 09:27 원장 409 vs 봉 277(차이 132 = 방문했으나 봉 0)."
  },
  "recovery": {
-  "verdict": "unresolved",
+  "verdict": "pending_intraday",
   "verdict_rule": "복구=①봉보유 ≥ 90% · 복구중 = 60~90% · 미해결 < 60% (분모=fetch_log 고유 종목). 개장 전에는 판정 보류(pending_preopen) — 전일 마감 컷과만 비교한다.",
-  "measured_at": "2026-11-27T09:16:09+09:00",
-  "note": "장중 진행 값이다. 15:45 최종 판정은 16:20 감시(📉-스캔-커버리지-감시)가 한다.",
+  "measured_at": "2026-11-27T09:28:08+09:00",
+  "current": {
+   "cut": "09:28",
+   "completed_bars": 277,
+   "completed_ledger": 409,
+   "target": 3213,
+   "pct": 8.6
+  },
+  "note": "장중 값은 pending_intraday(판정 보류). 15:45 마감 컷 판정은 16:20 감시가 한다.",
   "baseline_days": {
    "2026-11-24": 3085,
    "2026-11-25": 2310,
@@ -119,11 +166,11 @@
   },
   "previous_day": {
    "date": "2026-11-26",
-   "completed": 1600,
+   "completed": 1708,
    "completed_basis": "bars_in_session(window_probe)",
    "target": 3213,
-   "coverage_pct": 49.8,
-   "unprocessed": 1613,
+   "coverage_pct": 53.2,
+   "unprocessed": 1505,
    "on_time": null,
    "fresh": null
   }
@@ -139,9 +186,9 @@
   },
   "KR": {
    "target": 3213,
-   "completed": 187,
-   "unprocessed": 3026,
-   "pct": 5.8,
+   "completed": 277,
+   "unprocessed": 2936,
+   "pct": 8.6,
    "basis": "bars_in_session(candles_1m)",
    "session": "in_session"
   },
@@ -154,18 +201,13 @@
    "session": "holiday"
   }
  },
- "remaining_unprocessed": {
-  "KR_now": 3026,
-  "KR_2026_11_26": 1811,
-  "note": "미처리는 '그날 세션 봉을 못 가진 종목'. 42초 복구 후 회차 순환 81~87종목."
- },
  "detector": {
   "script": "research/scan_coverage.py",
   "decide": "research/scan_coverage_decide.py",
   "queue": "research/.p78_work/research_queue.json",
   "ledger": "research/knowledge.db scan_anomalies",
   "thresholds": {
-   "scan_drop": "-10%p vs 5일 중앙값(마감 컷 15:40 이후만 판정)",
+   "scan_drop": "마감 컷(>=15:40)에서 -10%p vs 5일 중앙값",
    "carryover_repeat": "미처리 25% 이상 2일 연속",
    "round_yield_low": "회차 순환 <25종목"
   },
