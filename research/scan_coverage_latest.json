@@ -1,7 +1,7 @@
 {
  "kind": "scan_coverage",
  "schema": 1,
- "as_of": "2026-11-28T07:48:28+09:00",
+ "as_of": "2026-11-28T07:49:26+09:00",
  "date": "2026-11-28",
  "cut": "09:00",
  "definitions": {
@@ -132,7 +132,7 @@
  },
  "candidate_zero_suffix": {
   "UP": "평가 범위 302/304(99.3%) · 미처리 2종목(0.7%) — 스캔 미완료",
-  "KR": "평가 범위 0/3,218(0.0%) · 미처리 3,218종목(100.0%) — 스캔 미완료 · 404 격리 5종목",
+  "KR": "평가 범위 0/3,218(0.0%) · 미처리 3,218종목(100.0%) (휴장일 — 마지막 거래일 기준, 미처리 판정 면제) · 404 격리 5종목",
   "US": "평가 범위 1,398/1,400(99.9%) · 미처리 2종목(0.1%) — 스캔 미완료"
  },
  "cut_note": "개장 전 — 09:00 기준으로 계산",
@@ -141,7 +141,7 @@
  "producer": {
   "script": "research/scan_coverage.py",
   "mode": "light",
-  "elapsed_s": 0.85
+  "elapsed_s": 0.74
  },
  "written": {
   "out": "/workspace/scheduled-actions/📊-업비트-전진검증-채점/state/scan_coverage_latest.json"
