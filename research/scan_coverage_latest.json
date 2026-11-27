@@ -1,0 +1,152 @@
+{
+ "kind": "scan_coverage",
+ "schema": 1,
+ "as_of": "2026-11-28T07:40:31+09:00",
+ "date": "2026-11-28",
+ "cut": "09:00",
+ "definitions": {
+  "target": "감시 대상 = 수집기 fetch_log 고유 종목(유니버스)",
+  "completed": "완료 = 대상 중 해당 세션(장중) 1분봉을 가진 종목",
+  "excluded": "제외 = 유니버스 구성에서 걸러진 종목(비코드·저가·ETF/ETN/스팩/우선주 등)",
+  "quarantined": "격리 = Yahoo 404 를 계속 내는 종목(봉 0 + 404 / 연속 3회 404 / 유니버스 밖 잔존) — 순환 재시도에서 빠지고 1·2·4·7일 간격으로 자동 재시도(state/yahoo_404_quarantine.json)",
+  "unprocessed": "미처리 = 대상 − 완료 (스캔이 덜 끝난 종목)",
+  "note": "UP 은 24시간 시장이라 '오늘 00:00 이후 봉', US 는 '마지막 거래일 봉' 기준"
+ },
+ "markets": {
+  "UP": {
+   "market": "UP",
+   "ok": true,
+   "session_state": "24h",
+   "target": 304,
+   "completed": 302,
+   "completed_basis": "bars_today(window_probe)",
+   "visited_today": 261,
+   "unprocessed": 2,
+   "coverage_pct": 99.3,
+   "unprocessed_pct": 0.7,
+   "fetch_errors": 0,
+   "last_bar_kst": "2026-11-28T07:34:00",
+   "stale_examples": [
+    "KRW-0G",
+    "KRW-2Z",
+    "KRW-AAVE",
+    "KRW-ADA",
+    "KRW-ARB"
+   ],
+   "stale_note": "fetch_log.last_fetched_at 은 UP 에서 갱신되지 않는 행이 많다(예: KRW-BTC 11-24 기록인데 오늘 봉은 계속 유입) — 완료는 봉 기준을 쓴다",
+   "excluded": null,
+   "listed_raw": null,
+   "excluded_note": "KRW 마켓만 감시(BTC/USDT 마켓 제외) — 원천 목록 수는 수집기가 남기지 않음",
+   "round": {
+    "last_batch_processed": 69,
+    "last_unique_fetched": 141,
+    "last_dedup_skipped": 24,
+    "missing_markets": 161
+   },
+   "db": {
+    "candles_1m": 1237149,
+    "db_bytes": 197423104
+   },
+   "source": "scheduled-actions/📈-업비트-모의투자-분석/state/{upbit_1m.db,dashboard_stats.json}"
+  },
+  "KR": {
+   "market": "KR",
+   "date": "2026-11-28",
+   "cut": "09:00",
+   "ok": true,
+   "session_state": "holiday",
+   "target": 3218,
+   "target_snapshot": 3156,
+   "completed": 0,
+   "completed_basis": "preopen(세션 전)",
+   "on_time": null,
+   "fresh": null,
+   "visited_today": 0,
+   "visited_session": 0,
+   "unprocessed": 3218,
+   "excluded": 1168,
+   "listed_raw": 4324,
+   "excluded_by_reason": {
+    "non_code": 435,
+    "price_under_1000": 148,
+    "etf_etn_spac_pref": 585
+   },
+   "quarantined": 5,
+   "quarantine_by_reason": {
+    "yahoo_404_no_bars": 5
+   },
+   "quarantine_symbols": [
+    "066410.KQ",
+    "121800.KQ",
+    "214610.KQ",
+    "265690.KS",
+    "377460.KQ"
+   ],
+   "quarantine_updated_at": "2026-11-27T15:45:57+09:00",
+   "quarantine_note": "야후 404 격리 종목 — 순환 재시도에서 제외(네이버 실시간 보강은 유지), 1·2·4·7일 간격으로 자동 재시도. 사유: 봉 0 + 404 / 연속 3회 404 / 유니버스 밖 잔존",
+   "coverage_pct": 0.0,
+   "unprocessed_pct": 100.0,
+   "completed_ledger": null,
+   "ledger_gap_note": null,
+   "fetch_errors": 0,
+   "round": {
+    "visited": 112,
+    "rotation": 112,
+    "priority": 0,
+    "budget_s": 42.0,
+    "elapsed_s": 42.2,
+    "naver_seconds": 6.51,
+    "at": "2026-11-27T15:45:57+09:00",
+    "order_mode": "lru",
+    "pending_priority": 0
+   },
+   "source": "scheduled-actions/🇰🇷-한국주식-패턴-분석/state/{kr_1m.db,scan_coverage_round.json}"
+  },
+  "US": {
+   "market": "US",
+   "ok": true,
+   "session_state": "closed",
+   "in_session": false,
+   "target": 1400,
+   "target_source": "us_universe.json 감시 풀",
+   "fetch_log_rows": 2449,
+   "universe_base": 1400,
+   "universe_dynamic": 100,
+   "completed": 1398,
+   "completed_basis": "bars_on_last_session_day(window_probe)",
+   "visited_today": 1398,
+   "unprocessed": 2,
+   "coverage_pct": 99.9,
+   "unprocessed_pct": 0.1,
+   "fetch_errors": 0,
+   "last_bar_kst": "2026-11-28T06:59:00",
+   "excluded": null,
+   "excluded_note": "후보 목록에서 시총·유동성 조건 미달로 제외(수집기는 제외 수를 남기지 않음)",
+   "scan_manifest": {
+    "bars": 2466553,
+    "symbols": 2419,
+    "max_bar_kst": "2026-11-28T06:03:00"
+   },
+   "source": "scheduled-actions/🇺🇸-미국주식-패턴-분석/state/{us_1m.db,us_universe.json}"
+  }
+ },
+ "candidate_zero_suffix": {
+  "UP": "평가 범위 302/304(99.3%) · 미처리 2종목(0.7%) — 스캔 미완료",
+  "KR": "평가 범위 0/3,218(0.0%) · 미처리 3,218종목(100.0%) — 스캔 미완료 · 404 격리 5종목",
+  "US": "평가 범위 1,398/1,400(99.9%) · 미처리 2종목(0.1%) — 스캔 미완료"
+ },
+ "cut_note": "개장 전 — 09:00 기준으로 계산",
+ "cut_in_future": true,
+ "alerts": [],
+ "producer": {
+  "script": "research/scan_coverage.py",
+  "mode": "light",
+  "elapsed_s": 0.73
+ },
+ "written": {
+  "out": "/workspace/scheduled-actions/📊-업비트-전진검증-채점/state/scan_coverage_latest.json"
+ },
+ "detection": {
+  "skipped": "--out: research/ 기록·대기열·knowledge.db 등록 생략"
+ }
+}
