@@ -1,7 +1,7 @@
 {
  "kind": "scan_coverage",
  "schema": 1,
- "as_of": "2026-11-28T15:48:28+09:00",
+ "as_of": "2026-11-28T16:13:57+09:00",
  "date": "2026-11-28",
  "cut": "15:45",
  "definitions": {
@@ -20,12 +20,12 @@
    "target": 304,
    "completed": 302,
    "completed_basis": "bars_today(window_probe)",
-   "visited_today": 276,
+   "visited_today": 282,
    "unprocessed": 2,
    "coverage_pct": 99.3,
    "unprocessed_pct": 0.7,
    "fetch_errors": 0,
-   "last_bar_kst": "2026-11-28T15:44:00",
+   "last_bar_kst": "2026-11-28T16:10:00",
    "stale_examples": [
     "KRW-0G",
     "KRW-2Z",
@@ -38,14 +38,14 @@
    "listed_raw": null,
    "excluded_note": "KRW 마켓만 감시(BTC/USDT 마켓 제외) — 원천 목록 수는 수집기가 남기지 않음",
    "round": {
-    "last_batch_processed": 18,
-    "last_unique_fetched": 98,
-    "last_dedup_skipped": 3,
-    "missing_markets": 204
+    "last_batch_processed": 25,
+    "last_unique_fetched": 99,
+    "last_dedup_skipped": 9,
+    "missing_markets": 203
    },
    "db": {
-    "candles_1m": 1166672,
-    "db_bytes": 207183872
+    "candles_1m": 1113914,
+    "db_bytes": 207732736
    },
    "source": "scheduled-actions/📈-업비트-모의투자-분석/state/{upbit_1m.db,dashboard_stats.json}"
   },
@@ -141,7 +141,7 @@
  "producer": {
   "script": "research/scan_coverage.py",
   "mode": "light",
-  "elapsed_s": 2.24
+  "elapsed_s": 2.29
  },
  "written": {
   "out": "/workspace/scheduled-actions/📊-업비트-전진검증-채점/state/scan_coverage_latest.json"
