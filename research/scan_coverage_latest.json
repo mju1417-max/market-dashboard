@@ -1,7 +1,7 @@
 {
  "kind": "scan_coverage",
  "schema": 1,
- "as_of": "2026-11-29T05:33:49+09:00",
+ "as_of": "2026-11-29T05:53:47+09:00",
  "date": "2026-11-29",
  "cut": "09:00",
  "definitions": {
@@ -18,14 +18,14 @@
    "ok": true,
    "session_state": "24h",
    "target": 304,
-   "completed": 301,
+   "completed": 302,
    "completed_basis": "bars_today(window_probe)",
    "visited_today": 302,
-   "unprocessed": 3,
-   "coverage_pct": 99.0,
-   "unprocessed_pct": 1.0,
+   "unprocessed": 2,
+   "coverage_pct": 99.3,
+   "unprocessed_pct": 0.7,
    "fetch_errors": 0,
-   "last_bar_kst": "2026-11-29T05:32:00",
+   "last_bar_kst": "2026-11-29T05:51:00",
    "stale_examples": [
     "KRW-SOPH",
     "KRW-ZIL"
@@ -35,14 +35,14 @@
    "listed_raw": null,
    "excluded_note": "KRW 마켓만 감시(BTC/USDT 마켓 제외) — 원천 목록 수는 수집기가 남기지 않음",
    "round": {
-    "last_batch_processed": 233,
-    "last_unique_fetched": 233,
+    "last_batch_processed": 234,
+    "last_unique_fetched": 234,
     "last_dedup_skipped": 0,
-    "missing_markets": 69
+    "missing_markets": 68
    },
    "db": {
-    "candles_1m": 1118648,
-    "db_bytes": 221052928
+    "candles_1m": 1119772,
+    "db_bytes": 221249536
    },
    "source": "scheduled-actions/📈-업비트-모의투자-분석/state/{upbit_1m.db,dashboard_stats.json}"
   },
@@ -128,7 +128,7 @@
   }
  },
  "candidate_zero_suffix": {
-  "UP": "평가 범위 301/304(99.0%) · 미처리 3종목(1.0%) — 스캔 미완료",
+  "UP": "평가 범위 302/304(99.3%) · 미처리 2종목(0.7%) — 스캔 미완료",
   "KR": "평가 범위 0/3,218(0.0%) · 미처리 3,218종목(100.0%) (휴장일 — 마지막 거래일 기준, 미처리 판정 면제) · 404 격리 5종목",
   "US": "평가 범위 1,398/1,400(99.9%) · 미처리 2종목(0.1%) — 스캔 미완료"
  },
@@ -138,7 +138,7 @@
  "producer": {
   "script": "research/scan_coverage.py",
   "mode": "light",
-  "elapsed_s": 0.96
+  "elapsed_s": 0.71
  },
  "written": {
   "out": "/workspace/scheduled-actions/📊-업비트-전진검증-채점/state/scan_coverage_latest.json"
