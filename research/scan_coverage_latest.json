@@ -1,7 +1,7 @@
 {
  "kind": "scan_coverage",
  "schema": 1,
- "as_of": "2026-11-29T04:03:31+09:00",
+ "as_of": "2026-11-29T04:19:00+09:00",
  "date": "2026-11-29",
  "cut": "09:00",
  "definitions": {
@@ -18,34 +18,31 @@
    "ok": true,
    "session_state": "24h",
    "target": 304,
-   "completed": 231,
+   "completed": 301,
    "completed_basis": "bars_today(window_probe)",
-   "visited_today": 231,
-   "unprocessed": 73,
-   "coverage_pct": 76.0,
-   "unprocessed_pct": 24.0,
+   "visited_today": 302,
+   "unprocessed": 3,
+   "coverage_pct": 99.0,
+   "unprocessed_pct": 1.0,
    "fetch_errors": 0,
-   "last_bar_kst": "2026-11-29T04:01:00",
+   "last_bar_kst": "2026-11-29T04:14:00",
    "stale_examples": [
-    "KRW-AGLD",
-    "KRW-ANKR",
-    "KRW-ASTR",
-    "KRW-AVNT",
-    "KRW-AXL"
+    "KRW-SOPH",
+    "KRW-ZIL"
    ],
    "stale_note": "fetch_log.last_fetched_at 은 UP 에서 갱신되지 않는 행이 많다(예: KRW-BTC 11-24 기록인데 오늘 봉은 계속 유입) — 완료는 봉 기준을 쓴다",
    "excluded": null,
    "listed_raw": null,
    "excluded_note": "KRW 마켓만 감시(BTC/USDT 마켓 제외) — 원천 목록 수는 수집기가 남기지 않음",
    "round": {
-    "last_batch_processed": 231,
-    "last_unique_fetched": 231,
+    "last_batch_processed": 233,
+    "last_unique_fetched": 233,
     "last_dedup_skipped": 0,
-    "missing_markets": 71
+    "missing_markets": 69
    },
    "db": {
-    "candles_1m": 1111157,
-    "db_bytes": 219484160
+    "candles_1m": 1114417,
+    "db_bytes": 220422144
    },
    "source": "scheduled-actions/📈-업비트-모의투자-분석/state/{upbit_1m.db,dashboard_stats.json}"
   },
@@ -123,15 +120,15 @@
    "excluded": null,
    "excluded_note": "후보 목록에서 시총·유동성 조건 미달로 제외(수집기는 제외 수를 남기지 않음)",
    "scan_manifest": {
-    "bars": 2466553,
+    "bars": 2471241,
     "symbols": 2419,
-    "max_bar_kst": "2026-11-28T06:03:00"
+    "max_bar_kst": "2026-11-28T06:59:00"
    },
    "source": "scheduled-actions/🇺🇸-미국주식-패턴-분석/state/{us_1m.db,us_universe.json}"
   }
  },
  "candidate_zero_suffix": {
-  "UP": "평가 범위 231/304(76.0%) · 미처리 73종목(24.0%) — 스캔 미완료",
+  "UP": "평가 범위 301/304(99.0%) · 미처리 3종목(1.0%) — 스캔 미완료",
   "KR": "평가 범위 0/3,218(0.0%) · 미처리 3,218종목(100.0%) (휴장일 — 마지막 거래일 기준, 미처리 판정 면제) · 404 격리 5종목",
   "US": "평가 범위 1,398/1,400(99.9%) · 미처리 2종목(0.1%) — 스캔 미완료"
  },
@@ -141,7 +138,7 @@
  "producer": {
   "script": "research/scan_coverage.py",
   "mode": "light",
-  "elapsed_s": 3.92
+  "elapsed_s": 5.13
  },
  "written": {
   "out": "/workspace/scheduled-actions/📊-업비트-전진검증-채점/state/scan_coverage_latest.json"
