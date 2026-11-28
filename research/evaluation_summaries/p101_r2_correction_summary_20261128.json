@@ -1,0 +1,256 @@
+{
+ "schema": "p101-r2-public-summary/1",
+ "snapshot_at_kst": "2026-11-28T15:01:28+09:00",
+ "version": {
+  "generator": "research/publish_p101_r2_public.py",
+  "p101_audit_generated_kst": "2026-11-28T15:05+09:00",
+  "r2_recon_built_at_kst": "2026-11-28T14:56:54",
+  "shadow_registered_at": "2026-11-28T09:34:31",
+  "shadow_last_tick_at": "2026-11-28T14:57:09"
+ },
+ "p101_correction": {
+  "status": "RETRACTED (원 수치 보존 · 철회 표시)",
+  "cause": "research/.p101/p101_core2.py roll_max_end() 가 판단 시점에 최대 1,439분 뒤 고가를 참조(look-ahead)",
+  "fix": "판단 시점까지 실제 수신된 봉만 쓰는 trailing 24h 로 신호부터 재생성",
+  "markets": {
+   "UP90": {
+    "n_before": 1583,
+    "n_after": 1636,
+    "n_common": 316,
+    "n_removed": 1267,
+    "n_removed_causal_fail": 760,
+    "n_removed_cooldown_relocated": 507,
+    "n_added": 1320,
+    "oos_24h_before_pct": 3.1359,
+    "oos_24h_after_pct": 0.0185,
+    "oos_24h_after_ci95": [
+     -1.4847,
+     1.2993
+    ],
+    "oos_trail12_before_pct": 3.2241,
+    "oos_trail12_after_pct": 0.1252,
+    "common_h1440_before_pct": 0.7178,
+    "common_h1440_after_pct": 0.7178,
+    "removed_h1440_pct": 5.3353
+   },
+   "UP": {
+    "n_before": 686,
+    "n_after": 807,
+    "n_common": 123,
+    "n_removed": 563,
+    "n_removed_causal_fail": 272,
+    "n_removed_cooldown_relocated": 291,
+    "n_added": 684,
+    "oos_24h_before_pct": 2.7417,
+    "oos_24h_after_pct": -0.8796,
+    "oos_24h_after_ci95": [
+     -3.6467,
+     1.5151
+    ],
+    "oos_trail12_before_pct": 3.2957,
+    "oos_trail12_after_pct": -0.5941,
+    "common_h1440_before_pct": -0.6684,
+    "common_h1440_after_pct": -0.6684,
+    "removed_h1440_pct": 3.4493
+   },
+   "KR": {
+    "n_before": 2394,
+    "n_after": 2228,
+    "n_common": 1047,
+    "n_removed": 1347,
+    "n_removed_causal_fail": 698,
+    "n_removed_cooldown_relocated": 649,
+    "n_added": 1181,
+    "oos_24h_before_pct": 2.2352,
+    "oos_24h_after_pct": 0.7786,
+    "oos_24h_after_ci95": [
+     -1.4891,
+     3.2309
+    ],
+    "oos_trail12_before_pct": 2.2592,
+    "oos_trail12_after_pct": 0.7902,
+    "common_h1440_before_pct": 0.1155,
+    "common_h1440_after_pct": 0.1155,
+    "removed_h1440_pct": 3.2208
+   },
+   "US": {
+    "n_before": 1985,
+    "n_after": 2433,
+    "n_common": 834,
+    "n_removed": 1151,
+    "n_removed_causal_fail": 504,
+    "n_removed_cooldown_relocated": 647,
+    "n_added": 1599,
+    "oos_24h_before_pct": -0.4239,
+    "oos_24h_after_pct": -1.6585,
+    "oos_24h_after_ci95": [
+     -5.0754,
+     3.3266
+    ],
+    "oos_trail12_before_pct": -0.3519,
+    "oos_trail12_after_pct": -1.565,
+    "common_h1440_before_pct": -1.343,
+    "common_h1440_after_pct": -1.343,
+    "removed_h1440_pct": 1.1193
+   }
+  },
+  "totals": {
+   "n_before": 6648,
+   "n_after": 7104,
+   "n_common": 2320,
+   "n_removed": 4328,
+   "n_added": 4784,
+   "up90_oos_before": 3.1358840978808047,
+   "up90_oos_after": 0.01849999936390575,
+   "up19_before": 2.710992824167797,
+   "up19_after": -0.9987654436743288
+  },
+  "causal_invariance_test": {
+   "overall": "PASS",
+   "buggy_control_detected": true
+  },
+  "scope_of_retraction": [
+   {
+    "target": "research/reports/p101_holding_asymmetric_20261128.md",
+    "verdict": "RETRACTED"
+   },
+   {
+    "target": "research/reports/gpt_99th_90d_conditional_exit_20261128.md",
+    "verdict": "PARTIAL_RETRACTED"
+   },
+   {
+    "target": "research/reports/gpt_99th_r2_usds_and_micro_20261128.md",
+    "verdict": "VALID"
+   },
+   {
+    "target": "scheduled-actions/🔬-p101-깊은할인-트레일-shadow/action.md",
+    "verdict": "VALID_LIVE"
+   }
+  ]
+ },
+ "r2_verdict": {
+  "rule_unchanged": true,
+  "tier": "전진검증 중 · 비거래 (승격 근거 없음)",
+  "cohort_36": {
+   "as_of": "2026-11-28T14:26:28",
+   "n": 36,
+   "shadow_observation": {
+    "blocked_n": 28,
+    "kept_n": 8,
+    "blocked_mean_pct": 0.8346,
+    "kept_mean_pct": -0.3509,
+    "blocked_sum_pct": 23.368,
+    "kept_sum_pct": -2.807
+   },
+   "calc_signal_bar": {
+    "blocked_n": 33,
+    "kept_n": 3,
+    "blocked_mean_pct": 0.7946,
+    "kept_mean_pct": -1.8867,
+    "blocked_sum_pct": 26.221,
+    "kept_sum_pct": -5.66
+   },
+   "id_diff": {
+    "both": {
+     "n": 26,
+     "pnl_sum_pct": 31.503
+    },
+    "calc_only": {
+     "n": 7,
+     "pnl_sum_pct": -5.282
+    },
+    "obs_only": {
+     "n": 2,
+     "pnl_sum_pct": -8.135
+    },
+    "neither": {
+     "n": 1,
+     "pnl_sum_pct": 2.475
+    },
+    "obs_feat_lag_sec": {
+     "n": 36,
+     "median": 235,
+     "min": 52,
+     "max": 377,
+     "note": "obs 특징 기준 봉은 '판단 시각에 실제 수신된 마지막 KRW-BTC 봉'. calc 는 신호봉−60분 봉. 같은 60분 창을 서로 다른 시점에 시작하므로 값이 갈린다(둘 다 인과·미래참조 없음)."
+    }
+   }
+  },
+  "largest_gain_trade_included": {
+   "label": "모의 청산 +49.85% (지연 관측) — 본문 판정에 포함",
+   "single_trade_excluded": {
+    "n": 35,
+    "blocked_n": 27,
+    "block_rate_pct": 77.14,
+    "blocked_sum_pct": -26.482,
+    "blocked_mean_pct": -0.9808,
+    "kept_n": 8,
+    "kept_sum_pct": -2.807,
+    "kept_mean_pct": -0.3509,
+    "all_sum_pct": -29.289,
+    "all_mean_pct": -0.8368,
+    "blocked_minus_kept_pct": -0.6299
+   },
+   "all_quote_currency_pair_excluded": {
+    "n": 34,
+    "blocked_n": 26,
+    "block_rate_pct": 76.47,
+    "blocked_sum_pct": -23.337,
+    "blocked_mean_pct": -0.8976,
+    "kept_n": 8,
+    "kept_sum_pct": -2.807,
+    "kept_mean_pct": -0.3509,
+    "all_sum_pct": -26.144,
+    "all_mean_pct": -0.7689,
+    "blocked_minus_kept_pct": -0.5467
+   }
+  },
+  "forward_live": {
+   "at": "2026-11-28T14:57:09",
+   "n_closed": 49,
+   "blocked_n": 28,
+   "block_rate_pct": 57.14,
+   "blocked_sum_pct": 23.368,
+   "kept_sum_pct": -46.95,
+   "promotion_minimum": {
+    "closed": 200,
+    "days": 5,
+    "block_rate_max_pct": 35
+   }
+  },
+  "not_computed": "슬롯 대체 진입을 반영한 개선치 — 대체 후보 큐가 원장에 없어 미산출(별도 재생 실험 필요)"
+ },
+ "aggregation_basis": [
+  "표본 = 전진 원장 확정 청산(forward_trades_{gen3,zvol,gen2}.json + closed_archive.jsonl), 청산 시각 기준.",
+  "P101 정정 전/후 = 같은 신호 정의·같은 청산 정의·같은 비용(왕복 0.1999%)에서 표본만 교체.",
+  "95% CI = 일(day) 블록 부트스트랩(원 보고 정의) — 36건 코호트의 참고 구간은 웰치 근사로 병기.",
+  "R2 = btc_ret_60m 게이트를 동결한 채 특징 기준 봉만 두 가지(판단시각 실제 수신봉 / 신호봉−60분)로 대조.",
+  "USDS 포함 = 본문 판정, 제외 = 민감도(단일 거래·통화쌍 전체 두 가지)."
+ ],
+ "boundary": {
+  "operational_changes": "0 — 동결 전략·예약·live_enabled·원장 무수정",
+  "not_published": "거래 ID·미발송 후보 종목명/가격·원장 원본 행은 공개 경로에 올리지 않는다(내부 정본은 sha256 으로만 식별).",
+  "sources": {
+   "p101_audit": {
+    "path": "research/evaluation_summaries/gpt_99th_p101_audit_and_gen3_20261128.json",
+    "sha256_16": "eb515a1310147bfe",
+    "bytes": 522674
+   },
+   "p99_r2_cohort_recon": {
+    "path": "research/evaluation_summaries/p99_r2_cohort_recon_20261128.json",
+    "sha256_16": "515ff5a9d7eef434",
+    "bytes": 31343
+   },
+   "r2_99th_report_backdata": {
+    "path": "research/evaluation_summaries/gpt_99th_r2_usds_and_micro_20261128.json",
+    "sha256_16": "778e8ea3dbfb906f",
+    "bytes": 103512
+   },
+   "p100_r2_shadow_state": {
+    "path": "scheduled-actions/🔬-p100-장세게이트-r2-shadow/state/p100_reg_gate_r2_shadow.json",
+    "sha256_16": "8624fc6183ba20a6",
+    "bytes": 214783
+   }
+  }
+ }
+}
