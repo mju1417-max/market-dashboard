@@ -1,6 +1,6 @@
 {
  "schema": "p101-r2-public-summary/1",
- "snapshot_at_kst": "2026-11-28T15:01:28+09:00",
+ "snapshot_at_kst": "2026-11-28T15:01:44+09:00",
  "version": {
   "generator": "research/publish_p101_r2_public.py",
   "p101_audit_generated_kst": "2026-11-28T15:05+09:00",
