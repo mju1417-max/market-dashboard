@@ -1,7 +1,7 @@
 {
  "kind": "scan_coverage",
  "schema": 1,
- "as_of": "2026-11-28T18:53:44+09:00",
+ "as_of": "2026-11-28T19:13:31+09:00",
  "date": "2026-11-28",
  "cut": "15:45",
  "definitions": {
@@ -25,7 +25,7 @@
    "coverage_pct": 99.3,
    "unprocessed_pct": 0.7,
    "fetch_errors": 0,
-   "last_bar_kst": "2026-11-28T18:51:00",
+   "last_bar_kst": "2026-11-28T19:11:00",
    "stale_examples": [
     "KRW-SOPH",
     "KRW-ZIL"
@@ -41,8 +41,8 @@
     "missing_markets": 68
    },
    "db": {
-    "candles_1m": 1075427,
-    "db_bytes": 211726336
+    "candles_1m": 1077285,
+    "db_bytes": 212176896
    },
    "source": "scheduled-actions/📈-업비트-모의투자-분석/state/{upbit_1m.db,dashboard_stats.json}"
   },
@@ -138,7 +138,7 @@
  "producer": {
   "script": "research/scan_coverage.py",
   "mode": "light",
-  "elapsed_s": 1.68
+  "elapsed_s": 6.27
  },
  "written": {
   "out": "/workspace/scheduled-actions/📊-업비트-전진검증-채점/state/scan_coverage_latest.json"
