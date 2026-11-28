@@ -1,9 +1,9 @@
 {
  "kind": "scan_coverage",
  "schema": 1,
- "as_of": "2026-11-28T20:08:25+09:00",
- "date": "2026-11-28",
- "cut": "15:45",
+ "as_of": "2026-11-29T04:03:31+09:00",
+ "date": "2026-11-29",
+ "cut": "09:00",
  "definitions": {
   "target": "감시 대상 = 수집기 fetch_log 고유 종목(유니버스)",
   "completed": "완료 = 대상 중 해당 세션(장중) 1분봉을 가진 종목",
@@ -18,44 +18,47 @@
    "ok": true,
    "session_state": "24h",
    "target": 304,
-   "completed": 302,
+   "completed": 231,
    "completed_basis": "bars_today(window_probe)",
-   "visited_today": 302,
-   "unprocessed": 2,
-   "coverage_pct": 99.3,
-   "unprocessed_pct": 0.7,
+   "visited_today": 231,
+   "unprocessed": 73,
+   "coverage_pct": 76.0,
+   "unprocessed_pct": 24.0,
    "fetch_errors": 0,
-   "last_bar_kst": "2026-11-28T20:06:00",
+   "last_bar_kst": "2026-11-29T04:01:00",
    "stale_examples": [
-    "KRW-SOPH",
-    "KRW-ZIL"
+    "KRW-AGLD",
+    "KRW-ANKR",
+    "KRW-ASTR",
+    "KRW-AVNT",
+    "KRW-AXL"
    ],
    "stale_note": "fetch_log.last_fetched_at 은 UP 에서 갱신되지 않는 행이 많다(예: KRW-BTC 11-24 기록인데 오늘 봉은 계속 유입) — 완료는 봉 기준을 쓴다",
    "excluded": null,
    "listed_raw": null,
    "excluded_note": "KRW 마켓만 감시(BTC/USDT 마켓 제외) — 원천 목록 수는 수집기가 남기지 않음",
    "round": {
-    "last_batch_processed": 234,
-    "last_unique_fetched": 234,
+    "last_batch_processed": 231,
+    "last_unique_fetched": 231,
     "last_dedup_skipped": 0,
-    "missing_markets": 68
+    "missing_markets": 71
    },
    "db": {
-    "candles_1m": 1082469,
-    "db_bytes": 213209088
+    "candles_1m": 1111157,
+    "db_bytes": 219484160
    },
    "source": "scheduled-actions/📈-업비트-모의투자-분석/state/{upbit_1m.db,dashboard_stats.json}"
   },
   "KR": {
    "market": "KR",
-   "date": "2026-11-28",
-   "cut": "15:45",
+   "date": "2026-11-29",
+   "cut": "09:00",
    "ok": true,
    "session_state": "holiday",
    "target": 3218,
    "target_snapshot": 3156,
    "completed": 0,
-   "completed_basis": "bars_in_session(window_probe)",
+   "completed_basis": "preopen(세션 전)",
    "on_time": null,
    "fresh": null,
    "visited_today": 0,
@@ -128,17 +131,17 @@
   }
  },
  "candidate_zero_suffix": {
-  "UP": "평가 범위 302/304(99.3%) · 미처리 2종목(0.7%) — 스캔 미완료",
+  "UP": "평가 범위 231/304(76.0%) · 미처리 73종목(24.0%) — 스캔 미완료",
   "KR": "평가 범위 0/3,218(0.0%) · 미처리 3,218종목(100.0%) (휴장일 — 마지막 거래일 기준, 미처리 판정 면제) · 404 격리 5종목",
   "US": "평가 범위 1,398/1,400(99.9%) · 미처리 2종목(0.1%) — 스캔 미완료"
  },
- "cut_note": "장 마감 후 — 15:45 마감 컷",
- "cut_in_future": false,
+ "cut_note": "개장 전 — 09:00 기준으로 계산",
+ "cut_in_future": true,
  "alerts": [],
  "producer": {
   "script": "research/scan_coverage.py",
   "mode": "light",
-  "elapsed_s": 1.64
+  "elapsed_s": 3.92
  },
  "written": {
   "out": "/workspace/scheduled-actions/📊-업비트-전진검증-채점/state/scan_coverage_latest.json"
