@@ -1,12 +1,12 @@
 {
  "schema": "p101-r2-public-summary/1",
- "snapshot_at_kst": "2026-11-28T15:01:44+09:00",
+ "snapshot_at_kst": "2026-11-29T04:06:13+09:00",
  "version": {
   "generator": "research/publish_p101_r2_public.py",
   "p101_audit_generated_kst": "2026-11-28T15:05+09:00",
   "r2_recon_built_at_kst": "2026-11-28T14:56:54",
   "shadow_registered_at": "2026-11-28T09:34:31",
-  "shadow_last_tick_at": "2026-11-28T14:57:09"
+  "shadow_last_tick_at": "2026-11-29T04:02:16"
  },
  "p101_correction": {
   "status": "RETRACTED (원 수치 보존 · 철회 표시)",
@@ -206,12 +206,12 @@
    }
   },
   "forward_live": {
-   "at": "2026-11-28T14:57:09",
-   "n_closed": 49,
-   "blocked_n": 28,
-   "block_rate_pct": 57.14,
-   "blocked_sum_pct": 23.368,
-   "kept_sum_pct": -46.95,
+   "at": "2026-11-29T04:02:16",
+   "n_closed": 248,
+   "blocked_n": 68,
+   "block_rate_pct": 27.42,
+   "blocked_sum_pct": -58.294,
+   "kept_sum_pct": -134.527,
    "promotion_minimum": {
     "closed": 200,
     "days": 5,
@@ -248,8 +248,8 @@
    },
    "p100_r2_shadow_state": {
     "path": "scheduled-actions/🔬-p100-장세게이트-r2-shadow/state/p100_reg_gate_r2_shadow.json",
-    "sha256_16": "8624fc6183ba20a6",
-    "bytes": 214783
+    "sha256_16": "2a80304ea17858a0",
+    "bytes": 455878
    }
   }
  }
