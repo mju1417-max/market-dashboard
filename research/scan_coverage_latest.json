@@ -1,9 +1,9 @@
 {
  "kind": "scan_coverage",
  "schema": 1,
- "as_of": "2026-11-28T11:59:30+09:00",
+ "as_of": "2026-11-28T12:14:54+09:00",
  "date": "2026-11-28",
- "cut": "11:59",
+ "cut": "12:14",
  "definitions": {
   "target": "감시 대상 = 수집기 fetch_log 고유 종목(유니버스)",
   "completed": "완료 = 대상 중 해당 세션(장중) 1분봉을 가진 종목",
@@ -25,7 +25,7 @@
    "coverage_pct": 99.3,
    "unprocessed_pct": 0.7,
    "fetch_errors": 0,
-   "last_bar_kst": "2026-11-28T11:54:00",
+   "last_bar_kst": "2026-11-28T12:10:00",
    "stale_examples": [
     "KRW-0G",
     "KRW-2Z",
@@ -38,21 +38,21 @@
    "listed_raw": null,
    "excluded_note": "KRW 마켓만 감시(BTC/USDT 마켓 제외) — 원천 목록 수는 수집기가 남기지 않음",
    "round": {
-    "last_batch_processed": 35,
-    "last_unique_fetched": 107,
-    "last_dedup_skipped": 12,
-    "missing_markets": 195
+    "last_batch_processed": 22,
+    "last_unique_fetched": 94,
+    "last_dedup_skipped": 8,
+    "missing_markets": 208
    },
    "db": {
-    "candles_1m": 1246548,
-    "db_bytes": 202485760
+    "candles_1m": 1247047,
+    "db_bytes": 202866688
    },
    "source": "scheduled-actions/📈-업비트-모의투자-분석/state/{upbit_1m.db,dashboard_stats.json}"
   },
   "KR": {
    "market": "KR",
    "date": "2026-11-28",
-   "cut": "11:59",
+   "cut": "12:14",
    "ok": true,
    "session_state": "holiday",
    "target": 3218,
@@ -141,7 +141,7 @@
  "producer": {
   "script": "research/scan_coverage.py",
   "mode": "light",
-  "elapsed_s": 8.4
+  "elapsed_s": 6.87
  },
  "written": {
   "out": "/workspace/scheduled-actions/📊-업비트-전진검증-채점/state/scan_coverage_latest.json"
